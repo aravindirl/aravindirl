@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aravind - A personal blog</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background-color: #ffffff;
+            color: #000000;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .dashed-line {
+            border-top: 1px dashed #000000;
+            margin: 2rem 0;
+        }
+        a {
+            text-decoration: none;
+            color: #000000;
+            position: relative;
+        }
+        .nav-links a {
+            transition: color 0.3s ease-in-out;
+        }
+        .nav-links a:hover {
+            color: #059669; /* Emerald Green */
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: #000000;
+            transition: width 0.3s ease-in-out;
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        .social-icons a {
+            position: static;
+        }
+        .social-icons a::after {
+            content: none;
+        }
+        .social-icons svg {
+            transition: fill 0.3s ease-in-out;
+        }
+        .social-icons a:hover svg {
+            fill: #666666 !important;
+        }
+        .underline-link::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: #000000;
+        }
+    </style>
+</head>
+<body class="bg-white text-black">
+    <div class="container rounded-lg shadow-lg bg-gray-50">
+        <header class="flex flex-col md:flex-row items-start py-8">
+            <h1 class="text-3xl font-bold mb-4 md:mb-0 md:mr-4">aravind</h1>
+            <nav class="nav-links space-x-4 text-xl flex items-center md:mt-1">
+                <a href="#" class="inline-block transition-all duration-300">home</a>
+                <a href="#" class="inline-block transition-all duration-300">blog</a>
+                <a href="#" class="inline-block transition-all duration-300">projects</a>
+            </nav>
+        </header>
+
+        <div class="dashed-line"></div>
+
+        <main class="main-content">
+            <p class="mb-4">hi...</p>
+            <p class="mb-4">i am aravind! i'm glad you're here :)</p>
+            <p class="mb-4">i studied accounting & finance at college, interned for 3 years at an audit firm and realised it wasn't my cup of tea pretty late. however i love finance & economics but hate accounting & auditing basically anything that is related to statues & regulations</p>
+            <p class="mb-4">i have suffered severe brain rot, chronic eating disorders and got out recently, started eating clean, weight training and getting enough cardio</p>
+            <p class="mb-4">currently am into quant finance, data analytics, hoping to get into research analyst roles</p>
+            <p>i write a weekly newsletter: <a href="https://quantpulse.substack.com/" class="underline-link">quantpluse</a></p>
+            <p>i like to tweet: <a href="https://x.com/aravindirl" class="underline-link">@aravindirl</a></p>
+        </main>
+
+        <div class="dashed-line"></div>
+
+        <footer class="text-center py-4">
+            <div class="social-icons flex justify-center space-x-4 mb-2">
+                <a href="https://github.com/cringeycoder" target="_blank" aria-label="GitHub">
+                    <svg class="h-6 w-6" viewBox="0 0 24 24" fill="#1C1C1E" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 0C5.373 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.6.11.82-.26.82-.577 0-.285-.01-1.04-.015-2.04-3.34.725-4.04-1.61-4.04-1.61-.547-1.385-1.334-1.754-1.334-1.754-1.09-.744.08-.73.08-.73 1.2.086 1.833 1.232 1.833 1.232 1.07 1.83 2.81 1.3 3.493.993.11-.775.418-1.3.762-1.602-2.665-.3-5.464-1.33-5.464-5.942 0-1.31.465-2.38 1.232-3.22-.123-.3-.535-1.52.117-3.176 0 0 1-.32 3.3.125 2.5-.694 5.1-.694 7.6 0 2.296-.445 3.296.125 3.296.125.653 1.656.24 2.876.12 3.176.772.84 1.234 1.91 1.234 3.22 0 4.62-2.8 5.63-5.474 5.93.42.36.81 1.096.81 2.22 0 1.606-.015 2.89-.015 3.28 0 .317.21.69.82.57C20.562 21.8 24 17.302 24 12c0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/aravind-eth/" target="_blank" aria-label="LinkedIn">
+                    <svg class="h-6 w-6" viewBox="0 0 24 24" fill="#0077B5" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4.98 3.5c0 1.378-.85 2.5-2 2.5s-2-1.122-2-2.5c0-1.378.85-2.5 2-2.5s2 1.122 2 2.5zm16.58 20h-4.3v-6.95c0-1.65-.67-2.92-2.61-2.92-1.35 0-2.14.73-2.5 1.45v1.47h-1.31c.07 1.34 0 13.92 0 13.92h4.3v-7.6c0-.4.01-.8.14-1.08.31-.7.98-1.42 2.12-1.42 1.5 0 2.45 1.23 2.45 3.06v6.04h4.3v-7.79c0-4.2-2.82-5.18-5.2-5.18-2.63 0-4.14 1.48-4.8 2.52h-.05v-2.16H8.2V24.5h-4.3V9.69h4.3v2.09c.6-.96 1.47-1.8 3.01-1.8 2.05 0 3.73 1.6 3.73 4.2v6.61h-.01z"/>
+                    </svg>
+                </a>
+                <a href="https://open.spotify.com/user/vtubl2p2emhobb5yc4qdzorc2" target="_blank" aria-label="Spotify">
+                    <svg class="h-6 w-6" viewBox="0 0 24 24" fill="#1DB954" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 0C5.373 0 0 5.373 0 12c0 6.627 5.373 12 12 12s12-5.373 12-12c0-6.627-5.373-12-12-12zm4.125 17.514c-.23-.398-.788-.52-1.185-.29-.4.23-.52.788-.29 1.185.736 1.272 1.61 2.22 2.76 2.51 1.144.29 2.553.056 3.428-.79.875-.845 1.145-2.28.67-3.414-.474-1.134-1.574-1.86-2.955-1.956-.37-.024-.716.23-.74.6c-.024.37.23.715.6.74 1.05.07 1.84.49 2.22 1.27.38.78.18 1.83-.49 2.51-.67.68-1.81.79-2.73.53-.92-.26-1.6-1.1-2.13-2.31zM11.51 13.5c-.38-.22-.84.2-.74.6.14.7.4 1.48.88 2.15.5.68 1.27 1.21 2.14 1.43.34.08.66-.17.74-.51.08-.34-.17-.66-.51-.74-.5-.14-.9-.45-1.2-1.02-.3-.57-.45-1.17-.55-1.91-.07-.4.2-.84.58-.94zM8.5 12c-.22-.38-.6-.4-.84-.13-.3.33-.27.88.06 1.14.5.42 1.05.7 1.7.83.65.13 1.3-.06 1.85-.35.45-.24.62-.75.38-1.2-.24-.45-.75-.62-1.2-.38-.34.18-.7.28-1.1.28s-.7-.1-1-.24z"/>
+                    </svg>
+                </a>
+                <a href="https://in.pinterest.com/notesandframes/_profile/" target="_blank" aria-label="Pinterest">
+                    <svg class="h-6 w-6" viewBox="0 0 24 24" fill="#E60023" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 0C5.373 0 0 5.373 0 12c0 6.627 5.373 12 12 12s12-5.373 12-12c0-6.627-5.373-12-12-12zm2.083 14.07c-.458-.875-.958-1.875-1.292-2.667-.333-.792-.625-1.625-.792-2.583-.167-.958-.167-1.875 0-2.667.167-.792.458-1.417.875-1.875.417-.458.917-.792 1.5-.958s1.167-.125 1.583.208c.417.333.625.958.625 1.875 0 .917-.125 1.708-.375 2.375s-.625 1.167-1.042 1.5-.917.625-1.542.833-1.25.333-2.042.333c-1.25 0-2.333-.333-3.25-1s-1.5-1.583-1.75-2.75c-.25-1.167-.125-2.333.375-3.5s1.208-2.083 2.125-2.583c.917-.5 2-.625 3.25-.375s2.25.75 3.083 1.708c.833.958 1.25 2.125 1.25 3.5c0 1.375-.375 2.542-1.125 3.5c-.75.958-1.667 1.417-2.75 1.417-.417 0-.833-.083-1.25-.25s-.875-.375-1.208-.583c.458.708.958 1.458 1.5 2.25.542.792 1.042 1.542 1.5 2.25.458-.708.958-1.458 1.5-2.25z"/>
+                    </svg>
+                </a>
+                <a href="https://www.instagram.com/aravind.eth/" target="_blank" aria-label="Instagram">
+                    <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 0C5.373 0 0 5.373 0 12c0 6.627 5.373 12 12 12s12-5.373 12-12c0-6.627-5.373-12-12-12zm6.2 3.5c.66 0 1.2.54 1.2 1.2s-.54 1.2-1.2 1.2-1.2-.54-1.2-1.2.54-1.2 1.2-1.2zm-.12 3c-1.23 0-2.23 1-2.23 2.23s1 2.23 2.23 2.23c1.23 0 2.23-1 2.23-2.23s-1-2.23-2.23-2.23zm-6.08 1.34c-2.47 0-4.47 2-4.47 4.47s2 4.47 4.47 4.47c2.47 0 4.47-2 4.47-4.47s-2-4.47-4.47-4.47zM20 12c0 4.41-3.59 8-8 8s-8-3.59-8-8 3.59-8 8-8 8 3.59 8 8zM2.8 12c0 5.06 4.14 9.2 9.2 9.2s9.2-4.14 9.2-9.2-4.14-9.2-9.2-9.2-9.2 4.14-9.2 9.2z" fill="url(#instagram-gradient)"/>
+                        <defs>
+                            <linearGradient id="instagram-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#405DE6;stop-opacity:1" />
+                                <stop offset="20%" style="stop-color:#5B51D8;stop-opacity:1" />
+                                <stop offset="40%" style="stop-color:#833AB4;stop-opacity:1" />
+                                <stop offset="60%" style="stop-color:#C13584;stop-opacity:1" />
+                                <stop offset="80%" style="stop-color:#E1306C;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#FD1D1D;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </a>
+                <a href="https://www.goodreads.com/user/show/98557703-aravind-ind" target="_blank" aria-label="Goodreads">
+                    <svg class="h-6 w-6" viewBox="0 0 24 24" fill="#5D3F2C" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 0C5.373 0 0 5.373 0 12c0 6.627 5.373 12 12 12s12-5.373 12-12c0-6.627-5.373-12-12-12zm-3.6 15c-1.33 0-2.41-.95-2.41-2.12v-6.38h-1.21v6.38c0 2.05 1.54 3.73 3.62 3.73s3.62-1.68 3.62-3.73v-6.38h-1.21v6.38c0 1.17-.95 2.12-2.41 2.12zm1.2-8.5c.66 0 1.2-.54 1.2-1.2s-.54-1.2-1.2-1.2-1.2.54-1.2 1.2.54 1.2 1.2 1.2zm6.65 6.75c-1.33 0-2.41-.95-2.41-2.12v-6.38h-1.21v6.38c0 2.05 1.54 3.73 3.62 3.73s3.62-1.68 3.62-3.73v-6.38h-1.21v6.38c0 1.17-.95 2.12-2.41 2.12zm1.2-8.5c.66 0 1.2-.54 1.2-1.2s-.54-1.2-1.2-1.2-1.2.54-1.2 1.2.54 1.2 1.2 1.2z"/>
+                    </svg>
+                </a>
+                <a href="https://boxd.it/9zWQL" target="_blank" aria-label="Letterboxd">
+                    <svg class="h-6 w-6" viewBox="0 0 24 24" fill="#46D38B" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 0C5.373 0 0 5.373 0 12c0 6.627 5.373 12 12 12s12-5.373 12-12c0-6.627-5.373-12-12-12zm-4.75 14c0 .82-.68 1.5-1.5 1.5s-1.5-.68-1.5-1.5v-4.5h3v4.5zm9.5 0c0 .82-.68 1.5-1.5 1.5s-1.5-.68-1.5-1.5v-4.5h3v4.5zM12 16.5c-.82 0-1.5-.68-1.5-1.5v-7.5c0-.82.68-1.5 1.5-1.5s1.5.68 1.5 1.5v7.5c0 .82-.68 1.5-1.5 1.5z"/>
+                    </svg>
+                </a>
+                <a href="https://www.notion.so/Aravind-s-notebooks-262ea2287b7e80c6a67adb534c5e056c" target="_blank" aria-label="Notion">
+                    <svg class="h-6 w-6" viewBox="0 0 24 24" fill="#1C1C1E" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 0C5.373 0 0 5.373 0 12c0 6.627 5.373 12 12 12s12-5.373 12-12c0-6.627-5.373-12-12-12zm-3.5 16.5c0 .82-.68 1.5-1.5 1.5s-1.5-.68-1.5-1.5v-9c0-.82.68-1.5 1.5-1.5s1.5.68 1.5 1.5v9zm7-1.5c0 .82-.68 1.5-1.5 1.5s-1.5-.68-1.5-1.5v-9c0-.82.68-1.5 1.5-1.5s1.5.68 1.5 1.5v9zM12 16.5c-.82 0-1.5-.68-1.5-1.5v-9c0-.82.68-1.5 1.5-1.5s1.5.68 1.5 1.5v9c0 .82-.68 1.5-1.5 1.5z"/>
+                    </svg>
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
