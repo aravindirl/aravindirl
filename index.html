@@ -37,7 +37,6 @@
         body.dark-mode .dashed-line {
             border-top: 1px dashed #F8FBF8;
         }
-        /* Headings and nav */
         h1, .nav-links a {
             color: #000000;
             transition: color 0.3s;
@@ -46,7 +45,6 @@
         body.dark-mode .nav-links a {
             color: #F8FBF8;
         }
-        /* Links */
         a {
             text-decoration: none;
             color: #059669;
@@ -57,17 +55,17 @@
             transition: color 0.3s ease-in-out;
         }
         .nav-links a:hover {
-            color: #059669; /* Emerald Green */
+            color: #059669;
         }
         .underline-link,
         .main-content a {
             text-decoration: underline;
-            color: #059669; /* Emerald Green */
+            color: #059669;
         }
         body.dark-mode .underline-link,
         body.dark-mode .main-content a,
         body.dark-mode a {
-            color: #4ADE80; /* lighter emerald for dark bg */
+            color: #4ADE80;
         }
         .main-content p {
             margin-bottom: 0.75rem;
@@ -75,7 +73,6 @@
         body.dark-mode .main-content p {
             color: #F8FBF8;
         }
-        /* Minimal icon toggle button */
         .dark-toggle-btn {
             cursor: pointer;
             padding: 0.5rem;
@@ -130,4 +127,30 @@
         </main>
 
         <footer class="text-center py-4">
-            <
+            <div class="social-icons flex justify-center space-x-4 mb-2"></div>
+        </footer>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const toggleBtn = document.getElementById('dark-mode-toggle');
+            const body = document.body;
+
+            // Set initial icon and mode
+            if (localStorage.getItem('darkMode') === 'true') {
+                body.classList.add('dark-mode');
+                toggleBtn.textContent = "☀️";
+            } else {
+                body.classList.remove('dark-mode');
+                toggleBtn.textContent = "🌙";
+            }
+
+            toggleBtn.addEventListener('click', function () {
+                body.classList.toggle('dark-mode');
+                const isDark = body.classList.contains('dark-mode');
+                toggleBtn.textContent = isDark ? "☀️" : "🌙";
+                localStorage.setItem('darkMode', isDark);
+            });
+        });
+    </script>
+</body>
+</html>
