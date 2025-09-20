@@ -13,6 +13,11 @@
             -moz-osx-font-smoothing: grayscale;
             background-color: #F8FBF8;
             color: #000000;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        body.dark-mode {
+            background-color: #181825;
+            color: #F8FBF8;
         }
         .container {
             max-width: 800px;
@@ -23,6 +28,9 @@
             border-top: 1px dashed #000000;
             margin-top: 0.5rem;
             margin-bottom: 2rem;
+        }
+        body.dark-mode .dashed-line {
+            border-top: 1px dashed #F8FBF8;
         }
         a {
             text-decoration: none;
@@ -46,14 +54,39 @@
         .main-content p {
             margin-bottom: 0.75rem;
         }
+        /* Dark mode link styles */
+        body.dark-mode a,
+        body.dark-mode .main-content a,
+        body.dark-mode .underline-link {
+            color: #4ADE80; /* Lighter emerald for dark background */
+        }
+        .dark-toggle-btn {
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            border: 1px solid #059669;
+            background: #F8FBF8;
+            color: #059669;
+            font-size: 1rem;
+            transition: background 0.3s, color 0.3s;
+            margin-right: 1rem;
+        }
+        body.dark-mode .dark-toggle-btn {
+            background: #181825;
+            color: #4ADE80;
+            border-color: #4ADE80;
+        }
     </style>
 </head>
 <body class="bg-white text-black">
     <div class="container rounded-lg shadow-lg bg-gray-50">
         <header class="flex flex-col items-start py-8">
-            <h1 class="text-3xl font-bold mb-4">
-                <a href="index.html">aravind</a>
-            </h1>
+            <div class="flex w-full justify-between items-center">
+                <h1 class="text-3xl font-bold mb-4">
+                    <a href="index.html">aravind</a>
+                </h1>
+                <button id="dark-mode-toggle" class="dark-toggle-btn" aria-label="Toggle dark mode">🌙 Dark Mode</button>
+            </div>
             <nav class="nav-links space-x-4 text-xl flex items-center md:mt-1">
                 <a href="#" class="inline-block transition-all duration-300">bio</a>
                 <a href="#" class="inline-block transition-all duration-300">essays</a>
@@ -69,7 +102,7 @@
             <p>i studied commerce in college, interned for 3 years at an accounting firm and realised it wasn't for me.</p>
             <p>i suffered severe brain rot, chronic eating disorder, obesity but now i'm fixing myself, eating clean, getting in shape.</p>
             <p>currently am into math, finance, data analysis, machine learning.</p>
-            <p>checkout the <a href="https://www.goodreads.com/user/show/98557703-aravind-ind" class="underline-link">books</a> i read, <a href="https://open.spotify.com/user/vtubl2p2emhobb5yc4qdzorc2?si=_rhFGXFIQNycjUI8YfHkMQ" class="underline-link">playlists</a> i listen to, <a href="https://boxd.it/9zWQL" class="underline-link">films</a> i watch, <a href="https://in.pinterest.com/notesandframes/_profile/">pins,boards</a> i collect</p>
+            <p>checkout the <a href="https://www.goodreads.com/user/show/98557703-aravind-ind" class="underline-link">books</a> i read, <a href="https://open.spotify.com/user/vtubl2p2emhobb5yc4qdzorc2[...]">music</a> i listen to.</p>
             <p>i write a weekly newsletter on medium: <a href="https://medium.com/@thescrolleffect" class="underline-link">@thescrolleffect</a></p>
             <p>i like to tweet on X: <a href="https://twitter.com/aravindirl" class="underline-link">@aravindirl</a></p>
             <p>my public journal: <a href="https://www.notion.so/Aravind-s-notebooks-262ea2287b7e80c6a67adb534c5e056c" class="underline-link">notion</a></p>
@@ -80,5 +113,23 @@
             </div>
         </footer>
     </div>
+    <script>
+        // Toggle dark mode
+        const toggleBtn = document.getElementById('dark-mode-toggle');
+        const body = document.body;
+
+        // Check for saved preference
+        if (localStorage.getItem('darkMode') === 'true') {
+            body.classList.add('dark-mode');
+            toggleBtn.textContent = "☀️ Light Mode";
+        }
+
+        toggleBtn.addEventListener('click', function () {
+            body.classList.toggle('dark-mode');
+            const isDark = body.classList.contains('dark-mode');
+            toggleBtn.textContent = isDark ? "☀️ Light Mode" : "🌙 Dark Mode";
+            localStorage.setItem('darkMode', isDark);
+        });
+    </script>
 </body>
 </html>
