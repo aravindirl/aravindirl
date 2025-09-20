@@ -13,7 +13,7 @@
             -moz-osx-font-smoothing: grayscale;
             background-color: #F8FBF8;
             color: #000000;
-            transition: background-color 0.3s, color 0.3s;
+            transition: background 0.3s, color 0.3s;
         }
         body.dark-mode {
             background-color: #181825;
@@ -23,6 +23,11 @@
             max-width: 800px;
             margin: 0 auto;
             padding: 2rem;
+            background-color: #F9FAFB;
+            transition: background 0.3s, color 0.3s;
+        }
+        body.dark-mode .container {
+            background-color: #232634;
         }
         .dashed-line {
             border-top: 1px dashed #000000;
@@ -32,10 +37,21 @@
         body.dark-mode .dashed-line {
             border-top: 1px dashed #F8FBF8;
         }
+        /* Headings and nav */
+        h1, .nav-links a {
+            color: #000000;
+            transition: color 0.3s;
+        }
+        body.dark-mode h1,
+        body.dark-mode .nav-links a {
+            color: #F8FBF8;
+        }
+        /* Links */
         a {
             text-decoration: none;
-            color: #000000;
+            color: #059669;
             position: relative;
+            transition: color 0.3s;
         }
         .nav-links a {
             transition: color 0.3s ease-in-out;
@@ -43,22 +59,21 @@
         .nav-links a:hover {
             color: #059669; /* Emerald Green */
         }
-        .underline-link {
-            text-decoration: underline;
-            color: #059669; /* Emerald Green */
-        }
+        .underline-link,
         .main-content a {
             text-decoration: underline;
             color: #059669; /* Emerald Green */
         }
+        body.dark-mode .underline-link,
+        body.dark-mode .main-content a,
+        body.dark-mode a {
+            color: #4ADE80; /* lighter emerald for dark bg */
+        }
         .main-content p {
             margin-bottom: 0.75rem;
         }
-        /* Dark mode link styles */
-        body.dark-mode a,
-        body.dark-mode .main-content a,
-        body.dark-mode .underline-link {
-            color: #4ADE80; /* Lighter emerald for dark background */
+        body.dark-mode .main-content p {
+            color: #F8FBF8;
         }
         .dark-toggle-btn {
             cursor: pointer;
@@ -72,14 +87,14 @@
             margin-right: 1rem;
         }
         body.dark-mode .dark-toggle-btn {
-            background: #181825;
+            background: #232634;
             color: #4ADE80;
             border-color: #4ADE80;
         }
     </style>
 </head>
 <body class="bg-white text-black">
-    <div class="container rounded-lg shadow-lg bg-gray-50">
+    <div class="container rounded-lg shadow-lg">
         <header class="flex flex-col items-start py-8">
             <div class="flex w-full justify-between items-center">
                 <h1 class="text-3xl font-bold mb-4">
