@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>aravind ~ personal blog</title>
+
+  <!-- Monospace-ish font that looks similar to the screenshot -->
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #F8FBF8;
+      --panel: #FFFFFF;
+      --text: #111;
+      --accent: #d31f1f; /* red underline color */
+      --link: #059669;
+    }
+
+    html,body{
+      height:100%;
+      margin:0;
+    }
+
+    /* center the whole page (both horizontally and vertically) */
+    body{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height:100vh;
+      background:var(--bg);
+      color:var(--text);
+      font-family: "Courier Prime", ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.6;
+    }
+
+    /* the centered panel that contains all content */
+    .panel{
+      width:780px;
+      max-width:92vw;
+      background:var(--panel);
+      padding:36px 44px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      border-radius:8px;
+      box-sizing:border-box;
+    }
+
+    header{
+      display:block;
+    }
+
+    /* Title + nav are left-aligned inside the centered panel (matches screenshot) */
+    .brand-row{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:16px;
+    }
+
+    h1{
+      margin:0;
+      font-size:36px;
+      font-weight:700;
+      letter-spacing:0.5px;
+    }
+
+    h1 a{
+      color:var(--text);
+      text-decoration:none;
+    }
+
+    /* nav line under the title (inline horizontal links with red underline styling) */
+    nav.nav{
+      margin-top:12px;
+      display:flex;
+      gap:20px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    nav.nav a{
+      color:var(--text);
+      text-decoration:none;
+      position:relative;
+      padding-bottom:4px;
+      font-size:18px;
+    }
+
+    /* small red underline that sits beneath links (like screenshot) */
+    nav.nav a::after{
+      content:"";
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:0;
+      height:3px;
+      background:transparent;
+      transition:background 120ms;
+    }
+
+    /* give the active/hover state the red underline */
+    nav.nav a:hover::after,
+    nav.nav a.active::after{
+      background:var(--accent);
+    }
+
+    /* decorative dotted rule (long row of dots) */
+    .dotted-rule{
+      margin:22px 0;
+      height:6px;
+      background: linear-gradient(to right, var(--text) 20%, rgba(0,0,0,0) 0%) ;
+      background-size:8px 6px;
+      background-repeat:repeat-x;
+      opacity:0.5;
+      border-radius:2px;
+    }
+
+    /* main content uses the same monospace with slightly larger size and airy spacing */
+    main.main{
+      font-size:18px;
+      color:var(--text);
+    }
+
+    main.main p{
+      margin:0 0 16px 0;
+    }
+
+    /* emphasize bold text like the screenshot */
+    strong{
+      font-weight:700;
+    }
+
+    /* underline-style inline links (red underline on hover as in screenshot) */
+    a.underline-link{
+      color:var(--text);
+      text-decoration:underline;
+      text-decoration-color:var(--accent);
+      text-underline-offset:3px;
+    }
+    a.underline-link:hover{
+      color:var(--link);
+    }
+
+    footer{
+      margin-top:18px;
+      text-align:center;
+      color:rgba(0,0,0,0.55);
+      font-size:14px;
+    }
+
+    /* dark mode support (keeps layout centered) */
+    body.dark{
+      background:#0f1115;
+      color:#e6e6e6;
+    }
+    body.dark .panel{ background:#0f1117; box-shadow:none; }
+    body.dark .dotted-rule{ opacity:0.3; background-image: linear-gradient(to right, #e6e6e6 20%, rgba(0,0,0,0) 0%); }
+    body.dark nav.nav a::after{ background:transparent; }
+    body.dark nav.nav a:hover::after,
+    body.dark nav.nav a.active::after{ background:#ff6b6b; }
+    body.dark a.underline-link{ color:#a7f3d0; text-decoration-color:#a7f3d0; }
+
+    /* small screens */
+    @media (max-width:520px){
+      .panel{ padding:20px; }
+      h1{ font-size:28px; }
+      nav.nav{ gap:12px; font-size:16px; }
+      main.main{ font-size:16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="panel" role="main">
+    <header>
+      <div class="brand-row">
+        <h1><a href="index.html">eigenron</a></h1>
+
+        <!-- simple dark-mode toggle (optional) -->
+        <div style="display:flex;align-items:center;gap:8px;">
+          <button id="dark-toggle" aria-label="toggle dark mode" style="cursor:pointer;border-radius:6px;padding:6px 10px;border:1px solid rgba(0,0,0,0.08);background:transparent;font-size:14px;">
+            🌙
+          </button>
+        </div>
+      </div>
+
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#" class="active">home</a>
+        <a href="#">blog</a>
+        <a href="#">projects</a>
+        <a href="#">X</a>
+        <a href="#">GitHub</a>
+        <a href="#">books</a>
+      </nav>
+    </header>
+
+    <div class="dotted-rule" aria-hidden="true"></div>
+
+    <main class="main">
+      <p>hi.</p>
+
+      <p>i am ron! i'm glad you're here :)</p>
+
+      <p>i studied <strong>physics</strong>, <strong>math</strong> and <strong>computer science</strong> (and often, philosophy) in my undergrad. i've researched <strong>phase qubits</strong> for my senior (theoretical) research, and currently living in florida, working on a startup, on ml infra!</p>
+
+      <p>i love physics, data-driven engineering, and coding things up from scratch, like GPT-2, Llama-2, amongst other things.</p>
+
+      <p>i have pivoted from research-based methods to ai engineering and infra and i love low-level stuff (quantum mechanics womp).</p>
+
+      <p>i like to tweet: <a class="underline-link" href="https://twitter.com/eigenron">@eigenron</a></p>
+    </main>
+
+    <footer>
+      <!-- optional footer content -->
+    </footer>
+  </div>
+
+  <script>
+    // quick dark toggle (keeps preference in localStorage)
+    (function(){
+      const btn = document.getElementById('dark-toggle');
+      const root = document.documentElement;
+      const body = document.body;
+      const key = 'blogDark';
+
+      // restore
+      if(localStorage.getItem(key) === 'true'){
+        body.classList.add('dark');
+        btn.textContent = '☀️';
+      }
+
+      btn.addEventListener('click', () => {
+        body.classList.toggle('dark');
+        const isDark = body.classList.contains('dark');
+        btn.textContent = isDark ? '☀️' : '🌙';
+        localStorage.setItem(key, isDark ? 'true' : 'false');
+      });
+    })();
+  </script>
+</body>
+</html>
