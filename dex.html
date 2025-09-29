@@ -1,191 +1,191 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>aravind ~ personal blog</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>aravind ~ personal blog</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;400&display=swap" rel="stylesheet">
 
-  <style>
-    :root{
-      --bg: #000000;
-      --panel: #1a1a1a;
-      --text: #FFFFFF;
-      --accent: #d31f1f; /* red underline color */
-      --link: #cccccc;
-    }
+  <style>
+    :root {
+      --bg: #000000;
+      --text: #FFFFFF;
+      --accent: #d31f1f; /* red underline color */
+      --link: #cccccc;
+    }
 
-    html,body{
-      height:100%;
-      margin:0;
-    }
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
 
-    /* center the whole page (both horizontally and vertically) */
-    body{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      min-height:100vh;
-      background:var(--bg);
-      color:var(--text);
-      font-family: "Courier Prime", ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.6;
-    }
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Albert Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.6;
+    }
 
-    /* the centered panel that contains all content */
-    .panel{
-      width:780px;
-      max-width:92vw;
-      background:var(--panel);
-      padding:36px 44px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-      border-radius:8px;
-      box-sizing:border-box;
-    }
+    /* the centered panel that contains all content */
+    .panel {
+      width: 780px;
+      max-width: 92vw;
+      padding: 36px 44px;
+      box-sizing: border-box;
+    }
 
-    header{
-      display:block;
-    }
+    header {
+      display: block;
+    }
 
-    /* Title + nav are left-aligned inside the centered panel (matches screenshot) */
-    .brand-row{
-      display:flex;
-      justify-content:space-between;
-      align-items:flex-start;
-      gap:16px;
-    }
+    /* Title + nav are left-aligned inside the centered panel (matches screenshot) */
+    .brand-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
 
-    h1{
-      margin:0;
-      font-size:28px;
-      font-weight:700;
-      letter-spacing:0.5px;
-    }
+    h1 {
+      margin: 0;
+      font-size: 28px;
+      font-weight: 400; /* Link weight */
+      letter-spacing: 0.5px;
+    }
 
-    h1 a{
-      color:var(--text);
-      text-decoration:none;
-    }
+    h1 a {
+      color: var(--text);
+      text-decoration: none;
+    }
 
-    /* nav line under the title (inline horizontal links with red underline styling) */
-    nav.nav{
-      margin-top:12px;
-      display:flex;
-      gap:20px;
-      align-items:center;
-      flex-wrap:wrap;
-    }
+    /* nav line under the title (inline horizontal links with red underline styling) */
+    nav.nav {
+      margin-top: 12px;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
 
-    nav.nav a{
-      color:var(--link);
-      text-decoration:none;
-      position:relative;
-      padding-bottom:4px;
-      font-size:18px;
-    }
+    nav.nav a {
+      color: var(--text);
+      text-decoration: none;
+      position: relative;
+      padding-bottom: 4px;
+      font-size: 18px;
+      font-weight: 400; /* Link weight */
+    }
 
-    /* small red underline that sits beneath links (like screenshot) */
-    nav.nav a::after{
-      content:"";
-      position:absolute;
-      left:0;
-      right:0;
-      bottom:0;
-      height:3px;
-      background:transparent;
-      transition:background 120ms;
-    }
+    /* small red underline that sits beneath links (like screenshot) */
+    nav.nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 3px;
+      background: transparent;
+      transition: background 120ms;
+    }
 
-    /* give the active/hover state the red underline */
-    nav.nav a:hover::after,
-    nav.nav a.active::after{
-      background:var(--accent);
-    }
+    /* give the active/hover state the red underline */
+    nav.nav a:hover::after,
+    nav.nav a.active::after {
+      background: var(--accent);
+    }
 
-    /* decorative dotted rule (long row of dots) */
-    .dotted-rule{
-      margin:22px 0;
-      height:8px;
-      background: linear-gradient(to right, var(--text) 20%, rgba(0,0,0,0) 0%) ;
-      background-size:8px 6px;
-      background-repeat:repeat-x;
-      opacity:0.5;
-      border-radius:2px;
-    }
+    /* decorative dotted rule (long row of dots) */
+    .dotted-rule {
+      margin: 22px 0;
+      height: 8px;
+      background: linear-gradient(to right, var(--text) 20%, rgba(0,0,0,0) 0%);
+      background-size: 8px 6px;
+      background-repeat: repeat-x;
+      opacity: 0.5;
+      border-radius: 2px;
+    }
 
-    /* main content uses the same monospace with slightly larger size and airy spacing */
-    main.main{
-      font-size:18px;
-      color:var(--text);
-    }
+    /* main content uses the same monospace with slightly larger size and airy spacing */
+    main.main {
+      font-size: 18px;
+      color: var(--text);
+      font-weight: 300; /* Text weight */
+    }
 
-    main.main p{
-      margin:0 0 16px 0;
-    }
+    main.main p {
+      margin: 0 0 16px 0;
+    }
 
-    /* emphasize bold text like the screenshot */
-    strong{
-      font-weight:700;
-    }
+    /* emphasize bold text like the screenshot */
+    strong {
+      font-weight: 400; /* Link weight */
+    }
 
-    /* underline-style inline links (red underline on hover as in screenshot) */
-    a.underline-link{
-      color:var(--link);
-      text-decoration:underline;
-      text-decoration-color:var(--accent);
-      text-underline-offset:3px;
-    }
-    a.underline-link:hover{
-      color:var(--link);
-    }
+    /* underline-style inline links (red underline on hover as in screenshot) */
+    a.underline-link {
+      color: var(--text);
+      text-decoration: underline;
+      text-decoration-color: var(--accent);
+      text-underline-offset: 3px;
+      font-weight: 400; /* Link weight */
+    }
+    
+    a.underline-link:hover {
+      color: var(--link);
+    }
 
-    footer{
-      margin-top:18px;
-      text-align:center;
-      color:rgba(255,255,255,0.55);
-      font-size:14px;
-    }
+    footer {
+      margin-top: 18px;
+      text-align: center;
+      color: rgba(255,255,255,0.55);
+      font-size: 14px;
+      font-weight: 300; /* Text weight */
+    }
 
-    /* small screens */
-    @media (max-width:520px){
-      .panel{ padding:20px; }
-      h1{ font-size:28px; }
-      nav.nav{ gap:12px; font-size:16px; }
-      main.main{ font-size:16px; }
-    }
-  </style>
+    /* small screens */
+    @media (max-width: 520px) {
+      .panel { padding: 20px; }
+      h1 { font-size: 28px; }
+      nav.nav { gap: 12px; font-size: 16px; }
+      main.main { font-size: 16px; }
+    }
+  </style>
 </head>
 <body>
-  <div class="panel" role="main">
-    <header>
-      <div class="brand-row">
-        <h1><a href="index.html">aravind</a></h1>
-      </div>
-      <nav class="nav" aria-label="Main navigation">
-        <a href="#" class="active">home</a>
-        <a href="#">projects</a>
-        <a href="#">achievements</a>
-        <a href="#"></a>
-      </nav>
-    </header>
+  <div class="panel" role="main">
+    <header>
+      <div class="brand-row">
+        <h1><a href="index.html">aravind</a></h1>
+      </div>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#" class="active">home</a>
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#"></a>
+      </nav>
+    </header>
 
-    <div class="dotted-rule" aria-hidden="true"></div>
-
-    <main class="main">
-      
-      <p>hi...</p>
-      <p>i am aravind! from chennai, am glad you're here :)</p>
-      <p>a commerce undergrad, got into CA, interned at an accounting firm, failed at it & realised it was not for me.</p>
-      <p>now playing around with financial & prediction markets.</p>
-      <p>i love jazz, am into linguistics, history & am a picky eater.</p>
-      <p>i write about algorithms & their psychology: <a href="https://medium.com/@thescrolleffect" class="underline-link">@thescrolleffect</a></p>
-      <p>i like to tweet, shitpost & argue on X: <a href="https://twitter.com/aravindirl" class="underline-link">@aravindirl</a></p>
-      </p><a href="https://www.notion.so/Essays-275ea2287b7e80f49f35d5b13f5d0012?source=copy_link">essays</a>, <a href="https://www.notion.so/aravind-s-poems-275ea2287b7e80889747cccc405c0303">poems</a>, <a href="https://500px.com/raravind2610">gallery</a>, <a href="https://www.goodreads.com/user/show/98557703-aravind">library</a>, <a href="https://music.youtube.com/@aravind26">playlists</a>, <a href="https://boxd.it/9zWQL">films</a></p>
-    </main>
-    <footer>
-  </div>
+    <div style="margin-top: 20px;" class="dotted-rule" aria-hidden="true"></div>
+    
+    <main class="main">
+      
+      <p>hi...</p>
+      <p>i am aravind! from chennai, am glad you're here :)</p>
+      <p>a commerce undergrad, got into CA, interned at an accounting firm, failed at it & realised it was not for me.</p>
+      <p>now playing around with financial & prediction markets.</p>
+      <p>i love jazz, am into philosophy, history & am a picky eater.</p>
+      <p>i write about algorithms & their psychology: <a href="https://medium.com/@thescrolleffect" class="underline-link">@thescrolleffect</a></p>
+      <p>i like to tweet, shitpost & argue on X: <a href="https://twitter.com/aravindirl" class="underline-link">@aravindirl</a></p>
+      <p><a href="https://www.notion.so/Aravind-s-notes-27aea2287b7e80e89c76f88ffa9da02a?source=copy_link" class="underline-link">notes</a>, <a href="https://www.notion.so/Aravind-s-essays-27aea2287b7e808b8f87ef31dafdb013?source=copy_link" class="underline-link">essays</a>, <a href="https://www.notion.so/Aravind-s-poems-27aea2287b7e806fb311d487d21f7158?source=copy_link" class="underline-link">poems</a>, <a href="https://500px.com/raravind2610" class="underline-link">gallery</a>, <a href="https://www.goodreads.com/user/show/98557703-aravind" class="underline-link">library</a>, <a href="https://music.youtube.com/@aravind26" class="underline-link">playlists</a>, <a href="https://boxd.it/9zWQL" class="underline-link">films</a></p>
+    </main>
+    <footer>
+  </div>
 </body>
 </html>
