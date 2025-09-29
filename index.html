@@ -104,12 +104,10 @@
     /* decorative dotted rule (long row of dots) */
     .dotted-rule {
       margin: 22px 0;
-      height: 8px;
-      background: linear-gradient(to right, var(--text) 20%, rgba(0,0,0,0) 0%);
-      background-size: 8px 6px;
-      background-repeat: repeat-x;
+      height: 1px; /* Change height to a thin line */
+      background: none; /* Remove the old background property */
+      border-bottom: 1px solid var(--text); /* Add a solid line */
       opacity: 0.5;
-      border-radius: 2px;
     }
 
     /* main content uses the same monospace with slightly larger size and airy spacing */
