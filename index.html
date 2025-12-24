@@ -9,11 +9,11 @@
 
   <style>
     :root{
-      --page-bg: #ffffff;    /* white background */
-      --panel-bg: #ffffff;   /* panel also white */
-      --text: #000000;       /* black text */
-      --muted: #222222;      /* slightly muted black for small accents */
-      --link: #0a3d91;       /* navy blue for links */
+      --page-bg: #ffffff;
+      --panel-bg: #ffffff;
+      --text: #000000;
+      --muted: #222222;
+      --link: #0a3d91;
       --hr: rgba(0,0,0,0.08);
       --radius: 10px;
     }
@@ -29,7 +29,7 @@
     }
 
     .wrap{
-      max-width: 800px; /* Narrowed slightly to match smaller text */
+      max-width: 800px;
       margin: 36px auto;
       padding: 28px 36px;
       background: var(--panel-bg);
@@ -39,7 +39,7 @@
     }
 
     .brand{
-      font-size: 42px; /* Reduced from 56px */
+      font-size: 42px;
       font-weight:700;
       margin: 4px 0 14px;
       letter-spacing: 1px;
@@ -50,42 +50,41 @@
       display:flex;
       gap: 24px;
       align-items:center;
-      margin-bottom: 18px;
+      margin-bottom: 12px;
     }
 
     nav a{
       color:var(--text);
       text-decoration:none;
-      font-size:16px; /* Reduced from 20px */
+      font-size:16px;
       letter-spacing: 1.5px;
       padding-bottom: 4px;
       position:relative;
       opacity:0.99;
     }
 
-    /* active nav underline (navy) */
     nav a.active::after{
       content: "";
       position:absolute;
       left:0;
       bottom:-6px;
-      height:4px; /* Slightly thinner underline */
+      height:4px;
       width:40%;
       background:var(--link);
       border-radius:2px;
     }
 
-    .divider{
-      border:none;
-      height:1px;
-      background: linear-gradient(90deg, transparent,#000 10%, #000 90%, transparent);
-      opacity:0.06;
-      margin: 6px 0 18px;
+    .dark-line {
+      border: none;
+      height: 2px;
+      background-color: #000000;
+      margin: 20px 0 24px 0;
+      opacity: 1;
     }
 
     .content p{
-      font-size:16px; /* Reduced from 20px */
-      line-height:1.8; /* Adjusted for smaller text */
+      font-size:16px;
+      line-height:1.8;
       margin: 0 0 16px;
       color:var(--text);
       max-width: 930px;
@@ -93,14 +92,14 @@
 
     .content .muted{
       color:var(--muted);
-      font-size:14px; /* Reduced from 18px */
+      font-size:14px;
+      margin-bottom: 20px;
     }
 
-    /* inline links styled navy with underline */
     a.inline-link{
       color:var(--link);
       text-decoration:none;
-      border-bottom: 1px solid var(--link); /* Thinner underline */
+      border-bottom: 1px solid var(--link);
       padding-bottom: 1px;
       margin-left: 2px;
     }
@@ -112,8 +111,8 @@
     }
 
     .links-row{
-      margin-top: 14px;
-      font-size:16px; /* Reduced from 20px */
+      margin-top: 24px;
+      font-size:16px;
       display:flex;
       flex-wrap:wrap;
       gap: 10px 18px;
@@ -128,7 +127,7 @@
     }
 
     @media (max-width:640px){
-      .brand{ font-size:32px; } /* Scaled down for mobile */
+      .brand{ font-size:32px; }
       nav{ gap: 14px; flex-wrap:wrap; }
       nav a{ font-size:14px; }
       .wrap{ margin:14px; padding:22px; }
@@ -143,12 +142,12 @@
 
       <nav aria-label="Primary">
         <a href="#" class="active" id="nav-home">home</a>
-        <a href="/projects" id="nav-projects">projects</a>
-        <a href="/achievements" id="nav-achievements">achievements</a>
+        <a href="/writings" id="nav-writings">writings</a>
+        <a href="/works" id="nav-works">works</a>
       </nav>
-
-      <hr class="divider" />
     </header>
+
+    <hr class="dark-line" />
 
     <section class="content" aria-live="polite">
       <p class="muted">hi...</p>
