@@ -1,114 +1,190 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aravind Ramachandran</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>aravind — home</title>
 
-    <style>
-        /* 1. THE FOUNDATION */
-        body {
-            /* This is that specific 'cream' color */
-            background-color: #031716;
-            
-            /* Typography settings */
-            font-family: 'Merriweather', Georgia, 'Montserrat', serif;
-            color: #F8FAFF; /* Soft black for text */
-            line-height: 1.6; /* Good readability spacing */
-            margin: 0;
-            padding: 0;
-            font-size: 14px; /* Reduced font size */
-        }
+  <!-- Monospaced "typewriter" font -->
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
 
-        /* 2. THE LAYOUT CONTAINER */
-        .container {
-            max-width: 700px; /* Keeps the text from stretching too wide */
-            margin: 20px auto; /* Reduced top margin to bring content closer to page top */
-            padding: 20px;
-        }
+  <style>
+    :root{
+      --page-bg: #ffffff;    /* white background */
+      --panel-bg: #ffffff;   /* panel also white */
+      --text: #000000;       /* black text */
+      --muted: #222222;      /* slightly muted black for small accents */
+      --link: #0a3d91;       /* navy blue for links */
+      --hr: rgba(0,0,0,0.08);
+      --radius: 10px;
+    }
 
-        /* 3. HEADINGS */
-        h1 {
-            /* The specific Dark Green color from the image */
-            color: #6BA3BE; 
-            font-size: 25px;
-            font-weight: 900;
-            margin-bottom: 10px; /* Reduced the bottom margin to bring the next line closer */
-        }
+    html,body{
+      height:100%;
+      margin:0;
+      background:var(--page-bg);
+      color:var(--text);
+      font-family: "Courier Prime", monospace;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
 
-        /* 4. TEXT STYLES */
-        .tagline {
-            font-style: italic;
-            margin-bottom: 25px;
-            margin-top: 4px; /* Optionally add a little top margin */
-            color: #F8FAFF;
-        }
+    .wrap{
+      max-width: 980px;
+      margin: 36px auto;
+      padding: 28px 36px;
+      background: var(--panel-bg);
+      border-radius: var(--radius);
+      border: 1px solid rgba(0,0,0,0.06);
+      box-shadow: 0 6px 22px rgba(10,10,10,0.03);
+    }
 
-        p {
-            margin-bottom: 15px;
-        }
+    .brand{
+      font-size: 56px;
+      font-weight:700;
+      margin: 4px 0 18px;
+      letter-spacing: 1px;
+      color:var(--text);
+    }
 
-        /* 5. LIST STYLES */
-        ul {
-            margin-bottom: 30px;
-            padding-left: 20px; /* Indent bullets */
-        }
+    nav{
+      display:flex;
+      gap: 28px;
+      align-items:center;
+      margin-bottom: 18px;
+    }
 
-        li {
-            margin-bottom: 8px; /* Space between list items */
-        }
+    nav a{
+      color:var(--text);
+      text-decoration:none;
+      font-size:20px;
+      letter-spacing: 2px;
+      padding-bottom: 6px;
+      position:relative;
+      opacity:0.99;
+    }
 
-        /* 6. LINKS */
-        a {
-            color: #6BA3BE; /* Matches the heading green */
-            text-decoration: underline;
-            text-decoration-thickness: 1px;
-            text-underline-offset: 2px;
-        }
+    /* active nav underline (navy) */
+    nav a.active::after{
+      content: "";
+      position:absolute;
+      left:0;
+      bottom:-6px;
+      height:6px;
+      width:40%;
+      background:var(--link);
+      border-radius:2px;
+    }
 
-        a:hover {
-            color: #000F81; /* Slightly lighter green on hover */
-            text-decoration: none;
-        }
+    .divider{
+      border:none;
+      height:1px;
+      background: linear-gradient(90deg, transparent,#000 10%, #000 90%, transparent);
+      opacity:0.06;
+      margin: 6px 0 18px;
+    }
 
-        /* Utility helper for the bold section headers like "More:" or "Past obsessions:" */
-        .section-header {
-            margin-top: 30px;
-            margin-bottom: 10px;
-            display: block;
-        }
-    </style>
+    .content p{
+      font-size:20px;
+      line-height:2;
+      margin: 0 0 18px;
+      color:var(--text);
+      max-width: 930px;
+    }
+
+    .content .muted{
+      color:var(--muted);
+      font-size:18px;
+    }
+
+    /* inline links styled navy with underline */
+    a.inline-link{
+      color:var(--link);
+      text-decoration:none;
+      border-bottom: 2px solid var(--link);
+      padding-bottom: 2px;
+      margin-left: 6px;
+    }
+
+    a.inline-link:hover,
+    nav a:hover,
+    .links-row a:hover{
+      filter:brightness(0.92);
+    }
+
+    .links-row{
+      margin-top: 14px;
+      font-size:20px;
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px 18px;
+      align-items:center;
+    }
+
+    .links-row a{
+      color:var(--link);
+      text-decoration:none;
+      border-bottom:2px solid var(--link);
+      padding-bottom:2px;
+    }
+
+    @media (max-width:640px){
+      .brand{ font-size:40px; }
+      nav{ gap: 18px; flex-wrap:wrap; }
+      nav a{ font-size:18px; }
+      .wrap{ margin:14px; padding:22px; }
+    }
+  </style>
 </head>
 <body>
+  <main class="wrap" role="main">
+    <header>
+      <div class="brand">aravind</div>
 
-    <div class="container">
-        
-        <h1>Aravind Ramachandran</h1>
+      <nav aria-label="Primary">
+        <a href="#" class="active" id="nav-home">home</a>
+        <a href="/projects" id="nav-projects">projects</a>
+        <a href="/achievements" id="nav-achievements">achievements</a>
+      </nav>
 
-        <p class="tagline">energy enthusiast</p>
+      <hr class="divider" />
+    </header>
 
-        <p>about me:</p>
-        <ul>
-            <li>a finance grad based out of chennai</a></li>
-            <li>an energy data scientist who got tried of analyzing dead accouting data</a></li>
-            <li>making life cool again with the newsletter I write every fortnight on <a href="https://aravindirl.substack.com/">aravindirl.substack.com</a></a></li>
-        </ul>
-        <span class="section-header">working on:</span>
-        <ul>
-            <li>studying solar, storage, and load behavior to understand modern power</a></li>
-            <li>building simple models to understand how energy systems work</a></li>
-            <li>sharing my learnings on <a href="https://medium.com/@theenergy">@theenergy</a></li>
-        </ul>
-        <span class="section-header">More:</span>
-        <ul>
-            <li><a href="https://github.com/aravindirl">github</a> ,<a href="https://x.com/aravindirl?s=21">X</a>, <a href="www.linkedin.com/in/aravindirl">linkedin</a>, <a href="https://boxd.it/9zWQL">letterboxd</a>, <a href="https://open.spotify.com/user/vtubl2p2emhobb5yc4qdzorc2?si=Lz5WKhH4Qt6jtw8Z2dsn0A">spotify</a>, <a href="https://www.instagram.com/aravind.eth?igsh=MTl6MXIycmFtNWxieQ%3D%3D&utm_source=qr">instagram</a></li> 
-            
-        </ul>
+    <section class="content" aria-live="polite">
+      <p class="muted">hi...</p>
 
-    </div>
+      <p>i am aravind! from chennai, am glad you're here :)</p>
 
+      <p>a commerce undergrad, got into CA, interned at an accounting firm, failed at it &amp; realised it was not for me.</p>
+
+      <p>now playing around with financial &amp; prediction markets.</p>
+
+      <p>i love jazz, am into philosophy, history &amp; am a picky eater.</p>
+
+      <p>i write about algorithms &amp; their psychology: <a class="inline-link" href="https://x.com/thescrolleffect" target="_blank" rel="noopener noreferrer">@thescrolleffect</a></p>
+
+      <p>i like to tweet, shitpost &amp; argue on X: <a class="inline-link" href="https://x.com/aravindirl" target="_blank" rel="noopener noreferrer">@aravindirl</a></p>
+
+      <div class="links-row" aria-label="More links">
+        <a href="/notes">notes</a>
+        <a href="/essays">essays</a>
+        <a href="/poems">poems</a>
+        <a href="/gallery">gallery</a>
+        <a href="/library">library</a>
+        <a href="/playlists">playlists</a>
+        <a href="/films">films</a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // simple nav active toggling so you can click to see the underline move
+    document.querySelectorAll('nav a').forEach(a => {
+      a.addEventListener('click', e => {
+        document.querySelectorAll('nav a').forEach(x => x.classList.remove('active'));
+        e.currentTarget.classList.add('active');
+      });
+    });
+  </script>
 </body>
 </html>
