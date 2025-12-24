@@ -14,7 +14,7 @@
       --text: #000000;
       --muted: #222222;
       --link: #0a3d91;
-      --hr: rgba(0,0,0,0.08);
+      --hr: rgba(0,0,0,0.1); /* Subtle light shade */
       --radius: 10px;
     }
 
@@ -74,12 +74,12 @@
       border-radius:2px;
     }
 
-    .dark-line {
+    /* Light shaded divider */
+    .divider {
       border: none;
-      height: 2px;
-      background-color: #000000;
+      height: 1px;
+      background-color: var(--hr);
       margin: 20px 0 24px 0;
-      opacity: 1;
     }
 
     .content p{
@@ -147,7 +147,7 @@
       </nav>
     </header>
 
-    <hr class="dark-line" />
+    <hr class="divider" />
 
     <section class="content" aria-live="polite">
       <p class="muted">hi...</p>
