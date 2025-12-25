@@ -68,7 +68,6 @@
             color: var(--bg-color);
         }
 
-        /* Unified Navigation Style */
         nav {
             margin-bottom: 20px;
             font-size: 0.9rem;
@@ -76,29 +75,25 @@
             gap: 15px;
         }
 
-        nav a, .footer a, .content-link {
+        nav a, .content-link {
             text-decoration: none;
             color: inherit;
             padding: 0 2px;
             transition: all 0.2s ease;
         }
 
-        /* Consistent Transition Style for all links */
-        nav a:hover, .footer a:hover, .content-link:hover {
+        /* Hover highlight for nav and body links */
+        nav a:hover, .content-link:hover {
             background-color: var(--accent-color);
             color: var(--bg-color);
             border-radius: 2px;
+            text-decoration: none;
         }
 
-        /* Specifically for the X link to keep its current look but add the highlight */
         .content-link {
             color: var(--accent-color);
             text-decoration: underline;
             text-underline-offset: 3px;
-        }
-        
-        .content-link:hover {
-            text-decoration: none;
         }
 
         hr {
@@ -112,11 +107,28 @@
             font-size: 1rem;
         }
 
+        /* Underlined Social Links */
         .footer {
             margin-top: 30px;
             font-size: 0.9rem;
             display: flex;
             gap: 20px;
+        }
+
+        .footer a {
+            color: var(--text-color);
+            text-decoration: underline;
+            text-underline-offset: 4px; /* Sits slightly lower for aesthetic */
+            text-decoration-thickness: 1px;
+            transition: all 0.2s ease;
+            padding: 0 2px;
+        }
+
+        .footer a:hover {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            text-decoration: none;
+            border-radius: 2px;
         }
 
     </style>
