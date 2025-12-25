@@ -5,77 +5,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>aravind</title>
     <style>
-        /* CSS Variables for easy theme switching */
         :root {
-            --bg-color: #f8f8f8;
-            --text-color: #222;
-            --accent-color: #0055ff; /* Blue in light mode */
+            /* Using a softer off-white and charcoal for better legibility */
+            --bg-color: #fcfaf8; 
+            --text-color: #1a1a1a;
+            --accent-color: #3b5bdb; 
             --secondary-text: #666;
-            --hr-color: #ddd;
-            --hover-bg: #e8f0ff;
+            --hr-color: #e5e5e5;
         }
 
         [data-theme="dark"] {
             --bg-color: #121212;
-            --text-color: #e0e0e0;
-            --accent-color: #ffb800; /* Amber in dark mode */
-            --secondary-text: #aaa;
-            --hr-color: #333;
-            --hover-bg: #2a2a2a;
+            --text-color: #d1d1d1;
+            --accent-color: #fac564; 
+            --secondary-text: #888;
+            --hr-color: #2a2a2a;
         }
 
         body {
-            font-family: 'Courier New', Courier, monospace;
+            /* Aesthetic Typography Stack: Clean, legible, and slightly "bookish" */
+            font-family: "Charter", "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
             background-color: var(--bg-color);
             color: var(--text-color);
-            line-height: 1.7;
-            padding: 50px 20px;
+            line-height: 1.65; /* Optimal for reading long-form text */
+            padding: 80px 24px;
             margin: 0;
             display: flex;
             justify-content: center;
-            transition: background-color 0.3s, color 0.3s;
+            transition: background-color 0.4s ease;
+            -webkit-font-smoothing: antialiased;
         }
 
         .container {
-            max-width: 650px;
+            max-width: 580px; /* Narrower line length is more aesthetic/legible */
             width: 100%;
-            position: relative;
         }
 
-        /* Theme Toggle Button */
         #theme-toggle {
-            position: absolute;
-            top: 0;
-            right: 0;
+            float: right;
             background: none;
             border: 1px solid var(--hr-color);
-            color: var(--text-color);
-            padding: 5px 10px;
+            color: var(--secondary-text);
+            padding: 4px 12px;
             cursor: pointer;
-            font-family: inherit;
-            font-size: 0.8rem;
-            border-radius: 4px;
+            font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-radius: 20px;
+            transition: all 0.2s;
         }
 
         #theme-toggle:hover {
-            background-color: var(--hover-bg);
+            border-color: var(--accent-color);
+            color: var(--accent-color);
         }
 
         h1 {
-            font-size: 2rem;
-            margin-bottom: 5px;
-            letter-spacing: -1px;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+            /* Monospace for the name adds that indie touch */
+            font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
         }
 
         nav {
-            margin-bottom: 30px;
+            margin-bottom: 40px;
+            font-family: ui-monospace, SFMono-Regular, monospace;
+            font-size: 0.85rem;
         }
 
         nav a {
             text-decoration: none;
             color: var(--secondary-text);
-            margin-right: 15px;
-            font-size: 0.9rem;
+            margin-right: 12px;
+            transition: color 0.2s;
         }
 
         nav a:hover {
@@ -85,45 +90,66 @@
         hr {
             border: 0;
             border-top: 1px solid var(--hr-color);
-            margin: 25px 0;
+            margin: 32px 0;
         }
 
         p {
-            margin-bottom: 20px;
+            margin-bottom: 22px;
+            font-size: 1.1rem; /* Slightly larger for that 'premium' feel */
         }
 
-        a {
-            color: var(--accent-color);
+        /* The Links */
+        .content-link {
+            color: var(--text-color);
             text-decoration: none;
-            border-bottom: 1px solid transparent;
+            box-shadow: inset 0 -1px 0 var(--accent-color); /* Elegant thin underline */
             transition: all 0.2s;
         }
 
-        a:hover {
-            border-bottom: 1px solid var(--accent-color);
+        .content-link:hover {
+            background-color: var(--accent-color);
+            color: white;
+            box-shadow: none;
+        }
+
+        [data-theme="dark"] .content-link:hover {
+            color: #000;
         }
 
         .footer {
-            margin-top: 40px;
-            font-size: 0.9rem;
+            margin-top: 60px;
+            font-family: ui-monospace, SFMono-Regular, monospace;
+            font-size: 0.8rem;
+            letter-spacing: 0.02em;
         }
 
-        .footer span {
-            color: var(--hr-color);
-            margin: 0 5px;
+        .footer a {
+            text-decoration: none;
+            color: var(--secondary-text);
+            border-bottom: 1px solid var(--hr-color);
+        }
+
+        .footer a:hover {
+            color: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+
+        .sep {
+            color: #ccc;
+            margin: 0 8px;
         }
     </style>
 </head>
 <body data-theme="light">
 
     <div class="container">
-        <button id="theme-toggle">mode</button>
+        <button id="theme-toggle">Dark</button>
         
         <h1>aravind</h1>
         
         <nav>
-            <a href="#">home</a> /
-            <a href="#">writings</a> /
+            <a href="#">home</a>
+            <a href="#">writings</a>
             <a href="#">works</a>
         </nav>
 
@@ -133,7 +159,7 @@
 
         <p>
             right now i’m diving into climate, energy, and systems. <br>
-            i share what i'm learning on x — <a href="https://x.com/aravindirl" target="_blank">@aravindirl</a>
+            i share what i'm learning on x — <a href="https://x.com/aravindirl" class="content-link">@aravindirl</a>
         </p>
 
         <p>i have a degree in accounting & finance, but i eventually hit a wall with entries and reconciliations. it just wasn't for me.</p>
@@ -143,8 +169,8 @@
         <p>when i'm offline, i'm usually writing, playing guitar, or keeping up with football and f1.</p>
 
         <div class="footer">
-            <a href="#">linkedin</a> <span>,</span>
-            <a href="#">letterboxd</a> <span>,</span>
+            <a href="#">linkedin</a> <span class="sep">/</span>
+            <a href="#">letterboxd</a> <span class="sep">/</span>
             <a href="#">instagram</a>
         </div>
     </div>
@@ -157,10 +183,10 @@
             const currentTheme = body.getAttribute('data-theme');
             if (currentTheme === 'light') {
                 body.setAttribute('data-theme', 'dark');
-                toggleBtn.textContent = 'light';
+                toggleBtn.textContent = 'Light';
             } else {
                 body.setAttribute('data-theme', 'light');
-                toggleBtn.textContent = 'dark';
+                toggleBtn.textContent = 'Dark';
             }
         });
     </script>
