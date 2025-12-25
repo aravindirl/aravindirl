@@ -6,80 +6,79 @@
     <title>aravind</title>
     <style>
         :root {
-            /* Using a softer off-white and charcoal for better legibility */
-            --bg-color: #fcfaf8; 
+            --bg-color: #f9f9f9;
             --text-color: #1a1a1a;
-            --accent-color: #3b5bdb; 
-            --secondary-text: #666;
-            --hr-color: #e5e5e5;
+            --accent-color: #3b5bdb; /* Deep, clean blue */
+            --secondary-text: #777;
+            --hr-color: #eee;
         }
 
         [data-theme="dark"] {
-            --bg-color: #121212;
-            --text-color: #d1d1d1;
-            --accent-color: #fac564; 
+            --bg-color: #111;
+            --text-color: #ececec;
+            --accent-color: #fcc419; /* Warm gold */
             --secondary-text: #888;
-            --hr-color: #2a2a2a;
+            --hr-color: #222;
         }
 
         body {
-            /* Aesthetic Typography Stack: Clean, legible, and slightly "bookish" */
-            font-family: "Charter", "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
+            /* Using a modern monospace stack for that "clean grid" aesthetic */
+            font-family: 'JetBrains Mono', 'Fira Code', 'IBM Plex Mono', 'SF Mono', 'Menlo', 'Consolas', monospace;
             background-color: var(--bg-color);
             color: var(--text-color);
-            line-height: 1.65; /* Optimal for reading long-form text */
+            line-height: 1.8; /* Increased spacing for legibility */
             padding: 80px 24px;
             margin: 0;
             display: flex;
             justify-content: center;
-            transition: background-color 0.4s ease;
+            transition: background-color 0.3s ease, color 0.3s ease;
             -webkit-font-smoothing: antialiased;
         }
 
         .container {
-            max-width: 580px; /* Narrower line length is more aesthetic/legible */
+            max-width: 620px;
             width: 100%;
         }
 
-        #theme-toggle {
-            float: right;
-            background: none;
-            border: 1px solid var(--hr-color);
-            color: var(--secondary-text);
-            padding: 4px 12px;
-            cursor: pointer;
-            font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            border-radius: 20px;
-            transition: all 0.2s;
-        }
-
-        #theme-toggle:hover {
-            border-color: var(--accent-color);
-            color: var(--accent-color);
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 10px;
         }
 
         h1 {
-            font-size: 1.8rem;
-            font-weight: 600;
-            margin-bottom: 8px;
-            letter-spacing: -0.02em;
-            /* Monospace for the name adds that indie touch */
-            font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0;
+            letter-spacing: -0.03em;
+        }
+
+        #theme-toggle {
+            background: none;
+            border: none;
+            color: var(--secondary-text);
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.8rem;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            padding: 0;
+        }
+
+        #theme-toggle:hover {
+            color: var(--accent-color);
         }
 
         nav {
             margin-bottom: 40px;
-            font-family: ui-monospace, SFMono-Regular, monospace;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
         }
 
         nav a {
             text-decoration: none;
             color: var(--secondary-text);
-            margin-right: 12px;
+            margin-right: 15px;
             transition: color 0.2s;
         }
 
@@ -90,37 +89,33 @@
         hr {
             border: 0;
             border-top: 1px solid var(--hr-color);
-            margin: 32px 0;
+            margin: 30px 0;
         }
 
         p {
-            margin-bottom: 22px;
-            font-size: 1.1rem; /* Slightly larger for that 'premium' feel */
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+            letter-spacing: -0.01em; /* Tightens the mono slightly for modern look */
         }
 
-        /* The Links */
+        /* The "Indie" Link Style */
         .content-link {
-            color: var(--text-color);
+            color: var(--accent-color);
             text-decoration: none;
-            box-shadow: inset 0 -1px 0 var(--accent-color); /* Elegant thin underline */
+            border-bottom: 1px solid transparent;
+            padding: 0 2px;
             transition: all 0.2s;
         }
 
         .content-link:hover {
             background-color: var(--accent-color);
-            color: white;
-            box-shadow: none;
-        }
-
-        [data-theme="dark"] .content-link:hover {
-            color: #000;
+            color: var(--bg-color);
+            border-radius: 2px;
         }
 
         .footer {
             margin-top: 60px;
-            font-family: ui-monospace, SFMono-Regular, monospace;
-            font-size: 0.8rem;
-            letter-spacing: 0.02em;
+            font-size: 0.85rem;
         }
 
         .footer a {
@@ -135,17 +130,18 @@
         }
 
         .sep {
-            color: #ccc;
-            margin: 0 8px;
+            color: var(--hr-color);
+            margin: 0 10px;
         }
     </style>
 </head>
 <body data-theme="light">
 
     <div class="container">
-        <button id="theme-toggle">Dark</button>
-        
-        <h1>aravind</h1>
+        <header>
+            <h1>aravind</h1>
+            <button id="theme-toggle">switch theme</button>
+        </header>
         
         <nav>
             <a href="#">home</a>
@@ -183,10 +179,8 @@
             const currentTheme = body.getAttribute('data-theme');
             if (currentTheme === 'light') {
                 body.setAttribute('data-theme', 'dark');
-                toggleBtn.textContent = 'Light';
             } else {
                 body.setAttribute('data-theme', 'light');
-                toggleBtn.textContent = 'Dark';
             }
         });
     </script>
