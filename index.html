@@ -25,12 +25,14 @@
             font-family: ui-monospace, Menlo, Monaco, 'Cascadia Code', 'Source Code Pro', Consolas, monospace;
             background-color: var(--bg-color);
             color: var(--text-color);
-            line-height: 1.8;
-            padding: 80px 24px;
+            line-height: 1.6; /* Reduced slightly for vertical fit */
+            padding: 40px 24px; /* Reduced top padding */
             margin: 0;
             display: flex;
             justify-content: center;
             transition: background-color 0.2s, color 0.2s;
+            height: 100vh; /* Helps with centering if needed */
+            box-sizing: border-box;
         }
 
         .container {
@@ -68,7 +70,7 @@
         }
 
         nav {
-            margin-bottom: 30px;
+            margin-bottom: 20px; /* Reduced margin */
             font-size: 0.9rem;
         }
 
@@ -78,18 +80,14 @@
             margin-right: 15px;
         }
 
-        nav a:hover {
-            color: var(--text-color);
-        }
-
         hr {
             border: 0;
             border-top: 1px solid var(--hr-color);
-            margin: 25px 0;
+            margin: 20px 0; /* Reduced margin */
         }
 
         p {
-            margin-bottom: 25px;
+            margin-bottom: 18px; /* Tighter paragraph spacing */
             font-size: 1rem;
         }
 
@@ -99,18 +97,12 @@
             text-underline-offset: 3px;
         }
 
-        .content-link:hover {
-            background-color: var(--accent-color);
-            color: var(--bg-color);
-            text-decoration: none;
-        }
-
         /* Social links on one line */
         .footer {
-            margin-top: 50px;
+            margin-top: 30px; /* Reduced top margin to pull links up */
             font-size: 0.9rem;
             display: flex;
-            gap: 15px; /* Spacing between links */
+            gap: 20px;
         }
 
         .footer a {
