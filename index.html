@@ -6,30 +6,27 @@
     <title>aravind</title>
     <style>
         :root {
-            /* High-contrast Light Mode */
             --bg-color: #ffffff;
-            --text-color: #000000; /* True black for maximum legibility */
-            --accent-color: #0047ab; /* Classic cobalt blue */
-            --secondary-text: #555555;
+            --text-color: #000000;
+            --accent-color: #0047ab;
+            --secondary-text: #555;
             --hr-color: #000000;
         }
 
         [data-theme="dark"] {
-            /* Clean Dark Mode */
             --bg-color: #121212;
             --text-color: #ffffff;
-            --accent-color: #ffd700; /* Gold */
-            --secondary-text: #bbbbbb;
-            --hr-color: #333333;
+            --accent-color: #ffd700;
+            --secondary-text: #bbb;
+            --hr-color: #333;
         }
 
         body {
-            /* Standard monospace stack - keeps the grid feel you love */
-            font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+            font-family: ui-monospace, Menlo, Monaco, 'Cascadia Code', 'Source Code Pro', Consolas, monospace;
             background-color: var(--bg-color);
             color: var(--text-color);
-            line-height: 1.8; /* Keeps the mono characters from feeling cramped */
-            padding: 60px 24px;
+            line-height: 1.8;
+            padding: 80px 24px;
             margin: 0;
             display: flex;
             justify-content: center;
@@ -44,7 +41,7 @@
         header {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
+            align-items: center;
             margin-bottom: 5px;
         }
 
@@ -52,7 +49,6 @@
             font-size: 1.6rem;
             font-weight: bold;
             margin: 0;
-            text-transform: lowercase;
         }
 
         #theme-toggle {
@@ -61,7 +57,7 @@
             color: var(--text-color);
             cursor: pointer;
             font-family: inherit;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             padding: 2px 8px;
             text-transform: lowercase;
         }
@@ -84,7 +80,6 @@
 
         nav a:hover {
             color: var(--text-color);
-            text-decoration: underline;
         }
 
         hr {
@@ -98,7 +93,6 @@
             font-size: 1rem;
         }
 
-        /* Casual but legible link style */
         .content-link {
             color: var(--accent-color);
             text-decoration: underline;
@@ -111,9 +105,12 @@
             text-decoration: none;
         }
 
+        /* Social links on one line */
         .footer {
             margin-top: 50px;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
+            display: flex;
+            gap: 15px; /* Spacing between links */
         }
 
         .footer a {
@@ -122,10 +119,11 @@
             border-bottom: 1px solid var(--hr-color);
         }
 
-        .sep {
-            margin: 0 10px;
-            color: var(--secondary-text);
+        .footer a:hover {
+            color: var(--accent-color);
+            border-color: var(--accent-color);
         }
+
     </style>
 </head>
 <body data-theme="light">
@@ -158,8 +156,8 @@
         <p>when i'm offline, i'm usually writing, playing guitar, or keeping up with football and f1.</p>
 
         <div class="footer">
-            <a href="#">linkedin</a> <span class="sep">/</span>
-            <a href="#">letterboxd</a> <span class="sep">/</span>
+            <a href="#">linkedin</a>
+            <a href="#">letterboxd</a>
             <a href="#">instagram</a>
         </div>
     </div>
