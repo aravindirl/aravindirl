@@ -25,13 +25,12 @@
             font-family: ui-monospace, Menlo, Monaco, 'Cascadia Code', 'Source Code Pro', Consolas, monospace;
             background-color: var(--bg-color);
             color: var(--text-color);
-            line-height: 1.6; /* Reduced slightly for vertical fit */
-            padding: 40px 24px; /* Reduced top padding */
+            line-height: 1.6;
+            padding: 40px 24px;
             margin: 0;
             display: flex;
             justify-content: center;
             transition: background-color 0.2s, color 0.2s;
-            height: 100vh; /* Helps with centering if needed */
             box-sizing: border-box;
         }
 
@@ -69,51 +68,55 @@
             color: var(--bg-color);
         }
 
+        /* Unified Navigation Style */
         nav {
-            margin-bottom: 20px; /* Reduced margin */
+            margin-bottom: 20px;
             font-size: 0.9rem;
+            display: flex;
+            gap: 15px;
         }
 
-        nav a {
+        nav a, .footer a, .content-link {
             text-decoration: none;
-            color: var(--secondary-text);
-            margin-right: 15px;
+            color: inherit;
+            padding: 0 2px;
+            transition: all 0.2s ease;
         }
 
-        hr {
-            border: 0;
-            border-top: 1px solid var(--hr-color);
-            margin: 20px 0; /* Reduced margin */
+        /* Consistent Transition Style for all links */
+        nav a:hover, .footer a:hover, .content-link:hover {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            border-radius: 2px;
         }
 
-        p {
-            margin-bottom: 18px; /* Tighter paragraph spacing */
-            font-size: 1rem;
-        }
-
+        /* Specifically for the X link to keep its current look but add the highlight */
         .content-link {
             color: var(--accent-color);
             text-decoration: underline;
             text-underline-offset: 3px;
         }
+        
+        .content-link:hover {
+            text-decoration: none;
+        }
 
-        /* Social links on one line */
+        hr {
+            border: 0;
+            border-top: 1px solid var(--hr-color);
+            margin: 20px 0;
+        }
+
+        p {
+            margin-bottom: 18px;
+            font-size: 1rem;
+        }
+
         .footer {
-            margin-top: 30px; /* Reduced top margin to pull links up */
+            margin-top: 30px;
             font-size: 0.9rem;
             display: flex;
             gap: 20px;
-        }
-
-        .footer a {
-            color: var(--text-color);
-            text-decoration: none;
-            border-bottom: 1px solid var(--hr-color);
-        }
-
-        .footer a:hover {
-            color: var(--accent-color);
-            border-color: var(--accent-color);
         }
 
     </style>
