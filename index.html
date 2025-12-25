@@ -6,72 +6,73 @@
     <title>aravind</title>
     <style>
         :root {
-            --bg-color: #f9f9f9;
-            --text-color: #1a1a1a;
-            --accent-color: #3b5bdb; /* Deep, clean blue */
-            --secondary-text: #777;
-            --hr-color: #eee;
+            /* High-contrast Light Mode */
+            --bg-color: #ffffff;
+            --text-color: #000000; /* True black for maximum legibility */
+            --accent-color: #0047ab; /* Classic cobalt blue */
+            --secondary-text: #555555;
+            --hr-color: #000000;
         }
 
         [data-theme="dark"] {
-            --bg-color: #111;
-            --text-color: #ececec;
-            --accent-color: #fcc419; /* Warm gold */
-            --secondary-text: #888;
-            --hr-color: #222;
+            /* Clean Dark Mode */
+            --bg-color: #121212;
+            --text-color: #ffffff;
+            --accent-color: #ffd700; /* Gold */
+            --secondary-text: #bbbbbb;
+            --hr-color: #333333;
         }
 
         body {
-            /* Using a modern monospace stack for that "clean grid" aesthetic */
-            font-family: 'JetBrains Mono', 'Fira Code', 'IBM Plex Mono', 'SF Mono', 'Menlo', 'Consolas', monospace;
+            /* Standard monospace stack - keeps the grid feel you love */
+            font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
             background-color: var(--bg-color);
             color: var(--text-color);
-            line-height: 1.8; /* Increased spacing for legibility */
-            padding: 80px 24px;
+            line-height: 1.8; /* Keeps the mono characters from feeling cramped */
+            padding: 60px 24px;
             margin: 0;
             display: flex;
             justify-content: center;
-            transition: background-color 0.3s ease, color 0.3s ease;
-            -webkit-font-smoothing: antialiased;
+            transition: background-color 0.2s, color 0.2s;
         }
 
         .container {
-            max-width: 620px;
+            max-width: 650px;
             width: 100%;
         }
 
         header {
             display: flex;
             justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 10px;
+            align-items: flex-start;
+            margin-bottom: 5px;
         }
 
         h1 {
-            font-size: 1.5rem;
-            font-weight: 700;
+            font-size: 1.6rem;
+            font-weight: bold;
             margin: 0;
-            letter-spacing: -0.03em;
+            text-transform: lowercase;
         }
 
         #theme-toggle {
             background: none;
-            border: none;
-            color: var(--secondary-text);
+            border: 1px solid var(--text-color);
+            color: var(--text-color);
             cursor: pointer;
             font-family: inherit;
-            font-size: 0.8rem;
-            text-decoration: underline;
-            text-underline-offset: 4px;
-            padding: 0;
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            text-transform: lowercase;
         }
 
         #theme-toggle:hover {
-            color: var(--accent-color);
+            background-color: var(--text-color);
+            color: var(--bg-color);
         }
 
         nav {
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             font-size: 0.9rem;
         }
 
@@ -79,59 +80,51 @@
             text-decoration: none;
             color: var(--secondary-text);
             margin-right: 15px;
-            transition: color 0.2s;
         }
 
         nav a:hover {
-            color: var(--accent-color);
+            color: var(--text-color);
+            text-decoration: underline;
         }
 
         hr {
             border: 0;
             border-top: 1px solid var(--hr-color);
-            margin: 30px 0;
+            margin: 25px 0;
         }
 
         p {
             margin-bottom: 25px;
-            font-size: 0.95rem;
-            letter-spacing: -0.01em; /* Tightens the mono slightly for modern look */
+            font-size: 1rem;
         }
 
-        /* The "Indie" Link Style */
+        /* Casual but legible link style */
         .content-link {
             color: var(--accent-color);
-            text-decoration: none;
-            border-bottom: 1px solid transparent;
-            padding: 0 2px;
-            transition: all 0.2s;
+            text-decoration: underline;
+            text-underline-offset: 3px;
         }
 
         .content-link:hover {
             background-color: var(--accent-color);
             color: var(--bg-color);
-            border-radius: 2px;
+            text-decoration: none;
         }
 
         .footer {
-            margin-top: 60px;
+            margin-top: 50px;
             font-size: 0.85rem;
         }
 
         .footer a {
+            color: var(--text-color);
             text-decoration: none;
-            color: var(--secondary-text);
             border-bottom: 1px solid var(--hr-color);
         }
 
-        .footer a:hover {
-            color: var(--accent-color);
-            border-color: var(--accent-color);
-        }
-
         .sep {
-            color: var(--hr-color);
             margin: 0 10px;
+            color: var(--secondary-text);
         }
     </style>
 </head>
@@ -140,7 +133,7 @@
     <div class="container">
         <header>
             <h1>aravind</h1>
-            <button id="theme-toggle">switch theme</button>
+            <button id="theme-toggle">mode</button>
         </header>
         
         <nav>
