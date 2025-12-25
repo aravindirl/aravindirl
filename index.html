@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aravind</title>
+    <style>
+        /* CSS Variables for easy theme switching */
+        :root {
+            --bg-color: #f8f8f8;
+            --text-color: #222;
+            --accent-color: #0055ff; /* Blue in light mode */
+            --secondary-text: #666;
+            --hr-color: #ddd;
+            --hover-bg: #e8f0ff;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --accent-color: #ffb800; /* Amber in dark mode */
+            --secondary-text: #aaa;
+            --hr-color: #333;
+            --hover-bg: #2a2a2a;
+        }
+
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            padding: 50px 20px;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            max-width: 650px;
+            width: 100%;
+            position: relative;
+        }
+
+        /* Theme Toggle Button */
+        #theme-toggle {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: none;
+            border: 1px solid var(--hr-color);
+            color: var(--text-color);
+            padding: 5px 10px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.8rem;
+            border-radius: 4px;
+        }
+
+        #theme-toggle:hover {
+            background-color: var(--hover-bg);
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 5px;
+            letter-spacing: -1px;
+        }
+
+        nav {
+            margin-bottom: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--secondary-text);
+            margin-right: 15px;
+            font-size: 0.9rem;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px solid var(--hr-color);
+            margin: 25px 0;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: all 0.2s;
+        }
+
+        a:hover {
+            border-bottom: 1px solid var(--accent-color);
+        }
+
+        .footer {
+            margin-top: 40px;
+            font-size: 0.9rem;
+        }
+
+        .footer span {
+            color: var(--hr-color);
+            margin: 0 5px;
+        }
+    </style>
+</head>
+<body data-theme="light">
+
+    <div class="container">
+        <button id="theme-toggle">mode</button>
+        
+        <h1>aravind</h1>
+        
+        <nav>
+            <a href="#">home</a> /
+            <a href="#">writings</a> /
+            <a href="#">works</a>
+        </nav>
+
+        <hr>
+
+        <p>i’m aravind. i live in chennai.</p>
+
+        <p>
+            right now i’m diving into climate, energy, and systems. <br>
+            i share what i'm learning on x — <a href="https://x.com/aravindirl" target="_blank">@aravindirl</a>
+        </p>
+
+        <p>i have a degree in accounting & finance, but i eventually hit a wall with entries and reconciliations. it just wasn't for me.</p>
+
+        <p>i’m happy i managed to outrun the algorithm and the brain rot before the internet got flooded with ai slop.</p>
+
+        <p>when i'm offline, i'm usually writing, playing guitar, or keeping up with football and f1.</p>
+
+        <div class="footer">
+            <a href="#">linkedin</a> <span>,</span>
+            <a href="#">letterboxd</a> <span>,</span>
+            <a href="#">instagram</a>
+        </div>
+    </div>
+
+    <script>
+        const toggleBtn = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        toggleBtn.addEventListener('click', () => {
+            const currentTheme = body.getAttribute('data-theme');
+            if (currentTheme === 'light') {
+                body.setAttribute('data-theme', 'dark');
+                toggleBtn.textContent = 'light';
+            } else {
+                body.setAttribute('data-theme', 'light');
+                toggleBtn.textContent = 'dark';
+            }
+        });
+    </script>
+</body>
+</html>
