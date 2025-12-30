@@ -15,16 +15,15 @@
         #theme-toggle svg { width: 16px; height: 16px; fill: currentColor; }
         #theme-toggle:hover { background-color: var(--text-color); color: var(--bg-color); }
         nav { margin-bottom: 20px; font-size: 0.9rem; display: flex; gap: 15px; }
-        nav a, .content-link { text-decoration: none; color: inherit; padding: 0 4px; transition: all 0.2s ease; }
-        nav a:hover, nav a.active, .content-link:hover { background-color: var(--accent-color); color: var(--bg-color); border-radius: 2px; text-decoration: none; }
+        nav a, .content-link, .back-nav { text-decoration: none; color: inherit; padding: 0 4px; transition: all 0.2s ease; }
+        nav a:hover, nav a.active, .content-link:hover, .back-nav:hover { background-color: var(--accent-color); color: var(--bg-color); border-radius: 2px; text-decoration: none; }
         .content-link { color: var(--accent-color); text-decoration: underline; text-underline-offset: 3px; }
         hr { border: 0; border-top: 1px solid var(--hr-color); margin: 20px 0; }
         p { margin-bottom: 18px; font-size: 1rem; }
         .footer { margin-top: 30px; font-size: 0.9rem; display: flex; gap: 20px; }
         .footer a { color: var(--text-color); text-decoration: underline; text-underline-offset: 4px; transition: all 0.2s ease; padding: 0 2px; }
         .footer a:hover { background-color: var(--accent-color); color: var(--bg-color); text-decoration: none; border-radius: 2px; }
-        .back-nav { margin-top: 40px; display: inline-block; font-size: 0.9rem; text-decoration: none; color: inherit; border-bottom: 1px solid transparent; }
-        .back-nav:hover { border-bottom: 1px solid var(--text-color); }
+        .back-nav { margin-top: 40px; display: inline-block; font-size: 0.9rem; }
     </style>
 </head>
 <body data-theme="light">
@@ -42,7 +41,7 @@
             <a href="works.html">works</a>
         </nav>
         <hr>
-        <p>this is where i keep shorter notes and quick observations.</p>
+        <p>shorter notes and quick observations.</p>
         <p>• <a href="#" class="content-link">on the efficiency of markets</a> - dec 2025</p>
         <p>• <a href="#" class="content-link">the signals in the noise</a> - nov 2025</p>
         <a href="index.html" class="back-nav">← back to homepage</a>
