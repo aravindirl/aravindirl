@@ -1,6 +1,0 @@
-title: aravindirl
-baseurl: "" 
-url: "https://aravindirl.com"
-markdown: kramdown
-theme: minima
-exclude: [Vebdor, .bundle, Gemfile, Gemfile.lock]
