@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aravindirl — essays</title>
+    <style>
+        :root { --bg-color: #ffffff; --text-color: #000000; --accent-color: #0047ab; --secondary-text: #555; --hr-color: #000000; }
+        [data-theme="dark"] { --bg-color: #121212; --text-color: #ffffff; --accent-color: #ffd700; --secondary-text: #bbb; --hr-color: #333; }
+        body { font-family: ui-monospace, Menlo, Monaco, 'Cascadia Code', 'Source Code Pro', Consolas, monospace; background-color: var(--bg-color); color: var(--text-color); line-height: 1.6; padding: 40px 24px; margin: 0; display: flex; justify-content: center; transition: background-color 0.2s, color 0.2s; box-sizing: border-box; }
+        .container { max-width: 650px; width: 100%; }
+        header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; }
+        h1 { font-size: 1.6rem; font-weight: bold; margin: 0; }
+        #theme-toggle { background: none; border: 1px solid var(--text-color); color: var(--text-color); cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 4px; border-radius: 4px; transition: all 0.2s ease; }
+        #theme-toggle svg { width: 16px; height: 16px; fill: currentColor; }
+        #theme-toggle:hover { background-color: var(--text-color); color: var(--bg-color); }
+        nav { margin-bottom: 20px; font-size: 0.9rem; display: flex; gap: 15px; }
+        nav a, .content-link, .back-nav { text-decoration: none; color: inherit; padding: 0 4px; transition: all 0.2s ease; }
+        nav a:hover, nav a.active, .content-link:hover, .back-nav:hover { background-color: var(--accent-color); color: var(--bg-color); border-radius: 2px; text-decoration: none; }
+        .content-link { color: var(--accent-color); text-decoration: underline; text-underline-offset: 3px; }
+        hr { border: 0; border-top: 1px solid var(--hr-color); margin: 20px 0; }
+        p { margin-bottom: 18px; font-size: 1rem; }
+        .copyright { font-size: 0.75rem; color: var(--secondary-text); margin-top: 25px; opacity: 0.8; }
+        .back-nav { margin-top: 40px; display: inline-block; font-size: 0.9rem; }
+    </style>
+</head>
+<body data-theme="light">
+    <div class="container">
+        <header>
+            <h1>aravind</h1>
+            <button id="theme-toggle" aria-label="Toggle theme"><svg id="theme-icon" viewBox="0 0 24 24"></svg></button>
+        </header>
+        <nav><a href="/index.html">home</a>/<a href="/notes.html">notes</a>/<a href="/essays.html" class="active">essays</a>/<a href="/builds.html">builds</a></nav>
+        <hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<a href="/essays.html" class="back-nav">← back to essays</a>
+
+        <div class="copyright">© <span id="year"></span> aravindirl. all rights reserved.</div>
+    </div>
+    <script>
+        const toggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const body = document.body;
+        const sunIcon = `<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>`;
+        const moonIcon = `<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>`;
+        function applyTheme(theme) {
+            if (theme === 'dark') { body.setAttribute('data-theme', 'dark'); themeIcon.innerHTML = sunIcon; themeIcon.setAttribute('fill', 'none'); themeIcon.setAttribute('stroke', 'currentColor'); themeIcon.setAttribute('stroke-width', '2'); }
+            else { body.setAttribute('data-theme', 'light'); themeIcon.innerHTML = moonIcon; themeIcon.setAttribute('fill', 'currentColor'); themeIcon.setAttribute('stroke', 'none'); }
+        }
+        const savedTheme = localStorage.getItem('aravind-theme') || 'light';
+        applyTheme(savedTheme);
+        toggleBtn.addEventListener('click', () => {
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            localStorage.setItem('aravind-theme', newTheme);
+            applyTheme(newTheme);
+        });
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
