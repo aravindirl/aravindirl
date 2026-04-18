@@ -5,48 +5,106 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aravind Ramachandran | Collection</title>
     <style>
-        .crate-title {
-  font-size: 1.2rem;
-  font-weight: bold;         
-  margin-bottom: 16px;
-}
-        :root { --bg-color: #ffffff; --text-color: #000000; --accent-color: #0047ab; --secondary-text: #555; --hr-color: #000000; }
-        [data-theme="dark"] { --bg-color: #121212; --text-color: #ffffff; --accent-color: #ffd700; --secondary-text: #bbb; --hr-color: #333; }
-        body { font-family: ui-monospace, Menlo, Monaco, 'Cascadia Code', 'Source Code Pro', Consolas, monospace; background-color: var(--bg-color); color: var(--text-color); line-height: 1.6; padding: 40px 24px; margin: 0; display: flex; justify-content: center; transition: background-color 0.2s, color 0.2s; box-sizing: border-box; }
-        .container { max-width: 650px; width: 100%; }
-        header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; }
-        h1 { font-size: 1.6rem; font-weight: bold; margin: 0; }
-        #theme-toggle { background: none; border: 1px solid var(--text-color); color: var(--text-color); cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 4px; border-radius: 4px; transition: all 0.2s ease; }
+        :root {
+            --bg-color: #fafafa;
+            --text-color: #000000;
+            --accent-color: #0047ab;
+            --secondary-text: #555;
+            --hr-color: #ddd;
+        }
+        [data-theme="dark"] {
+            --bg-color: #0e0e0e;
+            --text-color: #ffffff;
+            --accent-color: #ffd700;
+            --secondary-text: #888;
+            --hr-color: #2a2a2a;
+        }
+        *, *::before, *::after { box-sizing: border-box; }
+        body {
+            font-family: ui-monospace, Menlo, Monaco, 'Cascadia Code', 'Source Code Pro', Consolas, monospace;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 40px 24px;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .container { max-width: 650px; width: 100%; animation: fadeIn 0.4s ease forwards; }
+        header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+        .site-title { font-size: 1.6rem; font-weight: bold; margin: 0; letter-spacing: -0.02em; }
+        .site-title::before { content: '>_ '; color: var(--accent-color); font-weight: normal; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+        .cursor {
+            display: inline-block;
+            width: 2px;
+            height: 0.9em;
+            background: var(--accent-color);
+            vertical-align: middle;
+            animation: blink 1.1s step-end infinite;
+            margin-left: 3px;
+        }
+        h2 { font-size: 1.2rem; font-weight: bold; margin: 0 0 20px 0; }
+        #theme-toggle {
+            background: none;
+            border: 1px solid var(--text-color);
+            color: var(--text-color);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4px;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
         #theme-toggle svg { width: 16px; height: 16px; fill: currentColor; }
         #theme-toggle:hover { background-color: var(--text-color); color: var(--bg-color); }
-        nav { margin-bottom: 20px; font-size: 0.9rem; display: flex; gap: 15px; }
-        nav a, .content-link, .back-nav { text-decoration: none; color: inherit; padding: 0 4px; transition: all 0.2s ease; }
-        nav a:hover, nav a.active, .content-link:hover, .back-nav:hover { background-color: var(--accent-color); color: var(--bg-color); border-radius: 2px; text-decoration: none; }
-        .content-link { color: var(--accent-color); text-decoration: underline; text-underline-offset: 3px; }
         hr { border: 0; border-top: 1px solid var(--hr-color); margin: 20px 0; }
-        p { margin-bottom: 18px; font-size: 1rem; }
+        nav { font-size: 0.9rem; display: flex; align-items: center; flex-wrap: wrap; margin-bottom: 4px; }
+        .sep { color: var(--secondary-text); padding: 0 3px; user-select: none; }
+        nav a, .content-link, .back-nav {
+            text-decoration: none;
+            color: inherit;
+            padding: 0 4px;
+            transition: all 0.2s ease;
+        }
+        nav a:hover, .content-link:hover, .back-nav:hover {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            border-radius: 2px;
+            text-decoration: none;
+        }
+        .content-link { color: var(--accent-color); text-decoration: underline; text-underline-offset: 3px; }
+        p { margin-bottom: 14px; font-size: 1rem; }
         .copyright { font-size: 0.75rem; color: var(--secondary-text); margin-top: 25px; opacity: 0.8; }
         .back-nav { margin-top: 40px; display: inline-block; font-size: 0.9rem; }
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: var(--hr-color); border-radius: 3px; }
     </style>
 </head>
-<body data-theme="light">
+<body data-theme="dark">
     <div class="container">
         <header>
-            <h1></h1>
+            <h1 class="site-title">Aravind Ramachandran<span class="cursor"></span></h1>
             <button id="theme-toggle" aria-label="Toggle theme"><svg id="theme-icon" viewBox="0 0 24 24"></svg></button>
         </header>
-        <h2 class="crate-title">collection:-</h2>
+        <hr>
+        <h2>collection:-</h2>
 
-        <p>● <strong></strong><a href="https://open.spotify.com/user/vtubl2p2emhobb5yc4qdzorc2" target="_blank" class="content-link">spotify</a> — music i keep returning to</p>
-        <p>● <strong></strong><a href="https://letterboxd.com/aravind26/" target="_blank" class="content-link">letterboxd</a> — films and notes</p>
-        <p>● <strong></strong><a href="https://myanimelist.net/profile/aravindirl" target="_blank" class="content-link">my animelist</a> — anime and manga</p>
-        <p>● <strong></strong><a href="https://youtube.com/playlist?list=PLtsg_LLoffZwATzGKPouffjOs4HRlZR3P&si=XXxzcPlhH2098JWU" target="_blank" class="content-link">youtube</a> — videos worth revisiting</p>
-        <p>● <strong></strong><a href="https://aravindirl.notion.site/articles-and-writings-from-the-internet-that-stayed-with-me-2c9ea2287b7e80339860f4edf55248b7?source=copy_link" target="_blank" class="content-link">notion</a> — articles and references</p>
-        <p>● <strong></strong><a href="https://www.goodreads.com/user/show/166509546-aravind" target="_blank" class="content-link">goodreads</a> — books</p>
-        <p>● <strong></strong><a href="https://500px.com/p/raravind2610?view=photos" target="_blank" class="content-link">500px</a> — photography</p>
-        
-        
-        
+        <p>● <a href="https://open.spotify.com/user/vtubl2p2emhobb5yc4qdzorc2" target="_blank" class="content-link">spotify</a> — music i keep returning to</p>
+        <p>● <a href="https://letterboxd.com/aravind26/" target="_blank" class="content-link">letterboxd</a> — films and notes</p>
+        <p>● <a href="https://myanimelist.net/profile/aravindirl" target="_blank" class="content-link">my animelist</a> — anime and manga</p>
+        <p>● <a href="https://youtube.com/playlist?list=PLtsg_LLoffZwATzGKPouffjOs4HRlZR3P&si=XXxzcPlhH2098JWU" target="_blank" class="content-link">youtube</a> — videos worth revisiting</p>
+        <p>● <a href="https://aravindirl.notion.site/articles-and-writings-from-the-internet-that-stayed-with-me-2c9ea2287b7e80339860f4edf55248b7?source=copy_link" target="_blank" class="content-link">notion</a> — articles and references</p>
+        <p>● <a href="https://www.goodreads.com/user/show/166509546-aravind" target="_blank" class="content-link">goodreads</a> — books</p>
+        <p>● <a href="https://500px.com/p/raravind2610?view=photos" target="_blank" class="content-link">500px</a> — photography</p>
+
         <a href="about.html" class="back-nav">← back to about</a>
         <div class="copyright">© <span id="year"></span> aravindirl. all rights reserved.</div>
     </div>
@@ -57,10 +115,20 @@
         const sunIcon = `<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>`;
         const moonIcon = `<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>`;
         function applyTheme(theme) {
-            if (theme === 'dark') { body.setAttribute('data-theme', 'dark'); themeIcon.innerHTML = sunIcon; themeIcon.setAttribute('fill', 'none'); themeIcon.setAttribute('stroke', 'currentColor'); themeIcon.setAttribute('stroke-width', '2'); }
-            else { body.setAttribute('data-theme', 'light'); themeIcon.innerHTML = moonIcon; themeIcon.setAttribute('fill', 'currentColor'); themeIcon.setAttribute('stroke', 'none'); }
+            if (theme === 'dark') {
+                body.setAttribute('data-theme', 'dark');
+                themeIcon.innerHTML = sunIcon;
+                themeIcon.setAttribute('fill', 'none');
+                themeIcon.setAttribute('stroke', 'currentColor');
+                themeIcon.setAttribute('stroke-width', '2');
+            } else {
+                body.setAttribute('data-theme', 'light');
+                themeIcon.innerHTML = moonIcon;
+                themeIcon.setAttribute('fill', 'currentColor');
+                themeIcon.setAttribute('stroke', 'none');
+            }
         }
-        const savedTheme = localStorage.getItem('aravind-theme') || 'light';
+        const savedTheme = localStorage.getItem('aravind-theme') || 'dark';
         applyTheme(savedTheme);
         toggleBtn.addEventListener('click', () => {
             const currentTheme = body.getAttribute('data-theme');

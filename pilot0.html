@@ -5,13 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>what am trying to understand?</title>
     <style>
-        :root { --bg-color: #ffffff; --text-color: #000000; --accent-color: #0047ab; --secondary-text: #555; --hr-color: #000000; --caption-bg: #f7f7f7; }
-        [data-theme="dark"] { --bg-color: #121212; --text-color: #ffffff; --accent-color: #ffd700; --secondary-text: #bbb; --hr-color: #333; --caption-bg: #1c1c1c; }
-        body { font-family: ui-monospace, Menlo, Monaco, 'Cascadia Code', 'Source Code Pro', Consolas, monospace; background-color: var(--bg-color); color: var(--text-color); line-height: 1.6; padding: 40px 24px; margin: 0; display: flex; justify-content: center; transition: background-color 0.2s, color 0.2s; }
-        .container { max-width: 650px; width: 100%; }
-        header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; }
-        h1 { font-size: 1.6rem; font-weight: bold; margin: 0; }
-        #theme-toggle { background: none; border: 1px solid var(--text-color); color: var(--text-color); cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 4px; border-radius: 4px; transition: all 0.2s ease; }
+        :root {
+            --bg-color: #fafafa;
+            --text-color: #000000;
+            --accent-color: #0047ab;
+            --secondary-text: #555;
+            --hr-color: #ddd;
+            --caption-bg: #f2f2f2;
+        }
+        [data-theme="dark"] {
+            --bg-color: #0e0e0e;
+            --text-color: #ffffff;
+            --accent-color: #ffd700;
+            --secondary-text: #888;
+            --hr-color: #2a2a2a;
+            --caption-bg: #161616;
+        }
+        *, *::before, *::after { box-sizing: border-box; }
+        body {
+            font-family: ui-monospace, Menlo, Monaco, 'Cascadia Code', 'Source Code Pro', Consolas, monospace;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 40px 24px;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .container { max-width: 650px; width: 100%; animation: fadeIn 0.4s ease forwards; }
+        header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+        .site-title { font-size: 1.6rem; font-weight: bold; margin: 0; letter-spacing: -0.02em; }
+        .site-title::before { content: '>_ '; color: var(--accent-color); font-weight: normal; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+        .cursor {
+            display: inline-block;
+            width: 2px;
+            height: 0.9em;
+            background: var(--accent-color);
+            vertical-align: middle;
+            animation: blink 1.1s step-end infinite;
+            margin-left: 3px;
+        }
+        #theme-toggle {
+            background: none;
+            border: 1px solid var(--text-color);
+            color: var(--text-color);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4px;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
         #theme-toggle svg { width: 16px; height: 16px; fill: currentColor; }
         #theme-toggle:hover { background-color: var(--text-color); color: var(--bg-color); }
         hr { border: 0; border-top: 1px solid var(--hr-color); margin: 20px 0; }
@@ -19,54 +70,83 @@
         .essay-meta { font-size: 0.8rem; color: var(--secondary-text); margin-bottom: 24px; }
         p { font-size: 1rem; margin-bottom: 18px; line-height: 1.75; }
         figure { margin: 28px 0; }
-        figure img { width: 100%; display: block; border: 1px solid #e0e0e0; border-radius: 2px; }
-        [data-theme="dark"] figure img { border-color: #2a2a2a; }
-        figcaption { font-size: 0.75rem; color: var(--secondary-text); margin-top: 6px; background-color: var(--caption-bg); padding: 4px 6px; border-left: 2px solid var(--accent-color); }
-        blockquote { border-left: 3px solid var(--accent-color); padding: 10px 16px; margin: 24px 0; font-size: 1rem; color: var(--secondary-text); font-style: italic; }
-        .back-nav { margin-top: 40px; display: inline-block; font-size: 0.9rem; text-decoration: none; color: inherit; padding: 0 4px; transition: all 0.2s ease; }
+        figure img { width: 100%; display: block; border: 1px solid var(--hr-color); border-radius: 2px; }
+        figcaption {
+            font-size: 0.75rem;
+            color: var(--secondary-text);
+            margin-top: 6px;
+            background-color: var(--caption-bg);
+            padding: 4px 8px;
+            border-left: 2px solid var(--accent-color);
+        }
+        blockquote {
+            border-left: 3px solid var(--accent-color);
+            padding: 10px 16px;
+            margin: 24px 0;
+            font-size: 1rem;
+            color: var(--secondary-text);
+            font-style: italic;
+        }
+        .back-nav {
+            margin-top: 40px;
+            display: inline-block;
+            font-size: 0.9rem;
+            text-decoration: none;
+            color: inherit;
+            padding: 0 4px;
+            transition: all 0.2s ease;
+        }
         .back-nav:hover { background-color: var(--accent-color); color: var(--bg-color); border-radius: 2px; }
         .copyright { font-size: 0.75rem; color: var(--secondary-text); margin-top: 25px; opacity: 0.8; }
+
+        /* Reading progress bar */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 2px;
+            background: var(--accent-color);
+            width: 0%;
+            transition: width 0.1s linear;
+            z-index: 100;
+        }
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: var(--hr-color); border-radius: 3px; }
     </style>
 </head>
-<body data-theme="light">
+<body data-theme="dark">
+<div class="progress-bar" id="progress-bar"></div>
 <div class="container">
 
     <header>
-        <!-- YOUR NAME below -->
-        <h1>Aravind Ramachandran</h1>
+        <h1 class="site-title">Aravind Ramachandran<span class="cursor"></span></h1>
         <button id="theme-toggle" aria-label="Toggle theme"><svg id="theme-icon" viewBox="0 0 24 24"></svg></button>
     </header>
 
     <hr>
 
-    <!-- ESSAY TITLE below -->
     <div class="essay-label">What am trying to understand:-</div>
-
-    <!-- DATE below -->
-    <div class="essay-meta">march 2026</div>
-
-
-    <!-- ↓↓↓ WRITE YOUR ESSAY HERE ↓↓↓ -->
-    <!-- Each paragraph goes inside <p> and </p> tags -->
+    <div class="essay-meta">march 2026 · 1 min read</div>
 
     <p>
-        I’ve been trying to understand how things actually work — mostly across markets, technology, and behavior. Not in a formal sense, but by paying attention to what keeps repeating and what seems to drive outcomes underneath.
+        I've been trying to understand how things actually work — mostly across markets, technology, and behavior. Not in a formal sense, but by paying attention to what keeps repeating and what seems to drive outcomes underneath.
     </p>
 
     <p>
-        A lot of what I come across feels surface-level. Trends move fast, opinions are everywhere, and it’s easy to mistake noise for insight. But if you look a bit closer, the same patterns tend to show up — incentives shaping behavior, systems reinforcing themselves, and outcomes that aren’t random once you see the structure behind them.
+        A lot of what I come across feels surface-level. Trends move fast, opinions are everywhere, and it's easy to mistake noise for insight. But if you look a bit closer, the same patterns tend to show up — incentives shaping behavior, systems reinforcing themselves, and outcomes that aren't random once you see the structure behind them.
     </p>
-	
+
     <p>
-        I’ve found that writing helps me slow things down. otherwise, everything stays vague — ideas pass through, but don’t really settle. Putting things into words forces a bit more clarity, even if the thinking is still incomplete.
+        I've found that writing helps me slow things down. otherwise, everything stays vague — ideas pass through, but don't really settle. Putting things into words forces a bit more clarity, even if the thinking is still incomplete.
     </p>
-    
-	<p>
-	   This is a place to work through that as they start making sense. Nothing too polished — just trying to see a little more clearly over time.
-	</p>
+
+    <p>
+        This is a place to work through that as they start making sense. Nothing too polished — just trying to see a little more clearly over time.
+    </p>
 
     <hr>
-    <a href="blogs.html" class="back-nav">← back to blogs </a>
+    <a href="blogs.html" class="back-nav">← back to blogs</a>
     <div class="copyright">© <span id="year"></span> aravindirl. all rights reserved.</div>
 </div>
 
@@ -77,12 +157,34 @@
     const sunIcon = `<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>`;
     const moonIcon = `<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>`;
     function applyTheme(t) {
-        if (t === 'dark') { body.setAttribute('data-theme','dark'); themeIcon.innerHTML=sunIcon; themeIcon.setAttribute('fill','none'); themeIcon.setAttribute('stroke','currentColor'); themeIcon.setAttribute('stroke-width','2'); }
-        else { body.setAttribute('data-theme','light'); themeIcon.innerHTML=moonIcon; themeIcon.setAttribute('fill','currentColor'); themeIcon.setAttribute('stroke','none'); }
+        if (t === 'dark') {
+            body.setAttribute('data-theme', 'dark');
+            themeIcon.innerHTML = sunIcon;
+            themeIcon.setAttribute('fill', 'none');
+            themeIcon.setAttribute('stroke', 'currentColor');
+            themeIcon.setAttribute('stroke-width', '2');
+        } else {
+            body.setAttribute('data-theme', 'light');
+            themeIcon.innerHTML = moonIcon;
+            themeIcon.setAttribute('fill', 'currentColor');
+            themeIcon.setAttribute('stroke', 'none');
+        }
     }
-    applyTheme(localStorage.getItem('aravind-theme') || 'light');
-    toggleBtn.addEventListener('click', () => { const n = body.getAttribute('data-theme')==='light'?'dark':'light'; localStorage.setItem('aravind-theme',n); applyTheme(n); });
+    const savedTheme = localStorage.getItem('aravind-theme') || 'dark';
+    applyTheme(savedTheme);
+    toggleBtn.addEventListener('click', () => {
+        const n = body.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+        localStorage.setItem('aravind-theme', n);
+        applyTheme(n);
+    });
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    const progressBar = document.getElementById('progress-bar');
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.body.scrollHeight - window.innerHeight;
+        progressBar.style.width = (docHeight > 0 ? (scrollTop / docHeight) * 100 : 0) + '%';
+    });
 </script>
 </body>
 </html>
