@@ -113,6 +113,13 @@
         ::-webkit-scrollbar { width: 5px; }
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: var(--hr-color); border-radius: 3px; }
+        [data-theme="dark"] .site-title::before { text-shadow: 0 0 10px var(--accent-color); }
+        [data-theme="dark"] .cursor { box-shadow: 0 0 8px var(--accent-color), 0 0 16px var(--accent-color); }
+        [data-theme="dark"] body::before { content: ''; position: fixed; inset: 0; background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.04) 3px, rgba(0,0,0,0.04) 4px); pointer-events: none; z-index: 9998; }
+        ::selection { background: rgba(0, 71, 171, 0.15); }
+        [data-theme="dark"] ::selection { background: rgba(57, 255, 20, 0.2); color: #fff; }
+        .back-nav::before { content: '$ '; color: var(--accent-color); }
+        html { scroll-behavior: smooth; }
     </style>
 </head>
 <body data-theme="dark">

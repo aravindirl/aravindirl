@@ -93,6 +93,22 @@
         ::-webkit-scrollbar { width: 5px; }
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: var(--hr-color); border-radius: 3px; }
+        /* Neon glow on accent elements */
+        [data-theme="dark"] .site-title::before { text-shadow: 0 0 10px var(--accent-color); }
+        [data-theme="dark"] .cursor { box-shadow: 0 0 8px var(--accent-color), 0 0 16px var(--accent-color); }
+        /* Subtle scanline overlay */
+        [data-theme="dark"] body::before { content: ''; position: fixed; inset: 0; background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.04) 3px, rgba(0,0,0,0.04) 4px); pointer-events: none; z-index: 9998; }
+        /* Custom selection */
+        ::selection { background: rgba(0, 71, 171, 0.15); }
+        [data-theme="dark"] ::selection { background: rgba(57, 255, 20, 0.2); color: #fff; }
+        /* // prefix on section headings */
+        h1:not(.site-title)::before { content: '// '; color: var(--accent-color); font-weight: normal; }
+        /* $ prompt on back-nav */
+        .back-nav::before { content: '$ '; color: var(--accent-color); }
+        html { scroll-behavior: smooth; }
+        /* Status bar */
+        .status-bar { font-size: 0.7rem; color: var(--secondary-text); display: flex; gap: 20px; margin-top: 32px; padding-top: 10px; border-top: 1px solid var(--hr-color); }
+        [data-theme="dark"] .status-bar { color: var(--accent-color); opacity: 0.45; }
     </style>
 </head>
 <body data-theme="dark">
@@ -121,7 +137,11 @@
         <p>Memes and trends are just noise if viewed purely as entertainment. I see them differently as signals of where future capital will flow. This shift is already visible in areas like crypto and prediction markets.</p>
         <p>Writing my observations and learnings in this blog, and writing whatever feels like sharing and giving back to the internet. — <a href="blogs.html" class="content-link">Blogs</a></p>
         <p>I prefer slowing things down and looking a bit closer, writing helps me think more clearly. — <a href="about.html" class="content-link">About</a></p>
-        <div class="footer"></div>
+        <div class="status-bar">
+            <span>sys:online</span>
+            <span>posts:02</span>
+            <span>last:apr'26</span>
+        </div>
         <div class="copyright">© <span id="year"></span> aravindirl. all rights reserved.</div>
     </div>
     <script>
@@ -153,6 +173,15 @@
             applyTheme(newTheme);
         });
         document.getElementById('year').textContent = new Date().getFullYear();
+        (function() {
+            const el = document.querySelector('hr + p');
+            if (!el) return;
+            const text = el.textContent;
+            el.textContent = '';
+            let i = 0;
+            const type = () => { if (i < text.length) { el.textContent += text[i++]; setTimeout(type, 18); } };
+            setTimeout(type, 500);
+        })();
     </script>
 </body>
 </html>
