@@ -109,6 +109,7 @@
         h1:not(.site-title)::before { content: '// '; color: var(--accent-color); font-weight: normal; }
         .back-nav::before { content: '$ '; color: var(--accent-color); }
         html { scroll-behavior: smooth; }
+        .social-footer { margin-top: 10px; font-size: 0.9rem; display: flex; align-items: center; flex-wrap: wrap; }
     </style>
 </head>
 <body data-theme="dark">
@@ -117,20 +118,6 @@
             <h1 class="site-title">Aravind Ramachandran<span class="cursor"></span></h1>
             <button id="theme-toggle" aria-label="Toggle theme"><svg id="theme-icon" viewBox="0 0 24 24"></svg></button>
         </header>
-        <nav>
-            <a href="https://www.instagram.com/aravindirl/" class="content-link" target="_blank" rel="noopener noreferrer">instagram</a>
-            <span class="sep">/</span>
-            <a href="https://x.com/aravindirl" class="content-link" target="_blank" rel="noopener noreferrer">x(twitter)</a>
-            <span class="sep">/</span>
-            <a href="https://www.linkedin.com/in/aravindirl/" class="content-link" target="_blank" rel="noopener noreferrer">linkedin</a>
-        </nav>
-        <nav class="page-nav">
-            <a href="index.html">home</a>
-            <span class="sep">·</span>
-            <a href="blogs.html">blogs</a>
-            <span class="sep">·</span>
-            <a href="about.html" class="active">about</a>
-        </nav>
         <hr>
 
         <h1>About:</h1>
@@ -233,6 +220,13 @@
         <p>Reach out: <a href="mailto:raravind2610@gmail.com" class="content-link">raravind2610@gmail.com</a></p>
 
         <a href="index.html" class="back-nav">← back to homepage</a>
+        <nav class="social-footer">
+            <a href="https://www.instagram.com/aravindirl/" class="content-link" target="_blank" rel="noopener noreferrer">instagram</a>
+            <span class="sep">/</span>
+            <a href="https://x.com/aravindirl" class="content-link" target="_blank" rel="noopener noreferrer">x(twitter)</a>
+            <span class="sep">/</span>
+            <a href="https://www.linkedin.com/in/aravindirl/" class="content-link" target="_blank" rel="noopener noreferrer">linkedin</a>
+        </nav>
         <div class="copyright">© <span id="year"></span> aravindirl. all rights reserved.</div>
     </div>
     <script>
