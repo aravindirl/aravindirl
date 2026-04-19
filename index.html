@@ -109,6 +109,7 @@
         /* Status bar */
         .status-bar { font-size: 0.7rem; color: var(--secondary-text); display: flex; gap: 20px; margin-top: 32px; padding-top: 10px; border-top: 1px solid var(--hr-color); }
         [data-theme="dark"] .status-bar { color: var(--accent-color); opacity: 0.45; }
+        .social-footer { margin-top: 10px; font-size: 0.9rem; display: flex; align-items: center; flex-wrap: wrap; }
     </style>
 </head>
 <body data-theme="dark">
@@ -117,20 +118,6 @@
             <h1 class="site-title">Aravind Ramachandran<span class="cursor"></span></h1>
             <button id="theme-toggle" aria-label="Toggle theme"><svg id="theme-icon" viewBox="0 0 24 24"></svg></button>
         </header>
-        <nav>
-            <a href="https://www.instagram.com/aravindirl/" class="content-link" target="_blank" rel="noopener noreferrer">instagram</a>
-            <span class="sep">/</span>
-            <a href="https://x.com/aravindirl" class="content-link" target="_blank" rel="noopener noreferrer">x(twitter)</a>
-            <span class="sep">/</span>
-            <a href="https://www.linkedin.com/in/aravindirl/" class="content-link" target="_blank" rel="noopener noreferrer">linkedin</a>
-        </nav>
-        <nav class="page-nav">
-            <a href="index.html" class="active">home</a>
-            <span class="sep">·</span>
-            <a href="blogs.html">blogs</a>
-            <span class="sep">·</span>
-            <a href="about.html">about</a>
-        </nav>
         <hr>
         <p>Spending most of my time trying to understand how things work in markets, technology & society. Patterns across these domains excite me.</p>
         <p>Believing in <a href="https://a16z.com/the-techno-optimist-manifesto/" class="content-link" target="_blank" rel="noopener noreferrer">The techno-optimist manifesto</a> and free markets capitalism.</p>
@@ -142,6 +129,13 @@
             <span>posts:02</span>
             <span>last:apr'26</span>
         </div>
+        <nav class="social-footer">
+            <a href="https://www.instagram.com/aravindirl/" class="content-link" target="_blank" rel="noopener noreferrer">instagram</a>
+            <span class="sep">/</span>
+            <a href="https://x.com/aravindirl" class="content-link" target="_blank" rel="noopener noreferrer">x(twitter)</a>
+            <span class="sep">/</span>
+            <a href="https://www.linkedin.com/in/aravindirl/" class="content-link" target="_blank" rel="noopener noreferrer">linkedin</a>
+        </nav>
         <div class="copyright">© <span id="year"></span> aravindirl. all rights reserved.</div>
     </div>
     <script>
@@ -173,15 +167,6 @@
             applyTheme(newTheme);
         });
         document.getElementById('year').textContent = new Date().getFullYear();
-        (function() {
-            const el = document.querySelector('hr + p');
-            if (!el) return;
-            const text = el.textContent;
-            el.textContent = '';
-            let i = 0;
-            const type = () => { if (i < text.length) { el.textContent += text[i++]; setTimeout(type, 18); } };
-            setTimeout(type, 500);
-        })();
     </script>
 </body>
 </html>
