@@ -107,7 +107,7 @@
         .back-nav::before { content: '$ '; color: var(--accent-color); }
         html { scroll-behavior: smooth; }
         /* Status bar */
-        .status-bar { font-size: 0.7rem; color: var(--secondary-text); display: flex; gap: 20px; margin-top: 32px; padding-top: 10px; border-top: 1px solid var(--hr-color); }
+        .status-bar { font-size: 0.7rem; color: var(--secondary-text); display: flex; gap: 20px; flex-wrap: wrap; margin-top: 32px; padding-top: 10px; border-top: 1px solid var(--hr-color); }
         [data-theme="dark"] .status-bar { color: var(--accent-color); opacity: 0.45; }
         .social-footer { margin-top: 10px; font-size: 0.9rem; display: flex; align-items: center; flex-wrap: wrap; }
     </style>
@@ -126,6 +126,9 @@
         <p>I prefer slowing things down and looking a bit closer, writing helps me think more clearly. — <a href="about.html" class="content-link">About</a></p>
         <div class="status-bar">
             <span>sys:online</span>
+            <span id="status-time">time:--:--</span>
+            <span id="status-weather">weather:--°c</span>
+            <span>listening:tame impala</span>
             <span>posts:02</span>
             <span>last:apr'26</span>
         </div>
@@ -176,6 +179,23 @@
             applyTheme(newTheme);
         });
         document.getElementById('year').textContent = new Date().getFullYear();
+
+        function updateTime() {
+            const ist = new Date(new Date().toLocaleString('en-US', { timeZone: 'Asia/Kolkata' }));
+            const h = String(ist.getHours()).padStart(2, '0');
+            const m = String(ist.getMinutes()).padStart(2, '0');
+            document.getElementById('status-time').textContent = `time:${h}:${m} ist`;
+        }
+        updateTime();
+        setInterval(updateTime, 60000);
+
+        fetch('https://api.open-meteo.com/v1/forecast?latitude=13.08&longitude=80.27&current=temperature_2m&timezone=Asia/Kolkata')
+            .then(r => r.json())
+            .then(d => {
+                const temp = Math.round(d.current.temperature_2m);
+                document.getElementById('status-weather').textContent = `weather:${temp}°c chennai`;
+            })
+            .catch(() => {});
     </script>
 </body>
 </html>
