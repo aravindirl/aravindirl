@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>we are in a marketing bubble!</title>
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content="The supply of marketing has exploded while attention hasn't scaled. The system is distorting.">
+    <meta property="og:title" content="We are in a marketing bubble — Aravind Ramachandran">
+    <meta property="og:description" content="The supply of marketing has exploded while attention hasn't scaled at the same rate.">
+    <meta property="og:type" content="article">
     <style>
         :root {
             --bg-color: #fafafa;
@@ -120,6 +125,12 @@
         [data-theme="dark"] ::selection { background: rgba(57, 255, 20, 0.2); color: #fff; }
         .back-nav::before { content: '$ '; color: var(--accent-color); }
         html { scroll-behavior: smooth; }
+        .site-title a { text-decoration: none; color: inherit; }
+        [data-theme="dark"] .content-link { text-shadow: 0 0 6px rgba(57, 255, 20, 0.35); }
+        .toast { position: fixed; bottom: 20px; right: 20px; font-size: 0.72rem; padding: 5px 10px; border: 1px solid var(--accent-color); color: var(--accent-color); background: var(--bg-color); border-radius: 3px; opacity: 0; transition: opacity 0.2s ease; pointer-events: none; z-index: 9999; font-family: inherit; }
+        .toast.show { opacity: 1; }
+        .read-next { margin: 24px 0 8px; display: flex; gap: 12px; align-items: baseline; font-size: 0.88rem; flex-wrap: wrap; }
+        .read-next-label { color: var(--secondary-text); white-space: nowrap; }
     </style>
 </head>
 <body data-theme="dark">
@@ -127,7 +138,7 @@
 <div class="container">
 
     <header>
-        <h1 class="site-title">Aravind Ramachandran<span class="cursor"></span></h1>
+        <h1 class="site-title"><a href="index.html">Aravind Ramachandran</a><span class="cursor"></span></h1>
         <button id="theme-toggle" aria-label="Toggle theme"><svg id="theme-icon" viewBox="0 0 24 24"></svg></button>
     </header>
 
@@ -184,6 +195,10 @@
         We are experiencing the latter.
     </p>
     <hr>
+    <div class="read-next">
+        <span class="read-next-label">read next →</span>
+        <a href="pilot0.html" class="content-link">What am trying to understand?</a>
+    </div>
     <a href="blogs.html" class="back-nav">← back to blogs</a>
     <div class="copyright">© <span id="year"></span> aravindirl. all rights reserved.</div>
 </div>
@@ -232,6 +247,20 @@
         const docHeight = document.body.scrollHeight - window.innerHeight;
         progressBar.style.width = (docHeight > 0 ? (scrollTop / docHeight) * 100 : 0) + '%';
     });
+
+    (function() {
+        const toast = document.createElement('div');
+        toast.className = 'toast';
+        document.body.appendChild(toast);
+        document.addEventListener('keydown', e => {
+            if (e.key === 't' && !e.ctrlKey && !e.metaKey && !['INPUT','TEXTAREA'].includes(document.activeElement.tagName)) {
+                toggleBtn.click();
+                toast.textContent = '[theme: ' + document.body.getAttribute('data-theme') + ']';
+                toast.classList.add('show');
+                setTimeout(() => toast.classList.remove('show'), 1500);
+            }
+        });
+    })();
 </script>
 </body>
 </html>

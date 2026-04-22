@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aravind Ramachandran | Collection</title>
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content="Aravind Ramachandran's digital collection — music, films, books, photography and more.">
+    <meta property="og:title" content="Aravind Ramachandran | Collection">
+    <meta property="og:description" content="Music I keep returning to, films and notes, books, photography and more.">
+    <meta property="og:type" content="website">
     <style>
         :root {
             --bg-color: #fafafa;
@@ -93,24 +98,57 @@
         [data-theme="dark"] ::selection { background: rgba(57, 255, 20, 0.2); color: #fff; }
         .back-nav::before { content: '$ '; color: var(--accent-color); }
         html { scroll-behavior: smooth; }
+        .site-title a { text-decoration: none; color: inherit; }
+        [data-theme="dark"] .content-link { text-shadow: 0 0 6px rgba(57, 255, 20, 0.35); }
+        .toast { position: fixed; bottom: 20px; right: 20px; font-size: 0.72rem; padding: 5px 10px; border: 1px solid var(--accent-color); color: var(--accent-color); background: var(--bg-color); border-radius: 3px; opacity: 0; transition: opacity 0.2s ease; pointer-events: none; z-index: 9999; font-family: inherit; }
+        .toast.show { opacity: 1; }
+        .crate-list { margin: 16px 0 32px; }
+        .crate-entry { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 10px 8px; border-bottom: 1px solid var(--hr-color); border-radius: 3px; margin: 0 -8px; text-decoration: none; color: inherit; transition: padding-left 0.15s ease, background-color 0.15s ease; }
+        .crate-entry:first-child { border-top: 1px solid var(--hr-color); }
+        .crate-entry:hover { padding-left: 18px; background-color: var(--hr-color); }
+        .crate-name { font-size: 0.95rem; color: var(--accent-color); }
+        .crate-desc { font-size: 0.82rem; color: var(--secondary-text); text-align: right; }
     </style>
 </head>
 <body data-theme="dark">
     <div class="container">
         <header>
-            <h1 class="site-title">Aravind Ramachandran<span class="cursor"></span></h1>
+            <h1 class="site-title"><a href="index.html">Aravind Ramachandran</a><span class="cursor"></span></h1>
             <button id="theme-toggle" aria-label="Toggle theme"><svg id="theme-icon" viewBox="0 0 24 24"></svg></button>
         </header>
         <hr>
         <h2>collection:-</h2>
 
-        <p>● <a href="https://open.spotify.com/user/vtubl2p2emhobb5yc4qdzorc2" target="_blank" class="content-link">spotify</a> — music i keep returning to</p>
-        <p>● <a href="https://letterboxd.com/aravind26/" target="_blank" class="content-link">letterboxd</a> — films and notes</p>
-        <p>● <a href="https://myanimelist.net/profile/aravindirl" target="_blank" class="content-link">my animelist</a> — anime and manga</p>
-        <p>● <a href="https://youtube.com/playlist?list=PLtsg_LLoffZwATzGKPouffjOs4HRlZR3P&si=XXxzcPlhH2098JWU" target="_blank" class="content-link">youtube</a> — videos worth revisiting</p>
-        <p>● <a href="https://aravindirl.notion.site/articles-and-writings-from-the-internet-that-stayed-with-me-2c9ea2287b7e80339860f4edf55248b7?source=copy_link" target="_blank" class="content-link">notion</a> — articles and references</p>
-        <p>● <a href="https://www.goodreads.com/user/show/166509546-aravind" target="_blank" class="content-link">goodreads</a> — books</p>
-        <p>● <a href="https://500px.com/p/raravind2610?view=photos" target="_blank" class="content-link">500px</a> — photography</p>
+        <div class="crate-list">
+            <a href="https://open.spotify.com/user/vtubl2p2emhobb5yc4qdzorc2" target="_blank" rel="noopener noreferrer" class="crate-entry">
+                <span class="crate-name">spotify</span>
+                <span class="crate-desc">music i keep returning to</span>
+            </a>
+            <a href="https://letterboxd.com/aravind26/" target="_blank" rel="noopener noreferrer" class="crate-entry">
+                <span class="crate-name">letterboxd</span>
+                <span class="crate-desc">films and notes</span>
+            </a>
+            <a href="https://myanimelist.net/profile/aravindirl" target="_blank" rel="noopener noreferrer" class="crate-entry">
+                <span class="crate-name">my animelist</span>
+                <span class="crate-desc">anime and manga</span>
+            </a>
+            <a href="https://youtube.com/playlist?list=PLtsg_LLoffZwATzGKPouffjOs4HRlZR3P&si=XXxzcPlhH2098JWU" target="_blank" rel="noopener noreferrer" class="crate-entry">
+                <span class="crate-name">youtube</span>
+                <span class="crate-desc">videos worth revisiting</span>
+            </a>
+            <a href="https://aravindirl.notion.site/articles-and-writings-from-the-internet-that-stayed-with-me-2c9ea2287b7e80339860f4edf55248b7?source=copy_link" target="_blank" rel="noopener noreferrer" class="crate-entry">
+                <span class="crate-name">notion</span>
+                <span class="crate-desc">articles and references</span>
+            </a>
+            <a href="https://www.goodreads.com/user/show/166509546-aravind" target="_blank" rel="noopener noreferrer" class="crate-entry">
+                <span class="crate-name">goodreads</span>
+                <span class="crate-desc">books</span>
+            </a>
+            <a href="https://500px.com/p/raravind2610?view=photos" target="_blank" rel="noopener noreferrer" class="crate-entry">
+                <span class="crate-name">500px</span>
+                <span class="crate-desc">photography</span>
+            </a>
+        </div>
 
         <a href="about.html" class="back-nav">← back to about</a>
         <div class="copyright">© <span id="year"></span> aravindirl. all rights reserved.</div>
@@ -153,6 +191,20 @@
             applyTheme(newTheme);
         });
         document.getElementById('year').textContent = new Date().getFullYear();
+
+        (function() {
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            document.body.appendChild(toast);
+            document.addEventListener('keydown', e => {
+                if (e.key === 't' && !e.ctrlKey && !e.metaKey && !['INPUT','TEXTAREA'].includes(document.activeElement.tagName)) {
+                    toggleBtn.click();
+                    toast.textContent = '[theme: ' + document.body.getAttribute('data-theme') + ']';
+                    toast.classList.add('show');
+                    setTimeout(() => toast.classList.remove('show'), 1500);
+                }
+            });
+        })();
     </script>
 </body>
 </html>

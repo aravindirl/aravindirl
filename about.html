@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aravind Ramachandran | About</title>
+    <meta name="description" content="About Aravind Ramachandran — based in Chennai, studying markets, technology & society.">
+    <meta property="og:title" content="Aravind Ramachandran | About">
+    <meta property="og:description" content="25, Chennai. Studying markets, technology & society. Active generalist.">
+    <meta property="og:type" content="website">
     <style>
         :root {
             --bg-color: #fafafa;
@@ -110,12 +114,19 @@
         .back-nav::before { content: '$ '; color: var(--accent-color); }
         html { scroll-behavior: smooth; }
         .social-footer { margin-top: 10px; font-size: 0.9rem; display: flex; align-items: center; flex-wrap: wrap; }
+        .site-title a { text-decoration: none; color: inherit; }
+        [data-theme="dark"] .content-link { text-shadow: 0 0 6px rgba(57, 255, 20, 0.35); }
+        .toast { position: fixed; bottom: 20px; right: 20px; font-size: 0.72rem; padding: 5px 10px; border: 1px solid var(--accent-color); color: var(--accent-color); background: var(--bg-color); border-radius: 3px; opacity: 0; transition: opacity 0.2s ease; pointer-events: none; z-index: 9999; font-family: inherit; }
+        .toast.show { opacity: 1; }
+        .back-top { position: fixed; bottom: 22px; right: 22px; background: none; border: 1px solid var(--hr-color); color: var(--secondary-text); font-family: inherit; font-size: 0.7rem; padding: 4px 8px; cursor: pointer; border-radius: 3px; opacity: 0; transition: opacity 0.2s, border-color 0.2s, color 0.2s; z-index: 999; }
+        .back-top.visible { opacity: 1; }
+        .back-top:hover { border-color: var(--accent-color); color: var(--accent-color); }
     </style>
 </head>
 <body data-theme="dark">
     <div class="container">
         <header>
-            <h1 class="site-title">Aravind Ramachandran<span class="cursor"></span></h1>
+            <h1 class="site-title"><a href="index.html">Aravind Ramachandran</a><span class="cursor"></span></h1>
             <button id="theme-toggle" aria-label="Toggle theme"><svg id="theme-icon" viewBox="0 0 24 24"></svg></button>
         </header>
         <hr>
@@ -235,6 +246,7 @@
         </nav>
         <div class="copyright">© <span id="year"></span> aravindirl. all rights reserved.</div>
     </div>
+    <button class="back-top" id="back-top">↑ top</button>
     <script>
         const toggleBtn = document.getElementById('theme-toggle');
         const themeIcon = document.getElementById('theme-icon');
@@ -273,6 +285,24 @@
             applyTheme(newTheme);
         });
         document.getElementById('year').textContent = new Date().getFullYear();
+
+        const backTop = document.getElementById('back-top');
+        window.addEventListener('scroll', () => backTop.classList.toggle('visible', window.scrollY > 300));
+        backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        (function() {
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            document.body.appendChild(toast);
+            document.addEventListener('keydown', e => {
+                if (e.key === 't' && !e.ctrlKey && !e.metaKey && !['INPUT','TEXTAREA'].includes(document.activeElement.tagName)) {
+                    toggleBtn.click();
+                    toast.textContent = '[theme: ' + document.body.getAttribute('data-theme') + ']';
+                    toast.classList.add('show');
+                    setTimeout(() => toast.classList.remove('show'), 1500);
+                }
+            });
+        })();
     </script>
 </body>
 </html>
