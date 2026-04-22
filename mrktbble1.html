@@ -133,17 +133,19 @@
         .toast.show { opacity: 1; }
         .read-next { margin: 24px 0 8px; display: flex; gap: 12px; align-items: baseline; font-size: 0.88rem; flex-wrap: wrap; }
         .read-next-label { color: var(--secondary-text); white-space: nowrap; }
-        .side-label { position: fixed; top: 50%; font-size: 0.65rem; color: var(--secondary-text); opacity: 0.3; letter-spacing: 0.15em; pointer-events: none; white-space: nowrap; user-select: none; }
-        .side-label-left { left: 18px; transform: translateY(-50%) rotate(-90deg); }
-        .side-label-right { right: 18px; transform: translateY(-50%) rotate(90deg); }
-        [data-theme="dark"] .side-label { opacity: 0.18; color: var(--accent-color); }
-        @media (max-width: 900px) { .side-label { display: none; } }
+        .rail { position: fixed; top: 0; bottom: 0; width: 80px; display: flex; align-items: center; justify-content: center; }
+        .rail-left { left: calc(50% - 405px); border-right: 1px solid var(--hr-color); }
+        .rail-right { right: calc(50% - 405px); border-left: 1px solid var(--hr-color); }
+        .rail-text { writing-mode: vertical-rl; font-size: 0.68rem; color: var(--secondary-text); letter-spacing: 0.2em; opacity: 0.5; user-select: none; pointer-events: none; font-family: inherit; }
+        .rail-left .rail-text { transform: rotate(180deg); }
+        [data-theme="dark"] .rail-text { color: var(--accent-color); opacity: 0.25; }
+        @media (max-width: 1000px) { .rail { display: none; } }
     </style>
 </head>
 <body data-theme="dark">
 <div class="progress-bar" id="progress-bar"></div>
-<div class="side-label side-label-left">aravindirl</div>
-<div class="side-label side-label-right">chennai · india</div>
+<div class="rail rail-left"><span class="rail-text">aravindirl</span></div>
+<div class="rail rail-right"><span class="rail-text">chennai, india</span></div>
 <div class="container">
 
     <header>
