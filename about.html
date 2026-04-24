@@ -41,7 +41,7 @@
             to   { opacity: 1; transform: translateY(0); }
         }
         .container { max-width: 650px; width: 100%; animation: fadeIn 0.4s ease forwards; }
-        header { display: flex; justify-content: center; align-items: center; margin-bottom: 6px; position: relative; }
+        header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
         .site-title { font-size: 1.6rem; font-weight: bold; margin: 0; letter-spacing: -0.02em; }
         .site-title::before { content: '>_ '; color: var(--accent-color); font-weight: normal; }
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
@@ -67,8 +67,6 @@
             padding: 4px;
             border-radius: 4px;
             transition: all 0.2s ease;
-            position: absolute;
-            right: 0;
         }
         #theme-toggle svg { width: 16px; height: 16px; fill: currentColor; }
         #theme-toggle:hover { background-color: var(--text-color); color: var(--bg-color); }
