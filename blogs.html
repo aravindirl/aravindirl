@@ -106,7 +106,25 @@
         .toast.show { opacity: 1; }
 
         /* Subtitle */
-        .blog-subtitle { font-size: 0.88rem; color: var(--secondary-text); font-style: italic; margin: 0 0 18px; }
+        .blog-subtitle { font-size: 0.88rem; color: var(--secondary-text); font-style: italic; margin: 0 0 14px; }
+
+        /* Search */
+        .search-wrap { position: relative; margin-bottom: 14px; }
+        .search-wrap::before { content: '> '; position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: var(--accent-color); font-size: 0.78rem; pointer-events: none; }
+        #search-input {
+            width: 100%;
+            background: none;
+            border: 1px solid var(--hr-color);
+            border-radius: 3px;
+            color: var(--text-color);
+            font-family: inherit;
+            font-size: 0.78rem;
+            padding: 6px 10px 6px 28px;
+            outline: none;
+            transition: border-color 0.15s ease;
+        }
+        #search-input::placeholder { color: var(--secondary-text); }
+        #search-input:focus { border-color: var(--accent-color); }
 
         /* Controls */
         .controls { margin-bottom: 20px; }
@@ -189,6 +207,10 @@
 
         <h1>blogs:-</h1>
         <p class="blog-subtitle">writing through what i observe — markets, technology, and how things actually work.</p>
+
+        <div class="search-wrap">
+            <input type="text" id="search-input" placeholder="search posts..." autocomplete="off" spellcheck="false">
+        </div>
 
         <div class="controls">
             <div class="control-row">
@@ -302,23 +324,33 @@
             return Array.from(grid.querySelectorAll('.blog-card'));
         }
 
+        let searchQuery = '';
+
         function applyFilter() {
+            const q = searchQuery.toLowerCase();
             getCards().forEach(card => {
                 const tags = card.dataset.tags || '';
-                const show = activeTag === 'all' || tags.split(' ').includes(activeTag);
-                card.dataset.hidden = show ? 'false' : 'true';
+                const title = (card.querySelector('.card-title') || {}).textContent || '';
+                const excerpt = (card.querySelector('.card-excerpt') || {}).textContent || '';
+                const tagMatch = activeTag === 'all' || tags.split(' ').includes(activeTag);
+                const searchMatch = !q || title.toLowerCase().includes(q) || tags.toLowerCase().includes(q) || excerpt.toLowerCase().includes(q);
+                card.dataset.hidden = (tagMatch && searchMatch) ? 'false' : 'true';
             });
-            // Remove existing no-results
             const existing = grid.querySelector('.no-results');
             if (existing) existing.remove();
             const visible = getCards().filter(c => c.dataset.hidden !== 'true');
             if (visible.length === 0) {
                 const msg = document.createElement('div');
                 msg.className = 'no-results';
-                msg.textContent = 'no posts with that tag yet.';
+                msg.textContent = q ? `no posts matching "${q}".` : 'no posts with that tag yet.';
                 grid.appendChild(msg);
             }
         }
+
+        document.getElementById('search-input').addEventListener('input', function() {
+            searchQuery = this.value;
+            applyFilter();
+        });
 
         function applySort() {
             const cards = getCards();
