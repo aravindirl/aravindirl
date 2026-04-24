@@ -130,9 +130,16 @@
         [data-theme="dark"] .content-link { text-shadow: 0 0 6px rgba(57, 255, 20, 0.35); }
         .toast { position: fixed; bottom: 20px; right: 20px; font-size: 0.72rem; padding: 5px 10px; border: 1px solid var(--accent-color); color: var(--accent-color); background: var(--bg-color); border-radius: 3px; opacity: 0; transition: opacity 0.2s ease; pointer-events: none; z-index: 9999; font-family: inherit; }
         .toast.show { opacity: 1; }
+        .bracket { position: fixed; top: 8vh; height: 84vh; width: 16px; pointer-events: none; user-select: none; border-color: var(--text-color); border-style: solid; opacity: 0.1; }
+        .bracket-left { left: calc(50% - 352px); border-width: 1px 0 1px 1px; }
+        .bracket-right { right: calc(50% - 352px); border-width: 1px 1px 1px 0; }
+        [data-theme="dark"] .bracket { border-color: var(--accent-color); opacity: 0.22; }
+        @media (max-width: 800px) { .bracket { display: none; } }
     </style>
 </head>
 <body data-theme="dark">
+    <div class="bracket bracket-left"></div>
+    <div class="bracket bracket-right"></div>
     <div class="container">
         <header>
             <h1 class="site-title"><a href="index.html">Aravind Ramachandran</a><span class="cursor"></span></h1>

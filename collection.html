@@ -110,9 +110,16 @@
         .crate-entry:hover { padding-left: 18px; background-color: var(--hr-color); }
         .crate-name { font-size: 0.95rem; color: var(--accent-color); }
         .crate-desc { font-size: 0.82rem; color: var(--secondary-text); text-align: right; }
+        .bracket { position: fixed; top: 8vh; height: 84vh; width: 16px; pointer-events: none; user-select: none; border-color: var(--text-color); border-style: solid; opacity: 0.1; }
+        .bracket-left { left: calc(50% - 352px); border-width: 1px 0 1px 1px; }
+        .bracket-right { right: calc(50% - 352px); border-width: 1px 1px 1px 0; }
+        [data-theme="dark"] .bracket { border-color: var(--accent-color); opacity: 0.22; }
+        @media (max-width: 800px) { .bracket { display: none; } }
     </style>
 </head>
 <body data-theme="dark">
+    <div class="bracket bracket-left"></div>
+    <div class="bracket bracket-right"></div>
     <div class="container">
         <header>
             <h1 class="site-title"><a href="index.html">Aravind Ramachandran</a><span class="cursor"></span></h1>
