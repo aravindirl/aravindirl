@@ -54,7 +54,7 @@
             animation: blink 1.1s step-end infinite;
             margin-left: 3px;
         }
-        h1 { font-size: 1.3rem; font-weight: bold; margin: 28px 0 10px 0; letter-spacing: -0.01em; }
+        h1 { font-size: 1.3rem; font-weight: bold; margin: 28px 0 6px 0; letter-spacing: -0.01em; }
         #theme-toggle {
             background: none;
             border: 1px solid var(--text-color);
@@ -69,52 +69,26 @@
         }
         #theme-toggle svg { width: 16px; height: 16px; fill: currentColor; }
         #theme-toggle:hover { background-color: var(--text-color); color: var(--bg-color); }
-        nav { font-size: 0.9rem; display: flex; align-items: center; flex-wrap: wrap; margin-bottom: 4px; }
-        .page-nav { margin-bottom: 16px; }
         .sep { color: var(--secondary-text); padding: 0 3px; user-select: none; }
-        nav a, .content-link, .back-nav {
+        .content-link, .back-nav {
             text-decoration: none;
             color: inherit;
             padding: 0 4px;
             transition: all 0.2s ease;
         }
-        nav a:hover, .content-link:hover, .back-nav:hover {
+        .content-link:hover, .back-nav:hover {
             background-color: var(--accent-color);
             color: var(--bg-color);
             border-radius: 2px;
             text-decoration: none;
         }
-        nav a.active { background-color: var(--text-color); color: var(--bg-color); border-radius: 2px; }
         .content-link { color: var(--accent-color); text-decoration: underline; text-underline-offset: 3px; }
         hr { border: 0; border-top: 1px solid var(--hr-color); margin: 20px 0; }
-        p { margin-bottom: 18px; font-size: 1rem; }
         .copyright { font-size: 0.75rem; color: var(--secondary-text); margin-top: 25px; opacity: 0.8; }
         .back-nav { margin-top: 40px; display: inline-block; font-size: 0.9rem; }
         ::-webkit-scrollbar { width: 5px; }
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: var(--hr-color); border-radius: 3px; }
-
-        /* Blog list */
-        .blog-list { margin: 20px 0 32px; }
-        .blog-entry {
-            display: grid;
-            grid-template-columns: 28px 1fr auto;
-            gap: 8px 12px;
-            align-items: baseline;
-            padding: 10px 8px;
-            border-bottom: 1px solid var(--hr-color);
-            border-radius: 3px;
-            margin: 0 -8px;
-            transition: padding-left 0.15s ease, background-color 0.15s ease;
-            text-decoration: none;
-            color: inherit;
-        }
-        .blog-entry:first-child { border-top: 1px solid var(--hr-color); }
-        .blog-entry:hover { padding-left: 18px; background-color: var(--hr-color); }
-        .blog-num { color: var(--secondary-text); font-size: 0.85rem; }
-        .blog-title { font-size: 1rem; transition: color 0.15s ease; }
-        .blog-entry:hover .blog-title { color: var(--accent-color); }
-        .blog-meta { font-size: 0.78rem; color: var(--secondary-text); white-space: nowrap; }
         [data-theme="dark"] .site-title::before { text-shadow: 0 0 10px var(--accent-color); }
         [data-theme="dark"] .cursor { box-shadow: 0 0 8px var(--accent-color), 0 0 16px var(--accent-color); }
         [data-theme="dark"] body::before { content: ''; position: fixed; inset: 0; background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.04) 3px, rgba(0,0,0,0.04) 4px); pointer-events: none; z-index: 9998; }
@@ -130,6 +104,79 @@
         [data-theme="dark"] .content-link { text-shadow: 0 0 6px rgba(57, 255, 20, 0.35); }
         .toast { position: fixed; bottom: 20px; right: 20px; font-size: 0.72rem; padding: 5px 10px; border: 1px solid var(--accent-color); color: var(--accent-color); background: var(--bg-color); border-radius: 3px; opacity: 0; transition: opacity 0.2s ease; pointer-events: none; z-index: 9999; font-family: inherit; }
         .toast.show { opacity: 1; }
+
+        /* Subtitle */
+        .blog-subtitle { font-size: 0.88rem; color: var(--secondary-text); font-style: italic; margin: 0 0 18px; }
+
+        /* Controls */
+        .controls { margin-bottom: 20px; }
+        .control-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-bottom: 8px; font-size: 0.78rem; }
+        .control-label { color: var(--secondary-text); min-width: 28px; }
+        .sort-btn, .tag-btn {
+            border: 1px solid var(--hr-color);
+            background: none;
+            color: var(--text-color);
+            font-family: inherit;
+            font-size: 0.74rem;
+            padding: 2px 8px;
+            cursor: pointer;
+            border-radius: 2px;
+            transition: all 0.15s ease;
+        }
+        .sort-btn:hover, .tag-btn:hover { border-color: var(--accent-color); color: var(--accent-color); }
+        .sort-btn.active { background-color: var(--accent-color); border-color: var(--accent-color); color: var(--bg-color); }
+        .tag-btn.active { background-color: var(--accent-color); border-color: var(--accent-color); color: var(--bg-color); }
+
+        /* Blog grid */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background-color: var(--hr-color);
+            border: 1px solid var(--hr-color);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 32px;
+        }
+        .blog-card {
+            background: var(--bg-color);
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            transition: background-color 0.15s ease;
+        }
+        .blog-card.featured { grid-column: span 2; }
+        .blog-card:hover { background-color: var(--hr-color); }
+        .card-thumb {
+            width: 100%;
+            aspect-ratio: 16/9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+        [data-theme="dark"] .card-thumb { filter: brightness(0.65) saturate(0.75); }
+        .card-body { padding: 12px; flex: 1; display: flex; flex-direction: column; }
+        .card-meta { font-size: 0.68rem; color: var(--secondary-text); margin-bottom: 4px; }
+        .card-title { font-size: 0.88rem; font-weight: bold; margin-bottom: 6px; line-height: 1.4; }
+        .card-excerpt { font-size: 0.78rem; color: var(--secondary-text); font-style: italic; margin-bottom: 8px; line-height: 1.5; flex: 1; }
+        .card-tags { display: flex; gap: 4px; align-items: center; flex-wrap: wrap; font-size: 0.68rem; margin-top: auto; }
+        .tag-pill { border: 1px solid var(--hr-color); border-radius: 2px; padding: 1px 5px; color: var(--secondary-text); }
+        .card-read { color: var(--secondary-text); }
+        .blog-card[data-hidden="true"] { display: none; }
+
+        /* No results message */
+        .no-results { padding: 32px; text-align: center; color: var(--secondary-text); font-size: 0.85rem; font-style: italic; grid-column: 1 / -1; }
+
+        @media (max-width: 500px) {
+            .blog-grid { grid-template-columns: repeat(2, 1fr); }
+            .blog-card.featured { grid-column: span 2; }
+        }
+        @media (max-width: 340px) {
+            .blog-grid { grid-template-columns: 1fr; }
+            .blog-card.featured { grid-column: span 1; }
+        }
     </style>
 </head>
 <body data-theme="dark">
@@ -139,19 +186,61 @@
             <button id="theme-toggle" aria-label="Toggle theme"><svg id="theme-icon" viewBox="0 0 24 24"></svg></button>
         </header>
         <hr>
+
         <h1>blogs:-</h1>
-        <div class="blog-list">
-            <a href="pilot0.html" class="blog-entry">
-                <span class="blog-num">#0</span>
-                <span class="blog-title">What am trying to understand?</span>
-                <span class="blog-meta">30-03-2026 · 1 min</span>
-            </a>
-            <a href="mrktbble1.html" class="blog-entry">
-                <span class="blog-num">#1</span>
-                <span class="blog-title">We are in a marketing bubble</span>
-                <span class="blog-meta">10-04-2026 · 2 min</span>
-            </a>
+        <p class="blog-subtitle">writing through what i observe — markets, technology, and how things actually work.</p>
+
+        <div class="controls">
+            <div class="control-row">
+                <span class="control-label">sort</span>
+                <button class="sort-btn active" data-sort="newest">newest first</button>
+                <button class="sort-btn" data-sort="oldest">oldest first</button>
+                <button class="sort-btn" data-sort="shortest">shortest read</button>
+                <button class="sort-btn" data-sort="longest">longest read</button>
+            </div>
+            <div class="control-row">
+                <span class="control-label">tags</span>
+                <button class="tag-btn active" data-tag="all">all</button>
+                <button class="tag-btn" data-tag="markets">markets</button>
+                <button class="tag-btn" data-tag="internet">internet</button>
+                <button class="tag-btn" data-tag="meta">meta</button>
+                <button class="tag-btn" data-tag="thinking">thinking</button>
+            </div>
         </div>
+
+        <div class="blog-grid" id="blog-grid">
+
+            <a href="pilot0.html" class="blog-card featured"
+               data-date="20260330" data-words="300" data-tags="meta thinking">
+                <div class="card-thumb" style="background:#c9d6c1;">🤔</div>
+                <div class="card-body">
+                    <div class="card-meta">#01 · 30 mar · ~1 min</div>
+                    <div class="card-title">What am trying to understand?</div>
+                    <div class="card-excerpt">first entry. mostly me trying to figure out why i started this and what i'm even doing.</div>
+                    <div class="card-tags">
+                        <span class="tag-pill">meta</span>
+                        <span class="tag-pill">thinking</span>
+                        <span class="card-read">· 1 min read</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="mrktbble1.html" class="blog-card"
+               data-date="20260410" data-words="500" data-tags="markets internet">
+                <div class="card-thumb" style="background:#b8c6d4;">📢</div>
+                <div class="card-body">
+                    <div class="card-meta">#02 · 10 apr · ~2 min</div>
+                    <div class="card-title">We are in a marketing bubble</div>
+                    <div class="card-tags">
+                        <span class="tag-pill">markets</span>
+                        <span class="tag-pill">internet</span>
+                        <span class="card-read">· 2 min read</span>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+
         <a href="index.html" class="back-nav">← back to homepage</a>
         <nav class="social-footer">
             <a href="https://www.instagram.com/aravindirl/" class="content-link" target="_blank" rel="noopener noreferrer">instagram</a>
@@ -164,6 +253,7 @@
         </nav>
         <div class="copyright">© <span id="year"></span> aravindirl. all rights reserved.</div>
     </div>
+
     <script>
         const toggleBtn = document.getElementById('theme-toggle');
         const themeIcon = document.getElementById('theme-icon');
@@ -202,6 +292,69 @@
             applyTheme(newTheme);
         });
         document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Sort & filter
+        const grid = document.getElementById('blog-grid');
+        let activeTag = 'all';
+        let activeSort = 'newest';
+
+        function getCards() {
+            return Array.from(grid.querySelectorAll('.blog-card'));
+        }
+
+        function applyFilter() {
+            getCards().forEach(card => {
+                const tags = card.dataset.tags || '';
+                const show = activeTag === 'all' || tags.split(' ').includes(activeTag);
+                card.dataset.hidden = show ? 'false' : 'true';
+            });
+            // Remove existing no-results
+            const existing = grid.querySelector('.no-results');
+            if (existing) existing.remove();
+            const visible = getCards().filter(c => c.dataset.hidden !== 'true');
+            if (visible.length === 0) {
+                const msg = document.createElement('div');
+                msg.className = 'no-results';
+                msg.textContent = 'no posts with that tag yet.';
+                grid.appendChild(msg);
+            }
+        }
+
+        function applySort() {
+            const cards = getCards();
+            cards.sort((a, b) => {
+                if (activeSort === 'newest') return Number(b.dataset.date) - Number(a.dataset.date);
+                if (activeSort === 'oldest') return Number(a.dataset.date) - Number(b.dataset.date);
+                if (activeSort === 'shortest') return Number(a.dataset.words) - Number(b.dataset.words);
+                if (activeSort === 'longest') return Number(b.dataset.words) - Number(a.dataset.words);
+                return 0;
+            });
+            cards.forEach(c => grid.appendChild(c));
+            // Re-assign featured to first visible card
+            cards.forEach((c, i) => {
+                if (i === 0) c.classList.add('featured');
+                else c.classList.remove('featured');
+            });
+        }
+
+        document.querySelectorAll('.sort-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                activeSort = btn.dataset.sort;
+                applySort();
+                applyFilter();
+            });
+        });
+
+        document.querySelectorAll('.tag-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.tag-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                activeTag = btn.dataset.tag;
+                applyFilter();
+            });
+        });
 
         (function() {
             const toast = document.createElement('div');
