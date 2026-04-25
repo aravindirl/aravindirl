@@ -49,7 +49,20 @@
             from { opacity: 0; transform: translateY(8px); }
             to   { opacity: 1; transform: translateY(0); }
         }
+        .wrapper { display: flex; gap: 40px; width: 100%; max-width: 900px; }
         .container { max-width: 650px; width: 100%; animation: fadeIn 0.4s ease forwards; }
+        .tag-sidebar { display: none; width: 150px; font-size: 0.9rem; animation: fadeIn 0.4s ease forwards; }
+        .tag-sidebar-label { font-weight: bold; margin-bottom: 16px; color: var(--text-color); }
+        .tag-item { margin-bottom: 10px; }
+        .tag-item a { color: var(--accent-color); text-decoration: none; font-size: 0.85rem; }
+        .tag-item a:before { content: '· '; margin-right: 4px; }
+
+        @media (min-width: 900px) {
+            body { justify-content: flex-start; padding-left: 60px; }
+            .wrapper { gap: 60px; }
+            .tag-sidebar { display: block; position: sticky; top: 40px; height: fit-content; }
+        }
+
         header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
         .site-title { font-size: 1.6rem; font-weight: bold; margin: 0; letter-spacing: -0.02em; }
         .site-title::before { content: '>_ '; color: var(--accent-color); font-weight: normal; }
@@ -80,6 +93,8 @@
         hr { border: 0; border-top: 1px solid var(--hr-color); margin: 20px 0; }
         .essay-label { font-size: 1.2rem; font-weight: bold; margin-bottom: 6px; }
         .essay-meta { font-size: 0.8rem; color: var(--secondary-text); margin-bottom: 24px; }
+        .blog-tags { font-size: 0.8rem; color: var(--secondary-text); margin-bottom: 20px; display: flex; gap: 8px; flex-wrap: wrap; }
+        .tag-badge { background: rgba(52, 211, 153, 0.1); color: var(--accent-color); padding: 2px 8px; border-radius: 2px; text-decoration: none; }
         p { font-size: 1rem; margin-bottom: 18px; line-height: 1.75; }
         h2 { font-size: 1.1rem; font-weight: bold; margin: 32px 0 16px 0; letter-spacing: -0.01em; }
         h3 { font-size: 1rem; font-weight: bold; margin: 24px 0 12px 0; color: var(--secondary-text); }
@@ -102,7 +117,6 @@
             font-style: italic;
         }
         a { color: var(--accent-color); text-decoration: underline; text-underline-offset: 3px; }
-        a:hover { background-color: var(--accent-color); color: var(--bg-color); border-radius: 2px; text-decoration: none; padding: 0 2px; }
         .back-nav {
             margin-top: 40px;
             display: inline-block;
@@ -147,158 +161,174 @@
         .share-btn:hover { border-color: var(--accent-color); color: var(--accent-color); }
     </style>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"BlogPosting","headline":"Your Blog Title","description":"Your blog description goes here.","author":{"@type":"Person","name":"Aravind Ramachandran","url":"https://www.aravindirl.com/"},"datePublished":"2026-04-25","url":"https://www.aravindirl.com/blogs/your-blog-title.html","mainEntityOfPage":"https://www.aravindirl.com/blogs/your-blog-title.html"}
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"Your Blog Title","description":"Your blog description goes here.","keywords":"tag1,tag2,tag3","author":{"@type":"Person","name":"Aravind Ramachandran","url":"https://www.aravindirl.com/"},"datePublished":"2026-04-25","url":"https://www.aravindirl.com/blogs/your-blog-title.html","mainEntityOfPage":"https://www.aravindirl.com/blogs/your-blog-title.html"}
     </script>
 </head>
 <body data-theme="dark">
 <div class="progress-bar" id="progress-bar"></div>
-<div class="container">
+<div class="wrapper">
+    <div class="container">
+        <header>
+            <h1 class="site-title"><a href="../index.html">Aravind Ramachandran</a><span class="cursor"></span></h1>
+            <button id="theme-toggle" aria-label="Toggle theme"><svg id="theme-icon" viewBox="0 0 24 24"></svg></button>
+        </header>
 
-    <header>
-        <h1 class="site-title"><a href="../index.html">Aravind Ramachandran</a><span class="cursor"></span></h1>
-        <button id="theme-toggle" aria-label="Toggle theme"><svg id="theme-icon" viewBox="0 0 24 24"></svg></button>
-    </header>
+        <hr>
 
-    <hr>
+        <div class="essay-label">Your Blog Title Goes Here</div>
+        <div class="essay-meta">month year · X min read</div>
 
-    <div class="essay-label">Your Blog Title Goes Here</div>
-    <div class="essay-meta">month year · X min read</div>
+        <div class="blog-tags">
+            <a href="../blogs.html?tag=technology" class="tag-badge">technology</a>
+            <a href="../blogs.html?tag=markets" class="tag-badge">markets</a>
+            <a href="../blogs.html?tag=thinking" class="tag-badge">thinking</a>
+        </div>
 
-    <!-- Opening paragraph -->
-    <p>
-        Start with a strong opening that hooks the reader and establishes what this blog is about. Set the context and explain why this topic matters. This opening should be clear and engaging, drawing the reader into your narrative.
-    </p>
+        <!-- Opening paragraph -->
+        <p>
+            Start with a strong opening that hooks the reader and establishes what this blog is about. Set the context and explain why this topic matters. This opening should be clear and engaging, drawing the reader into your narrative.
+        </p>
 
-    <!-- SECTION 1 -->
-    <h2>Section 1: Foundation & Context</h2>
+        <!-- SECTION 1 -->
+        <h2>Section 1: Foundation & Context</h2>
 
-    <p>
-        Introduce the first major idea or theme you're exploring. Provide background information and establish the groundwork for your argument or analysis. This is where you lay out the essential context your readers need.
-    </p>
+        <p>
+            Introduce the first major idea or theme you're exploring. Provide background information and establish the groundwork for your argument or analysis. This is where you lay out the essential context your readers need.
+        </p>
 
-    <h3>Subsection 1.1: Key Concept</h3>
-    <p>
-        Dive deeper into a specific aspect of your main point. Use clear language and concrete examples to help readers understand the concept. Consider linking to <a href="../projects/projects.html">your projects</a> or external sources that provide additional context.
-    </p>
+        <h3>Subsection 1.1: Key Concept</h3>
+        <p>
+            Dive deeper into a specific aspect of your main point. Use clear language and concrete examples to help readers understand the concept. Consider linking to <a href="../projects/projects.html">your projects</a> or external sources that provide additional context.
+        </p>
 
-    <figure>
-        <img src="images/image1.jpg" alt="Image for section 1">
-        <figcaption>Description of what this image shows and its relevance to the discussion</figcaption>
-    </figure>
+        <figure>
+            <img src="images/image1.jpg" alt="Image for section 1">
+            <figcaption>Description of what this image shows and its relevance to the discussion</figcaption>
+        </figure>
 
-    <p>
-        Continue developing your ideas with supporting evidence or observations. Explain how this connects to your broader thesis.
-    </p>
+        <p>
+            Continue developing your ideas with supporting evidence or observations. Explain how this connects to your broader thesis.
+        </p>
 
-    <h3>Subsection 1.2: Another Key Angle</h3>
-    <p>
-        Explore another dimension of this section. Perhaps discuss a contrasting viewpoint, historical context, or practical implications. Use this subsection to round out the discussion of your first major theme.
-    </p>
+        <h3>Subsection 1.2: Another Key Angle</h3>
+        <p>
+            Explore another dimension of this section. Perhaps discuss a contrasting viewpoint, historical context, or practical implications. Use this subsection to round out the discussion of your first major theme.
+        </p>
 
-    <blockquote>
-        A relevant quote that reinforces your point or provides an expert perspective on this topic. Quotes help break up the text and add authoritative voices to your writing.
-    </blockquote>
+        <blockquote>
+            A relevant quote that reinforces your point or provides an expert perspective on this topic. Quotes help break up the text and add authoritative voices to your writing.
+        </blockquote>
 
-    <p>
-        Wrap up this section with a transition that connects to your next major theme.
-    </p>
+        <p>
+            Wrap up this section with a transition that connects to your next major theme.
+        </p>
 
-    <!-- SECTION 2 -->
-    <h2>Section 2: Analysis & Evidence</h2>
+        <!-- SECTION 2 -->
+        <h2>Section 2: Analysis & Evidence</h2>
 
-    <p>
-        Go deeper into the analysis. This section should build on the foundation you've established and provide more specific evidence, data, or examples that support your argument.
-    </p>
+        <p>
+            Go deeper into the analysis. This section should build on the foundation you've established and provide more specific evidence, data, or examples that support your argument.
+        </p>
 
-    <h3>Subsection 2.1: Deep Dive into Data or Examples</h3>
-    <p>
-        Provide specific examples, case studies, or data points. Be concrete and detailed. Explain what you're observing and why it matters. You can reference <a href="../about/about.html">your about page</a> or other relevant content to provide additional context.
-    </p>
+        <h3>Subsection 2.1: Deep Dive into Data or Examples</h3>
+        <p>
+            Provide specific examples, case studies, or data points. Be concrete and detailed. Explain what you're observing and why it matters. You can reference <a href="../about/about.html">your about page</a> or other relevant content to provide additional context.
+        </p>
 
-    <figure>
-        <img src="images/image2.jpg" alt="Image for section 2">
-        <figcaption>Visual representation of a key concept or data point from this section</figcaption>
-    </figure>
+        <figure>
+            <img src="images/image2.jpg" alt="Image for section 2">
+            <figcaption>Visual representation of a key concept or data point from this section</figcaption>
+        </figure>
 
-    <h3>Subsection 2.2: Implications & Patterns</h3>
-    <p>
-        Discuss what these examples or data points reveal about the broader theme. What patterns emerge? What do they suggest about the topic? This is where you synthesize your observations into meaningful insights.
-    </p>
+        <h3>Subsection 2.2: Implications & Patterns</h3>
+        <p>
+            Discuss what these examples or data points reveal about the broader theme. What patterns emerge? What do they suggest about the topic? This is where you synthesize your observations into meaningful insights.
+        </p>
 
-    <blockquote>
-        Another relevant quote that adds depth or perspective to your analysis. Use quotes strategically throughout the blog to break up the prose and reinforce key ideas.
-    </blockquote>
+        <blockquote>
+            Another relevant quote that adds depth or perspective to your analysis. Use quotes strategically throughout the blog to break up the prose and reinforce key ideas.
+        </blockquote>
 
-    <!-- SECTION 3 -->
-    <h2>Section 3: Practical Applications & Real-World Impact</h2>
+        <!-- SECTION 3 -->
+        <h2>Section 3: Practical Applications & Real-World Impact</h2>
 
-    <p>
-        Shift to practical considerations. Show your readers how this information applies in the real world. Make it relatable and actionable where possible.
-    </p>
+        <p>
+            Shift to practical considerations. Show your readers how this information applies in the real world. Make it relatable and actionable where possible.
+        </p>
 
-    <h3>Subsection 3.1: Real-World Scenarios</h3>
-    <p>
-        Include specific scenarios or applications. Show how the concepts you've discussed actually play out in practice. This helps readers understand the relevance of your ideas to their own lives or work.
-    </p>
+        <h3>Subsection 3.1: Real-World Scenarios</h3>
+        <p>
+            Include specific scenarios or applications. Show how the concepts you've discussed actually play out in practice. This helps readers understand the relevance of your ideas to their own lives or work.
+        </p>
 
-    <figure>
-        <video width="100%" controls style="border-radius: 2px; border: 1px solid var(--hr-color);">
-            <source src="videos/your-video.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <figcaption>Video demonstrating or illustrating a key concept from this section</figcaption>
-    </figure>
+        <figure>
+            <video width="100%" controls style="border-radius: 2px; border: 1px solid var(--hr-color);">
+                <source src="videos/your-video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <figcaption>Video demonstrating or illustrating a key concept from this section</figcaption>
+        </figure>
 
-    <h3>Subsection 3.2: Actionable Insights</h3>
-    <p>
-        Provide actionable advice or insights based on your analysis. What should readers take away? What can they do with this information? Make this section valuable and practical.
-    </p>
+        <h3>Subsection 3.2: Actionable Insights</h3>
+        <p>
+            Provide actionable advice or insights based on your analysis. What should readers take away? What can they do with this information? Make this section valuable and practical.
+        </p>
 
-    <!-- SECTION 4 -->
-    <h2>Section 4: Future Implications & Broader Perspective</h2>
+        <!-- SECTION 4 -->
+        <h2>Section 4: Future Implications & Broader Perspective</h2>
 
-    <p>
-        Look forward and discuss the broader implications of what you've analyzed. Consider future directions, emerging trends, or larger systemic implications. This positions your thinking ahead of the curve.
-    </p>
+        <p>
+            Look forward and discuss the broader implications of what you've analyzed. Consider future directions, emerging trends, or larger systemic implications. This positions your thinking ahead of the curve.
+        </p>
 
-    <h3>Subsection 4.1: Emerging Trends or Implications</h3>
-    <p>
-        What's on the horizon? Where do you think this is heading? Discuss the trajectory of the topic and why the future direction matters. This is where you can showcase forward-thinking perspective.
-    </p>
+        <h3>Subsection 4.1: Emerging Trends or Implications</h3>
+        <p>
+            What's on the horizon? Where do you think this is heading? Discuss the trajectory of the topic and why the future direction matters. This is where you can showcase forward-thinking perspective.
+        </p>
 
-    <figure>
-        <img src="images/image3.jpg" alt="Image for section 4">
-        <figcaption>Image showing future trends, implications, or the broader context discussed in this section</figcaption>
-    </figure>
+        <figure>
+            <img src="images/image3.jpg" alt="Image for section 4">
+            <figcaption>Image showing future trends, implications, or the broader context discussed in this section</figcaption>
+        </figure>
 
-    <h3>Subsection 4.2: Closing Thoughts</h3>
-    <p>
-        Synthesize your main ideas and provide a thoughtful conclusion. Summarize the key insights without being repetitive. Leave the reader with something to think about — a question, a challenge, or a vision for what comes next.
-    </p>
+        <h3>Subsection 4.2: Closing Thoughts</h3>
+        <p>
+            Synthesize your main ideas and provide a thoughtful conclusion. Summarize the key insights without being repetitive. Leave the reader with something to think about — a question, a challenge, or a vision for what comes next.
+        </p>
 
-    <blockquote>
-        A final, thought-provoking quote or statement that encapsulates the essence of your blog and leaves readers with something meaningful to reflect on.
-    </blockquote>
+        <blockquote>
+            A final, thought-provoking quote or statement that encapsulates the essence of your blog and leaves readers with something meaningful to reflect on.
+        </blockquote>
 
-    <p>
-        End with a final paragraph that brings closure to your exploration while leaving room for readers to form their own conclusions.
-    </p>
+        <p>
+            End with a final paragraph that brings closure to your exploration while leaving room for readers to form their own conclusions.
+        </p>
 
-    <figure>
-        <img src="images/image4.jpg" alt="Image for closing">
-        <figcaption>Final image that ties the narrative together or shows the broader context</figcaption>
-    </figure>
+        <figure>
+            <img src="images/image4.jpg" alt="Image for closing">
+            <figcaption>Final image that ties the narrative together or shows the broader context</figcaption>
+        </figure>
 
-    <hr>
-    <div class="read-next">
-        <span class="read-next-label">read next →</span>
-        <a href="related-blog-title.html">Related Blog Post Title</a>
+        <hr>
+        <div class="read-next">
+            <span class="read-next-label">read next →</span>
+            <a href="related-blog-title.html">Related Blog Post Title</a>
+        </div>
+        <div class="post-footer">
+            <a href="../blogs.html" class="back-nav">← back to blogs</a>
+            <button class="share-btn" id="share-btn">share ↗</button>
+        </div>
+        <div class="copyright">© <span id="year"></span> aravindirl. all rights reserved.</div>
     </div>
-    <div class="post-footer">
-        <a href="../blogs.html" class="back-nav">← back to blogs</a>
-        <button class="share-btn" id="share-btn">share ↗</button>
-    </div>
-    <div class="copyright">© <span id="year"></span> aravindirl. all rights reserved.</div>
+
+    <aside class="tag-sidebar">
+        <div class="tag-sidebar-label">tags</div>
+        <div class="tag-item"><a href="../blogs.html?tag=technology">technology</a></div>
+        <div class="tag-item"><a href="../blogs.html?tag=markets">markets</a></div>
+        <div class="tag-item"><a href="../blogs.html?tag=thinking">thinking</a></div>
+        <div class="tag-item"><a href="../blogs.html?tag=society">society</a></div>
+        <div class="tag-item"><a href="../blogs.html?tag=behavior">behavior</a></div>
+    </aside>
 </div>
 
 <script>
