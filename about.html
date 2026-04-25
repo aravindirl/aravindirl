@@ -20,7 +20,7 @@
         [data-theme="dark"] {
             --bg-color: #0e0e0e;
             --text-color: #ffffff;
-            --accent-color: #39ff14;
+            --accent-color: #d4a843;
             --secondary-text: #888;
             --hr-color: #2a2a2a;
         }
@@ -111,13 +111,13 @@
         body::after { content: ''; position: fixed; inset: 0; background-image: radial-gradient(rgba(0,0,0,0.055) 1px, transparent 1px); background-size: 24px 24px; pointer-events: none; z-index: 9997; }
         [data-theme="dark"] body::after { display: none; }
         ::selection { background: rgba(179, 28, 28, 0.15); }
-        [data-theme="dark"] ::selection { background: rgba(57, 255, 20, 0.2); color: #fff; }
+        [data-theme="dark"] ::selection { background: rgba(212, 168, 67, 0.2); color: #fff; }
         h1:not(.site-title)::before { content: '// '; color: var(--accent-color); font-weight: normal; }
         .back-nav::before { content: '$ '; color: var(--accent-color); }
         html { scroll-behavior: smooth; }
         .social-footer { margin-top: 10px; font-size: 0.9rem; display: flex; align-items: center; flex-wrap: wrap; }
         .site-title a { text-decoration: none; color: inherit; }
-        [data-theme="dark"] .content-link { text-shadow: 0 0 6px rgba(57, 255, 20, 0.35); }
+        [data-theme="dark"] .content-link { text-shadow: 0 0 6px rgba(212, 168, 67, 0.35); }
         .toast { position: fixed; bottom: 20px; right: 20px; font-size: 0.72rem; padding: 5px 10px; border: 1px solid var(--accent-color); color: var(--accent-color); background: var(--bg-color); border-radius: 3px; opacity: 0; transition: opacity 0.2s ease; pointer-events: none; z-index: 9999; font-family: inherit; }
         .toast.show { opacity: 1; }
         .back-top { position: fixed; bottom: 22px; right: 22px; background: none; border: 1px solid var(--hr-color); color: var(--secondary-text); font-family: inherit; font-size: 0.7rem; padding: 4px 8px; cursor: pointer; border-radius: 3px; opacity: 0; transition: opacity 0.2s, border-color 0.2s, color 0.2s; z-index: 999; }
@@ -270,7 +270,7 @@
                 themeIcon.setAttribute('fill', 'none');
                 themeIcon.setAttribute('stroke', 'currentColor');
                 themeIcon.setAttribute('stroke-width', '2');
-                setFavicon('#39ff14');
+                setFavicon('#d4a843');
             } else {
                 body.setAttribute('data-theme', 'light');
                 themeIcon.innerHTML = moonIcon;

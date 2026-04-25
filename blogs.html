@@ -20,7 +20,7 @@
         [data-theme="dark"] {
             --bg-color: #0e0e0e;
             --text-color: #ffffff;
-            --accent-color: #39ff14;
+            --accent-color: #d4a843;
             --secondary-text: #888;
             --hr-color: #2a2a2a;
         }
@@ -95,13 +95,13 @@
         body::after { content: ''; position: fixed; inset: 0; background-image: radial-gradient(rgba(0,0,0,0.055) 1px, transparent 1px); background-size: 24px 24px; pointer-events: none; z-index: 9997; }
         [data-theme="dark"] body::after { display: none; }
         ::selection { background: rgba(179, 28, 28, 0.15); }
-        [data-theme="dark"] ::selection { background: rgba(57, 255, 20, 0.2); color: #fff; }
+        [data-theme="dark"] ::selection { background: rgba(212, 168, 67, 0.2); color: #fff; }
         h1:not(.site-title)::before { content: '// '; color: var(--accent-color); font-weight: normal; }
         .back-nav::before { content: '$ '; color: var(--accent-color); }
         html { scroll-behavior: smooth; }
         .social-footer { margin-top: 10px; font-size: 0.9rem; display: flex; align-items: center; flex-wrap: wrap; }
         .site-title a { text-decoration: none; color: inherit; }
-        [data-theme="dark"] .content-link { text-shadow: 0 0 6px rgba(57, 255, 20, 0.35); }
+        [data-theme="dark"] .content-link { text-shadow: 0 0 6px rgba(212, 168, 67, 0.35); }
         .toast { position: fixed; bottom: 20px; right: 20px; font-size: 0.72rem; padding: 5px 10px; border: 1px solid var(--accent-color); color: var(--accent-color); background: var(--bg-color); border-radius: 3px; opacity: 0; transition: opacity 0.2s ease; pointer-events: none; z-index: 9999; font-family: inherit; }
         .toast.show { opacity: 1; }
 
@@ -223,6 +223,18 @@
         .tag-sidebar-count { font-size: 0.66rem; opacity: 0.6; }
         @media (max-width: 1060px) { .tag-sidebar { display: none; } }
 
+        /* Mobile tag filter bar — shown when sidebar is hidden */
+        .mobile-tag-bar {
+            display: none;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin: 0 0 14px;
+            padding: 10px 0;
+            border-top: 1px solid var(--hr-color);
+        }
+        .mobile-tag-bar .tag-pill { font-size: 0.72rem; padding: 2px 8px; }
+        @media (max-width: 1060px) { .mobile-tag-bar { display: flex; } }
+
         @media (max-width: 540px) {
             body { padding: 24px 16px; }
             .blog-grid { grid-template-columns: 1fr; }
@@ -257,6 +269,8 @@
             <span>tag:</span>
             <span class="tag-indicator-pill" id="tag-indicator-pill"></span>
         </div>
+
+        <div class="mobile-tag-bar" id="mobile-tag-bar"></div>
 
         <div class="controls">
             <div class="control-row">
@@ -334,7 +348,7 @@
                 themeIcon.setAttribute('fill', 'none');
                 themeIcon.setAttribute('stroke', 'currentColor');
                 themeIcon.setAttribute('stroke-width', '2');
-                setFavicon('#39ff14');
+                setFavicon('#d4a843');
             } else {
                 body.setAttribute('data-theme', 'light');
                 themeIcon.innerHTML = moonIcon;
@@ -466,9 +480,10 @@
             });
         });
 
-        // Build tag sidebar
+        // Build tag sidebar + mobile tag bar
         const sidebar = document.getElementById('tag-sidebar');
-        (function buildSidebar() {
+        const mobileTagBar = document.getElementById('mobile-tag-bar');
+        (function buildTagControls() {
             const counts = {};
             getCards().forEach(card => {
                 (card.dataset.tags || '').split(' ').forEach(t => {
@@ -486,6 +501,13 @@
                 item.innerHTML = `<span>${tag}</span><span class="tag-sidebar-count">(${count})</span>`;
                 item.addEventListener('click', () => setActiveTag(activeTag === tag ? 'all' : tag));
                 sidebar.appendChild(item);
+
+                const pill = document.createElement('span');
+                pill.className = 'tag-pill';
+                pill.dataset.tag = tag;
+                pill.textContent = `${tag} (${count})`;
+                pill.addEventListener('click', () => setActiveTag(activeTag === tag ? 'all' : tag));
+                mobileTagBar.appendChild(pill);
             });
         })();
 
