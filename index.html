@@ -89,34 +89,47 @@
         .content-link { color: var(--accent-color); text-decoration: underline; text-underline-offset: 3px; }
         hr { border: 0; border-top: 1px solid var(--hr-color); margin: 20px 0; }
         p { margin-bottom: 18px; font-size: 1rem; }
-        .footer { margin-top: 30px; font-size: 0.9rem; display: flex; gap: 20px; }
-        .footer a { color: var(--text-color); text-decoration: underline; text-underline-offset: 4px; transition: all 0.2s ease; padding: 0 2px; }
-        .footer a:hover { background-color: var(--accent-color); color: var(--bg-color); text-decoration: none; border-radius: 2px; }
         .copyright { font-size: 0.75rem; color: var(--secondary-text); margin-top: 25px; opacity: 0.8; }
-        .back-nav { margin-top: 40px; display: inline-block; font-size: 0.9rem; }
         ::-webkit-scrollbar { width: 5px; }
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: var(--hr-color); border-radius: 3px; }
-        /* Neon glow on accent elements */
         [data-theme="dark"] .site-title::before { text-shadow: 0 0 10px var(--accent-color); }
         [data-theme="dark"] .cursor { box-shadow: 0 0 8px var(--accent-color), 0 0 16px var(--accent-color); }
-        /* Subtle scanline overlay */
         [data-theme="dark"] body::before { content: ''; position: fixed; inset: 0; background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.04) 3px, rgba(0,0,0,0.04) 4px); pointer-events: none; z-index: 9998; }
-        /* Custom selection */
         body::after { content: ''; position: fixed; inset: 0; background-image: radial-gradient(rgba(0,0,0,0.055) 1px, transparent 1px); background-size: 24px 24px; pointer-events: none; z-index: 9997; }
         [data-theme="dark"] body::after { display: none; }
         ::selection { background: rgba(179, 28, 28, 0.15); }
         [data-theme="dark"] ::selection { background: rgba(57, 255, 20, 0.2); color: #fff; }
-        /* // prefix on section headings */
-        h1:not(.site-title)::before { content: '// '; color: var(--accent-color); font-weight: normal; }
-        /* $ prompt on back-nav */
-        .back-nav::before { content: '$ '; color: var(--accent-color); }
         html { scroll-behavior: smooth; }
+
+        /* Directory nav */
+        .dir-nav { margin: 28px 0 0; }
+        .dir-entry {
+            display: grid;
+            grid-template-columns: 100px 1fr 20px;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 0;
+            border-top: 1px solid var(--hr-color);
+            text-decoration: none;
+            color: inherit;
+            transition: padding-left 0.15s ease;
+        }
+        .dir-entry:last-child { border-bottom: 1px solid var(--hr-color); }
+        .dir-entry:hover { padding-left: 8px; }
+        .dir-path { color: var(--accent-color); font-size: 0.9rem; }
+        .dir-desc { color: var(--secondary-text); font-style: italic; font-size: 0.88rem; }
+        .dir-arrow { color: var(--secondary-text); font-size: 0.9rem; transition: transform 0.15s ease, color 0.15s ease; text-align: right; }
+        .dir-entry:hover .dir-arrow { transform: translateX(3px); color: var(--accent-color); }
+
         /* Status bar */
         .status-bar { font-size: 0.7rem; color: var(--secondary-text); display: flex; gap: 20px; flex-wrap: wrap; margin-top: 32px; padding-top: 10px; border-top: 1px solid var(--hr-color); }
         [data-theme="dark"] .status-bar { color: var(--accent-color); opacity: 0.45; }
+
+        .sep { color: var(--secondary-text); padding: 0 3px; user-select: none; }
         .social-footer { margin-top: 10px; font-size: 0.9rem; display: flex; align-items: center; flex-wrap: wrap; }
-        .site-title a { text-decoration: none; color: inherit; }
+        .content-link { text-decoration: underline; text-underline-offset: 3px; color: var(--accent-color); transition: all 0.2s ease; }
+        .content-link:hover { background-color: var(--accent-color); color: var(--bg-color); border-radius: 2px; text-decoration: none; padding: 0 2px; }
         [data-theme="dark"] .content-link { text-shadow: 0 0 6px rgba(57, 255, 20, 0.35); }
         .toast { position: fixed; bottom: 20px; right: 20px; font-size: 0.72rem; padding: 5px 10px; border: 1px solid var(--accent-color); color: var(--accent-color); background: var(--bg-color); border-radius: 3px; opacity: 0; transition: opacity 0.2s ease; pointer-events: none; z-index: 9999; font-family: inherit; }
         .toast.show { opacity: 1; }
@@ -132,9 +145,24 @@
         <p>Hey, I'm Aravind, am glad you're here.</p>
         <p>Studying markets, technology & society. Patterns across these domains excite me. I consider myself an active generalist.</p>
         <p>I advocate <a href="https://a16z.com/the-techno-optimist-manifesto/" class="content-link" target="_blank" rel="noopener noreferrer">The techno-optimist manifesto</a> and free markets capitalism.</p>
-        <p>Projects to make my life easier, building through vibe coding — <a href="projects.html" class="content-link">Projects</a></p>
-        <p>Writing my learnings & giving back to the internet — <a href="blogs.html" class="content-link">Blogs</a></p>
-        <p>Get some context, if you're interested — <a href="about.html" class="content-link">About</a></p>
+
+        <nav class="dir-nav">
+            <a href="projects.html" class="dir-entry">
+                <span class="dir-path">./projects</span>
+                <span class="dir-desc">projects to make my life easier, building through vibe coding</span>
+                <span class="dir-arrow">→</span>
+            </a>
+            <a href="blogs.html" class="dir-entry">
+                <span class="dir-path">./blog</span>
+                <span class="dir-desc">writing my learnings &amp; giving back to the internet</span>
+                <span class="dir-arrow">→</span>
+            </a>
+            <a href="about.html" class="dir-entry">
+                <span class="dir-path">./about</span>
+                <span class="dir-desc">get some context, if you're interested</span>
+                <span class="dir-arrow">→</span>
+            </a>
+        </nav>
         <div class="status-bar">
             <span>sys:online</span>
             <span id="status-time">time:--:--</span>
