@@ -98,8 +98,8 @@
         ::-webkit-scrollbar-thumb { background: var(--hr-color); border-radius: 3px; }
         [data-theme="dark"] .site-title::before { text-shadow: 0 0 10px var(--accent-color); }
         [data-theme="dark"] .cursor { box-shadow: 0 0 8px var(--accent-color), 0 0 16px var(--accent-color); }
-        [data-theme="dark"] body::before { content: ''; position: fixed; inset: 0; background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.04) 3px, rgba(0,0,0,0.04) 4px); pointer-events: none; z-index: 9998; }
-        body::after { content: ''; position: fixed; inset: 0; background-image: radial-gradient(rgba(0,0,0,0.055) 1px, transparent 1px); background-size: 24px 24px; pointer-events: none; z-index: 9997; }
+        [data-theme="dark"] body::before { content: ''; position: fixed; inset: 0; background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.05) 3px, rgba(0,0,0,0.05) 4px), linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px); background-size: auto, 28px 28px, 28px 28px; pointer-events: none; z-index: 9998; }
+        body::after { content: ''; position: fixed; inset: 0; background-image: radial-gradient(rgba(0,0,0,0.09) 1.5px, transparent 1.5px), linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px); background-size: 24px 24px, 96px 96px, 96px 96px; pointer-events: none; z-index: 9997; }
         [data-theme="dark"] body::after { display: none; }
         ::selection { background: rgba(179, 28, 28, 0.15); }
         [data-theme="dark"] ::selection { background: rgba(212, 168, 67, 0.2); color: #fff; }
