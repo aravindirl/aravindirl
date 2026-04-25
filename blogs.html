@@ -9,6 +9,13 @@
     <meta property="og:title" content="Aravind Ramachandran | Blogs">
     <meta property="og:description" content="Writings on markets, technology, and society — working through patterns over time.">
     <meta property="og:type" content="website">
+    <meta name="author" content="Aravind Ramachandran">
+    <meta name="robots" content="index, follow">
+    <meta property="og:image" content="https://aravindirl.github.io/aravindirl/og.svg">
+    <meta property="og:url" content="https://aravindirl.github.io/aravindirl/blogs.html">
+    <link rel="canonical" href="https://aravindirl.github.io/aravindirl/blogs.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://aravindirl.github.io/aravindirl/og.svg">
     <style>
         :root {
             --bg-color: #f5ede0;
@@ -104,9 +111,6 @@
         [data-theme="dark"] .content-link { text-shadow: 0 0 6px rgba(212, 168, 67, 0.35); }
         .toast { position: fixed; bottom: 20px; right: 20px; font-size: 0.72rem; padding: 5px 10px; border: 1px solid var(--accent-color); color: var(--accent-color); background: var(--bg-color); border-radius: 3px; opacity: 0; transition: opacity 0.2s ease; pointer-events: none; z-index: 9999; font-family: inherit; }
         .toast.show { opacity: 1; }
-
-        /* Subtitle */
-        .blog-subtitle { font-size: 0.88rem; color: var(--secondary-text); font-style: italic; margin: 0 0 14px; }
 
         /* Search */
         .search-wrap { position: relative; margin-bottom: 14px; }
@@ -448,9 +452,13 @@
             }
         }
 
-        document.getElementById('search-input').addEventListener('input', function() {
+        const searchInput = document.getElementById('search-input');
+        searchInput.addEventListener('input', function() {
             searchQuery = this.value;
             applyFilter();
+        });
+        searchInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') { this.value = ''; searchQuery = ''; applyFilter(); this.blur(); }
         });
 
         function applySort() {

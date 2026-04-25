@@ -9,6 +9,13 @@
     <meta property="og:title" content="What am trying to understand? — Aravind Ramachandran">
     <meta property="og:description" content="Trying to understand how things actually work — across markets, technology, and behavior.">
     <meta property="og:type" content="article">
+    <meta name="author" content="Aravind Ramachandran">
+    <meta name="robots" content="index, follow">
+    <meta property="og:image" content="https://aravindirl.github.io/aravindirl/og.svg">
+    <meta property="og:url" content="https://aravindirl.github.io/aravindirl/pilot0.html">
+    <link rel="canonical" href="https://aravindirl.github.io/aravindirl/pilot0.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://aravindirl.github.io/aravindirl/og.svg">
     <style>
         :root {
             --bg-color: #f5ede0;
@@ -134,7 +141,14 @@
         .read-next { margin: 24px 0 8px; display: flex; gap: 12px; align-items: baseline; font-size: 0.88rem; flex-wrap: wrap; }
         .read-next-label { color: var(--secondary-text); white-space: nowrap; }
         @media (max-width: 540px) { body { padding: 24px 16px; } .site-title { font-size: 1.3rem; } }
+        .post-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 40px; gap: 12px; flex-wrap: wrap; }
+        .post-footer .back-nav { margin-top: 0; }
+        .share-btn { background: none; border: 1px solid var(--hr-color); color: var(--secondary-text); font-family: inherit; font-size: 0.82rem; padding: 3px 10px; border-radius: 3px; cursor: pointer; transition: all 0.2s ease; }
+        .share-btn:hover { border-color: var(--accent-color); color: var(--accent-color); }
     </style>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"What am trying to understand?","description":"Trying to understand how things actually work — across markets, technology, and behavior.","author":{"@type":"Person","name":"Aravind Ramachandran","url":"https://aravindirl.github.io/aravindirl/"},"datePublished":"2026-03-30","url":"https://aravindirl.github.io/aravindirl/pilot0.html","mainEntityOfPage":"https://aravindirl.github.io/aravindirl/pilot0.html"}
+    </script>
 </head>
 <body data-theme="dark">
 <div class="progress-bar" id="progress-bar"></div>
@@ -171,7 +185,10 @@
         <span class="read-next-label">read next →</span>
         <a href="mrktbble1.html" class="content-link">We are in a marketing bubble</a>
     </div>
-    <a href="blogs.html" class="back-nav">← back to blogs</a>
+    <div class="post-footer">
+        <a href="blogs.html" class="back-nav">← back to blogs</a>
+        <button class="share-btn" id="share-btn">share ↗</button>
+    </div>
     <div class="copyright">© <span id="year"></span> aravindirl. all rights reserved.</div>
 </div>
 
@@ -233,6 +250,14 @@
             }
         });
     })();
+    document.getElementById('share-btn').addEventListener('click', () => {
+        navigator.clipboard.writeText(window.location.href).then(() => {
+            const t = document.querySelector('.toast');
+            t.textContent = '[link copied!]';
+            t.classList.add('show');
+            setTimeout(() => t.classList.remove('show'), 1500);
+        });
+    });
 </script>
 </body>
 </html>
