@@ -121,12 +121,8 @@
         .dir-arrow { color: var(--secondary-text); font-size: 0.9rem; transition: transform 0.15s ease, color 0.15s ease; text-align: right; }
         .dir-entry:hover .dir-arrow { transform: translateX(3px); color: var(--accent-color); }
 
-        /* Status bar */
-        .status-bar { font-size: 0.7rem; color: var(--secondary-text); display: flex; gap: 20px; flex-wrap: wrap; margin-top: 16px; padding-top: 10px; border-top: 1px solid var(--hr-color); }
-        [data-theme="dark"] .status-bar { color: var(--accent-color); opacity: 0.45; }
-
         .sep { color: var(--secondary-text); padding: 0 3px; user-select: none; }
-        .social-footer { margin-top: 10px; font-size: 0.9rem; display: flex; align-items: center; flex-wrap: wrap; }
+        .social-footer { margin-top: 20px; font-size: 0.9rem; display: flex; align-items: center; flex-wrap: wrap; }
         .content-link { text-decoration: underline; text-underline-offset: 3px; color: var(--accent-color); transition: all 0.2s ease; }
         .content-link:hover { background-color: var(--accent-color); color: var(--bg-color); border-radius: 2px; text-decoration: none; padding: 0 2px; }
         [data-theme="dark"] .content-link { text-shadow: 0 0 6px rgba(57, 255, 20, 0.35); }
@@ -163,14 +159,6 @@
                 <span class="dir-arrow">→</span>
             </a>
         </nav>
-        <div class="status-bar">
-            <span>sys:online</span>
-            <span id="status-time">time:--:--</span>
-            <span id="status-weather">weather:--°c</span>
-            <span>listening:tame impala</span>
-            <span>posts:02</span>
-            <span>last:apr'26</span>
-        </div>
         <nav class="social-footer">
             <a href="https://www.instagram.com/aravindirl/" class="content-link" target="_blank" rel="noopener noreferrer">instagram</a>
             <span class="sep">/</span>
@@ -220,23 +208,6 @@
             applyTheme(newTheme);
         });
         document.getElementById('year').textContent = new Date().getFullYear();
-
-        function updateTime() {
-            const ist = new Date(new Date().toLocaleString('en-US', { timeZone: 'Asia/Kolkata' }));
-            const h = String(ist.getHours()).padStart(2, '0');
-            const m = String(ist.getMinutes()).padStart(2, '0');
-            document.getElementById('status-time').textContent = `time:${h}:${m} ist`;
-        }
-        updateTime();
-        setInterval(updateTime, 60000);
-
-        fetch('https://api.open-meteo.com/v1/forecast?latitude=13.08&longitude=80.27&current=temperature_2m&timezone=Asia/Kolkata')
-            .then(r => r.json())
-            .then(d => {
-                const temp = Math.round(d.current.temperature_2m);
-                document.getElementById('status-weather').textContent = `weather:${temp}°c chennai`;
-            })
-            .catch(() => {});
 
         (function() {
             const toast = document.createElement('div');
