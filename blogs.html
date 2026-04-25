@@ -126,6 +126,10 @@
         #search-input::placeholder { color: var(--secondary-text); }
         #search-input:focus { border-color: var(--accent-color); }
 
+        /* Search snippet (shown when match is in post body) */
+        .card-snippet { font-size: 0.74rem; color: var(--secondary-text); margin: 0 0 8px; line-height: 1.5; padding: 6px 8px; border-left: 2px solid var(--accent-color); background-color: var(--hr-color); border-radius: 0 2px 2px 0; }
+        .card-snippet mark { background: var(--accent-color); color: var(--bg-color); padding: 0 2px; border-radius: 1px; font-style: normal; }
+
         /* Controls */
         .controls { margin-bottom: 20px; }
         .control-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-bottom: 8px; font-size: 0.78rem; }
@@ -326,23 +330,72 @@
 
         let searchQuery = '';
 
+        // Full-text search index — body text of each post
+        const postIndex = {
+            'pilot0.html': "I've been trying to understand how things actually work — mostly across markets, technology, and behavior. Not in a formal sense, but by paying attention to what keeps repeating and what seems to drive outcomes underneath. A lot of what I come across feels surface-level. Trends move fast, opinions are everywhere, and it's easy to mistake noise for insight. But if you look a bit closer, the same patterns tend to show up — incentives shaping behavior, systems reinforcing themselves, and outcomes that aren't random once you see the structure behind them. I've found that writing helps me slow things down. otherwise, everything stays vague — ideas pass through, but don't really settle. Putting things into words forces a bit more clarity, even if the thinking is still incomplete. This is a place to work through that as they start making sense. Nothing too polished — just trying to see a little more clearly over time.",
+            'mrktbble1.html': "The basic structure of marketing got broke way before, and still I don't think we see it. The amount of marketing around us has increased far more than the number of products or the level of real demand. It's no longer occasional or strategic — it's constant, everywhere, and expanding. This wasn't always the case. Earlier, marketing was constrained by distribution. a limited number of channels — tv, newspapers, outdoor — meant limited inventory. Not every product could be marketed at scale, and not every voice could participate. There was an implicit filter. That constraint is gone. Today, distribution is effectively infinite. Anyone with an audience becomes a marketing surface. Creators are no longer just participants — they are the channel. In many cases, the selling power has shifted away from the product itself toward the person promoting it. This changes the structure of the system. The supply of marketing has exploded — more creators, more platforms, more content, all competing for the same finite resource: attention. But attention hasn't scaled at the same rate. When supply expands faster than the underlying demand, the system doesn't stabilize — it distorts. You start to see: diminishing returns on spend, increasing noise relative to signal, erosion of trust in what's being promoted. At some point, the gap has to correct. Either marketing becomes less effective, or the system resets through a loss of trust, attention, or economic viability for the participants involved. We are experiencing the latter."
+        };
+
+        function escapeHtml(s) {
+            return s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+        }
+
+        function buildSnippet(body, query) {
+            const lower = body.toLowerCase();
+            const idx = lower.indexOf(query.toLowerCase());
+            if (idx === -1) return null;
+            const radius = 60;
+            const start = Math.max(0, idx - radius);
+            const end = Math.min(body.length, idx + query.length + radius);
+            let snippet = body.slice(start, end);
+            if (start > 0) snippet = '…' + snippet;
+            if (end < body.length) snippet = snippet + '…';
+            const escaped = escapeHtml(snippet);
+            const re = new RegExp(escapeHtml(query).replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
+            return escaped.replace(re, m => '<mark>' + m + '</mark>');
+        }
+
         function applyFilter() {
-            const q = searchQuery.toLowerCase();
+            const q = searchQuery.trim().toLowerCase();
             getCards().forEach(card => {
                 const tags = card.dataset.tags || '';
                 const title = (card.querySelector('.card-title') || {}).textContent || '';
                 const excerpt = (card.querySelector('.card-excerpt') || {}).textContent || '';
+                const href = card.getAttribute('href');
+                const body = postIndex[href] || '';
+
                 const tagMatch = activeTag === 'all' || tags.split(' ').includes(activeTag);
-                const searchMatch = !q || title.toLowerCase().includes(q) || tags.toLowerCase().includes(q) || excerpt.toLowerCase().includes(q);
+                const inMeta = !q || title.toLowerCase().includes(q) || tags.toLowerCase().includes(q) || excerpt.toLowerCase().includes(q);
+                const inBody = q && body.toLowerCase().includes(q);
+                const searchMatch = !q || inMeta || inBody;
                 card.dataset.hidden = (tagMatch && searchMatch) ? 'false' : 'true';
+
+                // Manage body-match snippet
+                const cardBody = card.querySelector('.card-body');
+                let snip = card.querySelector('.card-snippet');
+                if (q && inBody && !inMeta) {
+                    const html = buildSnippet(body, q);
+                    if (html) {
+                        if (!snip) {
+                            snip = document.createElement('div');
+                            snip.className = 'card-snippet';
+                            const tagsEl = card.querySelector('.card-tags');
+                            cardBody.insertBefore(snip, tagsEl);
+                        }
+                        snip.innerHTML = html;
+                    }
+                } else if (snip) {
+                    snip.remove();
+                }
             });
+
             const existing = grid.querySelector('.no-results');
             if (existing) existing.remove();
             const visible = getCards().filter(c => c.dataset.hidden !== 'true');
             if (visible.length === 0) {
                 const msg = document.createElement('div');
                 msg.className = 'no-results';
-                msg.textContent = q ? `no posts matching "${q}".` : 'no posts with that tag yet.';
+                msg.textContent = q ? `no posts matching "${searchQuery}".` : 'no posts with that tag yet.';
                 grid.appendChild(msg);
             }
         }
