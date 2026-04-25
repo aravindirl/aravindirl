@@ -49,19 +49,7 @@
             from { opacity: 0; transform: translateY(8px); }
             to   { opacity: 1; transform: translateY(0); }
         }
-        .wrapper { display: flex; gap: 40px; width: 100%; max-width: 900px; }
         .container { max-width: 650px; width: 100%; animation: fadeIn 0.4s ease forwards; }
-        .tag-sidebar { display: none; width: 150px; font-size: 0.9rem; animation: fadeIn 0.4s ease forwards; }
-        .tag-sidebar-label { font-weight: bold; margin-bottom: 16px; color: var(--text-color); }
-        .tag-item { margin-bottom: 10px; }
-        .tag-item a { color: var(--accent-color); text-decoration: none; font-size: 0.85rem; }
-        .tag-item a:before { content: '· '; margin-right: 4px; }
-
-        @media (min-width: 900px) {
-            body { justify-content: flex-start; padding-left: 60px; }
-            .wrapper { gap: 60px; }
-            .tag-sidebar { display: block; position: sticky; top: 40px; height: fit-content; }
-        }
 
         header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
         .site-title { font-size: 1.6rem; font-weight: bold; margin: 0; letter-spacing: -0.02em; }
@@ -166,8 +154,7 @@
 </head>
 <body data-theme="dark">
 <div class="progress-bar" id="progress-bar"></div>
-<div class="wrapper">
-    <div class="container">
+<div class="container">
         <header>
             <h1 class="site-title"><a href="../index.html">Aravind Ramachandran</a><span class="cursor"></span></h1>
             <button id="theme-toggle" aria-label="Toggle theme"><svg id="theme-icon" viewBox="0 0 24 24"></svg></button>
@@ -319,16 +306,6 @@
             <button class="share-btn" id="share-btn">share ↗</button>
         </div>
         <div class="copyright">© <span id="year"></span> aravindirl. all rights reserved.</div>
-    </div>
-
-    <aside class="tag-sidebar">
-        <div class="tag-sidebar-label">tags</div>
-        <div class="tag-item"><a href="../blogs.html?tag=technology">technology</a></div>
-        <div class="tag-item"><a href="../blogs.html?tag=markets">markets</a></div>
-        <div class="tag-item"><a href="../blogs.html?tag=thinking">thinking</a></div>
-        <div class="tag-item"><a href="../blogs.html?tag=society">society</a></div>
-        <div class="tag-item"><a href="../blogs.html?tag=behavior">behavior</a></div>
-    </aside>
 </div>
 
 <script>
