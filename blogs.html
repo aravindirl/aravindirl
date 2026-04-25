@@ -518,6 +518,11 @@
             });
         });
 
+        // Apply default newest-first sort on page load
+        const newestBtn = document.querySelector('[data-sort="newest"]');
+        if (newestBtn) newestBtn.classList.add('active');
+        applySort();
+
         // Build tag sidebar + mobile tag bar
         const sidebar = document.getElementById('tag-sidebar');
         const mobileTagBar = document.getElementById('mobile-tag-bar');
