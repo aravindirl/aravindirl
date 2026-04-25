@@ -223,13 +223,18 @@
         .tag-sidebar-count { font-size: 0.66rem; opacity: 0.6; }
         @media (max-width: 1060px) { .tag-sidebar { display: none; } }
 
-        @media (max-width: 500px) {
-            .blog-grid { grid-template-columns: repeat(2, 1fr); }
-            .blog-card.featured { grid-column: span 2; }
-        }
-        @media (max-width: 340px) {
+        @media (max-width: 540px) {
+            body { padding: 24px 16px; }
             .blog-grid { grid-template-columns: 1fr; }
             .blog-card.featured { grid-column: span 1; }
+            .card-thumb { aspect-ratio: 3/1; font-size: 1.6rem; }
+            .blog-card.featured .card-thumb { aspect-ratio: 2/1; }
+            .card-title { font-size: 0.92rem; }
+            .control-row { gap: 4px; }
+            .sort-btn { font-size: 0.7rem; padding: 2px 6px; }
+            .control-label { font-size: 0.72rem; }
+            h1 { font-size: 1.1rem; }
+            .site-title { font-size: 1.3rem; }
         }
     </style>
 </head>
