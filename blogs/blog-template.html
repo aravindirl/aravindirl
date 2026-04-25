@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" href="/favicon.ico">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog Title | Aravind Ramachandran</title>
-    <meta name="description" content="A detailed exploration of...">
-    <meta property="og:title" content="Blog Title">
-    <meta property="og:description" content="A detailed exploration of...">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content="Your blog description goes here.">
+    <meta property="og:title" content="Blog Title — Aravind Ramachandran">
+    <meta property="og:description" content="Your blog description goes here.">
     <meta property="og:type" content="article">
-    <meta property="og:image" content="https://www.aravindirl.com/blog-image.jpg">
     <meta name="author" content="Aravind Ramachandran">
     <meta name="robots" content="index, follow">
+    <meta property="og:image" content="https://www.aravindirl.com/og.svg">
+    <meta property="og:url" content="https://www.aravindirl.com/blogs/your-blog-title.html">
+    <link rel="canonical" href="https://www.aravindirl.com/blogs/your-blog-title.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.aravindirl.com/og.svg">
     <style>
         :root {
             --bg-color: #f5ede0;
@@ -19,6 +23,7 @@
             --accent-color: #b31c1c;
             --secondary-text: #7a6f68;
             --hr-color: #ddd0c2;
+            --caption-bg: #ede4d8;
         }
         [data-theme="dark"] {
             --bg-color: #0e0e0e;
@@ -26,23 +31,38 @@
             --accent-color: #34d399;
             --secondary-text: #888;
             --hr-color: #2a2a2a;
+            --caption-bg: #161616;
         }
         *, *::before, *::after { box-sizing: border-box; }
         body {
             font-family: ui-monospace, Menlo, Monaco, 'Cascadia Code', 'Source Code Pro', Consolas, monospace;
             background-color: var(--bg-color);
             color: var(--text-color);
-            line-height: 1.8;
+            line-height: 1.6;
             padding: 40px 24px;
             margin: 0;
             display: flex;
             justify-content: center;
             transition: background-color 0.3s, color 0.3s;
         }
-        .container { max-width: 720px; width: 100%; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .container { max-width: 650px; width: 100%; animation: fadeIn 0.4s ease forwards; }
         header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
-        .site-title { font-size: 1.6rem; font-weight: bold; margin: 0; letter-spacing: -0.02em; cursor: pointer; }
+        .site-title { font-size: 1.6rem; font-weight: bold; margin: 0; letter-spacing: -0.02em; }
         .site-title::before { content: '>_ '; color: var(--accent-color); font-weight: normal; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+        .cursor {
+            display: inline-block;
+            width: 2px;
+            height: 0.9em;
+            background: var(--accent-color);
+            vertical-align: middle;
+            animation: blink 1.1s step-end infinite;
+            margin-left: 3px;
+        }
         #theme-toggle {
             background: none;
             border: 1px solid var(--text-color);
@@ -57,284 +77,296 @@
         }
         #theme-toggle svg { width: 16px; height: 16px; fill: currentColor; }
         #theme-toggle:hover { background-color: var(--text-color); color: var(--bg-color); }
-        .back-nav { text-decoration: none; color: var(--accent-color); font-size: 0.9rem; margin-bottom: 20px; display: inline-block; transition: all 0.2s ease; }
-        .back-nav:hover { background-color: var(--accent-color); color: var(--bg-color); padding: 4px 8px; border-radius: 2px; }
         hr { border: 0; border-top: 1px solid var(--hr-color); margin: 20px 0; }
-
-        .blog-header { margin: 40px 0; }
-        .blog-title { font-size: 2.2rem; font-weight: bold; margin: 20px 0 10px 0; line-height: 1.3; }
-        .blog-meta { font-size: 0.85rem; color: var(--secondary-text); margin-bottom: 20px; }
-        .featured-image { width: 100%; max-height: 500px; object-fit: cover; border-radius: 4px; margin: 30px 0; }
-
-        .toc { background: rgba(52, 211, 153, 0.1); padding: 20px; border-left: 3px solid var(--accent-color); margin: 30px 0; border-radius: 4px; }
-        .toc-title { font-weight: bold; margin-bottom: 10px; color: var(--accent-color); }
-        .toc ul { list-style: none; padding: 0; margin: 0; }
-        .toc li { margin: 8px 0; }
-        .toc a { color: var(--accent-color); text-decoration: underline; text-underline-offset: 3px; }
-        .toc a:hover { background-color: var(--accent-color); color: var(--bg-color); border-radius: 2px; text-decoration: none; padding: 0 2px; }
-
-        .intro { font-size: 1.1rem; line-height: 1.9; margin-bottom: 30px; padding: 20px; background: rgba(52, 211, 153, 0.05); border-radius: 4px; }
-
-        section { margin: 50px 0; }
-        h2 { font-size: 1.6rem; font-weight: bold; margin: 40px 0 20px 0; color: var(--text-color); border-bottom: 2px solid var(--accent-color); padding-bottom: 10px; }
-        h3 { font-size: 1.2rem; font-weight: bold; margin: 30px 0 15px 0; color: var(--accent-color); }
-
-        p { margin-bottom: 18px; font-size: 1rem; }
-
-        .media-container { margin: 30px 0; }
-        .media-item { margin: 20px 0; }
-        .media-item img, .media-item video { width: 100%; border-radius: 4px; margin-bottom: 8px; }
-        .media-caption { font-size: 0.9rem; color: var(--secondary-text); font-style: italic; margin-top: 8px; }
-
-        .quote {
-            border-left: 4px solid var(--accent-color);
-            padding: 20px;
-            margin: 30px 0;
-            background: rgba(52, 211, 153, 0.05);
-            font-style: italic;
-            font-size: 1.05rem;
-            border-radius: 4px;
+        .essay-label { font-size: 1.2rem; font-weight: bold; margin-bottom: 6px; }
+        .essay-meta { font-size: 0.8rem; color: var(--secondary-text); margin-bottom: 24px; }
+        p { font-size: 1rem; margin-bottom: 18px; line-height: 1.75; }
+        h2 { font-size: 1.1rem; font-weight: bold; margin: 32px 0 16px 0; letter-spacing: -0.01em; }
+        h3 { font-size: 1rem; font-weight: bold; margin: 24px 0 12px 0; color: var(--secondary-text); }
+        figure { margin: 28px 0; }
+        figure img, figure video { width: 100%; display: block; border: 1px solid var(--hr-color); border-radius: 2px; }
+        figcaption {
+            font-size: 0.75rem;
+            color: var(--secondary-text);
+            margin-top: 6px;
+            background-color: var(--caption-bg);
+            padding: 4px 8px;
+            border-left: 2px solid var(--accent-color);
         }
-        .quote-author { font-size: 0.9rem; color: var(--secondary-text); margin-top: 10px; font-style: normal; }
-
+        blockquote {
+            border-left: 3px solid var(--accent-color);
+            padding: 10px 16px;
+            margin: 24px 0;
+            font-size: 1rem;
+            color: var(--secondary-text);
+            font-style: italic;
+        }
         a { color: var(--accent-color); text-decoration: underline; text-underline-offset: 3px; }
         a:hover { background-color: var(--accent-color); color: var(--bg-color); border-radius: 2px; text-decoration: none; padding: 0 2px; }
-
-        .highlight { background: rgba(52, 211, 153, 0.15); padding: 2px 6px; border-radius: 2px; }
-
-        .key-takeaways { background: rgba(52, 211, 153, 0.1); padding: 20px; border-radius: 4px; margin: 30px 0; }
-        .key-takeaways h3 { margin-top: 0; }
-        .key-takeaways ul { list-style: none; padding: 0; margin: 0; }
-        .key-takeaways li { margin: 12px 0; padding-left: 20px; position: relative; }
-        .key-takeaways li::before { content: '→'; position: absolute; left: 0; color: var(--accent-color); font-weight: bold; }
-
-        .related-posts { margin-top: 50px; padding-top: 20px; border-top: 1px solid var(--hr-color); }
-        .related-posts h3 { margin-top: 0; }
-        .post-link { display: block; margin: 15px 0; padding: 10px; background: rgba(52, 211, 153, 0.05); border-radius: 4px; text-decoration: none; color: inherit; transition: all 0.2s ease; }
-        .post-link:hover { background: rgba(52, 211, 153, 0.15); }
-
-        .copyright { font-size: 0.75rem; color: var(--secondary-text); margin-top: 40px; opacity: 0.8; }
-
-        @media (max-width: 540px) {
-            body { padding: 24px 16px; }
-            .blog-title { font-size: 1.6rem; }
-            h2 { font-size: 1.3rem; }
-            h3 { font-size: 1.1rem; }
-            .intro { font-size: 1rem; }
-            .quote { padding: 15px; }
+        .back-nav {
+            margin-top: 40px;
+            display: inline-block;
+            font-size: 0.9rem;
+            text-decoration: none;
+            color: inherit;
+            padding: 0 4px;
+            transition: all 0.2s ease;
         }
+        .back-nav:hover { background-color: var(--accent-color); color: var(--bg-color); border-radius: 2px; }
+        .copyright { font-size: 0.75rem; color: var(--secondary-text); margin-top: 25px; opacity: 0.8; }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 2px;
+            background: var(--accent-color);
+            width: 0%;
+            transition: width 0.1s linear;
+            z-index: 100;
+        }
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: var(--hr-color); border-radius: 3px; }
+        [data-theme="dark"] .site-title::before { text-shadow: 0 0 10px var(--accent-color); }
+        [data-theme="dark"] .cursor { box-shadow: 0 0 8px var(--accent-color), 0 0 16px var(--accent-color); }
+        ::selection { background: rgba(179, 28, 28, 0.15); }
+        [data-theme="dark"] ::selection { background: rgba(52, 211, 153, 0.2); color: #fff; }
+        .back-nav::before { content: '$ '; color: var(--accent-color); }
+        html { scroll-behavior: smooth; }
+        .site-title a { text-decoration: none; color: inherit; }
+        [data-theme="dark"] .content-link { text-shadow: 0 0 6px rgba(52, 211, 153, 0.35); }
+        .toast { position: fixed; bottom: 20px; right: 20px; font-size: 0.72rem; padding: 5px 10px; border: 1px solid var(--accent-color); color: var(--accent-color); background: var(--bg-color); border-radius: 3px; opacity: 0; transition: opacity 0.2s ease; pointer-events: none; z-index: 9999; font-family: inherit; }
+        .toast.show { opacity: 1; }
+        .read-next { margin: 24px 0 8px; display: flex; gap: 12px; align-items: baseline; font-size: 0.88rem; flex-wrap: wrap; }
+        .read-next-label { color: var(--secondary-text); white-space: nowrap; }
+        @media (max-width: 540px) { body { padding: 24px 16px; } .site-title { font-size: 1.3rem; } }
+        .post-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 40px; gap: 12px; flex-wrap: wrap; }
+        .post-footer .back-nav { margin-top: 0; }
+        .share-btn { background: none; border: 1px solid var(--hr-color); color: var(--secondary-text); font-family: inherit; font-size: 0.82rem; padding: 3px 10px; border-radius: 3px; cursor: pointer; transition: all 0.2s ease; }
+        .share-btn:hover { border-color: var(--accent-color); color: var(--accent-color); }
     </style>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"Your Blog Title","description":"Your blog description goes here.","author":{"@type":"Person","name":"Aravind Ramachandran","url":"https://www.aravindirl.com/"},"datePublished":"2026-04-25","url":"https://www.aravindirl.com/blogs/your-blog-title.html","mainEntityOfPage":"https://www.aravindirl.com/blogs/your-blog-title.html"}
+    </script>
 </head>
 <body data-theme="dark">
-    <div class="container">
-        <header>
-            <a href="/" class="site-title" onclick="window.location.href='/'; return false;">Aravind Ramachandran</a>
-            <button id="theme-toggle" aria-label="Toggle theme"><svg id="theme-icon" viewBox="0 0 24 24"></svg></button>
-        </header>
-        <a href="/" class="back-nav">← back</a>
+<div class="progress-bar" id="progress-bar"></div>
+<div class="container">
 
-        <article>
-            <div class="blog-header">
-                <h1 class="blog-title">Your Blog Title Here</h1>
-                <div class="blog-meta">
-                    Published on <time datetime="2026-04-25">April 25, 2026</time> · 8 min read · <span class="reading-time"></span>
-                </div>
-            </div>
+    <header>
+        <h1 class="site-title"><a href="../index.html">Aravind Ramachandran</a><span class="cursor"></span></h1>
+        <button id="theme-toggle" aria-label="Toggle theme"><svg id="theme-icon" viewBox="0 0 24 24"></svg></button>
+    </header>
 
-            <img src="featured-image.jpg" alt="Featured image" class="featured-image">
+    <hr>
 
-            <!-- Table of Contents -->
-            <nav class="toc">
-                <div class="toc-title">Table of Contents</div>
-                <ul>
-                    <li><a href="#section1">First Section: Understanding the Basics</a></li>
-                    <li><a href="#section2">Second Section: Deep Dive</a></li>
-                    <li><a href="#section3">Third Section: Practical Applications</a></li>
-                    <li><a href="#section4">Fourth Section: Future Implications</a></li>
-                </ul>
-            </nav>
+    <div class="essay-label">Your Blog Title Goes Here</div>
+    <div class="essay-meta">month year · X min read</div>
 
-            <!-- Introduction -->
-            <div class="intro">
-                <p>Start with a compelling introduction that hooks the reader. Explain what they'll learn and why it matters. This section should set the context and establish why someone should continue reading your thoughts on this topic.</p>
-            </div>
+    <!-- Opening paragraph -->
+    <p>
+        Start with a strong opening that hooks the reader and establishes what this blog is about. Set the context and explain why this topic matters. This opening should be clear and engaging, drawing the reader into your narrative.
+    </p>
 
-            <!-- Section 1 -->
-            <section id="section1">
-                <h2>First Section: Understanding the Basics</h2>
+    <!-- SECTION 1 -->
+    <h2>Section 1: Foundation & Context</h2>
 
-                <p>Write your detailed content here. This is where you establish the foundation for your argument or explanation. Include relevant context and background information that your readers need to understand the topic.</p>
+    <p>
+        Introduce the first major idea or theme you're exploring. Provide background information and establish the groundwork for your argument or analysis. This is where you lay out the essential context your readers need.
+    </p>
 
-                <div class="media-container">
-                    <div class="media-item">
-                        <img src="image1.jpg" alt="Supporting image 1">
-                        <div class="media-caption">Caption explaining what this image shows and its relevance</div>
-                    </div>
-                </div>
+    <h3>Subsection 1.1: Key Concept</h3>
+    <p>
+        Dive deeper into a specific aspect of your main point. Use clear language and concrete examples to help readers understand the concept. Consider linking to <a href="../projects/projects.html">your projects</a> or external sources that provide additional context.
+    </p>
 
-                <h3>Subsection 1.1: A Key Point</h3>
-                <p>Elaborate on important concepts. Use clear language and examples to make your points accessible. This is a good place to introduce <a href="https://example.com">relevant links to sources or related content</a>.</p>
+    <figure>
+        <img src="images/image1.jpg" alt="Image for section 1">
+        <figcaption>Description of what this image shows and its relevance to the discussion</figcaption>
+    </figure>
 
-                <div class="quote">
-                    "A powerful quote that reinforces your main point or provides perspective from an expert or thought leader."
-                    <div class="quote-author">— Attribution or Source</div>
-                </div>
+    <p>
+        Continue developing your ideas with supporting evidence or observations. Explain how this connects to your broader thesis.
+    </p>
 
-                <h3>Subsection 1.2: Another Important Angle</h3>
-                <p>Continue developing your ideas. Use the <span class="highlight">highlight class</span> to emphasize key terms or important points throughout your blog.</p>
-            </section>
+    <h3>Subsection 1.2: Another Key Angle</h3>
+    <p>
+        Explore another dimension of this section. Perhaps discuss a contrasting viewpoint, historical context, or practical implications. Use this subsection to round out the discussion of your first major theme.
+    </p>
 
-            <!-- Section 2 -->
-            <section id="section2">
-                <h2>Second Section: Deep Dive</h2>
+    <blockquote>
+        A relevant quote that reinforces your point or provides an expert perspective on this topic. Quotes help break up the text and add authoritative voices to your writing.
+    </blockquote>
 
-                <p>Go deeper into the analysis or exploration. This section should build on the foundation you've laid. Include more specific examples and evidence to support your narrative.</p>
+    <p>
+        Wrap up this section with a transition that connects to your next major theme.
+    </p>
 
-                <div class="media-container">
-                    <div class="media-item">
-                        <img src="image2.jpg" alt="Supporting image 2">
-                        <div class="media-caption">Visual representation of a key concept discussed in this section</div>
-                    </div>
-                </div>
+    <!-- SECTION 2 -->
+    <h2>Section 2: Analysis & Evidence</h2>
 
-                <h3>Subsection 2.1: Technical Details or In-Depth Analysis</h3>
-                <p>Provide specific details, data, or technical information. Reference other <a href="blog-post-1.html">related blog posts</a> or external resources to provide more context. This helps establish credibility and gives readers additional places to explore.</p>
+    <p>
+        Go deeper into the analysis. This section should build on the foundation you've established and provide more specific evidence, data, or examples that support your argument.
+    </p>
 
-                <div class="quote">
-                    "Another relevant quote that adds depth or perspective to your argument. Quotes break up the text and provide authoritative voices."
-                    <div class="quote-author">— Person or Organization</div>
-                </div>
+    <h3>Subsection 2.1: Deep Dive into Data or Examples</h3>
+    <p>
+        Provide specific examples, case studies, or data points. Be concrete and detailed. Explain what you're observing and why it matters. You can reference <a href="../about/about.html">your about page</a> or other relevant content to provide additional context.
+    </p>
 
-                <h3>Subsection 2.2: Expanding the Narrative</h3>
-                <p>Continue explaining the complexities and nuances of your topic. This is where you can discuss counterarguments or alternative perspectives if relevant.</p>
-            </section>
+    <figure>
+        <img src="images/image2.jpg" alt="Image for section 2">
+        <figcaption>Visual representation of a key concept or data point from this section</figcaption>
+    </figure>
 
-            <!-- Section 3 -->
-            <section id="section3">
-                <h2>Third Section: Practical Applications</h2>
+    <h3>Subsection 2.2: Implications & Patterns</h3>
+    <p>
+        Discuss what these examples or data points reveal about the broader theme. What patterns emerge? What do they suggest about the topic? This is where you synthesize your observations into meaningful insights.
+    </p>
 
-                <p>Shift to practical applications or real-world examples. Show your readers how this information is actually used or why it matters to them directly. Make it relatable and actionable.</p>
+    <blockquote>
+        Another relevant quote that adds depth or perspective to your analysis. Use quotes strategically throughout the blog to break up the prose and reinforce key ideas.
+    </blockquote>
 
-                <div class="media-container">
-                    <div class="media-item">
-                        <video width="100%" controls style="border-radius: 4px;">
-                            <source src="video.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                        <div class="media-caption">Video demonstrating or illustrating a key concept from this section</div>
-                    </div>
-                </div>
+    <!-- SECTION 3 -->
+    <h2>Section 3: Practical Applications & Real-World Impact</h2>
 
-                <h3>Subsection 3.1: Case Studies or Examples</h3>
-                <p>Include specific examples, case studies, or scenarios. Real-world applications make your content more valuable and memorable. You can reference internal links like <a href="../about/about.html">your about page</a> or <a href="../projects/projects.html">your projects</a> to tie your content to your broader portfolio.</p>
+    <p>
+        Shift to practical considerations. Show your readers how this information applies in the real world. Make it relatable and actionable where possible.
+    </p>
 
-                <div class="quote">
-                    "Use quotes strategically to break up long sections of text and reinforce key messages. They also add credibility to your writing."
-                    <div class="quote-author">— Expert Name</div>
-                </div>
+    <h3>Subsection 3.1: Real-World Scenarios</h3>
+    <p>
+        Include specific scenarios or applications. Show how the concepts you've discussed actually play out in practice. This helps readers understand the relevance of your ideas to their own lives or work.
+    </p>
 
-                <h3>Subsection 3.2: Implementation Tips</h3>
-                <p>Provide actionable advice or steps readers can take. Make this section useful and practical so readers feel they've gained value from reading your blog.</p>
-            </section>
+    <figure>
+        <video width="100%" controls style="border-radius: 2px; border: 1px solid var(--hr-color);">
+            <source src="videos/your-video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <figcaption>Video demonstrating or illustrating a key concept from this section</figcaption>
+    </figure>
 
-            <!-- Section 4 -->
-            <section id="section4">
-                <h2>Fourth Section: Future Implications</h2>
+    <h3>Subsection 3.2: Actionable Insights</h3>
+    <p>
+        Provide actionable advice or insights based on your analysis. What should readers take away? What can they do with this information? Make this section valuable and practical.
+    </p>
 
-                <p>Look forward and discuss the implications, future directions, or broader impact of what you've discussed. This helps position your thinking ahead of trends and shows you're considering the bigger picture.</p>
+    <!-- SECTION 4 -->
+    <h2>Section 4: Future Implications & Broader Perspective</h2>
 
-                <div class="media-container">
-                    <div class="media-item">
-                        <img src="image3.jpg" alt="Supporting image 3">
-                        <div class="media-caption">Image showing future trends or implications discussed in this section</div>
-                    </div>
-                </div>
+    <p>
+        Look forward and discuss the broader implications of what you've analyzed. Consider future directions, emerging trends, or larger systemic implications. This positions your thinking ahead of the curve.
+    </p>
 
-                <h3>Subsection 4.1: Emerging Trends</h3>
-                <p>Discuss what's on the horizon and why it matters. This is where you can showcase your forward-thinking perspective and offer unique insights that others might not have considered yet.</p>
+    <h3>Subsection 4.1: Emerging Trends or Implications</h3>
+    <p>
+        What's on the horizon? Where do you think this is heading? Discuss the trajectory of the topic and why the future direction matters. This is where you can showcase forward-thinking perspective.
+    </p>
 
-                <div class="quote">
-                    "Final quote that leaves readers thinking about the future and the implications of what you've discussed throughout the blog."
-                    <div class="quote-author">— Final Source or Insight</div>
-                </div>
+    <figure>
+        <img src="images/image3.jpg" alt="Image for section 4">
+        <figcaption>Image showing future trends, implications, or the broader context discussed in this section</figcaption>
+    </figure>
 
-                <h3>Subsection 4.2: Conclusion and Next Steps</h3>
-                <p>Wrap up this final section and start transitioning to your overall conclusion. Summarize the key points without being repetitive.</p>
-            </section>
+    <h3>Subsection 4.2: Closing Thoughts</h3>
+    <p>
+        Synthesize your main ideas and provide a thoughtful conclusion. Summarize the key insights without being repetitive. Leave the reader with something to think about — a question, a challenge, or a vision for what comes next.
+    </p>
 
-            <!-- Key Takeaways -->
-            <div class="key-takeaways">
-                <h3>Key Takeaways</h3>
-                <ul>
-                    <li>Main insight or conclusion from your blog post</li>
-                    <li>A secondary important point your readers should remember</li>
-                    <li>A practical application or action item</li>
-                    <li>A forward-looking implication or trend to watch</li>
-                </ul>
-            </div>
+    <blockquote>
+        A final, thought-provoking quote or statement that encapsulates the essence of your blog and leaves readers with something meaningful to reflect on.
+    </blockquote>
 
-            <!-- Related Posts -->
-            <div class="related-posts">
-                <h3>Related Reading</h3>
-                <a href="related-blog-1.html" class="post-link">
-                    <strong>Related Blog Post Title 1</strong><br>
-                    Brief description of what this related post covers
-                </a>
-                <a href="related-blog-2.html" class="post-link">
-                    <strong>Related Blog Post Title 2</strong><br>
-                    Brief description of what this related post covers
-                </a>
-            </div>
+    <p>
+        End with a final paragraph that brings closure to your exploration while leaving room for readers to form their own conclusions.
+    </p>
 
-            <hr>
-            <div class="copyright">© <span id="year"></span> aravindirl. all rights reserved.</div>
-        </article>
+    <figure>
+        <img src="images/image4.jpg" alt="Image for closing">
+        <figcaption>Final image that ties the narrative together or shows the broader context</figcaption>
+    </figure>
+
+    <hr>
+    <div class="read-next">
+        <span class="read-next-label">read next →</span>
+        <a href="related-blog-title.html">Related Blog Post Title</a>
     </div>
+    <div class="post-footer">
+        <a href="../blogs.html" class="back-nav">← back to blogs</a>
+        <button class="share-btn" id="share-btn">share ↗</button>
+    </div>
+    <div class="copyright">© <span id="year"></span> aravindirl. all rights reserved.</div>
+</div>
 
-    <script>
-        const toggleBtn = document.getElementById('theme-toggle');
-        const themeIcon = document.getElementById('theme-icon');
-        const body = document.body;
-        const sunIcon = `<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>`;
-        const moonIcon = `<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>`;
-
-        function setFavicon(color) {
-            const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><rect x="2" y="2" width="12" height="12" rx="2" fill="${color}"/></svg>`;
-            const link = document.querySelector('link[rel="icon"]') || document.createElement('link');
-            link.rel = 'icon';
-            link.type = 'image/svg+xml';
-            link.href = 'data:image/svg+xml,' + encodeURIComponent(svg);
-            if (!link.parentNode) document.head.appendChild(link);
+<script>
+    const toggleBtn = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    const body = document.body;
+    const sunIcon = `<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>`;
+    const moonIcon = `<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>`;
+    function setFavicon(color) {
+        const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><rect x="2" y="2" width="12" height="12" rx="2" fill="${color}"/></svg>`;
+        const link = document.querySelector('link[rel="icon"]') || document.createElement('link');
+        link.rel = 'icon'; link.type = 'image/svg+xml';
+        link.href = 'data:image/svg+xml,' + encodeURIComponent(svg);
+        if (!link.parentNode) document.head.appendChild(link);
+    }
+    function applyTheme(t) {
+        if (t === 'dark') {
+            body.setAttribute('data-theme', 'dark');
+            themeIcon.innerHTML = sunIcon;
+            themeIcon.setAttribute('fill', 'none');
+            themeIcon.setAttribute('stroke', 'currentColor');
+            themeIcon.setAttribute('stroke-width', '2');
+            setFavicon('#34d399');
+        } else {
+            body.setAttribute('data-theme', 'light');
+            themeIcon.innerHTML = moonIcon;
+            themeIcon.setAttribute('fill', 'currentColor');
+            themeIcon.setAttribute('stroke', 'none');
+            setFavicon('#b31c1c');
         }
+    }
+    const savedTheme = localStorage.getItem('aravind-theme') || 'dark';
+    applyTheme(savedTheme);
+    toggleBtn.addEventListener('click', () => {
+        const n = body.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+        localStorage.setItem('aravind-theme', n);
+        applyTheme(n);
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-        function applyTheme(theme) {
-            if (theme === 'dark') {
-                body.setAttribute('data-theme', 'dark');
-                themeIcon.innerHTML = sunIcon;
-                themeIcon.setAttribute('fill', 'none');
-                themeIcon.setAttribute('stroke', 'currentColor');
-                themeIcon.setAttribute('stroke-width', '2');
-                setFavicon('#34d399');
-            } else {
-                body.setAttribute('data-theme', 'light');
-                themeIcon.innerHTML = moonIcon;
-                themeIcon.setAttribute('fill', 'currentColor');
-                themeIcon.setAttribute('stroke', 'none');
-                setFavicon('#b31c1c');
+    const progressBar = document.getElementById('progress-bar');
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.body.scrollHeight - window.innerHeight;
+        progressBar.style.width = (docHeight > 0 ? (scrollTop / docHeight) * 100 : 0) + '%';
+    });
+
+    (function() {
+        const toast = document.createElement('div');
+        toast.className = 'toast';
+        document.body.appendChild(toast);
+        document.addEventListener('keydown', e => {
+            if (e.key === 't' && !e.ctrlKey && !e.metaKey && !['INPUT','TEXTAREA'].includes(document.activeElement.tagName)) {
+                toggleBtn.click();
+                toast.textContent = '[theme: ' + document.body.getAttribute('data-theme') + ']';
+                toast.classList.add('show');
+                setTimeout(() => toast.classList.remove('show'), 1500);
             }
-        }
-
-        const savedTheme = localStorage.getItem('aravind-theme') || 'dark';
-        applyTheme(savedTheme);
-
-        toggleBtn.addEventListener('click', () => {
-            const currentTheme = body.getAttribute('data-theme');
-            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-            localStorage.setItem('aravind-theme', newTheme);
-            applyTheme(newTheme);
         });
-
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
+    })();
+    document.getElementById('share-btn').addEventListener('click', () => {
+        navigator.clipboard.writeText(window.location.href).then(() => {
+            const t = document.querySelector('.toast');
+            t.textContent = '[link copied!]';
+            t.classList.add('show');
+            setTimeout(() => t.classList.remove('show'), 1500);
+        });
+    });
+</script>
 </body>
 </html>
