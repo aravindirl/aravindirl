@@ -198,6 +198,31 @@
         /* No results message */
         .no-results { padding: 32px; text-align: center; color: var(--secondary-text); font-size: 0.85rem; font-style: italic; grid-column: 1 / -1; }
 
+        /* Tag sidebar */
+        .tag-sidebar {
+            position: fixed;
+            left: calc(50% + 345px);
+            top: 160px;
+            font-size: 0.74rem;
+            color: var(--secondary-text);
+            width: 110px;
+        }
+        .tag-sidebar-label { font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px; opacity: 0.6; }
+        .tag-sidebar-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 4px 0;
+            cursor: pointer;
+            border-bottom: 1px solid var(--hr-color);
+            transition: color 0.15s ease;
+        }
+        .tag-sidebar-item:first-of-type { border-top: 1px solid var(--hr-color); }
+        .tag-sidebar-item:hover { color: var(--accent-color); }
+        .tag-sidebar-item.active { color: var(--accent-color); font-weight: bold; }
+        .tag-sidebar-count { font-size: 0.66rem; opacity: 0.6; }
+        @media (max-width: 1060px) { .tag-sidebar { display: none; } }
+
         @media (max-width: 500px) {
             .blog-grid { grid-template-columns: repeat(2, 1fr); }
             .blog-card.featured { grid-column: span 2; }
@@ -209,6 +234,8 @@
     </style>
 </head>
 <body data-theme="dark">
+    <aside class="tag-sidebar" id="tag-sidebar"></aside>
+
     <div class="container">
         <header>
             <h1 class="site-title"><a href="index.html">Aravind Ramachandran</a><span class="cursor"></span></h1>
@@ -434,6 +461,35 @@
             });
         });
 
+        // Build tag sidebar
+        const sidebar = document.getElementById('tag-sidebar');
+        (function buildSidebar() {
+            const counts = {};
+            getCards().forEach(card => {
+                (card.dataset.tags || '').split(' ').forEach(t => {
+                    if (t) counts[t] = (counts[t] || 0) + 1;
+                });
+            });
+            const label = document.createElement('div');
+            label.className = 'tag-sidebar-label';
+            label.textContent = 'tags';
+            sidebar.appendChild(label);
+            Object.entries(counts).sort().forEach(([tag, count]) => {
+                const item = document.createElement('div');
+                item.className = 'tag-sidebar-item';
+                item.dataset.tag = tag;
+                item.innerHTML = `<span>${tag}</span><span class="tag-sidebar-count">(${count})</span>`;
+                item.addEventListener('click', () => setActiveTag(activeTag === tag ? 'all' : tag));
+                sidebar.appendChild(item);
+            });
+        })();
+
+        function syncSidebar() {
+            sidebar.querySelectorAll('.tag-sidebar-item').forEach(item => {
+                item.classList.toggle('active', item.dataset.tag === activeTag);
+            });
+        }
+
         const tagIndicator = document.getElementById('tag-indicator');
         const tagIndicatorPill = document.getElementById('tag-indicator-pill');
 
@@ -448,6 +504,7 @@
                 tagIndicatorPill.textContent = tag;
                 tagIndicator.classList.add('visible');
             }
+            syncSidebar();
             applyFilter();
         }
 
