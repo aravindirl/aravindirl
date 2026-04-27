@@ -4,16 +4,16 @@
     <link rel="icon" href="/favicon.ico">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aravind Ramachandran | Home</title>
-    <meta name="description" content="Aravind Ramachandran — studying markets, technology & society. Active generalist, based in Chennai.">
-    <meta property="og:title" content="Aravind Ramachandran">
-    <meta property="og:description" content="Studying markets, technology & society. Patterns across these domains excite me.">
+    <title>Aravind Ramachandran | Media</title>
+    <meta name="description" content="Media by Aravind Ramachandran — photos, videos, audios, documents, and curated links.">
+    <meta property="og:title" content="Aravind Ramachandran | Media">
+    <meta property="og:description" content="A collection of photos, videos, audios, documents, and curated links.">
     <meta property="og:type" content="website">
     <meta name="author" content="Aravind Ramachandran">
     <meta name="robots" content="index, follow">
     <meta property="og:image" content="https://www.aravindirl.com/og.svg">
-    <meta property="og:url" content="https://www.aravindirl.com/">
-    <link rel="canonical" href="https://www.aravindirl.com/">
+    <meta property="og:url" content="https://www.aravindirl.com/media/media.html">
+    <link rel="canonical" href="https://www.aravindirl.com/media/media.html">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://www.aravindirl.com/og.svg">
     <style>
@@ -62,7 +62,7 @@
             margin-left: 3px;
         }
         h1 { font-size: 1.3rem; font-weight: bold; margin: 28px 0 10px 0; letter-spacing: -0.01em; }
-        h2 { font-size: 1rem; font-weight: bold; margin: 28px 0 10px 0; }
+        h2 { font-size: 1rem; font-weight: bold; margin: 24px 0 12px 0; color: var(--accent-color); }
         #theme-toggle {
             background: none;
             border: 1px solid var(--text-color);
@@ -77,8 +77,6 @@
         }
         #theme-toggle svg { width: 16px; height: 16px; fill: currentColor; }
         #theme-toggle:hover { background-color: var(--text-color); color: var(--bg-color); }
-        nav { font-size: 0.9rem; display: flex; align-items: center; flex-wrap: wrap; margin-bottom: 4px; }
-        .page-nav { margin-bottom: 16px; }
         .sep { color: var(--secondary-text); padding: 0 3px; user-select: none; }
         nav a, .content-link, .back-nav {
             text-decoration: none;
@@ -86,17 +84,18 @@
             padding: 0 4px;
             transition: all 0.2s ease;
         }
-        nav a:not(.dir-entry):hover, .content-link:hover, .back-nav:hover {
+        nav a:hover, .content-link:hover, .back-nav:hover {
             background-color: var(--accent-color);
             color: var(--bg-color);
             border-radius: 2px;
             text-decoration: none;
         }
-        nav a.active { background-color: var(--text-color); color: var(--bg-color); border-radius: 2px; }
         .content-link { color: var(--accent-color); text-decoration: underline; text-underline-offset: 3px; }
         hr { border: 0; border-top: 1px solid var(--hr-color); margin: 20px 0; }
         p { margin-bottom: 18px; font-size: 1rem; }
         .copyright { font-size: 0.75rem; color: var(--secondary-text); margin-top: 25px; opacity: 0.8; }
+        .back-nav { margin-top: 40px; display: inline-block; font-size: 0.9rem; }
+        .social-footer { margin-top: 10px; font-size: 0.9rem; display: flex; align-items: center; flex-wrap: wrap; }
         ::-webkit-scrollbar { width: 5px; }
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: var(--hr-color); border-radius: 3px; }
@@ -104,83 +103,117 @@
         [data-theme="dark"] .cursor { box-shadow: 0 0 8px var(--accent-color), 0 0 16px var(--accent-color); }
         ::selection { background: rgba(179, 28, 28, 0.15); }
         [data-theme="dark"] ::selection { background: rgba(212, 168, 67, 0.2); color: #fff; }
+        h1:not(.site-title)::before { content: '// '; color: var(--accent-color); font-weight: normal; }
+        .back-nav::before { content: '$ '; color: var(--accent-color); }
         html { scroll-behavior: smooth; }
+        .site-title a { text-decoration: none; color: inherit; }
+        [data-theme="dark"] .content-link { text-shadow: 0 0 6px rgba(212, 168, 67, 0.35); }
+        .toast { position: fixed; bottom: 20px; right: 20px; font-size: 0.72rem; padding: 5px 10px; border: 1px solid var(--accent-color); color: var(--accent-color); background: var(--bg-color); border-radius: 3px; opacity: 0; transition: opacity 0.2s ease; pointer-events: none; z-index: 9999; font-family: inherit; }
+        .toast.show { opacity: 1; }
 
-        /* Directory nav */
-        .dir-nav { margin: 28px 0 0; }
-        .dir-entry {
+        /* Media sections */
+        .media-section { margin-bottom: 32px; }
+        .media-grid {
             display: grid;
-            grid-template-columns: 100px 1fr 20px;
-            align-items: center;
-            gap: 12px;
-            padding: 14px 0;
-            border-top: 1px solid var(--hr-color);
-            text-decoration: none;
-            color: inherit;
-            transition: padding-left 0.15s ease;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 8px;
+            margin-bottom: 16px;
         }
-        .dir-entry:hover { padding-left: 8px; }
-        .dir-path { color: var(--accent-color); font-size: 0.9rem; }
-        .dir-desc { color: var(--secondary-text); font-style: italic; font-size: 0.88rem; }
-        .dir-arrow { color: var(--secondary-text); font-size: 0.9rem; transition: transform 0.15s ease, color 0.15s ease; text-align: right; }
-        .dir-entry:hover .dir-arrow { transform: translateX(3px); color: var(--accent-color); }
-
-        .sep { color: var(--secondary-text); padding: 0 3px; user-select: none; }
-        .social-footer { margin-top: 20px; font-size: 0.9rem; display: flex; align-items: center; flex-wrap: wrap; }
+        .media-item {
+            aspect-ratio: 1;
+            background: var(--hr-color);
+            border-radius: 4px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        .media-item:hover { transform: scale(1.05); }
+        .media-item img, .media-item video { width: 100%; height: 100%; object-fit: cover; }
+        .media-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .media-entry {
+            padding: 10px;
+            border: 1px solid var(--hr-color);
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.2s ease;
+        }
+        .media-entry:hover { background-color: var(--hr-color); }
+        .media-entry-title { font-size: 0.9rem; }
+        .media-entry-link { color: var(--accent-color); text-decoration: underline; text-underline-offset: 3px; font-size: 0.8rem; }
 
         @media (max-width: 540px) {
             body { padding: 24px 16px; }
             .site-title { font-size: 1.3rem; }
-            .dir-entry { grid-template-columns: 85px 1fr 16px; gap: 8px; padding: 12px 0; }
-            .dir-path { font-size: 0.82rem; }
-            .dir-desc { font-size: 0.8rem; }
-            p { font-size: 0.92rem; }
+            .media-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
         }
-        .content-link { text-decoration: underline; text-underline-offset: 3px; color: var(--accent-color); transition: all 0.2s ease; }
-        .content-link:hover { background-color: var(--accent-color); color: var(--bg-color); border-radius: 2px; text-decoration: none; padding: 0 2px; }
-        [data-theme="dark"] .content-link { text-shadow: 0 0 6px rgba(212, 168, 67, 0.35); }
-        .toast { position: fixed; bottom: 20px; right: 20px; font-size: 0.72rem; padding: 5px 10px; border: 1px solid var(--accent-color); color: var(--accent-color); background: var(--bg-color); border-radius: 3px; opacity: 0; transition: opacity 0.2s ease; pointer-events: none; z-index: 9999; font-family: inherit; }
-        .toast.show { opacity: 1; }
     </style>
-    <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"Person","name":"Aravind Ramachandran","url":"https://www.aravindirl.com/","description":"Studying markets, technology & society. Active generalist.","sameAs":["https://www.instagram.com/aravindirl/"]}
-    </script>
 </head>
 <body data-theme="dark">
     <div class="container">
         <header>
-            <h1 class="site-title">Aravind Ramachandran<span class="cursor"></span></h1>
+            <h1 class="site-title"><a href="../index.html">Aravind Ramachandran</a><span class="cursor"></span></h1>
             <button id="theme-toggle" aria-label="Toggle theme"><svg id="theme-icon" viewBox="0 0 24 24"></svg></button>
         </header>
         <hr>
-        <p>Studying the Markets, Technology & Society</p>
-        <p>Pattern across these domain excite me</p>
-        <p><a href="https://a16z.com/the-techno-optimist-manifesto/" class="content-link" target="_blank" rel="noopener noreferrer">The Techno optimist manifesto</a></p>
-        <p>Operating as an active generalist</p>
-        <p>Early . Silent . Positioned</p>
-        <nav class="dir-nav">
-            <a href="projects/projects.html" class="dir-entry">
-                <span class="dir-path">./projects</span>
-                <span class="dir-desc">building vibe coding projects for fun</span>
-                <span class="dir-arrow">→</span>
-            </a>
-            <a href="blogs.html" class="dir-entry">
-                <span class="dir-path">./blog</span>
-                <span class="dir-desc">documenting my learnings &amp; giving back to the internet</span>
-                <span class="dir-arrow">→</span>
-            </a>
-            <a href="about/about.html" class="dir-entry">
-                <span class="dir-path">./about</span>
-                <span class="dir-desc">get some context, if you're interested</span>
-                <span class="dir-arrow">→</span>
-            </a>
-            <a href="media/media.html" class="dir-entry">
-                <span class="dir-path">./media</span>
-                <span class="dir-desc">photos, videos, audios, documents & links</span>
-                <span class="dir-arrow">→</span>
-            </a>
-        </nav>
-        <hr>
+
+        <h1>media:-</h1>
+
+        <!-- Photos section -->
+        <div class="media-section">
+            <h2>photos</h2>
+            <div class="media-grid" id="photos-grid">
+                <!-- Photos will be added here -->
+            </div>
+            <p style="color: var(--secondary-text); font-size: 0.85rem; margin-top: 8px;">coming soon...</p>
+        </div>
+
+        <!-- Videos section -->
+        <div class="media-section">
+            <h2>videos</h2>
+            <div class="media-grid" id="videos-grid">
+                <!-- Videos will be added here -->
+            </div>
+            <p style="color: var(--secondary-text); font-size: 0.85rem; margin-top: 8px;">coming soon...</p>
+        </div>
+
+        <!-- Audios section -->
+        <div class="media-section">
+            <h2>audios</h2>
+            <div class="media-list" id="audios-list">
+                <!-- Audios will be added here -->
+            </div>
+            <p style="color: var(--secondary-text); font-size: 0.85rem; margin-top: 8px;">coming soon...</p>
+        </div>
+
+        <!-- Documents section -->
+        <div class="media-section">
+            <h2>documents</h2>
+            <div class="media-list" id="documents-list">
+                <!-- Documents will be added here -->
+            </div>
+            <p style="color: var(--secondary-text); font-size: 0.85rem; margin-top: 8px;">coming soon...</p>
+        </div>
+
+        <!-- Links section -->
+        <div class="media-section">
+            <h2>links</h2>
+            <div class="media-list" id="links-list">
+                <!-- Links will be added here -->
+            </div>
+            <p style="color: var(--secondary-text); font-size: 0.85rem; margin-top: 8px;">coming soon...</p>
+        </div>
+
+        <a href="../index.html" class="back-nav">← back to homepage</a>
         <nav class="social-footer">
             <a href="https://www.instagram.com/aravindirl/" class="content-link" target="_blank" rel="noopener noreferrer">instagram</a>
             <span class="sep">/</span>
@@ -192,6 +225,7 @@
         </nav>
         <div class="copyright">© <span id="year"></span> aravindirl. all rights reserved.</div>
     </div>
+
     <script>
         const toggleBtn = document.getElementById('theme-toggle');
         const themeIcon = document.getElementById('theme-icon');
