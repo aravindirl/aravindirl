@@ -130,9 +130,11 @@
             font-size: 2rem;
             cursor: pointer;
             transition: transform 0.2s ease;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         .media-item:hover { transform: scale(1.05); }
-        .media-item img, .media-item video { width: 100%; height: 100%; object-fit: cover; }
         .media-list {
             display: flex;
             flex-direction: column;
@@ -172,9 +174,14 @@
         <div class="media-section">
             <h2>photos</h2>
             <div class="media-grid" id="photos-grid">
-                <!-- Photos will be added here -->
+                <img src="../images/tulasi.png" alt="photo" class="media-item">
+                <img src="../images/tulasi2.png" alt="photo" class="media-item">
+                <img src="../images/summersrgm.png" alt="photo" class="media-item">
+                <img src="../images/mktble.jpg" alt="photo" class="media-item">
+                <img src="../images/whatunderstand.jfif" alt="photo" class="media-item">
+                <img src="../images/frameworksunderstand.jfif" alt="photo" class="media-item">
+                <img src="../images/attention.jfif" alt="photo" class="media-item">
             </div>
-            <p style="color: var(--secondary-text); font-size: 0.85rem; margin-top: 8px;">coming soon...</p>
         </div>
 
         <!-- Videos section -->
