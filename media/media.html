@@ -111,6 +111,39 @@
         .toast { position: fixed; bottom: 20px; right: 20px; font-size: 0.72rem; padding: 5px 10px; border: 1px solid var(--accent-color); color: var(--accent-color); background: var(--bg-color); border-radius: 3px; opacity: 0; transition: opacity 0.2s ease; pointer-events: none; z-index: 9999; font-family: inherit; }
         .toast.show { opacity: 1; }
 
+        /* Media toggle sections */
+        .media-toggle {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
+            padding: 8px 0;
+            user-select: none;
+        }
+        .toggle-arrow {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            transition: transform 0.2s ease;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+        .toggle-arrow.open {
+            transform: rotate(90deg);
+        }
+        .media-section {
+            margin-bottom: 32px;
+        }
+        .media-section.collapsed {
+            display: none;
+        }
+        .toggle-label {
+            font-size: 1rem;
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+
         /* Media sections */
         .media-section { margin-bottom: 32px; }
         .media-grid {
@@ -171,8 +204,11 @@
         <h1>media:-</h1>
 
         <!-- Photos section -->
-        <div class="media-section">
-            <h2>photos</h2>
+        <div class="media-toggle" onclick="toggleMedia(event, 'photos-section')">
+            <span class="toggle-arrow open">▶</span>
+            <span class="toggle-label">photos</span>
+        </div>
+        <div class="media-section" id="photos-section">
             <div class="media-grid" id="photos-grid">
                 <img src="../images/tulasi.png" alt="photo" class="media-item">
                 <img src="../images/tulasi2.png" alt="photo" class="media-item">
@@ -185,8 +221,11 @@
         </div>
 
         <!-- Videos section -->
-        <div class="media-section">
-            <h2>videos</h2>
+        <div class="media-toggle" onclick="toggleMedia(event, 'videos-section')">
+            <span class="toggle-arrow open">▶</span>
+            <span class="toggle-label">videos</span>
+        </div>
+        <div class="media-section" id="videos-section">
             <div class="media-grid" id="videos-grid">
                 <!-- Videos will be added here -->
             </div>
@@ -194,8 +233,11 @@
         </div>
 
         <!-- Audios section -->
-        <div class="media-section">
-            <h2>audios</h2>
+        <div class="media-toggle" onclick="toggleMedia(event, 'audios-section')">
+            <span class="toggle-arrow open">▶</span>
+            <span class="toggle-label">audios</span>
+        </div>
+        <div class="media-section" id="audios-section">
             <div class="media-list" id="audios-list">
                 <!-- Audios will be added here -->
             </div>
@@ -203,8 +245,11 @@
         </div>
 
         <!-- Documents section -->
-        <div class="media-section">
-            <h2>documents</h2>
+        <div class="media-toggle" onclick="toggleMedia(event, 'documents-section')">
+            <span class="toggle-arrow open">▶</span>
+            <span class="toggle-label">documents</span>
+        </div>
+        <div class="media-section" id="documents-section">
             <div class="media-list" id="documents-list">
                 <!-- Documents will be added here -->
             </div>
@@ -212,8 +257,11 @@
         </div>
 
         <!-- Links section -->
-        <div class="media-section">
-            <h2>links</h2>
+        <div class="media-toggle" onclick="toggleMedia(event, 'links-section')">
+            <span class="toggle-arrow open">▶</span>
+            <span class="toggle-label">links</span>
+        </div>
+        <div class="media-section" id="links-section">
             <div class="media-list" id="links-list">
                 <div class="media-entry">
                     <span class="media-entry-title">crate collection</span>
@@ -277,6 +325,14 @@
             applyTheme(newTheme);
         });
         document.getElementById('year').textContent = new Date().getFullYear();
+
+        function toggleMedia(event, sectionId) {
+            event.stopPropagation();
+            const section = document.getElementById(sectionId);
+            const arrow = event.target.closest('.media-toggle').querySelector('.toggle-arrow');
+            section.classList.toggle('collapsed');
+            arrow.classList.toggle('open');
+        }
 
         (function() {
             const toast = document.createElement('div');
