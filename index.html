@@ -235,6 +235,10 @@
             toast.className = 'toast';
             document.body.appendChild(toast);
             document.addEventListener('keydown', e => {
+                if (e.key === 'Backspace' && !['INPUT','TEXTAREA'].includes(document.activeElement.tagName)) {
+                    e.preventDefault();
+                    history.back();
+                }
                 if (e.key === 't' && !e.ctrlKey && !e.metaKey && !['INPUT','TEXTAREA'].includes(document.activeElement.tagName)) {
                     toggleBtn.click();
                     toast.textContent = '[theme: ' + document.body.getAttribute('data-theme') + ']';
