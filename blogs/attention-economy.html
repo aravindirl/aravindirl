@@ -155,6 +155,19 @@
         .email-input-group button:hover { background-color: var(--accent-color); color: var(--bg-color); }
         .email-success { display: none; padding: 12px; background-color: var(--hr-color); border-radius: 3px; color: var(--text-color); font-size: 0.9rem; margin-top: 12px; }
         .email-success.show { display: block; }
+                .author-block { display: flex; gap: 12px; margin: 28px 0; padding: 16px; background-color: var(--hr-color); border-radius: 4px; align-items: flex-start; }
+        .author-avatar { width: 48px; height: 48px; border-radius: 50%; background: var(--accent-color); flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: var(--bg-color); font-weight: bold; }
+        .author-info { flex: 1; }
+        .author-name { font-size: 0.9rem; font-weight: 600; color: var(--text-color); display: block; }
+        .author-bio { font-size: 0.85rem; color: var(--secondary-text); margin-top: 2px; }
+        .author-bio a { color: var(--accent-color); }
+        .related-posts { margin: 32px 0; padding: 20px 0; border-top: 1px solid var(--hr-color); border-bottom: 1px solid var(--hr-color); }
+        .related-label { font-size: 0.9rem; color: var(--secondary-text); margin-bottom: 12px; display: block; }
+        .related-list { list-style: none; padding: 0; margin: 0; }
+        .related-list li { margin-bottom: 8px; }
+        .related-list a { color: var(--accent-color); text-decoration: underline; text-underline-offset: 3px; transition: all 0.2s ease; }
+        .related-list a:hover { background-color: var(--accent-light); color: var(--text-color); padding: 0 2px; border-radius: 2px; text-decoration: none; }
+        [data-theme="dark"] .related-list a:hover { background-color: var(--accent-dark); color: #fff; }
     </style>
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"BlogPosting","headline":"The Attention Economy: Markets Competing for Your Mind","description":"How markets have evolved to compete for attention.","keywords":"internet,markets","author":{"@type":"Person","name":"Aravind Ramachandran","url":"https://www.aravindirl.com/"},"datePublished":"2026-04-25","url":"https://www.aravindirl.com/blogs/attention-economy.html","mainEntityOfPage":"https://www.aravindirl.com/blogs/attention-economy.html"}
@@ -280,7 +293,12 @@
 
     <hr>
     
-            <div class="email-form" id="email-form">
+                <div class="related-posts" id="related-posts">
+        <span class="related-label">continue reading:</span>
+        <ul class="related-list" id="related-list"></ul>
+    </div>
+
+    <div class="email-form" id="email-form">
         <label class="email-form-label">get new posts in your inbox</label>
         <div class="email-input-group">
             <input type="email" id="email-input" placeholder="your email" required>
@@ -375,6 +393,32 @@
     }
 
     });
+
+    // Related posts metadata
+    const relatedPostsData = {
+        'blogs/attention-economy.html': [
+            {"url": "../blogs/frameworks-of-understanding.html", "title": "Frameworks of Understanding"},
+            {"url": "../blogs/mrktbble1.html", "title": "We are in a marketing bubble"}
+        ]
+    };
+
+    function loadRelatedPosts() {
+        const relatedList = document.getElementById('related-list');
+        if (!relatedList) return;
+
+        const currentPath = 'blogs/attention-economy.html';
+        const related = relatedPostsData[currentPath] || [];
+        related.forEach(post => {
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            a.href = post.url;
+            a.textContent = '~ ' + post.title;
+            li.appendChild(a);
+            relatedList.appendChild(li);
+        });
+    }
+
+    loadRelatedPosts();
 
     (function() {
         const toast = document.createElement('div');

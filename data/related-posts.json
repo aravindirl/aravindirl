@@ -1,0 +1,22 @@
+{
+  "blogs/pilot0.html": [
+    "blogs/frameworks-of-understanding.html",
+    "blogs/mrktbble1.html"
+  ],
+  "blogs/mrktbble1.html": [
+    "blogs/attention-economy.html",
+    "blogs/pilot0.html"
+  ],
+  "blogs/frameworks-of-understanding.html": [
+    "blogs/pilot0.html",
+    "blogs/attention-economy.html"
+  ],
+  "blogs/attention-economy.html": [
+    "blogs/frameworks-of-understanding.html",
+    "blogs/mrktbble1.html"
+  ],
+  "blogs/%235.html": [
+    "blogs/pilot0.html",
+    "blogs/frameworks-of-understanding.html"
+  ]
+}
