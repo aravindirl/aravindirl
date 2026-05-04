@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<rss xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>Aravind Ramachandran</title>
+    <link>https://www.aravindirl.com</link>
+    <description>Writings by Aravind Ramachandran on markets, technology, and society.</description>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 04 May 2026 23:51:49 GMT</lastBuildDate>
+    <item>
+      <title>The Attention Economy</title>
+      <link>https://www.aravindirl.com/blogs/attention-economy.html</link>
+      <description>Attention is the scarcest resource. How markets and technology compete for it.</description>
+      <pubDate>Sat, 25 Apr 2026 00:00:00 GMT</pubDate>
+      <guid>https://www.aravindirl.com/blogs/attention-economy.html</guid>
+    </item>
+    <item>
+      <title>Tulasi, Relationship with food, Toxic summers, Dealing with 'neo-luddites'</title>
+      <link>https://www.aravindirl.com/blogs/%235.html</link>
+      <description>Personal essay on food, culture, summer, and technology in modern life.</description>
+      <pubDate>Sat, 25 Apr 2026 00:00:00 GMT</pubDate>
+      <guid>https://www.aravindirl.com/blogs/%235.html</guid>
+    </item>
+    <item>
+      <title>Frameworks of Understanding</title>
+      <link>https://www.aravindirl.com/blogs/frameworks-of-understanding.html</link>
+      <description>Mental models and frameworks for understanding how systems actually work.</description>
+      <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
+      <guid>https://www.aravindirl.com/blogs/frameworks-of-understanding.html</guid>
+    </item>
+    <item>
+      <title>We are in a marketing bubble</title>
+      <link>https://www.aravindirl.com/blogs/mrktbble1.html</link>
+      <description>The supply of marketing has exploded while attention hasn't scaled. The system is distorting.</description>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 GMT</pubDate>
+      <guid>https://www.aravindirl.com/blogs/mrktbble1.html</guid>
+    </item>
+    <item>
+      <title>What am trying to understand?</title>
+      <link>https://www.aravindirl.com/blogs/pilot0.html</link>
+      <description>Trying to understand how things actually work — across markets, technology, and behavior.</description>
+      <pubDate>Mon, 30 Mar 2026 00:00:00 GMT</pubDate>
+      <guid>https://www.aravindirl.com/blogs/pilot0.html</guid>
+    </item>
+  </channel>
+</rss>
