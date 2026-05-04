@@ -148,6 +148,16 @@
         .site-title a { text-decoration: none; color: inherit; }
         .toast { position: fixed; bottom: 20px; right: 20px; font-size: 0.72rem; padding: 5px 10px; border: 1px solid var(--accent-color); color: var(--accent-color); background: var(--bg-color); border-radius: 3px; opacity: 0; transition: opacity 0.2s ease; pointer-events: none; z-index: 9999; font-family: inherit; }
         .toast.show { opacity: 1; }
+        .email-form { margin: 32px 0; padding: 20px 0; border-top: 1px solid var(--hr-color); border-bottom: 1px solid var(--hr-color); }
+        .email-form-label { display: block; font-size: 0.9rem; margin-bottom: 12px; color: var(--text-color); }
+        .email-input-group { display: flex; gap: 8px; align-items: stretch; }
+        .email-input-group input { flex: 1; padding: 8px 12px; border: 1px solid var(--hr-color); border-radius: 3px; background: none; color: var(--text-color); font-family: inherit; font-size: 0.9rem; outline: none; transition: border-color 0.2s ease; }
+        .email-input-group input::placeholder { color: var(--secondary-text); opacity: 0.6; }
+        .email-input-group input:focus { border-color: var(--accent-color); }
+        .email-input-group button { padding: 8px 16px; border: 1px solid var(--accent-color); background: none; color: var(--accent-color); font-family: inherit; font-size: 0.9rem; cursor: pointer; border-radius: 3px; transition: all 0.2s ease; white-space: nowrap; }
+        .email-input-group button:hover { background-color: var(--accent-color); color: var(--bg-color); }
+        .email-success { display: none; padding: 12px; background-color: var(--hr-color); border-radius: 3px; color: var(--text-color); font-size: 0.9rem; margin-top: 12px; }
+        .email-success.show { display: block; }
     </style>
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"BlogPosting","headline":"We are in a marketing bubble","description":"The supply of marketing has exploded while attention hasn't scaled. The system is distorting.","author":{"@type":"Person","name":"Aravind Ramachandran","url":"https://www.aravindirl.com/"},"datePublished":"2026-04-10","url":"https://www.aravindirl.com/mrktbble1.html","mainEntityOfPage":"https://www.aravindirl.com/mrktbble1.html"}
@@ -213,9 +223,20 @@
         We are experiencing the latter.
     </p>
     <hr>
-    
+
+    <div class="email-form" id="email-form">
+        <label class="email-form-label">get new posts in your inbox</label>
+        <div class="email-input-group">
+            <input type="email" id="email-input" placeholder="your email" required>
+            <button id="email-btn">subscribe →</button>
+        </div>
+        <div class="email-success" id="email-success">thanks, you're in. check your inbox to confirm.</div>
+    </div>
+
+    <hr>
+
         <a href="../blogs.html" class="back-nav">← back to blogs</a>
-    
+
     <div class="copyright">© <span id="year"></span> aravindirl. all rights reserved.
 
 
@@ -256,6 +277,46 @@
         applyTheme(n);
     });
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Email subscription
+    const emailForm = document.getElementById('email-form');
+    const emailInput = document.getElementById('email-input');
+    const emailBtn = document.getElementById('email-btn');
+    const emailSuccess = document.getElementById('email-success');
+    const BEEHIIV_PUBLICATION_ID = 'YOUR_PUBLICATION_ID_HERE';
+
+    if (emailBtn) {
+        emailBtn.addEventListener('click', async (e) => {
+            e.preventDefault();
+            const email = emailInput.value.trim();
+            if (!email || !email.includes('@')) {
+                emailInput.focus();
+                return;
+            }
+            emailBtn.disabled = true;
+            emailBtn.textContent = 'subscribing...';
+            try {
+                const response = await fetch('https://api.beehiiv.com/v1/publications/' + BEEHIIV_PUBLICATION_ID + '/subscriptions', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email: email, reactivate_existing_subscriber: true })
+                });
+                if (response.ok) {
+                    emailForm.style.display = 'none';
+                    emailSuccess.classList.add('show');
+                    emailInput.value = '';
+                }
+            } catch (err) {
+                console.error('Subscription error:', err);
+            } finally {
+                emailBtn.disabled = false;
+                emailBtn.textContent = 'subscribe →';
+            }
+        });
+        emailInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') emailBtn.click();
+        });
+    }
 
     });
 
