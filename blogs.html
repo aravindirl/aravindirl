@@ -140,6 +140,14 @@
         #search-input::placeholder { color: var(--secondary-text); opacity: 0.6; }
         #search-input:focus { border-color: var(--accent-color); background-color: var(--hr-light); }
 
+        /* Tag system */
+        .tag-bar { margin-bottom: 24px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+        .tag-label { color: var(--secondary-text); font-size: 0.85rem; min-width: 40px; }
+        .tag-btn { padding: 4px 10px; border: 1px solid var(--hr-color); background: none; color: var(--text-color); font-family: inherit; font-size: 0.85rem; cursor: pointer; border-radius: 3px; transition: all 0.2s ease; }
+        .tag-btn:hover { border-color: var(--accent-color); color: var(--accent-color); }
+        .tag-btn.active { background-color: var(--accent-color); border-color: var(--accent-color); color: var(--bg-color); }
+        .tags-hidden { display: none; }
+
         /* Blog grid */
         .blog-grid {
             display: grid;
@@ -220,9 +228,13 @@
             <input type="text" id="search-input" placeholder="search..." autocomplete="off" spellcheck="false">
         </div>
 
+        <div class="tag-bar" id="tag-bar">
+            <span class="tag-label">tags:</span>
+        </div>
+
         <div class="blog-grid" id="blog-grid">
 
-            <a href="blogs/pilot0.html" class="blog-card featured" data-date="20260330">
+            <a href="blogs/pilot0.html" class="blog-card featured" data-date="20260330" data-tags="meta thinking">
                 <img src="images/whatunderstand.jfif" alt="What am trying to understand?">
                 <div class="card-body">
                     <div class="card-title">What am trying to understand?</div>
@@ -230,7 +242,7 @@
                 </div>
             </a>
 
-            <a href="blogs/mrktbble1.html" class="blog-card" data-date="20260410">
+            <a href="blogs/mrktbble1.html" class="blog-card" data-date="20260410" data-tags="internet markets">
                 <img src="images/mktble.jpg" alt="We are in a marketing bubble">
                 <div class="card-body">
                     <div class="card-title">We are in a marketing bubble</div>
@@ -238,7 +250,7 @@
                 </div>
             </a>
 
-            <a href="blogs/frameworks-of-understanding.html" class="blog-card" data-date="20260424">
+            <a href="blogs/frameworks-of-understanding.html" class="blog-card" data-date="20260424" data-tags="meta thinking internet">
                 <img src="images/frameworksunderstand.jfif" alt="Frameworks of Understanding">
                 <div class="card-body">
                     <div class="card-title">Frameworks of Understanding</div>
@@ -246,7 +258,7 @@
                 </div>
             </a>
 
-            <a href="blogs/attention-economy.html" class="blog-card" data-date="20260425">
+            <a href="blogs/attention-economy.html" class="blog-card" data-date="20260425" data-tags="internet markets attention">
                 <img src="images/attention.jfif" alt="The Attention Economy">
                 <div class="card-body">
                     <div class="card-title">The Attention Economy</div>
@@ -254,7 +266,7 @@
                 </div>
             </a>
 
-            <a href="blogs/%235.html" class="blog-card" data-date="20260425">
+            <a href="blogs/%235.html" class="blog-card" data-date="20260425" data-tags="personal culture">
                 <img src="images/tulasi.png" alt="Tulasi, Relationship with food, Toxic summers, Dealing with 'neo-luddites'">
                 <div class="card-body">
                     <div class="card-title">Tulasi, Relationship with food, Toxic summers, Dealing with 'neo-luddites'</div>
@@ -318,9 +330,12 @@
         });
         document.getElementById('year').textContent = new Date().getFullYear();
 
-        // Search & Sort
+        // Search & Sort & Tags
         const grid = document.getElementById('blog-grid');
         const searchInput = document.getElementById('search-input');
+        const tagBar = document.getElementById('tag-bar');
+        let activeTag = null;
+
         const postIndex = {
             'blogs/pilot0.html': 'What am trying to understand? meta thinking I have been trying to understand how things actually work markets technology behavior',
             'blogs/mrktbble1.html': 'We are in a marketing bubble markets internet supply attention exploded',
@@ -331,6 +346,37 @@
 
         function getCards() {
             return Array.from(grid.querySelectorAll('.blog-card'));
+        }
+
+        function getAllTags() {
+            const tags = new Set();
+            getCards().forEach(card => {
+                const cardTags = (card.dataset.tags || '').split(' ').filter(t => t);
+                cardTags.forEach(tag => tags.add(tag));
+            });
+            return Array.from(tags).sort();
+        }
+
+        function buildTagBar() {
+            const tags = getAllTags();
+            tags.forEach(tag => {
+                const btn = document.createElement('button');
+                btn.className = 'tag-btn';
+                btn.textContent = tag;
+                btn.addEventListener('click', () => {
+                    activeTag = activeTag === tag ? null : tag;
+                    updateTagButtons();
+                    filterAndSort();
+                });
+                tagBar.appendChild(btn);
+            });
+        }
+
+        function updateTagButtons() {
+            const buttons = tagBar.querySelectorAll('.tag-btn');
+            buttons.forEach(btn => {
+                btn.classList.toggle('active', btn.textContent === activeTag);
+            });
         }
 
         function sortByDate() {
@@ -351,15 +397,29 @@
                 const href = card.getAttribute('href');
                 const title = card.querySelector('.card-title').textContent.toLowerCase();
                 const indexContent = (postIndex[href] || '').toLowerCase();
-                const matches = !query || title.includes(query) || indexContent.includes(query);
+                const cardTags = (card.dataset.tags || '').split(' ').filter(t => t);
+
+                const matchesSearch = !query || title.includes(query) || indexContent.includes(query);
+                const matchesTag = !activeTag || cardTags.includes(activeTag);
+                const matches = matchesSearch && matchesTag;
+
                 card.style.display = matches ? '' : 'none';
             });
 
             sortByDate();
         }
 
+        // Check for tag in URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const tagParam = urlParams.get('tag');
+        if (tagParam) {
+            activeTag = tagParam;
+        }
+
+        buildTagBar();
+        updateTagButtons();
         searchInput.addEventListener('input', filterAndSort);
-        sortByDate();
+        filterAndSort();
 
         (function() {
             const toast = document.createElement('div');
