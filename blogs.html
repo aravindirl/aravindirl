@@ -123,6 +123,22 @@
         .toast { position: fixed; bottom: 20px; right: 20px; font-size: 0.72rem; padding: 5px 10px; border: 1px solid var(--accent-color); color: var(--accent-color); background: var(--bg-color); border-radius: 3px; opacity: 0; transition: opacity 0.2s ease; pointer-events: none; z-index: 9999; font-family: inherit; }
         .toast.show { opacity: 1; }
 
+        /* Search */
+        .search-wrap { margin-bottom: 20px; }
+        #search-input {
+            width: 100%;
+            background: none;
+            border: 1px solid var(--hr-color);
+            border-radius: 3px;
+            color: var(--text-color);
+            font-family: inherit;
+            font-size: 0.9rem;
+            padding: 8px 12px;
+            outline: none;
+            transition: border-color 0.2s ease, background-color 0.2s ease;
+        }
+        #search-input::placeholder { color: var(--secondary-text); opacity: 0.6; }
+        #search-input:focus { border-color: var(--accent-color); background-color: var(--hr-light); }
 
         /* Blog grid */
         .blog-grid {
@@ -199,6 +215,9 @@
         <hr>
 
         <h1>blogs:-</h1>
+        <div class="search-wrap">
+            <input type="text" id="search-input" placeholder="search..." autocomplete="off" spellcheck="false">
+        </div>
 
         <div class="blog-grid" id="blog-grid">
 
@@ -287,43 +306,52 @@
             const currentTheme = body.getAttribute('data-theme');
             const newTheme = currentTheme === 'light' ? 'dark' : 'light';
             localStorage.setItem('aravind-theme', newTheme);
-        const toggleBtn = document.getElementById('theme-toggle');
-        const themeIcon = document.getElementById('theme-icon');
-        const body = document.body;
-        const sunIcon = `<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>`;
-        const moonIcon = `<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>`;
-        function setFavicon(color) {
-            const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><rect x="2" y="2" width="12" height="12" rx="2" fill="${color}"/></svg>`;
-            const link = document.querySelector('link[rel="icon"]') || document.createElement('link');
-            link.rel = 'icon'; link.type = 'image/svg+xml';
-            link.href = 'data:image/svg+xml,' + encodeURIComponent(svg);
-            if (!link.parentNode) document.head.appendChild(link);
-        }
-        function applyTheme(theme) {
-            if (theme === 'dark') {
-                body.setAttribute('data-theme', 'dark');
-                themeIcon.innerHTML = sunIcon;
-                themeIcon.setAttribute('fill', 'none');
-                themeIcon.setAttribute('stroke', 'currentColor');
-                themeIcon.setAttribute('stroke-width', '2');
-                setFavicon('#d4a843');
-            } else {
-                body.setAttribute('data-theme', 'light');
-                themeIcon.innerHTML = moonIcon;
-                themeIcon.setAttribute('fill', 'currentColor');
-                themeIcon.setAttribute('stroke', 'none');
-                setFavicon('#b31c1c');
-            }
-        }
-        const savedTheme = localStorage.getItem('aravind-theme') || 'dark';
-        applyTheme(savedTheme);
-        toggleBtn.addEventListener('click', () => {
-            const currentTheme = body.getAttribute('data-theme');
-            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-            localStorage.setItem('aravind-theme', newTheme);
             applyTheme(newTheme);
         });
         document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Search & Sort
+        const grid = document.getElementById('blog-grid');
+        const searchInput = document.getElementById('search-input');
+        const postIndex = {
+            'blogs/pilot0.html': 'What am trying to understand? meta thinking I have been trying to understand how things actually work markets technology behavior',
+            'blogs/mrktbble1.html': 'We are in a marketing bubble markets internet supply attention exploded',
+            'blogs/frameworks-of-understanding.html': 'Frameworks of Understanding meta thinking internet mental models reality perception',
+            'blogs/attention-economy.html': 'The Attention Economy internet markets attention focus scarcity',
+            'blogs/%235.html': 'Tulasi Relationship with food Toxic summers neo-luddites internet nostalgia health'
+        };
+
+        function getCards() {
+            return Array.from(grid.querySelectorAll('.blog-card'));
+        }
+
+        function sortByDate() {
+            const cards = getCards();
+            cards.sort((a, b) => {
+                const dateA = parseInt(a.dataset.date || '0');
+                const dateB = parseInt(b.dataset.date || '0');
+                return dateB - dateA;
+            });
+            cards.forEach(card => grid.appendChild(card));
+        }
+
+        function filterAndSort() {
+            const query = searchInput.value.toLowerCase().trim();
+            const cards = getCards();
+
+            cards.forEach(card => {
+                const href = card.getAttribute('href');
+                const title = card.querySelector('.card-title').textContent.toLowerCase();
+                const indexContent = (postIndex[href] || '').toLowerCase();
+                const matches = !query || title.includes(query) || indexContent.includes(query);
+                card.style.display = matches ? '' : 'none';
+            });
+
+            sortByDate();
+        }
+
+        searchInput.addEventListener('input', filterAndSort);
+        sortByDate();
 
         (function() {
             const toast = document.createElement('div');
