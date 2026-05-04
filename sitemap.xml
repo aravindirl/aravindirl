@@ -2,39 +2,68 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.aravindirl.com/</loc>
+    <lastmod>2026-05-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.aravindirl.com/blogs.html</loc>
+    <lastmod>2026-05-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.aravindirl.com/pilot0.html</loc>
+    <loc>https://www.aravindirl.com/blogs/pilot0.html</loc>
     <lastmod>2026-03-30</lastmod>
     <changefreq>never</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.aravindirl.com/mrktbble1.html</loc>
+    <loc>https://www.aravindirl.com/blogs/mrktbble1.html</loc>
     <lastmod>2026-04-10</lastmod>
     <changefreq>never</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.aravindirl.com/about.html</loc>
+    <loc>https://www.aravindirl.com/blogs/frameworks-of-understanding.html</loc>
+    <lastmod>2026-04-24</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aravindirl.com/blogs/attention-economy.html</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aravindirl.com/blogs/%235.html</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aravindirl.com/about/about.html</loc>
+    <lastmod>2026-05-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.aravindirl.com/projects.html</loc>
+    <loc>https://www.aravindirl.com/projects/projects.html</loc>
+    <lastmod>2026-05-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.aravindirl.com/collection.html</loc>
+    <loc>https://www.aravindirl.com/media/media.html</loc>
+    <lastmod>2026-05-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.aravindirl.com/rss.xml</loc>
+    <lastmod>2026-05-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
 </urlset>
