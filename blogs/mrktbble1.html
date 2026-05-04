@@ -87,7 +87,6 @@
         #theme-toggle:hover { background-color: var(--accent-color); color: var(--bg-color); border-color: var(--accent-color); }
         hr { border: 0; border-top: 1px solid var(--hr-color); margin: 20px 0; }
         .essay-label { font-family: 'Crimson Text', Georgia, serif; font-size: 1.5rem; font-weight: 700; margin-bottom: 6px; }
-        .essay-meta { font-size: 0.8rem; color: var(--secondary-light); margin-bottom: 24px; }
         p { font-size: 1rem; margin-bottom: 18px; line-height: 1.75; }
         h1, h2, h3, h4, h5, h6 { font-family: 'Crimson Text', Georgia, serif; font-weight: 700; }
         h2 { font-size: 1.25rem; margin: 32px 0 12px 0; }
@@ -149,20 +148,12 @@
         .site-title a { text-decoration: none; color: inherit; }
         .toast { position: fixed; bottom: 20px; right: 20px; font-size: 0.72rem; padding: 5px 10px; border: 1px solid var(--accent-color); color: var(--accent-color); background: var(--bg-color); border-radius: 3px; opacity: 0; transition: opacity 0.2s ease; pointer-events: none; z-index: 9999; font-family: inherit; }
         .toast.show { opacity: 1; }
-        .read-next { margin: 24px 0 8px; display: flex; gap: 12px; align-items: baseline; font-size: 0.88rem; flex-wrap: wrap; }
-        .read-next-label { color: var(--secondary-text); white-space: nowrap; }
-        @media (max-width: 540px) { body { padding: 24px 16px; } .site-title { font-size: 1.3rem; } }
-        .post-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 40px; gap: 12px; flex-wrap: wrap; }
-        .post-footer .back-nav { margin-top: 0; }
-        .share-btn { background: none; border: 1px solid var(--hr-color); color: var(--secondary-text); font-family: inherit; font-size: 0.82rem; padding: 3px 10px; border-radius: 3px; cursor: pointer; transition: all 0.2s ease; }
-        .share-btn:hover { border-color: var(--accent-color); color: var(--accent-color); background-color: var(--accent-light); }
     </style>
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"BlogPosting","headline":"We are in a marketing bubble","description":"The supply of marketing has exploded while attention hasn't scaled. The system is distorting.","author":{"@type":"Person","name":"Aravind Ramachandran","url":"https://www.aravindirl.com/"},"datePublished":"2026-04-10","url":"https://www.aravindirl.com/mrktbble1.html","mainEntityOfPage":"https://www.aravindirl.com/mrktbble1.html"}
     </script>
 </head>
 <body data-theme="dark">
-<div class="progress-bar" id="progress-bar"></div>
 <div class="container">
 
     <header>
@@ -172,8 +163,7 @@
 
     <hr>
 
-    <div class="essay-label">We are in a marketing bubble!</div>
-    <div class="essay-meta">april 2026</div>
+    <div class="essay-label">We are in a marketing bubble!
 
     <p>
         The basic structure of marketing got broke way before, and still I don't think we see it
@@ -223,12 +213,11 @@
         We are experiencing the latter.
     </p>
     <hr>
-    <div class="post-footer">
+    
         <a href="../blogs.html" class="back-nav">← back to blogs</a>
-        <button class="share-btn" id="share-btn">share ↗</button>
-    </div>
-    <div class="copyright">© <span id="year"></span> aravindirl. all rights reserved.</div>
-</div>
+    
+    <div class="copyright">© <span id="year"></span> aravindirl. all rights reserved.
+
 
 <script>
     const toggleBtn = document.getElementById('theme-toggle');
@@ -268,11 +257,6 @@
     });
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    const progressBar = document.getElementById('progress-bar');
-    window.addEventListener('scroll', () => {
-        const scrollTop = window.scrollY;
-        const docHeight = document.body.scrollHeight - window.innerHeight;
-        progressBar.style.width = (docHeight > 0 ? (scrollTop / docHeight) * 100 : 0) + '%';
     });
 
     (function() {
@@ -292,13 +276,6 @@
             }
         });
     })();
-    document.getElementById('share-btn').addEventListener('click', () => {
-        navigator.clipboard.writeText(window.location.href).then(() => {
-            const t = document.querySelector('.toast');
-            t.textContent = '[link copied!]';
-            t.classList.add('show');
-            setTimeout(() => t.classList.remove('show'), 1500);
-        });
     });
 </script>
 </body>

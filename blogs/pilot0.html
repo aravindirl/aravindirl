@@ -149,20 +149,13 @@
         .site-title a { text-decoration: none; color: inherit; }
         .toast { position: fixed; bottom: 20px; right: 20px; font-size: 0.72rem; padding: 5px 10px; border: 1px solid var(--accent-color); color: var(--accent-color); background: var(--bg-color); border-radius: 3px; opacity: 0; transition: opacity 0.2s ease; pointer-events: none; z-index: 9999; font-family: inherit; }
         .toast.show { opacity: 1; }
-        .read-next { margin: 24px 0 8px; display: flex; gap: 12px; align-items: baseline; font-size: 0.88rem; flex-wrap: wrap; }
-        .read-next-label { color: var(--secondary-text); white-space: nowrap; }
         @media (max-width: 540px) { body { padding: 24px 16px; } .site-title { font-size: 1.3rem; } }
-        .post-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 40px; gap: 12px; flex-wrap: wrap; }
-        .post-footer .back-nav { margin-top: 0; }
-        .share-btn { background: none; border: 1px solid var(--hr-color); color: var(--secondary-text); font-family: inherit; font-size: 0.82rem; padding: 3px 10px; border-radius: 3px; cursor: pointer; transition: all 0.2s ease; }
-        .share-btn:hover { border-color: var(--accent-color); color: var(--accent-color); background-color: var(--accent-light); }
     </style>
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"BlogPosting","headline":"What am trying to understand?","description":"Trying to understand how things actually work — across markets, technology, and behavior.","author":{"@type":"Person","name":"Aravind Ramachandran","url":"https://www.aravindirl.com/"},"datePublished":"2026-03-30","url":"https://www.aravindirl.com/pilot0.html","mainEntityOfPage":"https://www.aravindirl.com/pilot0.html"}
     </script>
 </head>
 <body data-theme="dark">
-<div class="progress-bar" id="progress-bar"></div>
 <div class="container">
 
     <header>
@@ -173,7 +166,6 @@
     <hr>
 
     <div class="essay-label">What am trying to understand:-</div>
-    <div class="essay-meta">march 2026</div>
 
     <figure>
         <img src="../images/whatunderstand.jfif" alt="Cover image for this blog post">
@@ -196,10 +188,7 @@
     </p>
 
     <hr>
-    <div class="post-footer">
-        <a href="../blogs.html" class="back-nav">← back to blogs</a>
-        <button class="share-btn" id="share-btn">share ↗</button>
-    </div>
+    <a href="../blogs.html" class="back-nav">← back to blogs</a>
     <div class="copyright">© <span id="year"></span> aravindirl. all rights reserved.</div>
 </div>
 
@@ -241,13 +230,6 @@
     });
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    const progressBar = document.getElementById('progress-bar');
-    window.addEventListener('scroll', () => {
-        const scrollTop = window.scrollY;
-        const docHeight = document.body.scrollHeight - window.innerHeight;
-        progressBar.style.width = (docHeight > 0 ? (scrollTop / docHeight) * 100 : 0) + '%';
-    });
-
     (function() {
         const toast = document.createElement('div');
         toast.className = 'toast';
@@ -265,14 +247,6 @@
             }
         });
     })();
-    document.getElementById('share-btn').addEventListener('click', () => {
-        navigator.clipboard.writeText(window.location.href).then(() => {
-            const t = document.querySelector('.toast');
-            t.textContent = '[link copied!]';
-            t.classList.add('show');
-            setTimeout(() => t.classList.remove('show'), 1500);
-        });
-    });
 </script>
 </body>
 </html>
