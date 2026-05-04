@@ -17,11 +17,16 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://www.aravindirl.com/og.svg">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital@0;1&display=swap');
+
         :root {
             --bg-color: #f5ede0;
             --text-color: #1a1714;
             --accent-color: #b31c1c;
+            --accent-light: #e8b4b4;
+            --accent-dark: #8a1515;
             --secondary-text: #7a6f68;
+            --secondary-light: #a89f95;
             --hr-color: #ddd0c2;
             --caption-bg: #ede4d8;
         }
@@ -29,7 +34,10 @@
             --bg-color: #0e0e0e;
             --text-color: #ffffff;
             --accent-color: #34d399;
+            --accent-light: #7ae8c0;
+            --accent-dark: #1ba87e;
             --secondary-text: #888;
+            --secondary-light: #666;
             --hr-color: #2a2a2a;
             --caption-bg: #161616;
         }
@@ -38,7 +46,7 @@
             font-family: ui-monospace, Menlo, Monaco, 'Cascadia Code', 'Source Code Pro', Consolas, monospace;
             background-color: var(--bg-color);
             color: var(--text-color);
-            line-height: 1.6;
+            line-height: 1.75;
             padding: 40px 24px;
             margin: 0;
             display: flex;
@@ -76,16 +84,19 @@
             transition: all 0.2s ease;
         }
         #theme-toggle svg { width: 16px; height: 16px; fill: currentColor; }
-        #theme-toggle:hover { background-color: var(--text-color); color: var(--bg-color); }
+        #theme-toggle:hover { background-color: var(--accent-color); color: var(--bg-color); border-color: var(--accent-color); }
         hr { border: 0; border-top: 1px solid var(--hr-color); margin: 20px 0; }
-        .essay-label { font-size: 1.2rem; font-weight: bold; margin-bottom: 6px; }
-        .essay-meta { font-size: 0.8rem; color: var(--secondary-text); margin-bottom: 24px; }
+        .essay-label { font-family: 'Crimson Text', Georgia, serif; font-size: 1.5rem; font-weight: 700; margin-bottom: 6px; }
+        .essay-meta { font-size: 0.8rem; color: var(--secondary-light); margin-bottom: 24px; }
         p { font-size: 1rem; margin-bottom: 18px; line-height: 1.75; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Crimson Text', Georgia, serif; font-weight: 700; }
+        h2 { font-size: 1.25rem; margin: 32px 0 12px 0; }
+        h3 { font-size: 1.1rem; margin: 24px 0 10px 0; }
         figure { margin: 28px 0; }
         figure img { width: 100%; display: block; border: 1px solid var(--hr-color); border-radius: 2px; }
         figcaption {
             font-size: 0.75rem;
-            color: var(--secondary-text);
+            color: var(--secondary-light);
             margin-top: 6px;
             background-color: var(--caption-bg);
             padding: 4px 8px;
@@ -99,6 +110,9 @@
             color: var(--secondary-text);
             font-style: italic;
         }
+        a { color: var(--accent-color); text-decoration: underline; text-underline-offset: 3px; transition: all 0.2s ease; }
+        a:hover { background-color: var(--accent-light); color: var(--text-color); padding: 0 2px; }
+        [data-theme="dark"] a:hover { background-color: var(--accent-dark); color: #fff; }
         .back-nav {
             margin-top: 40px;
             display: inline-block;
@@ -109,7 +123,7 @@
             transition: all 0.2s ease;
         }
         .back-nav:hover { background-color: var(--accent-color); color: var(--bg-color); border-radius: 2px; }
-        .copyright { font-size: 0.75rem; color: var(--secondary-text); margin-top: 25px; opacity: 0.8; }
+        .copyright { font-size: 0.75rem; color: var(--secondary-light); margin-top: 25px; opacity: 0.7; }
 
         /* Reading progress bar */
         .progress-bar {
@@ -125,14 +139,14 @@
         ::-webkit-scrollbar { width: 5px; }
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: var(--hr-color); border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--secondary-text); }
         [data-theme="dark"] .site-title::before { text-shadow: 0 0 10px var(--accent-color); }
         [data-theme="dark"] .cursor { box-shadow: 0 0 8px var(--accent-color), 0 0 16px var(--accent-color); }
-        ::selection { background: rgba(179, 28, 28, 0.15); }
-        [data-theme="dark"] ::selection { background: rgba(212, 168, 67, 0.2); color: #fff; }
+        ::selection { background: rgba(179, 28, 28, 0.2); }
+        [data-theme="dark"] ::selection { background: rgba(52, 211, 153, 0.25); color: #fff; }
         .back-nav::before { content: '$ '; color: var(--accent-color); }
         html { scroll-behavior: smooth; }
         .site-title a { text-decoration: none; color: inherit; }
-        [data-theme="dark"] .content-link { text-shadow: 0 0 6px rgba(212, 168, 67, 0.35); }
         .toast { position: fixed; bottom: 20px; right: 20px; font-size: 0.72rem; padding: 5px 10px; border: 1px solid var(--accent-color); color: var(--accent-color); background: var(--bg-color); border-radius: 3px; opacity: 0; transition: opacity 0.2s ease; pointer-events: none; z-index: 9999; font-family: inherit; }
         .toast.show { opacity: 1; }
         .read-next { margin: 24px 0 8px; display: flex; gap: 12px; align-items: baseline; font-size: 0.88rem; flex-wrap: wrap; }
@@ -141,7 +155,7 @@
         .post-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 40px; gap: 12px; flex-wrap: wrap; }
         .post-footer .back-nav { margin-top: 0; }
         .share-btn { background: none; border: 1px solid var(--hr-color); color: var(--secondary-text); font-family: inherit; font-size: 0.82rem; padding: 3px 10px; border-radius: 3px; cursor: pointer; transition: all 0.2s ease; }
-        .share-btn:hover { border-color: var(--accent-color); color: var(--accent-color); }
+        .share-btn:hover { border-color: var(--accent-color); color: var(--accent-color); background-color: var(--accent-light); }
     </style>
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"BlogPosting","headline":"What am trying to understand?","description":"Trying to understand how things actually work — across markets, technology, and behavior.","author":{"@type":"Person","name":"Aravind Ramachandran","url":"https://www.aravindirl.com/"},"datePublished":"2026-03-30","url":"https://www.aravindirl.com/pilot0.html","mainEntityOfPage":"https://www.aravindirl.com/pilot0.html"}

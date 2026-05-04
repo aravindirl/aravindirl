@@ -17,26 +17,36 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://www.aravindirl.com/og.svg">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital@0;1&display=swap');
+
         :root {
             --bg-color: #f5ede0;
             --text-color: #1a1714;
             --accent-color: #b31c1c;
+            --accent-light: #e8b4b4;
+            --accent-dark: #8a1515;
             --secondary-text: #7a6f68;
+            --secondary-light: #a89f95;
             --hr-color: #ddd0c2;
+            --hr-light: #e8dcd0;
         }
         [data-theme="dark"] {
             --bg-color: #0e0e0e;
             --text-color: #ffffff;
             --accent-color: #34d399;
+            --accent-light: #7ae8c0;
+            --accent-dark: #1ba87e;
             --secondary-text: #888;
+            --secondary-light: #666;
             --hr-color: #2a2a2a;
+            --hr-light: #1f1f1f;
         }
         *, *::before, *::after { box-sizing: border-box; }
         body {
             font-family: ui-monospace, Menlo, Monaco, 'Cascadia Code', 'Source Code Pro', Consolas, monospace;
             background-color: var(--bg-color);
             color: var(--text-color);
-            line-height: 1.6;
+            line-height: 1.65;
             padding: 40px 24px;
             margin: 0;
             display: flex;
@@ -61,8 +71,8 @@
             animation: blink 1.1s step-end infinite;
             margin-left: 3px;
         }
-        h1 { font-size: 1.3rem; font-weight: bold; margin: 28px 0 10px 0; letter-spacing: -0.01em; }
-        h2 { font-size: 1rem; font-weight: bold; margin: 24px 0 12px 0; color: var(--accent-color); }
+        h1 { font-family: 'Crimson Text', Georgia, serif; font-size: 1.45rem; font-weight: 700; margin: 32px 0 12px 0; letter-spacing: -0.01em; }
+        h2 { font-family: 'Crimson Text', Georgia, serif; font-size: 1.1rem; font-weight: 700; margin: 28px 0 12px 0; color: var(--text-color); }
         #theme-toggle {
             background: none;
             border: 1px solid var(--text-color);
@@ -76,7 +86,7 @@
             transition: all 0.2s ease;
         }
         #theme-toggle svg { width: 16px; height: 16px; fill: currentColor; }
-        #theme-toggle:hover { background-color: var(--text-color); color: var(--bg-color); }
+        #theme-toggle:hover { background-color: var(--accent-color); color: var(--bg-color); border-color: var(--accent-color); }
         .sep { color: var(--secondary-text); padding: 0 3px; user-select: none; }
         nav a, .content-link, .back-nav {
             text-decoration: none;
@@ -90,24 +100,28 @@
             border-radius: 2px;
             text-decoration: none;
         }
-        .content-link { color: var(--accent-color); text-decoration: underline; text-underline-offset: 3px; }
+        .content-link { color: var(--accent-color); text-decoration: underline; text-underline-offset: 3px; transition: all 0.2s ease; }
         hr { border: 0; border-top: 1px solid var(--hr-color); margin: 20px 0; }
         p { margin-bottom: 18px; font-size: 1rem; }
-        .copyright { font-size: 0.75rem; color: var(--secondary-text); margin-top: 25px; opacity: 0.8; }
+        .copyright { font-size: 0.75rem; color: var(--secondary-light); margin-top: 25px; opacity: 0.7; }
         .back-nav { margin-top: 40px; display: inline-block; font-size: 0.9rem; }
         .social-footer { margin-top: 10px; font-size: 0.9rem; display: flex; align-items: center; flex-wrap: wrap; }
         ::-webkit-scrollbar { width: 5px; }
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: var(--hr-color); border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--secondary-text); }
         [data-theme="dark"] .site-title::before { text-shadow: 0 0 10px var(--accent-color); }
         [data-theme="dark"] .cursor { box-shadow: 0 0 8px var(--accent-color), 0 0 16px var(--accent-color); }
-        ::selection { background: rgba(179, 28, 28, 0.15); }
-        [data-theme="dark"] ::selection { background: rgba(212, 168, 67, 0.2); color: #fff; }
+        ::selection { background: rgba(179, 28, 28, 0.2); }
+        [data-theme="dark"] ::selection { background: rgba(52, 211, 153, 0.25); color: #fff; }
         h1:not(.site-title)::before { content: '// '; color: var(--accent-color); font-weight: normal; }
         .back-nav::before { content: '$ '; color: var(--accent-color); }
         html { scroll-behavior: smooth; }
         .site-title a { text-decoration: none; color: inherit; }
-        [data-theme="dark"] .content-link { text-shadow: 0 0 6px rgba(212, 168, 67, 0.35); }
+        .content-link { text-decoration: underline; text-underline-offset: 3px; color: var(--accent-color); }
+        .content-link:hover { background-color: var(--accent-light); color: var(--text-color); border-radius: 2px; text-decoration: none; padding: 0 2px; }
+        [data-theme="dark"] .content-link:hover { background-color: var(--accent-dark); color: #fff; }
+        [data-theme="dark"] .content-link { text-shadow: 0 0 6px rgba(52, 211, 153, 0.25); }
         .toast { position: fixed; bottom: 20px; right: 20px; font-size: 0.72rem; padding: 5px 10px; border: 1px solid var(--accent-color); color: var(--accent-color); background: var(--bg-color); border-radius: 3px; opacity: 0; transition: opacity 0.2s ease; pointer-events: none; z-index: 9999; font-family: inherit; }
         .toast.show { opacity: 1; }
 
@@ -120,7 +134,9 @@
             margin-bottom: 16px;
             padding: 8px 0;
             user-select: none;
+            transition: opacity 0.2s ease;
         }
+        .media-toggle:hover { opacity: 0.75; }
         .toggle-arrow {
             display: inline-block;
             width: 16px;
@@ -139,9 +155,10 @@
             display: none;
         }
         .toggle-label {
-            font-size: 1rem;
-            font-weight: bold;
-            color: var(--accent-color);
+            font-family: 'Crimson Text', Georgia, serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-color);
         }
 
         /* Media sections */
@@ -155,6 +172,7 @@
         .media-item {
             aspect-ratio: 1;
             background: var(--hr-color);
+            border: 1px solid var(--hr-color);
             border-radius: 4px;
             overflow: hidden;
             display: flex;
@@ -162,12 +180,17 @@
             justify-content: center;
             font-size: 2rem;
             cursor: pointer;
-            transition: transform 0.2s ease;
+            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-        .media-item:hover { transform: scale(1.05); }
+        .media-item:hover {
+            transform: scale(1.08);
+            border-color: var(--accent-color);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        [data-theme="dark"] .media-item:hover { box-shadow: 0 2px 8px rgba(52, 211, 153, 0.1); }
         .media-list {
             display: flex;
             flex-direction: column;
@@ -180,15 +203,18 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: background-color 0.2s ease;
+            transition: background-color 0.2s ease, border-color 0.2s ease;
         }
-        .media-entry:hover { background-color: var(--hr-color); }
+        .media-entry:hover { background-color: var(--hr-light); border-color: var(--accent-color); }
         .media-entry-title { font-size: 0.9rem; }
-        .media-entry-link { color: var(--accent-color); text-decoration: underline; text-underline-offset: 3px; font-size: 0.8rem; }
+        .media-entry-link { color: var(--accent-color); text-decoration: underline; text-underline-offset: 3px; font-size: 0.8rem; transition: all 0.2s ease; }
+        .media-entry-link:hover { background-color: var(--accent-light); color: var(--text-color); padding: 0 2px; }
+        [data-theme="dark"] .media-entry-link:hover { background-color: var(--accent-dark); color: #fff; }
 
         @media (max-width: 540px) {
             body { padding: 24px 16px; }
             .site-title { font-size: 1.3rem; }
+            h1 { font-size: 1.25rem; }
             .media-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
         }
     </style>

@@ -17,10 +17,14 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://www.aravindirl.com/og.svg">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital@0;1&display=swap');
         :root {
             --bg-color: #f5ede0;
             --text-color: #1a1714;
             --accent-color: #b31c1c;
+            --accent-light: #e8b4b4;
+            --accent-dark: #8a1515;
+            --secondary-light: #a89f95;
             --secondary-text: #7a6f68;
             --hr-color: #ddd0c2;
             --caption-bg: #ede4d8;
@@ -29,6 +33,9 @@
             --bg-color: #0e0e0e;
             --text-color: #ffffff;
             --accent-color: #34d399;
+            --accent-light: #7ae8c0;
+            --accent-dark: #1ba87e;
+            --secondary-light: #666;
             --secondary-text: #888;
             --hr-color: #2a2a2a;
             --caption-bg: #161616;
@@ -38,7 +45,7 @@
             font-family: ui-monospace, Menlo, Monaco, 'Cascadia Code', 'Source Code Pro', Consolas, monospace;
             background-color: var(--bg-color);
             color: var(--text-color);
-            line-height: 1.6;
+            line-height: 1.75;
             padding: 40px 24px;
             margin: 0;
             display: flex;
@@ -76,10 +83,10 @@
             transition: all 0.2s ease;
         }
         #theme-toggle svg { width: 16px; height: 16px; fill: currentColor; }
-        #theme-toggle:hover { background-color: var(--text-color); color: var(--bg-color); }
+        #theme-toggle:hover { background-color: var(--accent-color); color: var(--bg-color); border-color: var(--accent-color); }
         hr { border: 0; border-top: 1px solid var(--hr-color); margin: 20px 0; }
-        .essay-label { font-size: 1.2rem; font-weight: bold; margin-bottom: 6px; }
-        .essay-meta { font-size: 0.8rem; color: var(--secondary-text); margin-bottom: 24px; }
+        .essay-label { font-family: 'Crimson Text', Georgia, serif; font-size: 1.5rem; font-weight: 700; margin-bottom: 6px; }
+        .essay-meta { font-size: 0.8rem; color: var(--secondary-light); margin-bottom: 24px; }
         .blog-tags { font-size: 0.8rem; color: var(--secondary-text); margin-bottom: 20px; display: flex; gap: 8px; flex-wrap: wrap; }
         .tag-badge { background: rgba(52, 211, 153, 0.1); color: var(--accent-color); padding: 2px 8px; border-radius: 2px; text-decoration: none; }
         p { font-size: 1rem; margin-bottom: 18px; line-height: 1.75; }
