@@ -36,19 +36,21 @@
             font-family: ui-monospace, Menlo, Monaco, 'Cascadia Code', 'Source Code Pro', Consolas, monospace;
             background-color: var(--bg-color);
             color: var(--text-color);
-            line-height: 1.6;
-            padding: 40px 24px;
+            line-height: 1.5;
+            padding: 20px 24px;
             margin: 0;
             display: flex;
             justify-content: center;
+            height: 100vh;
+            overflow: hidden;
             transition: background-color 0.3s, color 0.3s;
         }
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(8px); }
             to   { opacity: 1; transform: translateY(0); }
         }
-        .container { max-width: 650px; width: 100%; animation: fadeIn 0.4s ease forwards; }
-        header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+        .container { max-width: 650px; width: 100%; animation: fadeIn 0.4s ease forwards; height: 100%; display: flex; flex-direction: column; }
+        header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
         .site-title { font-size: 1.6rem; font-weight: bold; margin: 0; letter-spacing: -0.02em; }
         .site-title::before { content: '>_ '; color: var(--accent-color); font-weight: normal; }
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
@@ -61,8 +63,8 @@
             animation: blink 1.1s step-end infinite;
             margin-left: 3px;
         }
-        h1 { font-size: 1.3rem; font-weight: bold; margin: 28px 0 10px 0; letter-spacing: -0.01em; }
-        h2 { font-size: 1rem; font-weight: bold; margin: 28px 0 10px 0; }
+        h1 { font-size: 1.3rem; font-weight: bold; margin: 8px 0 4px 0; letter-spacing: -0.01em; }
+        h2 { font-size: 1rem; font-weight: bold; margin: 8px 0 4px 0; }
         #theme-toggle {
             background: none;
             border: 1px solid var(--text-color);
@@ -94,9 +96,9 @@
         }
         nav a.active { background-color: var(--text-color); color: var(--bg-color); border-radius: 2px; }
         .content-link { color: var(--accent-color); text-decoration: underline; text-underline-offset: 3px; }
-        hr { border: 0; border-top: 1px solid var(--hr-color); margin: 20px 0; }
-        nav.dir-nav + hr { margin-bottom: 10px; }
-        p { margin-bottom: 18px; font-size: 1rem; }
+        hr { border: 0; border-top: 1px solid var(--hr-color); margin: 8px 0; }
+        nav.dir-nav + hr { margin-bottom: 6px; }
+        p { margin-bottom: 8px; font-size: 0.95rem; }
         .copyright { font-size: 0.75rem; color: var(--secondary-text); margin-top: 12px; opacity: 0.8; }
         ::-webkit-scrollbar { width: 5px; }
         ::-webkit-scrollbar-track { background: transparent; }
@@ -108,21 +110,21 @@
         html { scroll-behavior: smooth; }
 
         /* Directory nav */
-        .dir-nav { margin: 28px 0 0; }
+        .dir-nav { margin: 4px 0 0; flex: 1; overflow-y: auto; }
         .dir-entry {
             display: grid;
             grid-template-columns: 100px 1fr 20px;
             align-items: center;
             gap: 12px;
-            padding: 14px 0;
+            padding: 8px 0;
             border-top: 1px solid var(--hr-color);
             text-decoration: none;
             color: inherit;
             transition: padding-left 0.15s ease;
         }
         .dir-entry:hover { padding-left: 8px; }
-        .dir-path { color: var(--accent-color); font-size: 0.9rem; }
-        .dir-desc { color: var(--secondary-text); font-style: italic; font-size: 0.88rem; }
+        .dir-path { color: var(--accent-color); font-size: 0.85rem; }
+        .dir-desc { color: var(--secondary-text); font-style: italic; font-size: 0.8rem; }
         .dir-arrow { color: var(--secondary-text); font-size: 0.9rem; transition: transform 0.15s ease, color 0.15s ease; text-align: right; }
         .dir-entry:hover .dir-arrow { transform: translateX(3px); color: var(--accent-color); }
 
