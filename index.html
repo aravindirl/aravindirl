@@ -141,12 +141,80 @@
         [data-theme="dark"] .content-link { text-shadow: 0 0 6px rgba(212, 168, 67, 0.35); }
         .toast { position: fixed; bottom: 20px; right: 20px; font-size: 0.72rem; padding: 5px 10px; border: 1px solid var(--accent-color); color: var(--accent-color); background: var(--bg-color); border-radius: 3px; opacity: 0; transition: opacity 0.2s ease; pointer-events: none; z-index: 9999; font-family: inherit; }
         .toast.show { opacity: 1; }
+
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            right: calc(50% - 345px);
+            top: 160px;
+            font-size: 0.74rem;
+            color: var(--secondary-text);
+            width: 120px;
+        }
+        .sidebar-section { margin-bottom: 28px; }
+        .sidebar-label { font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px; opacity: 0.6; }
+        .sidebar-item {
+            display: flex;
+            align-items: center;
+            padding: 4px 0;
+            margin-bottom: 6px;
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.15s ease;
+        }
+        .sidebar-item:hover { color: var(--accent-color); }
+        .sidebar-item::before { content: '→ '; margin-right: 4px; opacity: 0.5; }
+        .sidebar-item:hover::before { opacity: 1; }
+
+        .subscribe-form { display: flex; flex-direction: column; gap: 6px; }
+        .subscribe-input {
+            background: none;
+            border: 1px solid var(--hr-color);
+            border-radius: 2px;
+            color: var(--text-color);
+            font-family: inherit;
+            font-size: 0.7rem;
+            padding: 4px 6px;
+            outline: none;
+            transition: border-color 0.15s ease;
+        }
+        .subscribe-input::placeholder { color: var(--secondary-text); opacity: 0.5; }
+        .subscribe-input:focus { border-color: var(--accent-color); }
+        .subscribe-btn {
+            background: none;
+            border: 1px solid var(--hr-color);
+            color: var(--text-color);
+            font-family: inherit;
+            font-size: 0.68rem;
+            padding: 3px 6px;
+            cursor: pointer;
+            border-radius: 2px;
+            transition: all 0.15s ease;
+        }
+        .subscribe-btn:hover { border-color: var(--accent-color); color: var(--accent-color); }
+        @media (max-width: 1200px) { .sidebar { display: none; } }
     </style>
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"Person","name":"Aravind Ramachandran","url":"https://www.aravindirl.com/","description":"Studying markets, technology & society. Active generalist.","sameAs":["https://www.instagram.com/aravindirl/"]}
     </script>
 </head>
 <body data-theme="dark">
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-section">
+            <div class="sidebar-label">connect</div>
+            <a href="https://www.instagram.com/aravindirl/" class="sidebar-item" target="_blank" rel="noopener noreferrer">instagram</a>
+            <a href="https://x.com/aravindirl" class="sidebar-item" target="_blank" rel="noopener noreferrer">x</a>
+            <a href="https://www.linkedin.com/in/aravindirl/" class="sidebar-item" target="_blank" rel="noopener noreferrer">linkedin</a>
+            <a href="https://www.youtube.com/@aravindirl" class="sidebar-item" target="_blank" rel="noopener noreferrer">youtube</a>
+        </div>
+        <div class="sidebar-section">
+            <div class="sidebar-label">subscribe</div>
+            <form class="subscribe-form" id="subscribe-form">
+                <input type="email" class="subscribe-input" id="subscribe-email" placeholder="your email" required>
+                <button type="submit" class="subscribe-btn">subscribe</button>
+            </form>
+        </div>
+    </aside>
     <div class="container">
         <header>
             <h1 class="site-title">Aravind Ramachandran<span class="cursor"></span></h1>
@@ -246,6 +314,18 @@
                     setTimeout(() => toast.classList.remove('show'), 1500);
                 }
             });
+
+            const subscribeForm = document.getElementById('subscribe-form');
+            if (subscribeForm) {
+                subscribeForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const email = document.getElementById('subscribe-email').value;
+                    toast.textContent = '[thanks for subscribing!]';
+                    toast.classList.add('show');
+                    subscribeForm.reset();
+                    setTimeout(() => toast.classList.remove('show'), 2000);
+                });
+            }
         })();
     </script>
 </body>
