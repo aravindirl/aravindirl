@@ -145,36 +145,37 @@
         /* Sidebar */
         .sidebar {
             position: fixed;
-            right: calc(50% + 345px);
+            left: calc(50% - 345px - 180px);
             top: 160px;
-            font-size: 0.74rem;
+            font-size: 1rem;
             color: var(--secondary-text);
-            width: 120px;
+            width: 160px;
         }
         .sidebar-section { margin-bottom: 28px; }
-        .sidebar-label { font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px; opacity: 0.6; }
+        .sidebar-label { font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 12px; opacity: 0.6; font-weight: bold; }
         .sidebar-item {
             display: flex;
             align-items: center;
-            padding: 4px 0;
-            margin-bottom: 6px;
+            padding: 6px 0;
+            margin-bottom: 8px;
             text-decoration: none;
             color: inherit;
             transition: color 0.15s ease;
+            font-size: 0.95rem;
         }
         .sidebar-item:hover { color: var(--accent-color); }
-        .sidebar-item::before { content: '→ '; margin-right: 4px; opacity: 0.5; }
+        .sidebar-item::before { content: '→ '; margin-right: 6px; opacity: 0.5; }
         .sidebar-item:hover::before { opacity: 1; }
 
-        .subscribe-form { display: flex; flex-direction: column; gap: 6px; }
+        .subscribe-form { display: flex; flex-direction: column; gap: 8px; }
         .subscribe-input {
             background: none;
             border: 1px solid var(--hr-color);
             border-radius: 2px;
             color: var(--text-color);
             font-family: inherit;
-            font-size: 0.7rem;
-            padding: 4px 6px;
+            font-size: 0.85rem;
+            padding: 6px 8px;
             outline: none;
             transition: border-color 0.15s ease;
         }
@@ -185,14 +186,14 @@
             border: 1px solid var(--hr-color);
             color: var(--text-color);
             font-family: inherit;
-            font-size: 0.68rem;
-            padding: 3px 6px;
+            font-size: 0.85rem;
+            padding: 5px 8px;
             cursor: pointer;
             border-radius: 2px;
             transition: all 0.15s ease;
         }
         .subscribe-btn:hover { border-color: var(--accent-color); color: var(--accent-color); }
-        @media (max-width: 1200px) { .sidebar { display: none; } }
+        @media (max-width: 1400px) { .sidebar { display: none; } }
     </style>
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"Person","name":"Aravind Ramachandran","url":"https://www.aravindirl.com/","description":"Studying markets, technology & society. Active generalist.","sameAs":["https://www.instagram.com/aravindirl/"]}
