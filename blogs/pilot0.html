@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>#5 Tulasi, Relationship with food, Toxic summers, Dealing with 'neo-luddites'</title>
+    <title>what am trying to understand?</title>
     <link rel="icon" href="/favicon.ico">
-    <meta name="description" content="an emotional ride with a revolutionary idea">
-    <meta property="og:title" content="#5 Tulasi, Relationship with food, Toxic summers, Dealing with 'neo-luddites'">
-    <meta property="og:description" content="Tulasi, Relationship with food, Toxic summers, Dealing with 'neo-luddites' and everything that happened this week.">
+    <meta name="description" content="Trying to understand how things actually work — across markets, technology, and behavior.">
+    <meta property="og:title" content="What am trying to understand? — Aravind Ramachandran">
+    <meta property="og:description" content="Trying to understand how things actually work — across markets, technology, and behavior.">
     <meta property="og:type" content="article">
     <meta name="author" content="Aravind Ramachandran">
     <meta name="robots" content="index, follow">
     <meta property="og:image" content="https://www.aravindirl.com/og.svg">
-    <meta property="og:url" content="https://www.aravindirl.com/blogs/#tulasi.html">
-    <link rel="canonical" href="https://www.aravindirl.com/blogs/#tulasi.html">
+    <meta property="og:url" content="https://www.aravindirl.com/pilot0.html">
+    <link rel="canonical" href="https://www.aravindirl.com/pilot0.html">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://www.aravindirl.com/og.svg">
     <style>
@@ -50,7 +50,6 @@
             to   { opacity: 1; transform: translateY(0); }
         }
         .container { max-width: 650px; width: 100%; animation: fadeIn 0.4s ease forwards; }
-
         header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
         .site-title { font-size: 1.6rem; font-weight: bold; margin: 0; letter-spacing: -0.02em; }
         .site-title::before { content: '>_ '; color: var(--accent-color); font-weight: normal; }
@@ -81,13 +80,9 @@
         hr { border: 0; border-top: 1px solid var(--hr-color); margin: 20px 0; }
         .essay-label { font-size: 1.2rem; font-weight: bold; margin-bottom: 6px; }
         .essay-meta { font-size: 0.8rem; color: var(--secondary-text); margin-bottom: 24px; }
-        .blog-tags { font-size: 0.8rem; color: var(--secondary-text); margin-bottom: 20px; display: flex; gap: 8px; flex-wrap: wrap; }
-        .tag-badge { background: rgba(52, 211, 153, 0.1); color: var(--accent-color); padding: 2px 8px; border-radius: 2px; text-decoration: none; }
         p { font-size: 1rem; margin-bottom: 18px; line-height: 1.75; }
-        h2 { font-size: 1.1rem; font-weight: bold; margin: 40px 0 20px 0; letter-spacing: 0.05em; color: var(--accent-color); border-left: 3px solid var(--accent-color); padding-left: 12px; text-transform: uppercase; }
-        h3 { font-size: 1rem; font-weight: bold; margin: 24px 0 12px 0; color: var(--secondary-text); }
         figure { margin: 28px 0; }
-        figure img, figure video { width: 100%; display: block; border: 1px solid var(--hr-color); border-radius: 2px; }
+        figure img { width: 100%; display: block; border: 1px solid var(--hr-color); border-radius: 2px; }
         figcaption {
             font-size: 0.75rem;
             color: var(--secondary-text);
@@ -104,7 +99,6 @@
             color: var(--secondary-text);
             font-style: italic;
         }
-        a { color: var(--accent-color); text-decoration: underline; text-underline-offset: 3px; }
         .back-nav {
             margin-top: 40px;
             display: inline-block;
@@ -117,6 +111,7 @@
         .back-nav:hover { background-color: var(--accent-color); color: var(--bg-color); border-radius: 2px; }
         .copyright { font-size: 0.75rem; color: var(--secondary-text); margin-top: 25px; opacity: 0.8; }
 
+        /* Reading progress bar */
         .progress-bar {
             position: fixed;
             top: 0;
@@ -133,11 +128,11 @@
         [data-theme="dark"] .site-title::before { text-shadow: 0 0 10px var(--accent-color); }
         [data-theme="dark"] .cursor { box-shadow: 0 0 8px var(--accent-color), 0 0 16px var(--accent-color); }
         ::selection { background: rgba(179, 28, 28, 0.15); }
-        [data-theme="dark"] ::selection { background: rgba(52, 211, 153, 0.2); color: #fff; }
+        [data-theme="dark"] ::selection { background: rgba(212, 168, 67, 0.2); color: #fff; }
         .back-nav::before { content: '$ '; color: var(--accent-color); }
         html { scroll-behavior: smooth; }
         .site-title a { text-decoration: none; color: inherit; }
-        [data-theme="dark"] .content-link { text-shadow: 0 0 6px rgba(52, 211, 153, 0.35); }
+        [data-theme="dark"] .content-link { text-shadow: 0 0 6px rgba(212, 168, 67, 0.35); }
         .toast { position: fixed; bottom: 20px; right: 20px; font-size: 0.72rem; padding: 5px 10px; border: 1px solid var(--accent-color); color: var(--accent-color); background: var(--bg-color); border-radius: 3px; opacity: 0; transition: opacity 0.2s ease; pointer-events: none; z-index: 9999; font-family: inherit; }
         .toast.show { opacity: 1; }
         .read-next { margin: 24px 0 8px; display: flex; gap: 12px; align-items: baseline; font-size: 0.88rem; flex-wrap: wrap; }
@@ -149,87 +144,49 @@
         .share-btn:hover { border-color: var(--accent-color); color: var(--accent-color); }
     </style>
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"BlogPosting","headline":"Your Blog Title","description":"Your blog description goes here.","keywords":"tag1,tag2,tag3","author":{"@type":"Person","name":"Aravind Ramachandran","url":"https://www.aravindirl.com/"},"datePublished":"2026-04-25","url":"https://www.aravindirl.com/blogs/your-blog-title.html","mainEntityOfPage":"https://www.aravindirl.com/blogs/your-blog-title.html"}
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"What am trying to understand?","description":"Trying to understand how things actually work — across markets, technology, and behavior.","author":{"@type":"Person","name":"Aravind Ramachandran","url":"https://www.aravindirl.com/"},"datePublished":"2026-03-30","url":"https://www.aravindirl.com/pilot0.html","mainEntityOfPage":"https://www.aravindirl.com/pilot0.html"}
     </script>
 </head>
 <body data-theme="dark">
 <div class="progress-bar" id="progress-bar"></div>
 <div class="container">
-        <header>
-            <h1 class="site-title"><a href="../index.html">Aravind Ramachandran</a><span class="cursor"></span></h1>
-            <button id="theme-toggle" aria-label="Toggle theme"><svg id="theme-icon" viewBox="0 0 24 24"></svg></button>
-        </header>
 
-        <hr>
+    <header>
+        <h1 class="site-title"><a href="../index.html">Aravind Ramachandran</a><span class="cursor"></span></h1>
+        <button id="theme-toggle" aria-label="Toggle theme"><svg id="theme-icon" viewBox="0 0 24 24"></svg></button>
+    </header>
 
-        <div class="essay-label">Tulasi, Relationship with food, Toxic summers, Dealing with 'neo-luddites'</div>
-        <div class="essay-meta">26 april 2026</div>
+    <hr>
 
-        <div class="blog-tags">
-            <a href="../writing.html?tag=technology" class="tag-badge">technology</a>
-            <a href="../writing.html?tag=markets" class="tag-badge">nostalgia</a>
-            <a href="../writing.html?tag=thinking" class="tag-badge">health</a>
-        </div>
+    <div class="essay-label">What am trying to understand:-</div>
+    <div class="essay-meta">march 2026</div>
 
-        <!-- Cover image (featured/hero image) -->
-        <figure>
-            <img src="../images/tulasi2.png" alt="Cover image for this blog post">
-        </figure>
+    <figure>
+        <img src="../images/whatunderstand.jfif" alt="Cover image for this blog post">
+    </figure>
 
-        <!-- Opening paragraph -->
-    
-        <!-- SECTION 1 -->
-        <h2>1. Tulasi</h2>
+    <p>
+        I've been trying to understand how things actually work — mostly across markets, technology, and behavior. Not in a formal sense, but by paying attention to what keeps repeating and what seems to drive outcomes underneath.
+    </p>
 
-        <p>
-            This one caught me quite emotional little too much, the song, the lyrics, cinematography, direction, editing and the overall concept was quite surreal. This song was written by a 14th century scholar and musician "Purandara Dasa". He was also one of the chief founding proponents that shaped modern Carnatic music. 
-        </p>
+    <p>
+        A lot of what I come across feels surface-level. Trends move fast, opinions are everywhere, and it's easy to mistake noise for insight. But if you look a bit closer, the same patterns tend to show up — incentives shaping behavior, systems reinforcing themselves, and outcomes that aren't random once you see the structure behind them.
+    </p>
 
-        <p>
-            Am neither an atheist nor an orthodox extremist, but I have a strong belief in the idea of alignment of the universe with the human body and soul, this song gave me one such experience. The song is about lord Krishna, I cried listening to this song out of love, happiness, peace and a sense of weighed down, this moment I experienced the divinity, the so called bakthi I felt well aligned, mindful and had a hope to move further. Music has always played a major role for me and this is one such peak life experience to cherish.
-        </p>
+    <p>
+        I've found that writing helps me slow things down. otherwise, everything stays vague — ideas pass through, but don't really settle. Putting things into words forces a bit more clarity, even if the thinking is still incomplete.
+    </p>
 
-        <figure>
-            <img src="../images/tulasi.png" alt="Image for section 1">
-            <figcaption><a href="https://youtu.be/Y8ZApXcnhy4?si=7Asxl_9SsB8tO5zF" class="content-link"></a></figcaption>
-        </figure>
+    <p>
+        This is a place to work through that as they start making sense. Nothing too polished — just trying to see a little more clearly over time.
+    </p>
 
-        <!-- SECTION 2 -->
-        <h2>2: Relationship with food:</h2>
-
-        <p>
-            I was trying to "FIX" my body through strict diet plans, workout schedules, workout tracker apps, steps counter and what not, but lately I've understood that its very important to build a relationship with food. During a point of a time I used to get pissed off how fat I am, to control the temper I'd binge eat after work sitting by myself in my office with YouTube/Netflix on. I was treating food like a prostitute, pardon me but that's the fact. Binge eating used to be my version of self gratification with food, that put me in the triple digit KG club.
-        </p>
-
-        <p>
-            Been a while I quit my job, to live with my grandparents and prepare for my CA exams. This is my rehab phase, first step I took was lowering my cortisol levels and fixing the attention span, its been like a couple of months here and still am trying. No rush, no nothing and I've officially dumped the sense of time. The conspiracy theories start to make sense as I'm getting exposed to the sun early and in the evenings, completely eliminating seed oils and limiting junk food.
-        </p>
-
-        <!-- SECTION 3 -->
-        <h2>3: Toxic summers</h2>
-
-        <p>
-            There were times around last winter, I was desperately craving for a sharp summer heat to slam my back, I realized winter is not my thing. But now the summer got quite toxic and something's bad and kind of a SUS in climate change. I wonder how did I pass the time during my summer holidays in late 2000s & early 2010s with no YouTube or netflix. There was a TV and my grand fathers books (Mostly railway directories).
-        </p>
-
-        <figure>
-            <img src="../images/summersrgm.png" alt="Image for section 1">
-            <figcaption>Trichy summer noon - April 2026</figcaption>
-        </figure>
-
-        <!-- SECTION 4 -->
-        <h2>4: The <a href="https://en.wikipedia.org/wiki/Neo-Luddism" class="link">'neo-luddites'</a>:</h2>
-
-        <p>
-            A word unlocked to which I would keep coming back again, again and again. The AI hater gangs getting wilder and wilder with the upscale of AI. I spent 2.2k rupees on the claude subscription and GOD knows what kind of magic I've been doing since then. The AI's surface is kinda "mindlocked" to many, glad am ahead somehow.
-        </p>
-
-        <hr>
-        <div class="post-footer">
-            <a href="../writing.html" class="back-nav">← back to writing</a>
-            <button class="share-btn" id="share-btn">share ↗</button>
-        </div>
-        <div class="copyright">© <span id="year"></span> aravindirl. all rights reserved.</div>
+    <hr>
+    <div class="post-footer">
+        <a href="../blogs.html" class="back-nav">← back to blogs</a>
+        <button class="share-btn" id="share-btn">share ↗</button>
+    </div>
+    <div class="copyright">© <span id="year"></span> aravindirl. all rights reserved.</div>
 </div>
 
 <script>
@@ -252,7 +209,7 @@
             themeIcon.setAttribute('fill', 'none');
             themeIcon.setAttribute('stroke', 'currentColor');
             themeIcon.setAttribute('stroke-width', '2');
-            setFavicon('#34d399');
+            setFavicon('#d4a843');
         } else {
             body.setAttribute('data-theme', 'light');
             themeIcon.innerHTML = moonIcon;
@@ -282,7 +239,7 @@
         toast.className = 'toast';
         document.body.appendChild(toast);
         document.addEventListener('keydown', e => {
-            if (e.key === "Backspace" && !['INPUT','TEXTAREA'].includes(document.activeElement.tagName)) {
+            if (e.key === 'Backspace' && !['INPUT','TEXTAREA'].includes(document.activeElement.tagName)) {
                 e.preventDefault();
                 history.back();
             }
