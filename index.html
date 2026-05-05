@@ -156,10 +156,10 @@
         }
         .recent-post {
             display: block;
-            padding: 10px;
-            margin-bottom: 10px;
+            padding: 12px;
+            margin-bottom: 12px;
             border: 1px solid var(--hr-color);
-            border-radius: 3px;
+            border-radius: 4px;
             text-decoration: none;
             color: inherit;
             transition: all 0.2s ease;
@@ -170,19 +170,55 @@
             background-color: var(--hr-color);
             transform: translateY(-2px);
         }
+        .post-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 6px;
+        }
         .post-date {
             font-size: 0.7rem;
             color: var(--secondary-text);
             opacity: 0.6;
-            margin-bottom: 4px;
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
+        .post-type {
+            font-size: 0.65rem;
+            padding: 2px 6px;
+            border-radius: 2px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: bold;
+        }
+        .post-type.writing {
+            background-color: rgba(179, 28, 28, 0.15);
+            color: #b31c1c;
+        }
+        [data-theme="dark"] .post-type.writing {
+            background-color: rgba(52, 211, 153, 0.15);
+            color: #34d399;
+        }
+        .post-type.thinking {
+            background-color: rgba(52, 211, 153, 0.15);
+            color: #34d399;
+        }
+        [data-theme="dark"] .post-type.thinking {
+            background-color: rgba(179, 28, 28, 0.15);
+            color: #b31c1c;
+        }
         .post-title {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             font-weight: bold;
             color: var(--text-color);
             line-height: 1.3;
+            margin-bottom: 6px;
+        }
+        .post-excerpt {
+            font-size: 0.75rem;
+            color: var(--secondary-text);
+            line-height: 1.4;
+            font-style: italic;
         }
         .recent-post:hover .post-title {
             color: var(--accent-color);
@@ -262,17 +298,29 @@
 <body data-theme="dark">
     <aside class="left-sidebar" id="left-sidebar">
         <div class="sidebar-label" style="margin-bottom: 16px;">recent</div>
+        <a href="thinking/markets-ai.html" class="recent-post">
+            <div class="post-header">
+                <div class="post-date">05 may</div>
+                <span class="post-type thinking">thinking</span>
+            </div>
+            <div class="post-title">AI & Market Shifts</div>
+            <div class="post-excerpt">How AI adoption reshapes markets and competitive dynamics.</div>
+        </a>
         <a href="blogs/tulasi.html" class="recent-post">
-            <div class="post-date">26 apr</div>
+            <div class="post-header">
+                <div class="post-date">26 apr</div>
+                <span class="post-type writing">writing</span>
+            </div>
             <div class="post-title">Tulasi & food</div>
+            <div class="post-excerpt">Personal reflections on music, diet, and summer solitude.</div>
         </a>
         <a href="blogs/attention-economy.html" class="recent-post">
-            <div class="post-date">25 apr</div>
+            <div class="post-header">
+                <div class="post-date">25 apr</div>
+                <span class="post-type writing">writing</span>
+            </div>
             <div class="post-title">Attention Economy</div>
-        </a>
-        <a href="blogs/frameworks-of-understanding.html" class="recent-post">
-            <div class="post-date">24 apr</div>
-            <div class="post-title">Frameworks</div>
+            <div class="post-excerpt">How markets compete for attention and what it means for focus.</div>
         </a>
     </aside>
 
