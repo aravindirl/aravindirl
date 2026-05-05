@@ -3,10 +3,7 @@
 <head>
     <link rel="icon" href="/favicon.ico">
     <meta charset="UTF-8">
-    <link rel="dns-prefetch" href="https://plausible.io">
-    <link rel="preconnect" href="https://plausible.io">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="manifest" href="/manifest.json">
     <title>Aravind Ramachandran | Blogs</title>
     <meta name="description" content="Writings by Aravind Ramachandran on markets, technology, and society.">
     <meta property="og:title" content="Aravind Ramachandran | Blogs">
@@ -19,39 +16,30 @@
     <link rel="canonical" href="https://www.aravindirl.com/blogs.html">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://www.aravindirl.com/og.svg">
-        <meta name="twitter:creator" content="@aravindirl">
+    <meta name="twitter:creator" content="@aravindirl">
     <meta name="twitter:site" content="@aravindirl">
+    <link rel="manifest" href="/manifest.json">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital@0;1&display=swap');
-
         :root {
             --bg-color: #f5ede0;
             --text-color: #1a1714;
             --accent-color: #b31c1c;
-            --accent-light: #e8b4b4;
-            --accent-dark: #8a1515;
             --secondary-text: #7a6f68;
-            --secondary-light: #a89f95;
             --hr-color: #ddd0c2;
-            --hr-light: #e8dcd0;
         }
         [data-theme="dark"] {
             --bg-color: #0e0e0e;
             --text-color: #ffffff;
             --accent-color: #34d399;
-            --accent-light: #7ae8c0;
-            --accent-dark: #1ba87e;
             --secondary-text: #888;
-            --secondary-light: #666;
             --hr-color: #2a2a2a;
-            --hr-light: #1f1f1f;
         }
         *, *::before, *::after { box-sizing: border-box; }
         body {
             font-family: ui-monospace, Menlo, Monaco, 'Cascadia Code', 'Source Code Pro', Consolas, monospace;
             background-color: var(--bg-color);
             color: var(--text-color);
-            line-height: 1.65;
+            line-height: 1.6;
             padding: 40px 24px;
             margin: 0;
             display: flex;
@@ -76,7 +64,7 @@
             animation: blink 1.1s step-end infinite;
             margin-left: 3px;
         }
-        h1 { font-family: 'Crimson Text', Georgia, serif; font-size: 1.45rem; font-weight: 700; margin: 32px 0 12px 0; letter-spacing: -0.01em; }
+        h1 { font-size: 1.3rem; font-weight: bold; margin: 28px 0 6px 0; letter-spacing: -0.01em; }
         #theme-toggle {
             background: none;
             border: 1px solid var(--text-color);
@@ -90,7 +78,7 @@
             transition: all 0.2s ease;
         }
         #theme-toggle svg { width: 16px; height: 16px; fill: currentColor; }
-        #theme-toggle:hover { background-color: var(--accent-color); color: var(--bg-color); border-color: var(--accent-color); }
+        #theme-toggle:hover { background-color: var(--text-color); color: var(--bg-color); }
         .sep { color: var(--secondary-text); padding: 0 3px; user-select: none; }
         .content-link, .back-nav {
             text-decoration: none;
@@ -104,32 +92,29 @@
             border-radius: 2px;
             text-decoration: none;
         }
-        .content-link { color: var(--accent-color); text-decoration: underline; text-underline-offset: 3px; transition: all 0.2s ease; }
+        .content-link { color: var(--accent-color); text-decoration: underline; text-underline-offset: 3px; }
         hr { border: 0; border-top: 1px solid var(--hr-color); margin: 20px 0; }
-        .copyright { font-size: 0.75rem; color: var(--secondary-light); margin-top: 25px; opacity: 0.7; }
+        .copyright { font-size: 0.75rem; color: var(--secondary-text); margin-top: 25px; opacity: 0.8; }
         .back-nav { margin-top: 40px; display: inline-block; font-size: 0.9rem; }
         ::-webkit-scrollbar { width: 5px; }
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: var(--hr-color); border-radius: 3px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--secondary-text); }
         [data-theme="dark"] .site-title::before { text-shadow: 0 0 10px var(--accent-color); }
         [data-theme="dark"] .cursor { box-shadow: 0 0 8px var(--accent-color), 0 0 16px var(--accent-color); }
-        ::selection { background: rgba(179, 28, 28, 0.2); }
-        [data-theme="dark"] ::selection { background: rgba(52, 211, 153, 0.25); color: #fff; }
+        ::selection { background: rgba(179, 28, 28, 0.15); }
+        [data-theme="dark"] ::selection { background: rgba(212, 168, 67, 0.2); color: #fff; }
         h1:not(.site-title)::before { content: '// '; color: var(--accent-color); font-weight: normal; }
         .back-nav::before { content: '$ '; color: var(--accent-color); }
         html { scroll-behavior: smooth; }
         .social-footer { margin-top: 10px; font-size: 0.9rem; display: flex; align-items: center; flex-wrap: wrap; }
         .site-title a { text-decoration: none; color: inherit; }
-        .content-link { text-decoration: underline; text-underline-offset: 3px; color: var(--accent-color); }
-        .content-link:hover { background-color: var(--accent-light); color: var(--text-color); border-radius: 2px; text-decoration: none; padding: 0 2px; }
-        [data-theme="dark"] .content-link:hover { background-color: var(--accent-dark); color: #fff; }
-        [data-theme="dark"] .content-link { text-shadow: 0 0 6px rgba(52, 211, 153, 0.25); }
+        [data-theme="dark"] .content-link { text-shadow: 0 0 6px rgba(212, 168, 67, 0.35); }
         .toast { position: fixed; bottom: 20px; right: 20px; font-size: 0.72rem; padding: 5px 10px; border: 1px solid var(--accent-color); color: var(--accent-color); background: var(--bg-color); border-radius: 3px; opacity: 0; transition: opacity 0.2s ease; pointer-events: none; z-index: 9999; font-family: inherit; }
         .toast.show { opacity: 1; }
 
         /* Search */
-        .search-wrap { margin-bottom: 20px; }
+        .search-wrap { position: relative; margin-bottom: 14px; }
+        .search-wrap::before { content: '> '; position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: var(--accent-color); font-size: 0.78rem; pointer-events: none; }
         #search-input {
             width: 100%;
             background: none;
@@ -137,15 +122,14 @@
             border-radius: 3px;
             color: var(--text-color);
             font-family: inherit;
-            font-size: 0.9rem;
-            padding: 8px 12px;
+            font-size: 0.78rem;
+            padding: 6px 10px 6px 28px;
             outline: none;
-            transition: border-color 0.2s ease, background-color 0.2s ease;
+            transition: border-color 0.15s ease;
         }
-        #search-input::placeholder { color: var(--secondary-text); opacity: 0.6; }
-        #search-input:focus { border-color: var(--accent-color); background-color: var(--hr-light); }
+        #search-input::placeholder { color: var(--secondary-text); }
+        #search-input:focus { border-color: var(--accent-color); }
 
-        /* Blog grid */
         .blog-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -162,18 +146,9 @@
             color: inherit;
             display: flex;
             flex-direction: column;
-            transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
-            border-radius: 4px;
+            transition: background-color 0.15s ease;
         }
-        .blog-card.featured { grid-column: span 1; }
-        .blog-card:hover {
-            background-color: var(--hr-light);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-        }
-        [data-theme="dark"] .blog-card:hover {
-            box-shadow: 0 4px 12px rgba(52, 211, 153, 0.08);
-        }
+        .blog-card:hover { background-color: var(--hr-color); }
         .card-thumb {
             width: 100%;
             aspect-ratio: 16/9;
@@ -181,36 +156,31 @@
             align-items: center;
             justify-content: center;
             font-size: 2rem;
-            overflow: hidden;
         }
-        .card-thumb img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-        .blog-card:hover .card-thumb img { transform: scale(1.04); }
-        [data-theme="dark"] .card-thumb img { filter: brightness(0.7) saturate(0.8); }
-        .card-body { padding: 12px; flex: 1; display: flex; flex-direction: column; justify-content: flex-end; }
-        .card-title { font-family: 'Crimson Text', Georgia, serif; font-size: 0.95rem; font-weight: 700; line-height: 1.4; }
-        .blog-card:last-child:nth-child(odd) { grid-column: 1 / -1; }
-
+        [data-theme="dark"] .card-thumb { filter: brightness(0.65) saturate(0.75); }
+        .card-body { padding: 12px; flex: 1; display: flex; flex-direction: column; }
+        .card-meta { font-size: 0.68rem; color: var(--secondary-text); margin-bottom: 4px; }
+        .card-title { font-size: 0.88rem; font-weight: bold; margin-bottom: 6px; line-height: 1.4; }
+        .card-excerpt { font-size: 0.78rem; color: var(--secondary-text); font-style: italic; margin-bottom: 8px; line-height: 1.5; flex: 1; }
+        .card-tags { display: flex; gap: 4px; align-items: center; flex-wrap: wrap; font-size: 0.68rem; margin-top: auto; }
+        .tag-pill { border: 1px solid var(--hr-color); border-radius: 2px; padding: 1px 5px; color: var(--secondary-text); }
 
         @media (max-width: 540px) {
             body { padding: 24px 16px; }
             .blog-grid { grid-template-columns: 1fr; }
-            .blog-card.featured { grid-column: span 1; }
-            .card-thumb { aspect-ratio: 3/1; font-size: 1.6rem; }
-            .blog-card.featured .card-thumb { aspect-ratio: 2/1; }
             .card-title { font-size: 0.92rem; }
-            .control-row { gap: 4px; }
-            .sort-btn { font-size: 0.7rem; padding: 2px 6px; }
-            .control-label { font-size: 0.72rem; }
             h1 { font-size: 1.1rem; }
             .site-title { font-size: 1.3rem; }
         }
     </style>
-    <script defer data-domain="aravindirl.com" src="https://plausible.io/js/script.js"></script>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
 </head>
 <body data-theme="dark">
     <div class="container">
@@ -221,47 +191,51 @@
         <hr>
 
         <h1>blogs:-</h1>
-        <div class="search-wrap">
-            <input type="text" id="search-input" placeholder="search..." autocomplete="off" spellcheck="false">
-        </div>
 
         <div class="blog-grid" id="blog-grid">
-
-            <a href="blogs/pilot0.html" class="blog-card featured">
+            <a href="blogs/pilot0.html" class="blog-card" data-date="20260330">
                 <img src="images/whatunderstand.jfif" alt="What am trying to understand?">
                 <div class="card-body">
+                    <div class="card-meta">#01 · 30 mar</div>
                     <div class="card-title">What am trying to understand?</div>
+                    <div class="card-excerpt">first entry. mostly me trying to figure out why i started this and what i'm even doing.</div>
                 </div>
             </a>
 
-            <a href="blogs/mrktbble1.html" class="blog-card">
+            <a href="blogs/mrktbble1.html" class="blog-card" data-date="20260410">
                 <img src="images/mktble.jpg" alt="We are in a marketing bubble">
                 <div class="card-body">
+                    <div class="card-meta">#02 · 10 apr</div>
                     <div class="card-title">We are in a marketing bubble</div>
                 </div>
             </a>
 
-            <a href="blogs/frameworks-of-understanding.html" class="blog-card">
+            <a href="blogs/frameworks-of-understanding.html" class="blog-card" data-date="20260424">
                 <img src="images/frameworksunderstand.jfif" alt="Frameworks of Understanding">
                 <div class="card-body">
+                    <div class="card-meta">#03 · 24 apr</div>
                     <div class="card-title">Frameworks of Understanding</div>
+                    <div class="card-excerpt">How mental models shape what we can see.</div>
                 </div>
             </a>
 
-            <a href="blogs/attention-economy.html" class="blog-card">
+            <a href="blogs/attention-economy.html" class="blog-card" data-date="20260425">
                 <img src="images/attention.jfif" alt="The Attention Economy">
                 <div class="card-body">
+                    <div class="card-meta">#04 · 25 apr</div>
                     <div class="card-title">The Attention Economy</div>
+                    <div class="card-excerpt">How markets have evolved to compete for attention.</div>
                 </div>
             </a>
 
-            <a href="blogs/%235.html" class="blog-card">
-                <img src="images/tulasi.png" alt="Tulasi, Relationship with food, Toxic summers, Dealing with 'neo-luddites'">
+            <a href="blogs/%235.html" class="blog-card" data-date="20260426">
+                <img src="images/tulasi.png" alt="Tulasi">
                 <div class="card-body">
-                    <div class="card-title">Tulasi, Relationship with food, Toxic summers, Dealing with 'neo-luddites'</div>
+                    <div class="card-meta">#05 · 26 apr</div>
+                    <div class="card-title">Tulasi, Relationship with food, Toxic summers</div>
+                    <div class="card-excerpt">Personal reflections on culture, health & observations.</div>
                 </div>
             </a>
-            
         </div>
 
         <a href="index.html" class="back-nav">← back to homepage</a>
@@ -274,9 +248,9 @@
             <span class="sep">/</span>
             <a href="https://www.youtube.com/@aravindirl" class="content-link" target="_blank" rel="noopener noreferrer">youtube</a>
             <span class="sep">/</span>
-            <a href="rss.xml" class="content-link">rss</a>
+            <a href="/rss.xml" class="content-link">rss</a>
             <span class="sep">/</span>
-            <a href="sitemap.xml" class="content-link">sitemap</a>
+            <a href="/sitemap.xml" class="content-link">sitemap</a>
         </nav>
         <div class="copyright">© <span id="year"></span> aravindirl. all rights reserved.</div>
     </div>
@@ -319,49 +293,6 @@
             applyTheme(newTheme);
         });
         document.getElementById('year').textContent = new Date().getFullYear();
-
-        // Search & Sort
-        const grid = document.getElementById('blog-grid');
-        const searchInput = document.getElementById('search-input');
-        const postIndex = {
-            'blogs/pilot0.html': 'What am trying to understand? meta thinking I have been trying to understand how things actually work markets technology behavior',
-            'blogs/mrktbble1.html': 'We are in a marketing bubble markets internet supply attention exploded',
-            'blogs/frameworks-of-understanding.html': 'Frameworks of Understanding meta thinking internet mental models reality perception',
-            'blogs/attention-economy.html': 'The Attention Economy internet markets attention focus scarcity',
-            'blogs/%235.html': 'Tulasi Relationship with food Toxic summers neo-luddites internet nostalgia health'
-        };
-
-        function getCards() {
-            return Array.from(grid.querySelectorAll('.blog-card'));
-        }
-
-        function sortByDate() {
-            const cards = getCards();
-            cards.sort((a, b) => {
-                const dateA = parseInt(a.dataset.date || '0');
-                const dateB = parseInt(b.dataset.date || '0');
-                return dateB - dateA;
-            });
-            cards.forEach(card => grid.appendChild(card));
-        }
-
-        function filterAndSort() {
-            const query = searchInput.value.toLowerCase().trim();
-            const cards = getCards();
-
-            cards.forEach(card => {
-                const href = card.getAttribute('href');
-                const title = card.querySelector('.card-title').textContent.toLowerCase();
-                const indexContent = (postIndex[href] || '').toLowerCase();
-                const matches = !query || title.includes(query) || indexContent.includes(query);
-                card.style.display = matches ? '' : 'none';
-            });
-
-            sortByDate();
-        }
-
-        searchInput.addEventListener('input', filterAndSort);
-        sortByDate();
 
         (function() {
             const toast = document.createElement('div');
