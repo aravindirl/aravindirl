@@ -174,7 +174,7 @@
     <hr>
 
     <div class="essay-label">We are in a marketing bubble!</div>
-    <div class="essay-meta">april 2026 · 2 min read</div>
+    <div class="essay-meta">april 2026</div>
 
     <p>
         The basic structure of marketing got broke way before, and still I don't think we see it
@@ -224,10 +224,6 @@
         We are experiencing the latter.
     </p>
     <hr>
-    <div class="read-next">
-        <span class="read-next-label">read next →</span>
-        <a href="pilot0.html" class="content-link">What am trying to understand?</a>
-    </div>
     <div class="post-footer">
         <a href="../blogs.html" class="back-nav">← back to blogs</a>
         <button class="share-btn" id="share-btn" aria-label="Share this post">share ↗</button>
@@ -285,6 +281,10 @@
         toast.className = 'toast';
         document.body.appendChild(toast);
         document.addEventListener('keydown', e => {
+            if (e.key === 'Backspace' && !['INPUT','TEXTAREA'].includes(document.activeElement.tagName)) {
+                e.preventDefault();
+                history.back();
+            }
             if (e.key === 't' && !e.ctrlKey && !e.metaKey && !['INPUT','TEXTAREA'].includes(document.activeElement.tagName)) {
                 toggleBtn.click();
                 toast.textContent = '[theme: ' + document.body.getAttribute('data-theme') + ']';

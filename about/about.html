@@ -143,7 +143,7 @@
         <hr>
 
         <h1>About:</h1>
-        <p>Based out of Chennai, grown up with the internet and social media, life got better after AI.</p>
+        <p>Hey, I'm Aravind. Based out of Chennai, grown up with the internet and social media, life got better after AI.</p>
         <p>God bless the social media algorithm and AI.</p>
         <p>Pardon me, if you don't understand some words, it's all meme coded.</p>
 
@@ -187,8 +187,6 @@
             <li>Peak summer middays with time passing slowly,</li>
             <li>A sudden cloudburst on an evening.</li>
         </ul>
-        <p>check out my crate collection:- <a href="collection.html" class="content-link">music, videos, films, bookmarks, books</a></p>
-
         <h1>Hobbies:-</h1>
         <ul>
             <li>Bingeing "The Office" whilst being idle,</li>
@@ -249,7 +247,7 @@
         <nav class="social-footer">
             <a href="https://www.instagram.com/aravindirl/" class="content-link" target="_blank" rel="noopener noreferrer">instagram</a>
             <span class="sep">/</span>
-            <a href="https://x.com/aravindirl" class="content-link" target="_blank" rel="noopener noreferrer">x(twitter)</a>
+            <a href="https://x.com/aravindirl" class="content-link" target="_blank" rel="noopener noreferrer">x</a>
             <span class="sep">/</span>
             <a href="https://www.linkedin.com/in/aravindirl/" class="content-link" target="_blank" rel="noopener noreferrer">linkedin</a>
             <span class="sep">/</span>
@@ -310,6 +308,10 @@
             toast.className = 'toast';
             document.body.appendChild(toast);
             document.addEventListener('keydown', e => {
+                if (e.key === 'Backspace' && !['INPUT','TEXTAREA'].includes(document.activeElement.tagName)) {
+                    e.preventDefault();
+                    history.back();
+                }
                 if (e.key === 't' && !e.ctrlKey && !e.metaKey && !['INPUT','TEXTAREA'].includes(document.activeElement.tagName)) {
                     toggleBtn.click();
                     toast.textContent = '[theme: ' + document.body.getAttribute('data-theme') + ']';

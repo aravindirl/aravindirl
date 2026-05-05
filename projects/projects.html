@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="manifest" href="/manifest.json">
     <title>Aravind Ramachandran | Projects</title>
-    <meta name="description" content="Projects by Aravind Ramachandran — building tools to make life easier through vibe coding.">
+    <meta name="description" content="Projects by Aravind Ramachandran — Building vibe coding projects for fun.">
     <meta property="og:title" content="Aravind Ramachandran | Projects">
-    <meta property="og:description" content="Projects built to make life easier, through vibe coding.">
+    <meta property="og:description" content="Building vibe coding projects for fun.">
     <meta property="og:type" content="website">
     <meta name="author" content="Aravind Ramachandran">
     <meta name="robots" content="index, follow">
@@ -157,32 +157,12 @@
         <div class="project-list">
 
             <div class="project-entry">
-                <div class="project-name">project name</div>
-                <div class="project-desc">a short description of what this project does and what problem it solves.</div>
+                <div class="project-name">KPI Predictor for companies</div>
+                <div class="project-desc">Estimating the KPIs of companies like Reddit, Uber, Meta, Spotify for each quarter through AI agents. Built for Kalshi — A Prediction market platform.</div>
                 <div class="project-links">
-                    <a href="#" class="content-link">live ↗</a>
+                    <a href="https://www.postnotclarity.xyz" class="content-link" target="_blank" rel="noopener noreferrer">live ↗</a>
                     <span class="sep">·</span>
-                    <a href="#" class="content-link">github ↗</a>
-                </div>
-            </div>
-
-            <div class="project-entry">
-                <div class="project-name">project name</div>
-                <div class="project-desc">a short description of what this project does and what problem it solves.</div>
-                <div class="project-links">
-                    <a href="#" class="content-link">live ↗</a>
-                    <span class="sep">·</span>
-                    <a href="#" class="content-link">github ↗</a>
-                </div>
-            </div>
-
-            <div class="project-entry">
-                <div class="project-name">project name</div>
-                <div class="project-desc">a short description of what this project does and what problem it solves.</div>
-                <div class="project-links">
-                    <a href="#" class="content-link">live ↗</a>
-                    <span class="sep">·</span>
-                    <a href="#" class="content-link">github ↗</a>
+                    <a href="https://github.com/aravindirl/postnotclarity" class="content-link" target="_blank" rel="noopener noreferrer">github ↗</a>
                 </div>
             </div>
 
@@ -192,7 +172,7 @@
         <nav class="social-footer">
             <a href="https://www.instagram.com/aravindirl/" class="content-link" target="_blank" rel="noopener noreferrer">instagram</a>
             <span class="sep">/</span>
-            <a href="https://x.com/aravindirl" class="content-link" target="_blank" rel="noopener noreferrer">x(twitter)</a>
+            <a href="https://x.com/aravindirl" class="content-link" target="_blank" rel="noopener noreferrer">x</a>
             <span class="sep">/</span>
             <a href="https://www.linkedin.com/in/aravindirl/" class="content-link" target="_blank" rel="noopener noreferrer">linkedin</a>
             <span class="sep">/</span>
@@ -248,6 +228,10 @@
             toast.className = 'toast';
             document.body.appendChild(toast);
             document.addEventListener('keydown', e => {
+                if (e.key === 'Backspace' && !['INPUT','TEXTAREA'].includes(document.activeElement.tagName)) {
+                    e.preventDefault();
+                    history.back();
+                }
                 if (e.key === 't' && !e.ctrlKey && !e.metaKey && !['INPUT','TEXTAREA'].includes(document.activeElement.tagName)) {
                     toggleBtn.click();
                     toast.textContent = '[theme: ' + document.body.getAttribute('data-theme') + ']';
