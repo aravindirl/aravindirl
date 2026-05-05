@@ -4,9 +4,14 @@
     <link rel="icon" href="/favicon.ico">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 — not found</title>
-    <meta name="description" content="Page not found.">
-    <meta name="robots" content="noindex">
+    <link rel="manifest" href="/manifest.json">
+    <title>404 - Page Not Found | Aravind Ramachandran</title>
+    <meta name="description" content="Page not found. Let me help you find what you're looking for.">
+    <meta property="og:title" content="404 - Page Not Found">
+    <meta property="og:description" content="Looks like this page doesn't exist.">
+    <meta property="og:type" content="website">
+    <meta name="author" content="Aravind Ramachandran">
+    <meta name="robots" content="noindex, follow">
     <style>
         :root {
             --bg-color: #f5ede0;
@@ -42,7 +47,6 @@
         header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
         .site-title { font-size: 1.6rem; font-weight: bold; margin: 0; letter-spacing: -0.02em; }
         .site-title::before { content: '>_ '; color: var(--accent-color); font-weight: normal; }
-        .site-title a { text-decoration: none; color: inherit; }
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
         .cursor {
             display: inline-block;
@@ -68,83 +72,45 @@
         #theme-toggle svg { width: 16px; height: 16px; fill: currentColor; }
         #theme-toggle:hover { background-color: var(--text-color); color: var(--bg-color); }
         hr { border: 0; border-top: 1px solid var(--hr-color); margin: 20px 0; }
-        nav a, .content-link, .back-nav {
-            text-decoration: none;
-            color: inherit;
-            padding: 0 4px;
-            transition: all 0.2s ease;
-        }
-        nav a:hover, .content-link:hover, .back-nav:hover {
-            background-color: var(--accent-color);
-            color: var(--bg-color);
-            border-radius: 2px;
-            text-decoration: none;
-        }
-        .content-link { color: var(--accent-color); text-decoration: underline; text-underline-offset: 3px; }
-        p { margin-bottom: 14px; font-size: 1rem; }
+        p { margin-bottom: 18px; font-size: 1rem; }
+        .error-code { font-size: 3rem; font-weight: bold; color: var(--accent-color); margin: 40px 0 20px 0; line-height: 1; }
+        .error-message { font-size: 1.3rem; margin-bottom: 20px; }
+        .nav-links { margin: 28px 0; }
+        .nav-links a { display: inline-block; color: var(--accent-color); text-decoration: underline; text-underline-offset: 3px; margin-bottom: 10px; }
+        .nav-links a:hover { background-color: var(--accent-color); color: var(--bg-color); border-radius: 2px; text-decoration: none; padding: 0 2px; }
         .copyright { font-size: 0.75rem; color: var(--secondary-text); margin-top: 25px; opacity: 0.8; }
-        .back-nav { margin-top: 40px; display: inline-block; font-size: 0.9rem; }
         ::-webkit-scrollbar { width: 5px; }
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: var(--hr-color); border-radius: 3px; }
         [data-theme="dark"] .site-title::before { text-shadow: 0 0 10px var(--accent-color); }
         [data-theme="dark"] .cursor { box-shadow: 0 0 8px var(--accent-color), 0 0 16px var(--accent-color); }
         ::selection { background: rgba(179, 28, 28, 0.15); }
-        [data-theme="dark"] ::selection { background: rgba(212, 168, 67, 0.2); color: #fff; }
-        .back-nav::before { content: '$ '; color: var(--accent-color); }
+        [data-theme="dark"] ::selection { background: rgba(52, 211, 153, 0.2); color: #fff; }
         html { scroll-behavior: smooth; }
-
-        .error-code { font-size: 4rem; font-weight: bold; color: var(--accent-color); margin: 32px 0 8px; letter-spacing: -0.04em; line-height: 1; }
-        [data-theme="dark"] .error-code { text-shadow: 0 0 20px var(--accent-color), 0 0 40px var(--accent-color); }
-        .error-msg { font-size: 1rem; color: var(--secondary-text); margin-bottom: 28px; }
-        .ls-block { margin: 24px 0; font-size: 0.9rem; }
-        .ls-cmd { color: var(--accent-color); margin-bottom: 10px; }
-        .ls-item { display: flex; gap: 16px; padding: 6px 0; border-bottom: 1px solid var(--hr-color); }
-        .ls-item:first-of-type { border-top: 1px solid var(--hr-color); }
-        .ls-perm { color: var(--secondary-text); font-size: 0.82rem; }
-        .ls-name a { color: var(--text-color); text-decoration: none; }
-        .ls-name a:hover { color: var(--accent-color); }
-        [data-theme="dark"] .content-link { text-shadow: 0 0 6px rgba(212, 168, 67, 0.35); }
-        .toast { position: fixed; bottom: 20px; right: 20px; font-size: 0.72rem; padding: 5px 10px; border: 1px solid var(--accent-color); color: var(--accent-color); background: var(--bg-color); border-radius: 3px; opacity: 0; transition: opacity 0.2s ease; pointer-events: none; z-index: 9999; font-family: inherit; }
-        .toast.show { opacity: 1; }
+        .site-title a { text-decoration: none; color: inherit; }
+        @media (max-width: 540px) { body { padding: 24px 16px; } .site-title { font-size: 1.3rem; } .error-code { font-size: 2rem; } }
     </style>
+    <script defer data-domain="aravindirl.com" src="https://plausible.io/js/script.js"></script>
 </head>
 <body data-theme="dark">
     <div class="container">
         <header>
-            <h1 class="site-title"><a href="index.html">Aravind Ramachandran</a><span class="cursor"></span></h1>
+            <h1 class="site-title"><a href="/">Aravind Ramachandran</a><span class="cursor"></span></h1>
             <button id="theme-toggle" aria-label="Toggle theme"><svg id="theme-icon" viewBox="0 0 24 24"></svg></button>
         </header>
         <hr>
 
         <div class="error-code">404</div>
-        <div class="error-msg">page not found — this path doesn't exist</div>
+        <div class="error-message">page not found</div>
+        <p>The page you're looking for doesn't exist. But here's what I recommend:</p>
 
-        <div class="ls-block">
-            <div class="ls-cmd">$ ls ./</div>
-            <div class="ls-item">
-                <span class="ls-perm">-rw-r--r--</span>
-                <span class="ls-name"><a href="index.html">index.html</a></span>
-            </div>
-            <div class="ls-item">
-                <span class="ls-perm">-rw-r--r--</span>
-                <span class="ls-name"><a href="blogs.html">blogs.html</a></span>
-            </div>
-            <div class="ls-item">
-                <span class="ls-perm">-rw-r--r--</span>
-                <span class="ls-name"><a href="about/about.html">about.html</a></span>
-            </div>
-            <div class="ls-item">
-                <span class="ls-perm">-rw-r--r--</span>
-                <span class="ls-name"><a href="projects/projects.html">projects.html</a></span>
-            </div>
-            <div class="ls-item">
-                <span class="ls-perm">-rw-r--r--</span>
-                <span class="ls-name"><a href="about/collection.html">collection.html</a></span>
-            </div>
-        </div>
+        <nav class="nav-links">
+            <a href="/">← back to homepage</a><br>
+            <a href="/blogs.html">browse my blogs</a><br>
+            <a href="/projects/projects.html">check out my projects</a><br>
+            <a href="/about/about.html">learn more about me</a>
+        </nav>
 
-        <a href="index.html" class="back-nav">← back to homepage</a>
         <div class="copyright">© <span id="year"></span> aravindirl. all rights reserved.</div>
     </div>
     <script>
@@ -167,7 +133,7 @@
                 themeIcon.setAttribute('fill', 'none');
                 themeIcon.setAttribute('stroke', 'currentColor');
                 themeIcon.setAttribute('stroke-width', '2');
-                setFavicon('#d4a843');
+                setFavicon('#34d399');
             } else {
                 body.setAttribute('data-theme', 'light');
                 themeIcon.innerHTML = moonIcon;
@@ -187,15 +153,13 @@
         document.getElementById('year').textContent = new Date().getFullYear();
 
         (function() {
-            const toast = document.createElement('div');
-            toast.className = 'toast';
-            document.body.appendChild(toast);
             document.addEventListener('keydown', e => {
+                if (e.key === 'Backspace' && !['INPUT','TEXTAREA'].includes(document.activeElement.tagName)) {
+                    e.preventDefault();
+                    history.back();
+                }
                 if (e.key === 't' && !e.ctrlKey && !e.metaKey && !['INPUT','TEXTAREA'].includes(document.activeElement.tagName)) {
                     toggleBtn.click();
-                    toast.textContent = '[theme: ' + document.body.getAttribute('data-theme') + ']';
-                    toast.classList.add('show');
-                    setTimeout(() => toast.classList.remove('show'), 1500);
                 }
             });
         })();

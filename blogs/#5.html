@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="/manifest.json">
     <title>#5 Tulasi, Relationship with food, Toxic summers, Dealing with 'neo-luddites'</title>
     <link rel="icon" href="/favicon.ico">
     <meta name="description" content="an emotional ride with a revolutionary idea">
@@ -147,12 +148,24 @@
         @media (max-width: 540px) { body { padding: 24px 16px; } .site-title { font-size: 1.3rem; } }
         .post-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 40px; gap: 12px; flex-wrap: wrap; }
         .post-footer .back-nav { margin-top: 0; }
-        .share-btn { background: none; border: 1px solid var(--hr-color); color: var(--secondary-text); font-family: inherit; font-size: 0.82rem; padding: 3px 10px; border-radius: 3px; cursor: pointer; transition: all 0.2s ease; }
+        .share-btn { background: none; border: 1px solid var(--hr-color); color: var(--secondary-text); font-family: inherit; font-size: 0.82rem; padding: 3px 10px; border-radius: 3px; cursor: pointer; transition: all 0.2s ease; position: relative; }
         .share-btn:hover { border-color: var(--accent-color); color: var(--accent-color); }
-    </style>
+        .share-menu { position: absolute; top: 100%; right: 0; background: var(--bg-color); border: 1px solid var(--hr-color); border-radius: 3px; z-index: 100; opacity: 0; visibility: hidden; transition: opacity 0.2s ease; margin-top: 4px; }
+        .share-menu.active { opacity: 1; visibility: visible; }
+        .share-menu-item { display: block; padding: 6px 12px; font-size: 0.8rem; color: var(--text-color); text-decoration: none; border-bottom: 1px solid var(--hr-color); white-space: nowrap; transition: background-color 0.2s ease; }
+        .share-menu-item:last-child { border-bottom: none; }
+        .share-menu-item:hover { background-color: var(--hr-color); color: var(--accent-color); }
+            .author-block { background: var(--hr-color); padding: 14px; border-radius: 3px; margin: 24px 0; }
+        .author-name { font-weight: bold; margin-bottom: 6px; font-size: 0.95rem; }
+        .author-bio { font-size: 0.88rem; color: var(--secondary-text); margin-bottom: 8px; line-height: 1.5; }
+        .author-links { font-size: 0.82rem; display: flex; gap: 8px; flex-wrap: wrap; }
+        .author-links a { color: var(--accent-color); text-decoration: none; }
+        .author-links a:hover { text-decoration: underline; }
+        </style>
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"BlogPosting","headline":"Your Blog Title","description":"Your blog description goes here.","keywords":"tag1,tag2,tag3","author":{"@type":"Person","name":"Aravind Ramachandran","url":"https://www.aravindirl.com/"},"datePublished":"2026-04-25","url":"https://www.aravindirl.com/blogs/your-blog-title.html","mainEntityOfPage":"https://www.aravindirl.com/blogs/your-blog-title.html"}
     </script>
+    <script defer data-domain="aravindirl.com" src="https://plausible.io/js/script.js"></script>
 </head>
 <body data-theme="dark">
 <div class="progress-bar" id="progress-bar"></div>
@@ -175,7 +188,7 @@
 
         <!-- Cover image (featured/hero image) -->
         <figure>
-            <img src="tulasi2.jpg" alt="Cover image for this blog post">
+            <img loading="lazy" src="tulasi2.jpg" alt="Cover image for this blog post" decoding="async">
         </figure>
 
         <!-- Opening paragraph -->
@@ -192,7 +205,7 @@
         </p>
 
         <figure>
-            <img src="../images/tulasi.png" alt="Image for section 1">
+            <img loading="lazy"  src="../images/tulasi.png" alt="Image for section 1" decoding="async">
             <figcaption><a href="https://youtu.be/Y8ZApXcnhy4?si=7Asxl_9SsB8tO5zF" class="content-link"></a></figcaption>
         </figure>
 
@@ -215,7 +228,7 @@
         </p>
 
         <figure>
-            <img src="../images/summersrgm.png" alt="Image for section 1">
+            <img loading="lazy"  src="../images/summersrgm.png" alt="Image for section 1" decoding="async">
             <figcaption>Trichy summer noon - April 2026</figcaption>
         </figure>
 
@@ -233,8 +246,26 @@
         </div>
         <div class="post-footer">
             <a href="../blogs.html" class="back-nav">← back to blogs</a>
-            <button class="share-btn" id="share-btn">share ↗</button>
+            <div class="share-container">
+                <button class="share-btn" id="share-btn" aria-label="Share this post">share ↗</button>
+                <div class="share-menu" id="share-menu" role="menu" aria-label="Share options">
+                    <a href="#" class="share-menu-item" id="share-copy">copy link</a>
+                    <a href="#" class="share-menu-item" id="share-twitter">twitter</a>
+                    <a href="#" class="share-menu-item" id="share-linkedin">linkedin</a>
+                </div>
+            </div>
         </div>
+    <div class="author-block">
+        <div class="author-name">Aravind Ramachandran</div>
+        <div class="author-bio">Studying markets, tech & society. Building tools and writing for clarity. Active generalist based in Chennai.</div>
+        <div class="author-links">
+            <a href="https://x.com/aravindirl" target="_blank" rel="noopener noreferrer">x</a>
+            <span class="sep">·</span>
+            <a href="https://www.linkedin.com/in/aravindirl/" target="_blank" rel="noopener noreferrer">linkedin</a>
+            <span class="sep">·</span>
+            <a href="https://www.instagram.com/aravindirl/" target="_blank" rel="noopener noreferrer">instagram</a>
+        </div>
+    </div>
         <div class="copyright">© <span id="year"></span> aravindirl. all rights reserved.</div>
 </div>
 
@@ -296,13 +327,37 @@
             }
         });
     })();
-    document.getElementById('share-btn').addEventListener('click', () => {
+    const shareBtn = document.getElementById('share-btn');
+    const shareMenu = document.getElementById('share-menu');
+    shareBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        shareMenu.classList.toggle('active');
+    });
+    document.addEventListener('click', () => {
+        shareMenu.classList.remove('active');
+    });
+    document.getElementById('share-copy').addEventListener('click', (e) => {
+        e.preventDefault();
         navigator.clipboard.writeText(window.location.href).then(() => {
             const t = document.querySelector('.toast');
             t.textContent = '[link copied!]';
             t.classList.add('show');
             setTimeout(() => t.classList.remove('show'), 1500);
+            shareMenu.classList.remove('active');
         });
+    });
+    document.getElementById('share-twitter').addEventListener('click', (e) => {
+        e.preventDefault();
+        const url = encodeURIComponent(window.location.href);
+        const text = encodeURIComponent(document.querySelector('.essay-label')?.textContent || 'Check this out');
+        window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank', 'width=550,height=420');
+        shareMenu.classList.remove('active');
+    });
+    document.getElementById('share-linkedin').addEventListener('click', (e) => {
+        e.preventDefault();
+        const url = encodeURIComponent(window.location.href);
+        window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank', 'width=550,height=420');
+        shareMenu.classList.remove('active');
     });
 </script>
 </body>

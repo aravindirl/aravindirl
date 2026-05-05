@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="/manifest.json">
     <title>Frameworks of Understanding: How We Make Sense of Reality | Aravind Ramachandran</title>
     <link rel="icon" href="/favicon.ico">
     <meta name="description" content="The frameworks we use to understand the world shape what we can see. Exploring how mental models work and why they matter more than facts.">
@@ -146,12 +147,24 @@
         @media (max-width: 540px) { body { padding: 24px 16px; } .site-title { font-size: 1.3rem; } }
         .post-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 40px; gap: 12px; flex-wrap: wrap; }
         .post-footer .back-nav { margin-top: 0; }
-        .share-btn { background: none; border: 1px solid var(--hr-color); color: var(--secondary-text); font-family: inherit; font-size: 0.82rem; padding: 3px 10px; border-radius: 3px; cursor: pointer; transition: all 0.2s ease; }
+        .share-btn { background: none; border: 1px solid var(--hr-color); color: var(--secondary-text); font-family: inherit; font-size: 0.82rem; padding: 3px 10px; border-radius: 3px; cursor: pointer; transition: all 0.2s ease; position: relative; }
         .share-btn:hover { border-color: var(--accent-color); color: var(--accent-color); }
-    </style>
+        .share-menu { position: absolute; top: 100%; right: 0; background: var(--bg-color); border: 1px solid var(--hr-color); border-radius: 3px; z-index: 100; opacity: 0; visibility: hidden; transition: opacity 0.2s ease; margin-top: 4px; }
+        .share-menu.active { opacity: 1; visibility: visible; }
+        .share-menu-item { display: block; padding: 6px 12px; font-size: 0.8rem; color: var(--text-color); text-decoration: none; border-bottom: 1px solid var(--hr-color); white-space: nowrap; transition: background-color 0.2s ease; }
+        .share-menu-item:last-child { border-bottom: none; }
+        .share-menu-item:hover { background-color: var(--hr-color); color: var(--accent-color); }
+            .author-block { background: var(--hr-color); padding: 14px; border-radius: 3px; margin: 24px 0; }
+        .author-name { font-weight: bold; margin-bottom: 6px; font-size: 0.95rem; }
+        .author-bio { font-size: 0.88rem; color: var(--secondary-text); margin-bottom: 8px; line-height: 1.5; }
+        .author-links { font-size: 0.82rem; display: flex; gap: 8px; flex-wrap: wrap; }
+        .author-links a { color: var(--accent-color); text-decoration: none; }
+        .author-links a:hover { text-decoration: underline; }
+        </style>
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"BlogPosting","headline":"Frameworks of Understanding: How We Make Sense of Reality","description":"How mental models shape what we can see.","keywords":"meta,thinking,internet","author":{"@type":"Person","name":"Aravind Ramachandran","url":"https://www.aravindirl.com/"},"datePublished":"2026-04-24","url":"https://www.aravindirl.com/blogs/frameworks-of-understanding.html","mainEntityOfPage":"https://www.aravindirl.com/blogs/frameworks-of-understanding.html"}
     </script>
+    <script defer data-domain="aravindirl.com" src="https://plausible.io/js/script.js"></script>
 </head>
 <body data-theme="dark">
 <div class="progress-bar" id="progress-bar"></div>
@@ -300,7 +313,7 @@
     </div>
     <div class="post-footer">
         <a href="../blogs.html" class="back-nav">← back to blogs</a>
-        <button class="share-btn" id="share-btn">share ↗</button>
+        <button class="share-btn" id="share-btn" aria-label="Share this post">share ↗</button>
     </div>
     <div class="copyright">© <span id="year"></span> aravindirl. all rights reserved.</div>
 </div>
@@ -363,13 +376,37 @@
             }
         });
     })();
-    document.getElementById('share-btn').addEventListener('click', () => {
+    const shareBtn = document.getElementById('share-btn');
+    const shareMenu = document.getElementById('share-menu');
+    shareBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        shareMenu.classList.toggle('active');
+    });
+    document.addEventListener('click', () => {
+        shareMenu.classList.remove('active');
+    });
+    document.getElementById('share-copy').addEventListener('click', (e) => {
+        e.preventDefault();
         navigator.clipboard.writeText(window.location.href).then(() => {
             const t = document.querySelector('.toast');
             t.textContent = '[link copied!]';
             t.classList.add('show');
             setTimeout(() => t.classList.remove('show'), 1500);
+            shareMenu.classList.remove('active');
         });
+    });
+    document.getElementById('share-twitter').addEventListener('click', (e) => {
+        e.preventDefault();
+        const url = encodeURIComponent(window.location.href);
+        const text = encodeURIComponent(document.querySelector('.essay-label')?.textContent || 'Check this out');
+        window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank', 'width=550,height=420');
+        shareMenu.classList.remove('active');
+    });
+    document.getElementById('share-linkedin').addEventListener('click', (e) => {
+        e.preventDefault();
+        const url = encodeURIComponent(window.location.href);
+        window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank', 'width=550,height=420');
+        shareMenu.classList.remove('active');
     });
 </script>
 </body>

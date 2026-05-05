@@ -3,7 +3,10 @@
 <head>
     <link rel="icon" href="/favicon.ico">
     <meta charset="UTF-8">
+    <link rel="dns-prefetch" href="https://plausible.io">
+    <link rel="preconnect" href="https://plausible.io">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="/manifest.json">
     <title>Aravind Ramachandran | Home</title>
     <meta name="description" content="Aravind Ramachandran — studying markets, technology & society. Active generalist, based in Chennai.">
     <meta property="og:title" content="Aravind Ramachandran">
@@ -143,10 +146,19 @@
         [data-theme="dark"] .content-link { text-shadow: 0 0 6px rgba(212, 168, 67, 0.35); }
         .toast { position: fixed; bottom: 20px; right: 20px; font-size: 0.72rem; padding: 5px 10px; border: 1px solid var(--accent-color); color: var(--accent-color); background: var(--bg-color); border-radius: 3px; opacity: 0; transition: opacity 0.2s ease; pointer-events: none; z-index: 9999; font-family: inherit; }
         .toast.show { opacity: 1; }
+        .featured-posts { margin: 28px 0; }
+        .featured-posts h3 { font-size: 0.95rem; font-weight: bold; margin-bottom: 14px; }
+        .featured-post-item { padding: 12px 0; border-bottom: 1px solid var(--hr-color); }
+        .featured-post-item:last-child { border-bottom: none; }
+        .featured-post-title { font-weight: bold; margin-bottom: 3px; }
+        .featured-post-title a { color: inherit; text-decoration: none; }
+        .featured-post-title a:hover { color: var(--accent-color); }
+        .featured-post-meta { font-size: 0.8rem; color: var(--secondary-text); }
     </style>
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"Person","name":"Aravind Ramachandran","url":"https://www.aravindirl.com/","description":"Studying markets, technology & society. Active generalist.","sameAs":["https://www.instagram.com/aravindirl/"]}
     </script>
+    <script defer data-domain="aravindirl.com" src="https://plausible.io/js/script.js"></script>
 </head>
 <body data-theme="dark">
     <div class="container">
@@ -176,6 +188,21 @@
                 <span class="dir-arrow">→</span>
             </a>
         </nav>
+        <div class="featured-posts">
+            <h3>// latest posts</h3>
+            <div class="featured-post-item">
+                <div class="featured-post-title"><a href="blogs/attention-economy.html">The Attention Economy: Markets Competing for Your Mind</a></div>
+                <div class="featured-post-meta">26 april 2026</div>
+            </div>
+            <div class="featured-post-item">
+                <div class="featured-post-title"><a href="blogs/frameworks-of-understanding.html">Frameworks of Understanding: How We Make Sense of Reality</a></div>
+                <div class="featured-post-meta">26 april 2026</div>
+            </div>
+            <div class="featured-post-item">
+                <div class="featured-post-title"><a href="blogs/%235.html">#5 Tulasi, Relationship with food, Toxic summers, Dealing with 'neo-luddites'</a></div>
+                <div class="featured-post-meta">26 april 2026</div>
+            </div>
+        </div>
         <hr>
         <nav class="social-footer">
             <a href="https://www.instagram.com/aravindirl/" class="content-link" target="_blank" rel="noopener noreferrer">instagram</a>
@@ -185,6 +212,10 @@
             <a href="https://www.linkedin.com/in/aravindirl/" class="content-link" target="_blank" rel="noopener noreferrer">linkedin</a>
             <span class="sep">/</span>
             <a href="https://www.youtube.com/@aravindirl" class="content-link" target="_blank" rel="noopener noreferrer">youtube</a>
+            <span class="sep">/</span>
+            <a href="/rss.xml" class="content-link">rss</a>
+            <span class="sep">/</span>
+            <a href="/sitemap.xml" class="content-link">sitemap</a>
         </nav>
         <div class="copyright">© <span id="year"></span> aravindirl. all rights reserved.</div>
     </div>
