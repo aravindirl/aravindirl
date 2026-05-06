@@ -132,6 +132,37 @@
         .sep { color: var(--secondary-text); padding: 0 3px; user-select: none; }
         .social-footer { margin-top: 20px; font-size: 0.9rem; display: flex; align-items: center; flex-wrap: wrap; }
 
+        .hide-on-desktop { display: block; }
+        .show-on-desktop { display: none; }
+
+        .email-form { display: flex; gap: 8px; }
+        .email-form input {
+            flex: 1;
+            background: none;
+            border: 1px solid var(--hr-color);
+            border-radius: 2px;
+            color: var(--text-color);
+            font-family: inherit;
+            font-size: 0.95rem;
+            padding: 6px 8px;
+            outline: none;
+            transition: border-color 0.15s ease;
+        }
+        .email-form input::placeholder { color: var(--secondary-text); opacity: 0.5; }
+        .email-form input:focus { border-color: var(--accent-color); }
+        .email-submit {
+            background: none;
+            border: 1px solid var(--hr-color);
+            color: var(--text-color);
+            font-family: inherit;
+            font-size: 0.95rem;
+            padding: 6px 12px;
+            cursor: pointer;
+            border-radius: 2px;
+            transition: all 0.15s ease;
+        }
+        .email-submit:hover { border-color: var(--accent-color); color: var(--accent-color); }
+
         @media (max-width: 540px) {
             body { padding: 24px 16px; }
             .site-title { font-size: 1.3rem; }
@@ -266,6 +297,12 @@
         @media (max-width: 900px) {
             .sidebar { display: none; }
             .left-sidebar { display: none; }
+            .hide-on-desktop { display: block; }
+            .show-on-desktop { display: none; }
+        }
+        @media (min-width: 901px) {
+            .hide-on-desktop { display: none; }
+            .show-on-desktop { display: block; }
         }
     </style>
     <script type="application/ld+json">
@@ -374,17 +411,25 @@
                 <span class="dir-desc">building vibe coding projects for fun</span>
                 <span class="dir-arrow">→</span>
             </a>
-            <a href="media/media.html" class="dir-entry">
+            <a href="media/media.html" class="dir-entry hide-on-desktop">
                 <span class="dir-path">./media</span>
                 <span class="dir-desc">photos, videos, audios, docs, links</span>
                 <span class="dir-arrow">→</span>
             </a>
-            <a href="about/about.html" class="dir-entry">
+            <a href="about/about.html" class="dir-entry hide-on-desktop">
                 <span class="dir-path">./about</span>
                 <span class="dir-desc">get some context, if you're interested</span>
                 <span class="dir-arrow">→</span>
             </a>
         </nav>
+        <div id="email-form-container" class="show-on-desktop" style="margin: 28px 0 0 0;">
+            <p style="font-size: 0.9rem; color: var(--secondary-text); margin-bottom: 16px;">drop ur mail id</p>
+            <form id="email-form" class="email-form">
+                <input type="email" id="email-input" placeholder="your email" required>
+                <button type="submit" class="email-submit">send</button>
+            </form>
+            <p id="form-message" style="font-size: 0.8rem; color: var(--secondary-text); margin-top: 8px; display: none;"></p>
+        </div>
         <hr>
         <div class="copyright">© <span id="year"></span> aravindirl. all rights reserved. <span style="opacity: 0.7;">made with intent</span></div>
     </div>
@@ -427,6 +472,36 @@
         });
         document.getElementById('year').textContent = new Date().getFullYear();
         feather.replace();
+
+        const emailForm = document.getElementById('email-form');
+        const emailInput = document.getElementById('email-input');
+        const formMessage = document.getElementById('form-message');
+        const scriptUrl = 'https://script.google.com/macros/s/AKfycbz5iNTUBS2hSOIvl-0b4DlaqgI8AOhS80AFn1Oa9pAeeG7i5X2_tp5Nrz_bw_loeNB6cg/exec';
+
+        emailForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = emailInput.value;
+
+            fetch(scriptUrl, {
+                method: 'POST',
+                mode: 'no-cors',
+                body: new URLSearchParams({ email: email })
+            })
+            .then(() => {
+                formMessage.textContent = '[thanks! got it]';
+                formMessage.style.color = 'var(--accent-color)';
+                formMessage.style.display = 'block';
+                emailInput.value = '';
+                setTimeout(() => {
+                    formMessage.style.display = 'none';
+                }, 3000);
+            })
+            .catch(() => {
+                formMessage.textContent = '[error sending]';
+                formMessage.style.color = 'red';
+                formMessage.style.display = 'block';
+            });
+        });
 
         (function() {
             const toast = document.createElement('div');
