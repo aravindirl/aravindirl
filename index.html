@@ -263,32 +263,6 @@
         .sidebar-item:hover svg,
         .sidebar-item:hover i[data-feather] { opacity: 0.8; }
 
-        .subscribe-form { display: flex; flex-direction: column; gap: 8px; }
-        .subscribe-input {
-            background: none;
-            border: 1px solid var(--hr-color);
-            border-radius: 2px;
-            color: var(--text-color);
-            font-family: inherit;
-            font-size: 0.85rem;
-            padding: 6px 8px;
-            outline: none;
-            transition: border-color 0.15s ease;
-        }
-        .subscribe-input::placeholder { color: var(--secondary-text); opacity: 0.5; }
-        .subscribe-input:focus { border-color: var(--accent-color); }
-        .subscribe-btn {
-            background: none;
-            border: 1px solid var(--hr-color);
-            color: var(--text-color);
-            font-family: inherit;
-            font-size: 0.85rem;
-            padding: 5px 8px;
-            cursor: pointer;
-            border-radius: 2px;
-            transition: all 0.15s ease;
-        }
-        .subscribe-btn:hover { border-color: var(--accent-color); color: var(--accent-color); }
         @media (max-width: 900px) {
             .sidebar { display: none; }
             .left-sidebar { display: none; }
@@ -348,11 +322,15 @@
             </a>
         </div>
         <div class="sidebar-section">
-            <div class="sidebar-label">subscribe</div>
-            <form class="subscribe-form" id="subscribe-form">
-                <input type="email" class="subscribe-input" id="subscribe-email" placeholder="your email" required>
-                <button type="submit" class="subscribe-btn">subscribe</button>
-            </form>
+            <div class="sidebar-label">explore</div>
+            <a href="media/media.html" class="sidebar-item">
+                <i data-feather="image"></i>
+                media
+            </a>
+            <a href="about/about.html" class="sidebar-item">
+                <i data-feather="user"></i>
+                about
+            </a>
         </div>
         <div class="sidebar-section">
             <div class="sidebar-label">collections</div>
@@ -467,17 +445,6 @@
                 }
             });
 
-            const subscribeForm = document.getElementById('subscribe-form');
-            if (subscribeForm) {
-                subscribeForm.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    const email = document.getElementById('subscribe-email').value;
-                    toast.textContent = '[thanks for subscribing!]';
-                    toast.classList.add('show');
-                    subscribeForm.reset();
-                    setTimeout(() => toast.classList.remove('show'), 2000);
-                });
-            }
         })();
     </script>
 </body>
