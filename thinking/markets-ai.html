@@ -233,6 +233,16 @@
             applyTheme(newTheme);
         });
         document.getElementById('year').textContent = new Date().getFullYear();
+
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Backspace' && !['INPUT','TEXTAREA'].includes(document.activeElement.tagName)) {
+                e.preventDefault();
+                history.back();
+            }
+            if (e.key === 't' && !e.ctrlKey && !e.metaKey && !['INPUT','TEXTAREA'].includes(document.activeElement.tagName)) {
+                toggleBtn.click();
+            }
+        });
     </script>
 </body>
 </html>
