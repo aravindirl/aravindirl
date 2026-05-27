@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" href="/favicon.ico">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aravind Ramachandran | Home</title>
+    <title>aravindirl</title>
     <meta name="description" content="Aravind Ramachandran — studying markets, technology & society. Active generalist, based in Chennai.">
     <meta property="og:title" content="Aravind Ramachandran">
     <meta property="og:description" content="I read books, write blogs, create content. Interested in Markets, Technology and Human behavior.">
@@ -20,11 +19,15 @@
     {"@context":"https://schema.org","@type":"Person","name":"Aravind Ramachandran","url":"https://www.aravindirl.com/","description":"I read books, write blogs, create content. Interested in Markets, Technology and Human behavior.","sameAs":["https://www.instagram.com/aravindirl/","https://x.com/aravindirl","https://github.com/aravindirl","https://www.linkedin.com/in/aravindirl/"]}
     </script>
     <style>
-        *, *::before, *::after { box-sizing: border-box; }
+        :root { --bg:#ffffff; --text:#000000; --secondary:#555; --link:#0000EE; --link-v:#551A8B; --border:#000; --bq:#333; }
+        [data-theme="dark"] { --bg:#111111; --text:#e8e8e8; --secondary:#888; --link:#7799ff; --link-v:#bb88ff; --border:#ccc; --bq:#aaa; }
+        #theme-toggle { position:fixed; top:14px; right:20px; background:none; border:1px solid var(--secondary); color:var(--secondary); font-family:inherit; font-size:0.72rem; padding:2px 8px; cursor:pointer; border-radius:2px; z-index:999; }
+        #theme-toggle:hover { border-color:var(--text); color:var(--text); }
+                *, *::before, *::after { box-sizing: border-box; }
         body {
             font-family: ui-monospace, Menlo, Monaco, 'Cascadia Code', 'Source Code Pro', Consolas, monospace;
-            background-color: #ffffff;
-            color: #000000;
+            background-color:var(--bg);
+            color:var(--text);
             line-height: 1.5;
             padding: 32px 36px;
             margin: 0;
@@ -42,14 +45,14 @@
         .handle {
             font-size: 0.85rem;
             margin: 0 0 20px 0;
-            color: #000;
+            color: var(--text);
         }
         .handle a {
-            color: #0000EE;
+            color:var(--link);
             text-decoration: underline;
         }
         .handle a:visited {
-            color: #551A8B;
+            color:var(--link-v);
         }
         .bio {
             margin-bottom: 18px;
@@ -59,11 +62,11 @@
             font-size: 0.85rem;
         }
         .bio a {
-            color: #0000EE;
+            color:var(--link);
             text-decoration: underline;
         }
         .bio a:visited {
-            color: #551A8B;
+            color:var(--link-v);
         }
         .resources {
             margin-bottom: 18px;
@@ -83,35 +86,35 @@
             white-space: nowrap;
         }
         .resources a {
-            color: #0000EE;
+            color:var(--link);
             text-decoration: underline;
         }
         .resources a:visited {
-            color: #551A8B;
+            color:var(--link-v);
         }
         .contact {
             font-size: 0.85rem;
             margin-bottom: 24px;
         }
         .contact a {
-            color: #0000EE;
+            color:var(--link);
             text-decoration: underline;
         }
         footer {
             font-size: 0.85rem;
         }
         footer a {
-            color: #0000EE;
+            color:var(--link);
             text-decoration: underline;
             display: block;
             margin-bottom: 4px;
         }
         footer a:visited {
-            color: #551A8B;
+            color:var(--link-v);
         }
         footer p {
             margin: 4px 0 0 0;
-            color: #000;
+            color: var(--text);
         }
         @media (max-width: 640px) {
             body { padding: 24px 18px; font-size: 12px; }
@@ -119,7 +122,20 @@
         }
     </style>
 </head>
-<body>
+<body data-theme="light">
+    <button id="theme-toggle">dark</button>
+    <script>
+    (function(){
+        var btn=document.getElementById('theme-toggle');
+        function apply(t){ document.body.setAttribute('data-theme',t); btn.textContent=t==='dark'?'light':'dark'; }
+        apply(localStorage.getItem('aravind-theme')||'light');
+        btn.addEventListener('click',function(){ var t=document.body.getAttribute('data-theme')==='dark'?'light':'dark'; localStorage.setItem('aravind-theme',t); apply(t); });
+        document.addEventListener('keydown',function(e){
+            if(e.key==='Backspace'&&!['INPUT','TEXTAREA'].includes(document.activeElement.tagName)){ e.preventDefault(); history.back(); }
+            if(e.key==='t'&&!e.ctrlKey&&!e.metaKey&&!['INPUT','TEXTAREA'].includes(document.activeElement.tagName)){ btn.click(); }
+        });
+    })();
+    </script>
     <div class="container">
         <h1>Aravind Ramachandran</h1>
         <p class="handle">@aravindirl (<a href="https://www.instagram.com/aravindirl/" target="_blank" rel="noopener noreferrer">instagram</a>, <a href="https://x.com/aravindirl" target="_blank" rel="noopener noreferrer">x</a>, <a href="https://github.com/aravindirl" target="_blank" rel="noopener noreferrer">github</a>, <a href="https://www.linkedin.com/in/aravindirl/" target="_blank" rel="noopener noreferrer">linkedin</a>)</p>
