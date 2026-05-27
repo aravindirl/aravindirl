@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" href="/favicon.ico">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>we are in a marketing bubble!</title>
-    <link rel="icon" href="/favicon.ico">
-    <meta name="description" content="The supply of marketing has exploded while attention hasn't scaled. The system is distorting.">
-    <meta property="og:title" content="We are in a marketing bubble — Aravind Ramachandran">
-    <meta property="og:description" content="The supply of marketing has exploded while attention hasn't scaled at the same rate.">
+    <title>#02 We are in a marketing bubble | Lucidnotes</title>
+    <meta name="description" content="The basic structure of marketing got broke way before, and still I don't think we see it.">
+    <meta property="og:title" content="#02 We are in a marketing bubble">
     <meta property="og:type" content="article">
     <meta name="author" content="Aravind Ramachandran">
     <meta name="robots" content="index, follow">
@@ -17,275 +16,61 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://www.aravindirl.com/og.svg">
     <style>
-        :root {
-            --bg-color: #f5ede0;
-            --text-color: #1a1714;
-            --accent-color: #b31c1c;
-            --secondary-text: #4a4440;
-            --hr-color: #ddd0c2;
-            --caption-bg: #ede4d8;
-        }
-        [data-theme="dark"] {
-            --bg-color: #0e0e0e;
-            --text-color: #ffffff;
-            --accent-color: #34d399;
-            --secondary-text: #b0b0b0;
-            --hr-color: #2a2a2a;
-            --caption-bg: #161616;
-        }
         *, *::before, *::after { box-sizing: border-box; }
-        body {
-            font-family: ui-monospace, Menlo, Monaco, 'Cascadia Code', 'Source Code Pro', Consolas, monospace;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-            padding: 40px 24px;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            transition: background-color 0.3s, color 0.3s;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(8px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
-        .container { max-width: 650px; width: 100%; animation: fadeIn 0.4s ease forwards; }
-        header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
-        .site-title { font-size: 1.6rem; font-weight: bold; margin: 0; letter-spacing: -0.02em; }
-        .site-title::before { content: '>_ '; color: var(--accent-color); font-weight: normal; }
-        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
-        .cursor {
-            display: inline-block;
-            width: 2px;
-            height: 0.9em;
-            background: var(--accent-color);
-            vertical-align: middle;
-            animation: blink 1.1s step-end infinite;
-            margin-left: 3px;
-        }
-        #theme-toggle {
-            background: none;
-            border: 1px solid var(--text-color);
-            color: var(--text-color);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 4px;
-            border-radius: 4px;
-            transition: all 0.2s ease;
-        }
-        #theme-toggle svg { width: 16px; height: 16px; fill: currentColor; }
-        #theme-toggle:hover { background-color: var(--text-color); color: var(--bg-color); }
-        hr { border: 0; border-top: 1px solid var(--hr-color); margin: 20px 0; }
-        .essay-label { font-size: 1.2rem; font-weight: bold; margin-bottom: 6px; }
-        .essay-meta { font-size: 0.8rem; color: var(--secondary-text); margin-bottom: 24px; }
-        p { font-size: 1rem; margin-bottom: 18px; line-height: 1.75; }
-        figure { margin: 28px 0; }
-        figure img { width: 100%; display: block; border: 1px solid var(--hr-color); border-radius: 2px; }
-        figcaption {
-            font-size: 0.75rem;
-            color: var(--secondary-text);
-            margin-top: 6px;
-            background-color: var(--caption-bg);
-            padding: 4px 8px;
-            border-left: 2px solid var(--accent-color);
-        }
-        blockquote {
-            border-left: 3px solid var(--accent-color);
-            padding: 10px 16px;
-            margin: 24px 0;
-            font-size: 1rem;
-            color: var(--secondary-text);
-            font-style: italic;
-        }
-        .back-nav {
-            margin-top: 40px;
-            display: inline-block;
-            font-size: 0.9rem;
-            text-decoration: none;
-            color: inherit;
-            padding: 0 4px;
-            transition: all 0.2s ease;
-        }
-        .back-nav:hover { background-color: var(--accent-color); color: var(--bg-color); border-radius: 2px; }
-        .copyright { font-size: 0.75rem; color: var(--secondary-text); margin-top: 25px; opacity: 0.8; }
-
-        /* Reading progress bar */
-        .progress-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 2px;
-            background: var(--accent-color);
-            width: 0%;
-            transition: width 0.1s linear;
-            z-index: 100;
-        }
-        ::-webkit-scrollbar { width: 5px; }
-        ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: var(--hr-color); border-radius: 3px; }
-        [data-theme="dark"] .site-title::before { text-shadow: 0 0 10px var(--accent-color); }
-        [data-theme="dark"] .cursor { box-shadow: 0 0 8px var(--accent-color), 0 0 16px var(--accent-color); }
-        ::selection { background: rgba(179, 28, 28, 0.15); }
-        [data-theme="dark"] ::selection { background: rgba(212, 168, 67, 0.2); color: #fff; }
-        .back-nav::before { content: '$ '; color: var(--accent-color); }
-        html { scroll-behavior: smooth; }
-        .site-title a { text-decoration: none; color: inherit; }
-        [data-theme="dark"] .content-link { text-shadow: 0 0 6px rgba(212, 168, 67, 0.35); }
-        .toast { position: fixed; bottom: 20px; right: 20px; font-size: 0.72rem; padding: 5px 10px; border: 1px solid var(--accent-color); color: var(--accent-color); background: var(--bg-color); border-radius: 3px; opacity: 0; transition: opacity 0.2s ease; pointer-events: none; z-index: 9999; font-family: inherit; }
-        .toast.show { opacity: 1; }
-        .read-next { margin: 24px 0 8px; display: flex; gap: 12px; align-items: baseline; font-size: 0.88rem; flex-wrap: wrap; }
-        .read-next-label { color: var(--secondary-text); white-space: nowrap; }
-        @media (max-width: 540px) { body { padding: 24px 16px; } .site-title { font-size: 1.3rem; } }
-        .post-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 40px; gap: 12px; flex-wrap: wrap; }
-        .post-footer .back-nav { margin-top: 0; }
-        .share-btn { background: none; border: 1px solid var(--hr-color); color: var(--secondary-text); font-family: inherit; font-size: 0.82rem; padding: 3px 10px; border-radius: 3px; cursor: pointer; transition: all 0.2s ease; }
-        .share-btn:hover { border-color: var(--accent-color); color: var(--accent-color); }
+        body { font-family: ui-monospace, Menlo, Monaco, 'Cascadia Code', 'Source Code Pro', Consolas, monospace; background-color: #ffffff; color: #000000; font-size: 13px; line-height: 1.6; padding: 32px 36px; margin: 0; }
+        .container { max-width: 860px; }
+        .post-heading { font-size: 0.85rem; margin: 0 0 10px 0; }
+        .post-date { text-align: center; font-size: 0.85rem; margin-bottom: 28px; }
+        p { font-size: 0.85rem; margin: 0 0 14px 0; }
+        h2 { font-size: 0.85rem; font-weight: bold; margin: 20px 0 8px 0; }
+        h3 { font-size: 0.85rem; font-weight: bold; margin: 14px 0 6px 0; font-style: italic; }
+        blockquote { margin: 12px 0 14px 0; padding-left: 16px; border-left: 2px solid #000; font-style: italic; font-size: 0.85rem; color: #333; }
+        img { width: 100%; border-radius: 8px; display: block; margin: 16px 0; }
+        figcaption { font-size: 0.75rem; color: #555; margin-top: -10px; margin-bottom: 14px; }
+        .img-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
+        .img-grid img { margin: 0; }
+        a { color: #0000EE; text-decoration: underline; }
+        a:visited { color: #551A8B; }
+        .back-link { display: block; text-align: right; font-size: 0.85rem; margin-top: 40px; color: #000; text-decoration: none; }
+        .back-link:hover { text-decoration: underline; }
+        .back-link:visited { color: #000; }
+        @media (max-width: 640px) { body { padding: 24px 18px; } .img-grid { grid-template-columns: 1fr; } }
     </style>
-    <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"BlogPosting","headline":"We are in a marketing bubble","description":"The supply of marketing has exploded while attention hasn't scaled. The system is distorting.","author":{"@type":"Person","name":"Aravind Ramachandran","url":"https://www.aravindirl.com/"},"datePublished":"2026-04-10","url":"https://www.aravindirl.com/mrktbble1.html","mainEntityOfPage":"https://www.aravindirl.com/mrktbble1.html"}
-    </script>
 </head>
-<body data-theme="dark">
-<div class="progress-bar" id="progress-bar"></div>
-<div class="container">
+<body>
+    <div class="container">
+        <p class="post-heading">2. <strong>We are in a marketing bubble!</strong></p>
+        <p class="post-date">April 2026</p>
 
-    <header>
-        <h1 class="site-title"><a href="../index.html">Aravind Ramachandran</a><span class="cursor"></span></h1>
-        <button id="theme-toggle" aria-label="Toggle theme"><svg id="theme-icon" viewBox="0 0 24 24"></svg></button>
-    </header>
+        <p>The basic structure of marketing got broke way before, and still I don't think we see it.</p>
 
-    <hr>
+        <p>The amount of marketing around us has increased far more than the number of products or the level of real demand. It's no longer occasional or strategic — it's constant, everywhere, and expanding.</p>
 
-    <div class="essay-label">We are in a marketing bubble!</div>
-    <div class="essay-meta">april 2026</div>
+        <p>This wasn't always the case.</p>
 
-    <p>
-        The basic structure of marketing got broke way before, and still I don't think we see it
-    </p>
+        <p>Earlier, marketing was constrained by distribution. a limited number of channels — tv, newspapers, outdoor — meant limited inventory. Not every product could be marketed at scale, and not every voice could participate. There was an implicit filter.</p>
 
-    <p>
-        The amount of marketing around us has increased far more than the number of products or the level of real demand. It's no longer occasional or strategic — it's constant, everywhere, and expanding.
-    </p>
+        <p>That constraint is gone.</p>
 
-    <p>
-        This wasn't always the case.
-    </p>
+        <p>Today, distribution is effectively infinite. Anyone with an audience becomes a marketing surface. Creators are no longer just participants — they are the channel. In many cases, the selling power has shifted away from the product itself toward the person promoting it.</p>
 
-    <p>
-        Earlier, marketing was constrained by distribution. a limited number of channels — tv, newspapers, outdoor — meant limited inventory. Not every product could be marketed at scale, and not every voice could participate. There was an implicit filter.
-    </p>
+        <figure>
+            <img src="../images/mktble.jpg" alt="Marketing bubble">
+            <figcaption>generated on grok</figcaption>
+        </figure>
 
-    <p>
-        That constraint is gone.
-    </p>
+        <p>This changes the structure of the system.</p>
 
-    <p>
-        Today, distribution is effectively infinite. Anyone with an audience becomes a marketing surface. Creators are no longer just participants — they are the channel. In many cases, the selling power has shifted away from the product itself toward the person promoting it.
-    </p>
+        <p>The supply of marketing has exploded — more creators, more platforms, more content, all competing for the same finite resource: attention. But attention hasn't scaled at the same rate. When supply expands faster than the underlying demand, the system doesn't stabilize — it distorts.</p>
 
-    <figure>
-        <img src="../images/mktble.jpg" alt="a photo">
-        <figcaption>generated on grok</figcaption>
-    </figure>
+        <p>You start to see:</p>
+        <p>~ diminishing returns on spend</p>
+        <p>~ increasing noise relative to signal</p>
+        <p>~ erosion of trust in what's being promoted</p>
 
-    <p>
-        This changes the structure of the system.
-    </p>
+        <p>At some point, the gap has to correct. Either marketing becomes less effective, or the system resets through a loss of trust, attention, or economic viability for the participants involved. We are experiencing the latter.</p>
 
-    <p>
-        The supply of marketing has exploded — more creators, more platforms, more content, all competing for the same finite resource: attention. But attention hasn't scaled at the same rate. When supply expands faster than the underlying demand, the system doesn't stabilize — it distorts.
-    </p>
-
-    <p>You start to see:</p>
-    <p>~ diminishing returns on spend</p>
-    <p>~ increasing noise relative to signal</p>
-    <p>~ erosion of trust in what's being promoted</p>
-
-    <p>
-        At some point, the gap has to correct.
-        Either marketing becomes less effective, or the system resets through a loss of trust, attention, or economic viability for the participants involved.
-        We are experiencing the latter.
-    </p>
-    <hr>
-    <div class="post-footer">
-        <a href="./index.html" class="back-nav">← back to blogs</a>
-        <button class="share-btn" id="share-btn">share ↗</button>
+        <a href="./index.html" class="back-link">← back to notes</a>
     </div>
-    <div class="copyright">© <span id="year"></span> aravindirl. all rights reserved.</div>
-</div>
-
-<script>
-    const toggleBtn = document.getElementById('theme-toggle');
-    const themeIcon = document.getElementById('theme-icon');
-    const body = document.body;
-    const sunIcon = `<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>`;
-    const moonIcon = `<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>`;
-    function setFavicon(color) {
-        const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><rect x="2" y="2" width="12" height="12" rx="2" fill="${color}"/></svg>`;
-        const link = document.querySelector('link[rel="icon"]') || document.createElement('link');
-        link.rel = 'icon'; link.type = 'image/svg+xml';
-        link.href = 'data:image/svg+xml,' + encodeURIComponent(svg);
-        if (!link.parentNode) document.head.appendChild(link);
-    }
-    function applyTheme(t) {
-        if (t === 'dark') {
-            body.setAttribute('data-theme', 'dark');
-            themeIcon.innerHTML = sunIcon;
-            themeIcon.setAttribute('fill', 'none');
-            themeIcon.setAttribute('stroke', 'currentColor');
-            themeIcon.setAttribute('stroke-width', '2');
-            setFavicon('#d4a843');
-        } else {
-            body.setAttribute('data-theme', 'light');
-            themeIcon.innerHTML = moonIcon;
-            themeIcon.setAttribute('fill', 'currentColor');
-            themeIcon.setAttribute('stroke', 'none');
-            setFavicon('#b31c1c');
-        }
-    }
-    const savedTheme = localStorage.getItem('aravind-theme') || 'dark';
-    applyTheme(savedTheme);
-    toggleBtn.addEventListener('click', () => {
-        const n = body.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-        localStorage.setItem('aravind-theme', n);
-        applyTheme(n);
-    });
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    const progressBar = document.getElementById('progress-bar');
-    window.addEventListener('scroll', () => {
-        const scrollTop = window.scrollY;
-        const docHeight = document.body.scrollHeight - window.innerHeight;
-        progressBar.style.width = (docHeight > 0 ? (scrollTop / docHeight) * 100 : 0) + '%';
-    });
-
-    (function() {
-        const toast = document.createElement('div');
-        toast.className = 'toast';
-        document.body.appendChild(toast);
-        document.addEventListener('keydown', e => {
-            if (e.key === 'Backspace' && !['INPUT','TEXTAREA'].includes(document.activeElement.tagName)) {
-                e.preventDefault();
-                history.back();
-            }
-            if (e.key === 't' && !e.ctrlKey && !e.metaKey && !['INPUT','TEXTAREA'].includes(document.activeElement.tagName)) {
-                toggleBtn.click();
-                toast.textContent = '[theme: ' + document.body.getAttribute('data-theme') + ']';
-                toast.classList.add('show');
-                setTimeout(() => toast.classList.remove('show'), 1500);
-            }
-        });
-    })();
-    document.getElementById('share-btn').addEventListener('click', () => {
-        navigator.clipboard.writeText(window.location.href).then(() => {
-            const t = document.querySelector('.toast');
-            t.textContent = '[link copied!]';
-            t.classList.add('show');
-            setTimeout(() => t.classList.remove('show'), 1500);
-        });
-    });
-</script>
 </body>
 </html>
