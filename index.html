@@ -7,7 +7,7 @@
     <title>Aravind Ramachandran | Home</title>
     <meta name="description" content="Aravind Ramachandran — studying markets, technology & society. Active generalist, based in Chennai.">
     <meta property="og:title" content="Aravind Ramachandran">
-    <meta property="og:description" content="Studying markets, technology & society. Patterns across these domains excite me.">
+    <meta property="og:description" content="I read books, write blogs, create content. Interested in Markets, Technology and Human behavior.">
     <meta property="og:type" content="website">
     <meta name="author" content="Aravind Ramachandran">
     <meta name="robots" content="index, follow">
@@ -16,443 +16,142 @@
     <link rel="canonical" href="https://www.aravindirl.com/">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://www.aravindirl.com/og.svg">
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Person","name":"Aravind Ramachandran","url":"https://www.aravindirl.com/","description":"I read books, write blogs, create content. Interested in Markets, Technology and Human behavior.","sameAs":["https://www.instagram.com/aravindirl/","https://x.com/aravindirl","https://github.com/aravindirl","https://www.linkedin.com/in/aravindirl/"]}
+    </script>
     <style>
-        :root {
-            --bg-color: #f5ede0;
-            --text-color: #1a1714;
-            --accent-color: #b31c1c;
-            --secondary-text: #4a4440;
-            --hr-color: #ddd0c2;
-        }
-        [data-theme="dark"] {
-            --bg-color: #0e0e0e;
-            --text-color: #ffffff;
-            --accent-color: #34d399;
-            --secondary-text: #b0b0b0;
-            --hr-color: #2a2a2a;
-        }
         *, *::before, *::after { box-sizing: border-box; }
         body {
             font-family: ui-monospace, Menlo, Monaco, 'Cascadia Code', 'Source Code Pro', Consolas, monospace;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.5;
-            padding: 20px 24px;
+            background-color: #ffffff;
+            color: #000000;
+            line-height: 1.6;
+            padding: 48px 36px;
             margin: 0;
-            display: flex;
-            justify-content: center;
-            height: 100vh;
-            overflow: hidden;
-            transition: background-color 0.3s, color 0.3s;
+            font-size: 14px;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(8px); }
-            to   { opacity: 1; transform: translateY(0); }
+        .container {
+            max-width: 700px;
         }
-        .container { max-width: 650px; width: 100%; animation: fadeIn 0.4s ease forwards; height: 100%; display: flex; flex-direction: column; }
-        header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
-        .site-title { font-size: 1.6rem; font-weight: bold; margin: 0; letter-spacing: -0.02em; }
-        .site-title::before { content: '>_ '; color: var(--accent-color); font-weight: normal; }
-        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
-        .cursor {
-            display: inline-block;
-            width: 2px;
-            height: 0.9em;
-            background: var(--accent-color);
-            vertical-align: middle;
-            animation: blink 1.1s step-end infinite;
-            margin-left: 3px;
+        h1 {
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin: 0 0 4px 0;
+            letter-spacing: 0;
         }
-        h1 { font-size: 1.3rem; font-weight: bold; margin: 8px 0 4px 0; letter-spacing: -0.01em; }
-        h2 { font-size: 1rem; font-weight: bold; margin: 8px 0 4px 0; }
-        #theme-toggle {
-            background: none;
-            border: 1px solid var(--text-color);
-            color: var(--text-color);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 4px;
-            border-radius: 4px;
-            transition: all 0.2s ease;
-        }
-        #theme-toggle svg { width: 16px; height: 16px; fill: currentColor; }
-        #theme-toggle:hover { background-color: var(--text-color); color: var(--bg-color); }
-        nav { font-size: 0.9rem; display: flex; align-items: center; flex-wrap: wrap; margin-bottom: 4px; }
-        .page-nav { margin-bottom: 16px; }
-        .sep { color: var(--secondary-text); padding: 0 3px; user-select: none; }
-        nav a, .content-link, .back-nav {
-            text-decoration: none;
-            color: inherit;
-            padding: 0 4px;
-            transition: all 0.2s ease;
-        }
-        nav a:not(.dir-entry):hover, .content-link:hover, .back-nav:hover {
-            background-color: var(--accent-color);
-            color: var(--bg-color);
-            border-radius: 2px;
-            text-decoration: none;
-        }
-        nav a.active { background-color: var(--text-color); color: var(--bg-color); border-radius: 2px; }
-        .content-link { color: var(--accent-color); text-decoration: underline; text-underline-offset: 3px; }
-        hr { border: 0; border-top: 1px solid var(--hr-color); margin: 8px 0; }
-        nav.dir-nav + hr { margin-bottom: 6px; }
-        p { margin-bottom: 8px; font-size: 0.95rem; }
-        .copyright { font-size: 0.75rem; color: var(--secondary-text); margin-top: 12px; opacity: 0.8; }
-        ::-webkit-scrollbar { width: 5px; }
-        ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: var(--hr-color); border-radius: 3px; }
-        [data-theme="dark"] .site-title::before { text-shadow: 0 0 10px var(--accent-color); }
-        [data-theme="dark"] .cursor { box-shadow: 0 0 8px var(--accent-color), 0 0 16px var(--accent-color); }
-        ::selection { background: rgba(179, 28, 28, 0.15); }
-        [data-theme="dark"] ::selection { background: rgba(212, 168, 67, 0.2); color: #fff; }
-        html { scroll-behavior: smooth; }
-
-        /* Directory nav */
-        .dir-nav { margin: 4px 0 0; flex: 1; overflow-y: auto; }
-        .dir-entry {
-            display: grid;
-            grid-template-columns: 100px 1fr 20px;
-            align-items: center;
-            gap: 12px;
-            padding: 8px 0;
-            border-top: 1px solid var(--hr-color);
-            text-decoration: none;
-            color: inherit;
-            transition: padding-left 0.15s ease;
-        }
-        .dir-entry:hover { padding-left: 8px; }
-        .dir-path { color: var(--accent-color); font-size: 0.85rem; }
-        .dir-desc { color: var(--secondary-text); font-style: italic; font-size: 0.8rem; }
-        .dir-arrow { color: var(--secondary-text); font-size: 0.9rem; transition: transform 0.15s ease, color 0.15s ease; text-align: right; }
-        .dir-entry:hover .dir-arrow { transform: translateX(3px); color: var(--accent-color); }
-
-        .sep { color: var(--secondary-text); padding: 0 3px; user-select: none; }
-        .social-footer { margin-top: 20px; font-size: 0.9rem; display: flex; align-items: center; flex-wrap: wrap; }
-
-        .hide-on-desktop { display: block; }
-
-        @media (max-width: 540px) {
-            body { padding: 24px 16px; }
-            .site-title { font-size: 1.3rem; }
-            .dir-entry { grid-template-columns: 85px 1fr 16px; gap: 8px; padding: 12px 0; }
-            .dir-path { font-size: 0.82rem; }
-            .dir-desc { font-size: 0.8rem; }
-            p { font-size: 0.92rem; }
-        }
-        .content-link { text-decoration: underline; text-underline-offset: 3px; color: var(--accent-color); transition: all 0.2s ease; }
-        .content-link:hover { background-color: var(--accent-color); color: var(--bg-color); border-radius: 2px; text-decoration: none; padding: 0 2px; }
-        [data-theme="dark"] .content-link { text-shadow: 0 0 6px rgba(212, 168, 67, 0.35); }
-        .toast { position: fixed; bottom: 20px; right: 20px; font-size: 0.72rem; padding: 5px 10px; border: 1px solid var(--accent-color); color: var(--accent-color); background: var(--bg-color); border-radius: 3px; opacity: 0; transition: opacity 0.2s ease; pointer-events: none; z-index: 9999; font-family: inherit; }
-        .toast.show { opacity: 1; }
-
-        /* Left sidebar - recent posts */
-        .left-sidebar {
-            position: fixed;
-            left: 40px;
-            top: 80px;
-            width: 160px;
+        .handle {
             font-size: 0.9rem;
-            color: var(--secondary-text);
+            margin: 0 0 32px 0;
+            color: #000;
         }
-        .recent-post {
+        .handle a {
+            color: #0000EE;
+            text-decoration: underline;
+        }
+        .handle a:visited {
+            color: #551A8B;
+        }
+        .bio {
+            margin-bottom: 28px;
+        }
+        .bio p {
+            margin: 0 0 16px 0;
+            font-size: 0.9rem;
+        }
+        .bio a {
+            color: #0000EE;
+            text-decoration: underline;
+        }
+        .bio a:visited {
+            color: #551A8B;
+        }
+        .resources {
+            margin-bottom: 28px;
+            font-size: 0.9rem;
+        }
+        .resources p {
+            margin: 0 0 8px 0;
+        }
+        .resources ul {
+            margin: 0;
+            padding-left: 24px;
+            list-style-type: disc;
+        }
+        .resources ul li {
+            margin-bottom: 6px;
+            line-height: 1.6;
+        }
+        .resources a {
+            color: #0000EE;
+            text-decoration: underline;
+        }
+        .resources a:visited {
+            color: #551A8B;
+        }
+        .contact {
+            font-size: 0.9rem;
+            margin-bottom: 40px;
+        }
+        .contact a {
+            color: #0000EE;
+            text-decoration: underline;
+        }
+        footer {
+            font-size: 0.9rem;
+        }
+        footer a {
+            color: #0000EE;
+            text-decoration: underline;
             display: block;
-            padding: 12px;
-            margin-bottom: 12px;
-            border: 1px solid var(--hr-color);
-            border-radius: 4px;
-            text-decoration: none;
-            color: inherit;
-            transition: all 0.2s ease;
-            background: var(--bg-color);
+            margin-bottom: 4px;
         }
-        .recent-post:hover {
-            border-color: var(--accent-color);
-            background-color: var(--hr-color);
-            transform: translateY(-2px);
+        footer a:visited {
+            color: #551A8B;
         }
-        .post-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 6px;
+        footer p {
+            margin: 4px 0 0 0;
+            color: #000;
         }
-        .post-date {
-            font-size: 0.7rem;
-            color: var(--secondary-text);
-            opacity: 0.6;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-        .post-type {
-            font-size: 0.65rem;
-            padding: 2px 6px;
-            border-radius: 2px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            font-weight: bold;
-        }
-        .post-type.writing {
-            background-color: rgba(179, 28, 28, 0.15);
-            color: #b31c1c;
-        }
-        [data-theme="dark"] .post-type.writing {
-            background-color: rgba(52, 211, 153, 0.15);
-            color: #34d399;
-        }
-        .post-type.thinking {
-            background-color: rgba(52, 211, 153, 0.15);
-            color: #34d399;
-        }
-        [data-theme="dark"] .post-type.thinking {
-            background-color: rgba(179, 28, 28, 0.15);
-            color: #b31c1c;
-        }
-        .post-title {
-            font-size: 0.9rem;
-            font-weight: bold;
-            color: var(--text-color);
-            line-height: 1.3;
-            margin-bottom: 6px;
-        }
-        .post-excerpt {
-            font-size: 0.75rem;
-            color: var(--secondary-text);
-            line-height: 1.4;
-            font-style: italic;
-        }
-        .recent-post:hover .post-title {
-            color: var(--accent-color);
-        }
-
-        /* Sidebar */
-        .sidebar {
-            position: fixed;
-            right: 40px;
-            top: 80px;
-            font-size: 1rem;
-            color: var(--secondary-text);
-            width: 160px;
-            z-index: 10;
-        }
-        .sidebar-section { margin-bottom: 16px; }
-        .sidebar-label { font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 12px; opacity: 0.6; font-weight: bold; }
-        .sidebar-item {
-            display: flex;
-            align-items: center;
-            padding: 6px 0;
-            margin-bottom: 8px;
-            text-decoration: none;
-            color: inherit;
-            transition: all 0.15s ease;
-            font-size: 0.95rem;
-        }
-        .sidebar-item:hover { color: var(--accent-color); }
-        .sidebar-item svg,
-        .sidebar-item i[data-feather] {
-            width: 18px;
-            height: 18px;
-            margin-right: 8px;
-            fill: none;
-            stroke: var(--accent-color);
-            stroke-width: 2;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-            transition: all 0.15s ease;
-        }
-        .sidebar-item:hover svg,
-        .sidebar-item:hover i[data-feather] { opacity: 0.8; }
-
-        @media (max-width: 900px) {
-            .sidebar { display: none; }
-            .left-sidebar { display: none; }
-            .hide-on-desktop { display: block; }
-        }
-        @media (min-width: 901px) {
-            .hide-on-desktop { display: none; }
+        @media (max-width: 540px) {
+            body { padding: 32px 20px; }
         }
     </style>
-    <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"Person","name":"Aravind Ramachandran","url":"https://www.aravindirl.com/","description":"Studying markets, technology & society. Active generalist.","sameAs":["https://www.instagram.com/aravindirl/"]}
-    </script>
 </head>
-<body data-theme="dark">
-    <aside class="left-sidebar" id="left-sidebar">
-        <div class="sidebar-label" style="margin-bottom: 16px;">recent</div>
-        <a href="thinking/markets-ai.html" class="recent-post">
-            <div class="post-header">
-                <div class="post-date">05 may</div>
-                <span class="post-type thinking">thinking</span>
-            </div>
-            <div class="post-title">AI & Market Shifts</div>
-            <div class="post-excerpt">How AI adoption reshapes markets and competitive dynamics.</div>
-        </a>
-        <a href="blogs/tulasi.html" class="recent-post">
-            <div class="post-header">
-                <div class="post-date">26 apr</div>
-                <span class="post-type writing">writing</span>
-            </div>
-            <div class="post-title">Tulasi & food</div>
-            <div class="post-excerpt">Personal reflections on music, diet, and summer solitude.</div>
-        </a>
-        <a href="blogs/attention-economy.html" class="recent-post">
-            <div class="post-header">
-                <div class="post-date">25 apr</div>
-                <span class="post-type writing">writing</span>
-            </div>
-            <div class="post-title">Attention Economy</div>
-            <div class="post-excerpt">How markets compete for attention and what it means for focus.</div>
-        </a>
-    </aside>
-
-    <aside class="sidebar" id="sidebar">
-        <div class="sidebar-section">
-            <div class="sidebar-label">connect</div>
-            <a href="https://www.instagram.com/aravindirl/" class="sidebar-item" target="_blank" rel="noopener noreferrer">
-                <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M12 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/><circle cx="17.5" cy="6.5" r="1.5"/></svg>
-                instagram
-            </a>
-            <a href="https://x.com/aravindirl" class="sidebar-item" target="_blank" rel="noopener noreferrer">
-                <svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2s9 5 20 5a9.5 9.5 0 00-9-5.5c4.75 2.25 9 0 11-4s1-6.75 0-7c-.75 0-2 1-4 1.5z"/></svg>
-                x
-            </a>
-            <a href="https://www.linkedin.com/in/aravindirl/" class="sidebar-item" target="_blank" rel="noopener noreferrer">
-                <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-                linkedin
-            </a>
-            <a href="https://www.youtube.com/@aravindirl" class="sidebar-item" target="_blank" rel="noopener noreferrer">
-                <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19.54c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.33 29 29 0 00-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
-                youtube
-            </a>
-        </div>
-        <div class="sidebar-section">
-            <div class="sidebar-label">explore</div>
-            <a href="media/media.html" class="sidebar-item">
-                <i data-feather="folder"></i>
-                media
-            </a>
-            <a href="about/about.html" class="sidebar-item">
-                <i data-feather="user"></i>
-                about
-            </a>
-        </div>
-        <div class="sidebar-section">
-            <div class="sidebar-label">collections</div>
-            <a href="https://open.spotify.com/user/aravindirl" class="sidebar-item" target="_blank" rel="noopener noreferrer">
-                <i data-feather="music"></i>
-                music
-            </a>
-            <a href="https://letterboxd.com/aravindirl" class="sidebar-item" target="_blank" rel="noopener noreferrer">
-                <i data-feather="film"></i>
-                films
-            </a>
-            <a href="https://www.goodreads.com/aravindirl" class="sidebar-item" target="_blank" rel="noopener noreferrer">
-                <i data-feather="book"></i>
-                books
-            </a>
-        </div>
-    </aside>
+<body>
     <div class="container">
-        <header>
-            <h1 class="site-title">Aravind Ramachandran<span class="cursor"></span></h1>
-            <button id="theme-toggle" aria-label="Toggle theme"><svg id="theme-icon" viewBox="0 0 24 24"></svg></button>
-        </header>
-        <hr>
-        <p>Studying the Markets, Technology, Human behavior; & understanding systems</p>
-        <p>Finding patterns & connecting dots across these domain excite me</p>
-        <p>Betting on <a href="https://a16z.com/the-techno-optimist-manifesto/" class="content-link" target="_blank" rel="noopener noreferrer">Techno optimism</a>; operating as an active generalist</p>
-        <p>Early . Silent . Positioned</p>
-        <nav class="dir-nav">
-            <a href="thinking/thinking.html" class="dir-entry">
-                <span class="dir-path">./thinking</span>
-                <span class="dir-desc">me & claude. thinking in public w/ unstructured prompts</span>
-                <span class="dir-arrow">→</span>
-            </a>
-            <a href="blogs.html" class="dir-entry">
-                <span class="dir-path">./writing</span>
-                <span class="dir-desc">documenting my learnings &amp; giving back to the internet</span>
-                <span class="dir-arrow">→</span>
-            </a>
-            <a href="building/building.html" class="dir-entry">
-                <span class="dir-path">./building</span>
-                <span class="dir-desc">building vibe coding projects for fun</span>
-                <span class="dir-arrow">→</span>
-            </a>
-            <p style="margin: 16px 0 8px 0; font-size: 0.95rem;">write to me: <a href="mailto:raravind2610@gmail.com" style="color: var(--accent-color); text-decoration: none;">raravind2610@gmail.com</a> (will write back in 48 hours)</p>
-            <a href="media/media.html" class="dir-entry hide-on-desktop">
-                <span class="dir-path">./media</span>
-                <span class="dir-desc">photos, videos, audios, docs, links</span>
-                <span class="dir-arrow">→</span>
-            </a>
-            <a href="about/about.html" class="dir-entry hide-on-desktop">
-                <span class="dir-path">./about</span>
-                <span class="dir-desc">get some context, if you're interested</span>
-                <span class="dir-arrow">→</span>
-            </a>
-        </nav>
-        <hr>
-        <div class="copyright">© <span id="year"></span> aravindirl. all rights reserved. <span style="opacity: 0.7;">made with intent</span></div>
+        <h1>Aravind Ramachandran</h1>
+        <p class="handle">@aravindirl (<a href="https://www.instagram.com/aravindirl/" target="_blank" rel="noopener noreferrer">instagram</a>, <a href="https://x.com/aravindirl" target="_blank" rel="noopener noreferrer">x</a>, <a href="https://github.com/aravindirl" target="_blank" rel="noopener noreferrer">github</a>, <a href="https://www.linkedin.com/in/aravindirl/" target="_blank" rel="noopener noreferrer">linkedin</a>)</p>
+
+        <div class="bio">
+            <p>Hi, am Aravind</p>
+            <p>I read books, write blogs, create content,<br>
+            Am interested in Markets, Technology and Human behavior,<br>
+            Right now am super obsessed with claude and whatever more it offers,<br>
+            Most of my entertainment comes from the internet culture than from films &amp; sports.(<a href="about/about.html">more</a>)</p>
+        </div>
+
+        <div class="resources">
+            <p>Resources:</p>
+            <ul>
+                <li>Blogging my learnings, giving back to the internet - <a href="blogs.html">lucidnotes</a></li>
+                <li>Commenting on internet cultures &amp; social media dynamics - <a href="https://www.youtube.com/@aravindirl" target="_blank" rel="noopener noreferrer">@aravindirl on YouTube</a></li>
+                <li>Writing a weekly newsletter about AI infrastructure &amp; Data centres - <a href="https://www.linkedin.com/newsletters/bitbarns" target="_blank" rel="noopener noreferrer">BitBarns on LinkedIn</a></li>
+                <li>Playlists, Podlists, Reading lists, Film &amp; Book reviews - <a href="https://open.spotify.com/user/aravindirl" target="_blank" rel="noopener noreferrer">Spotify</a>, <a href="https://letterboxd.com/aravindirl" target="_blank" rel="noopener noreferrer">Letterboxd</a>, <a href="https://www.goodreads.com/aravindirl" target="_blank" rel="noopener noreferrer">Goodreads</a>, <a href="about/collection.html">Notion</a></li>
+            </ul>
+        </div>
+
+        <div class="contact">
+            write to me (raravind2610@gmail.com) i will reply in 48 hours
+        </div>
+
+        <footer>
+            <a href="about/about.html#legal">Legal Disclaimer</a>
+            <p>Copyright &copy; <span id="year"></span> aravindirl</p>
+        </footer>
     </div>
+
     <script>
-        const toggleBtn = document.getElementById('theme-toggle');
-        const themeIcon = document.getElementById('theme-icon');
-        const body = document.body;
-        const sunIcon = `<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>`;
-        const moonIcon = `<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>`;
-        function setFavicon(color) {
-            const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><rect x="2" y="2" width="12" height="12" rx="2" fill="${color}"/></svg>`;
-            const link = document.querySelector('link[rel="icon"]') || document.createElement('link');
-            link.rel = 'icon'; link.type = 'image/svg+xml';
-            link.href = 'data:image/svg+xml,' + encodeURIComponent(svg);
-            if (!link.parentNode) document.head.appendChild(link);
-        }
-        function applyTheme(theme) {
-            if (theme === 'dark') {
-                body.setAttribute('data-theme', 'dark');
-                themeIcon.innerHTML = sunIcon;
-                themeIcon.setAttribute('fill', 'none');
-                themeIcon.setAttribute('stroke', 'currentColor');
-                themeIcon.setAttribute('stroke-width', '2');
-                setFavicon('#d4a843');
-            } else {
-                body.setAttribute('data-theme', 'light');
-                themeIcon.innerHTML = moonIcon;
-                themeIcon.setAttribute('fill', 'currentColor');
-                themeIcon.setAttribute('stroke', 'none');
-                setFavicon('#b31c1c');
-            }
-        }
-        const savedTheme = localStorage.getItem('aravind-theme') || 'dark';
-        applyTheme(savedTheme);
-        toggleBtn.addEventListener('click', () => {
-            const currentTheme = body.getAttribute('data-theme');
-            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-            localStorage.setItem('aravind-theme', newTheme);
-            applyTheme(newTheme);
-        });
         document.getElementById('year').textContent = new Date().getFullYear();
-        feather.replace();
-
-        (function() {
-            const toast = document.createElement('div');
-            toast.className = 'toast';
-            document.body.appendChild(toast);
-            document.addEventListener('keydown', e => {
-                if (e.key === 'Backspace' && !['INPUT','TEXTAREA'].includes(document.activeElement.tagName)) {
-                    e.preventDefault();
-                    history.back();
-                }
-                if (e.key === 't' && !e.ctrlKey && !e.metaKey && !['INPUT','TEXTAREA'].includes(document.activeElement.tagName)) {
-                    toggleBtn.click();
-                    toast.textContent = '[theme: ' + document.body.getAttribute('data-theme') + ']';
-                    toast.classList.add('show');
-                    setTimeout(() => toast.classList.remove('show'), 1500);
-                }
-            });
-
-        })();
     </script>
 </body>
 </html>
