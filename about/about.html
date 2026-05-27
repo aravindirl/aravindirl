@@ -17,135 +17,89 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://www.aravindirl.com/og.svg">
     <style>
-        :root {
-            --bg-color: #f5ede0;
-            --text-color: #1a1714;
-            --accent-color: #b31c1c;
-            --secondary-text: #4a4440;
-            --hr-color: #ddd0c2;
-        }
-        [data-theme="dark"] {
-            --bg-color: #0e0e0e;
-            --text-color: #ffffff;
-            --accent-color: #34d399;
-            --secondary-text: #b0b0b0;
-            --hr-color: #2a2a2a;
-        }
         *, *::before, *::after { box-sizing: border-box; }
         body {
             font-family: ui-monospace, Menlo, Monaco, 'Cascadia Code', 'Source Code Pro', Consolas, monospace;
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            background-color: #ffffff;
+            color: #000000;
+            font-size: 13px;
             line-height: 1.6;
-            padding: 40px 24px;
+            padding: 32px 36px;
             margin: 0;
-            display: flex;
-            justify-content: center;
-            transition: background-color 0.3s, color 0.3s;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(8px); }
-            to   { opacity: 1; transform: translateY(0); }
+        .container {
+            max-width: 860px;
         }
-        .container { max-width: 650px; width: 100%; animation: fadeIn 0.4s ease forwards; }
-        header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
-        .site-title { font-size: 1.6rem; font-weight: bold; margin: 0; letter-spacing: -0.02em; }
-        .site-title::before { content: '>_ '; color: var(--accent-color); font-weight: normal; }
-        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
-        .cursor {
-            display: inline-block;
-            width: 2px;
-            height: 0.9em;
-            background: var(--accent-color);
-            vertical-align: middle;
-            animation: blink 1.1s step-end infinite;
-            margin-left: 3px;
+        h1 {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin: 0 0 20px 0;
         }
-        h1 { font-size: 1.3rem; font-weight: bold; margin: 28px 0 10px 0; letter-spacing: -0.01em; }
-        h2 { font-size: 1rem; font-weight: bold; margin: 28px 0 10px 0; }
-        #theme-toggle {
-            background: none;
-            border: 1px solid var(--text-color);
-            color: var(--text-color);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 4px;
-            border-radius: 4px;
-            transition: all 0.2s ease;
+        h2 {
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin: 24px 0 8px 0;
         }
-        #theme-toggle svg { width: 16px; height: 16px; fill: currentColor; }
-        #theme-toggle:hover { background-color: var(--text-color); color: var(--bg-color); }
-        nav { font-size: 0.9rem; display: flex; align-items: center; flex-wrap: wrap; margin-bottom: 4px; }
-        .page-nav { margin-bottom: 16px; }
-        .sep { color: var(--secondary-text); padding: 0 3px; user-select: none; }
-        nav a, .content-link, .back-nav {
-            text-decoration: none;
-            color: inherit;
-            padding: 0 4px;
-            transition: all 0.2s ease;
+        p {
+            font-size: 0.85rem;
+            margin: 0 0 14px 0;
         }
-        nav a:hover, .content-link:hover, .back-nav:hover {
-            background-color: var(--accent-color);
-            color: var(--bg-color);
-            border-radius: 2px;
-            text-decoration: none;
+        ul {
+            margin: 0 0 14px 0;
+            padding-left: 20px;
+            list-style-type: disc;
         }
-        nav a.active { background-color: var(--text-color); color: var(--bg-color); border-radius: 2px; }
-        .content-link { color: var(--accent-color); text-decoration: underline; text-underline-offset: 3px; }
-        hr { border: 0; border-top: 1px solid var(--hr-color); margin: 20px 0; }
-        p { margin-bottom: 18px; font-size: 1rem; }
-        ul { padding-left: 0; list-style: none; margin-bottom: 18px; }
-        ul li { font-size: 1rem; margin-bottom: 10px; padding-left: 1.5em; position: relative; }
-        ul li::before { content: "—"; position: absolute; left: 0; color: var(--accent-color); }
+        ul li {
+            font-size: 0.85rem;
+            margin-bottom: 5px;
+            line-height: 1.6;
+        }
         blockquote {
-            border-left: 2px solid var(--accent-color);
-            padding: 10px 16px;
-            margin: 16px 0 20px;
-            font-size: 0.95rem;
-            color: var(--secondary-text);
+            margin: 12px 0 14px 0;
+            padding-left: 16px;
+            border-left: 2px solid #000;
             font-style: italic;
+            font-size: 0.85rem;
+            color: #333;
         }
-        .copyright { font-size: 0.75rem; color: var(--secondary-text); margin-top: 25px; opacity: 0.8; }
-        .back-nav { margin-top: 40px; display: inline-block; font-size: 0.9rem; }
-        ::-webkit-scrollbar { width: 5px; }
-        ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: var(--hr-color); border-radius: 3px; }
-        [data-theme="dark"] .site-title::before { text-shadow: 0 0 10px var(--accent-color); }
-        [data-theme="dark"] .cursor { box-shadow: 0 0 8px var(--accent-color), 0 0 16px var(--accent-color); }
-        ::selection { background: rgba(179, 28, 28, 0.15); }
-        [data-theme="dark"] ::selection { background: rgba(212, 168, 67, 0.2); color: #fff; }
-        h1:not(.site-title)::before { content: '// '; color: var(--accent-color); font-weight: normal; }
-        .back-nav::before { content: '$ '; color: var(--accent-color); }
-        html { scroll-behavior: smooth; }
-        .social-footer { margin-top: 10px; font-size: 0.9rem; display: flex; align-items: center; flex-wrap: wrap; }
-        .site-title a { text-decoration: none; color: inherit; }
-        [data-theme="dark"] .content-link { text-shadow: 0 0 6px rgba(212, 168, 67, 0.35); }
-        .toast { position: fixed; bottom: 20px; right: 20px; font-size: 0.72rem; padding: 5px 10px; border: 1px solid var(--accent-color); color: var(--accent-color); background: var(--bg-color); border-radius: 3px; opacity: 0; transition: opacity 0.2s ease; pointer-events: none; z-index: 9999; font-family: inherit; }
-        .toast.show { opacity: 1; }
-        .back-top { position: fixed; bottom: 22px; right: 22px; background: none; border: 1px solid var(--hr-color); color: var(--secondary-text); font-family: inherit; font-size: 0.7rem; padding: 4px 8px; cursor: pointer; border-radius: 3px; opacity: 0; transition: opacity 0.2s, border-color 0.2s, color 0.2s; z-index: 999; }
-        .back-top.visible { opacity: 1; }
-        .about-photo { max-width: 180px; width: 100%; height: 180px; object-fit: cover; border-radius: 6px; border: 1px solid var(--hr-color); float: left; margin: 0 20px 20px 0; }
+        a {
+            color: #0000EE;
+            text-decoration: underline;
+        }
+        a:visited {
+            color: #551A8B;
+        }
+        .back-link {
+            display: block;
+            text-align: right;
+            font-size: 0.85rem;
+            margin-top: 40px;
+            color: #000;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .back-link:visited {
+            color: #000;
+        }
+        @media (max-width: 640px) {
+            body { padding: 24px 18px; }
+        }
     </style>
 </head>
-<body data-theme="dark">
+<body>
     <div class="container">
-        <header>
-            <h1 class="site-title"><a href="../index.html">Aravind Ramachandran</a><span class="cursor"></span></h1>
-            <button id="theme-toggle" aria-label="Toggle theme"><svg id="theme-icon" viewBox="0 0 24 24"></svg></button>
-        </header>
-        <hr>
+        <h1>About me:</h1>
 
-        <h1>About:</h1>
         <p>Hey, I'm Aravind. Based out of Chennai, grown up with the internet and social media, life got better after AI.</p>
         <p>God bless the social media algorithm and AI.</p>
         <p>Pardon me, if you don't understand some words, it's all meme coded.</p>
 
-        <h1>Things you should know about me:-</h1>
+        <h2>Things you should know about me:-</h2>
         <ul>
             <li>Turning 25 this year ('26), expected a Netflix high-school-series-level adult life and ended up with a soviet war film from the 80s kind of life, (grateful for that),</li>
-            <li>Studied finance & accounting in college, later worked at an accounting firm for 4 years and got traumatized by the compliances &amp; paperwork,</li>
+            <li>Studied finance &amp; accounting in college, later worked at an accounting firm for 4 years and got traumatized by the compliances &amp; paperwork,</li>
             <li>I am akwardly social and socially akward at the same time, not into this introvert/extrovert bullshit. Just another random guy who likes cats, dogs &amp; icecream,</li>
             <li>Needlessly sarcastic and annoying, usually people seem to hate it at that moment but by EOD they're in bed recollecting and blushing,</li>
             <li>Am quiet past the stage where I'd keep giving brain-rot meme references in the middle of a conversation here and there, had fun doing that,</li>
@@ -160,7 +114,7 @@
             <li>Took a break for a few months, lived with my grandparents, ate super clean food, got spiritually &amp; physically active, learnt to swim, climbed a tree, touched grass, read &amp; written a lot and got low on cortisol. Ever since am doing well.</li>
         </ul>
 
-        <h1>About this blog:-</h1>
+        <h2>About this blog:-</h2>
         <ul>
             <li>This blog is like a garden, I come here whenever I feel like it,</li>
             <li>Gives me a sense of ownership, so I write with full control,</li>
@@ -169,7 +123,7 @@
             <li>LinkedIn ...... (no comments).</li>
         </ul>
 
-        <h1>What I love:-</h1>
+        <h2>What I love:-</h2>
         <ul>
             <li>Songs that doesn't try to impress, but somehow stays with me for days,</li>
             <li>Old music playing in the background while nothing urgent is happening,</li>
@@ -182,7 +136,8 @@
             <li>Peak summer middays with time passing slowly,</li>
             <li>A sudden cloudburst on an evening.</li>
         </ul>
-        <h1>Hobbies:-</h1>
+
+        <h2>Hobbies:-</h2>
         <ul>
             <li>Bingeing "The Office" whilst being idle,</li>
             <li>Writing film reviews on letterboxd &amp; myanimelist,</li>
@@ -190,7 +145,7 @@
             <li>Take a train from 1st to the last metro station, sit on a corner, hug my bag, wear a mask, and take a nap (such a cozy nice place),</li>
         </ul>
 
-        <h1>Memes that stayed with me and felt relatable:-</h1>
+        <h2>Memes that stayed with me and felt relatable:-</h2>
         <ul>
             <li>The class clown on the last day of school after risking his entire future for other people's entertainment</li>
             <li>2016 nostalgia/pre-covid/pre-jio memes,</li>
@@ -206,9 +161,9 @@
         </ul>
         <p>These memes could've been outdated now, but these ruled everyone's feed once upon a time.</p>
 
-        <h1>Unsolicited advice {for the teenagers}:-</h1>
+        <h2>Unsolicited advice {for the teenagers}:-</h2>
         <ul>
-            <li>Don't chase people for friendships & dating, these happen naturally,</li>
+            <li>Don't chase people for friendships &amp; dating, these happen naturally,</li>
             <li>If it didn't/you got dumped, you've been chosen to do great things,</li>
             <li>Think for a few seconds before you talk, the person across can wait,</li>
             <li>Your opinions don't matter anywhere at this stage (your age),</li>
@@ -225,7 +180,7 @@
             <li>Write, write, write.....</li>
         </ul>
 
-        <h1>Favourite quotes:-</h1>
+        <h2>Favourite quotes:-</h2>
         <ul>
             <li>Beware that, when fighting monsters, you yourself do not become a monster… for when you gaze long into an abyss, the abyss gazes also into you ~ Friedrich Nietzsche</li>
             <li>Perform your duty, but do not be attached to the results ~ Bhagavadh Githa</li>
@@ -236,81 +191,9 @@
         </ul>
         <blockquote>You should be the strongest person at your father's funeral, well that's something to be aimed for. All the people around you are suffering for their loss, they have someone to turn to, you don't want to be the person who's making everything worse. You have to be the one who holds things together. You have to have some character at that moment. You need to develop your character. That's why people tell you not to lie, not to hold grudge because they destroy your character.</blockquote>
 
-        <p>Reach out: <a href="mailto:raravind2610@gmail.com" class="content-link">raravind2610@gmail.com</a></p>
+        <p>Reach out: <a href="mailto:raravind2610@gmail.com">raravind2610@gmail.com</a></p>
 
-        <a href="../index.html" class="back-nav">← back to homepage</a>
-        <nav class="social-footer">
-            <a href="https://www.instagram.com/aravindirl/" class="content-link" target="_blank" rel="noopener noreferrer">instagram</a>
-            <span class="sep">/</span>
-            <a href="https://x.com/aravindirl" class="content-link" target="_blank" rel="noopener noreferrer">x</a>
-            <span class="sep">/</span>
-            <a href="https://www.linkedin.com/in/aravindirl/" class="content-link" target="_blank" rel="noopener noreferrer">linkedin</a>
-            <span class="sep">/</span>
-            <a href="https://www.youtube.com/@aravindirl" class="content-link" target="_blank" rel="noopener noreferrer">youtube</a>
-        </nav>
-        <div class="copyright">© <span id="year"></span> aravindirl. all rights reserved.</div>
+        <a href="../index.html" class="back-link">← back to home</a>
     </div>
-    <button class="back-top" id="back-top">↑ top</button>
-    <script>
-        const toggleBtn = document.getElementById('theme-toggle');
-        const themeIcon = document.getElementById('theme-icon');
-        const body = document.body;
-        const sunIcon = `<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>`;
-        const moonIcon = `<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>`;
-        function setFavicon(color) {
-            const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><rect x="2" y="2" width="12" height="12" rx="2" fill="${color}"/></svg>`;
-            const link = document.querySelector('link[rel="icon"]') || document.createElement('link');
-            link.rel = 'icon'; link.type = 'image/svg+xml';
-            link.href = 'data:image/svg+xml,' + encodeURIComponent(svg);
-            if (!link.parentNode) document.head.appendChild(link);
-        }
-        function applyTheme(theme) {
-            if (theme === 'dark') {
-                body.setAttribute('data-theme', 'dark');
-                themeIcon.innerHTML = sunIcon;
-                themeIcon.setAttribute('fill', 'none');
-                themeIcon.setAttribute('stroke', 'currentColor');
-                themeIcon.setAttribute('stroke-width', '2');
-                setFavicon('#d4a843');
-            } else {
-                body.setAttribute('data-theme', 'light');
-                themeIcon.innerHTML = moonIcon;
-                themeIcon.setAttribute('fill', 'currentColor');
-                themeIcon.setAttribute('stroke', 'none');
-                setFavicon('#b31c1c');
-            }
-        }
-        const savedTheme = localStorage.getItem('aravind-theme') || 'dark';
-        applyTheme(savedTheme);
-        toggleBtn.addEventListener('click', () => {
-            const currentTheme = body.getAttribute('data-theme');
-            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-            localStorage.setItem('aravind-theme', newTheme);
-            applyTheme(newTheme);
-        });
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-        const backTop = document.getElementById('back-top');
-        window.addEventListener('scroll', () => backTop.classList.toggle('visible', window.scrollY > 300));
-        backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-        (function() {
-            const toast = document.createElement('div');
-            toast.className = 'toast';
-            document.body.appendChild(toast);
-            document.addEventListener('keydown', e => {
-                if (e.key === 'Backspace' && !['INPUT','TEXTAREA'].includes(document.activeElement.tagName)) {
-                    e.preventDefault();
-                    history.back();
-                }
-                if (e.key === 't' && !e.ctrlKey && !e.metaKey && !['INPUT','TEXTAREA'].includes(document.activeElement.tagName)) {
-                    toggleBtn.click();
-                    toast.textContent = '[theme: ' + document.body.getAttribute('data-theme') + ']';
-                    toast.classList.add('show');
-                    setTimeout(() => toast.classList.remove('show'), 1500);
-                }
-            });
-        })();
-    </script>
 </body>
 </html>
