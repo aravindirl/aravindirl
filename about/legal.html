@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>legal | aravindirl</title>
+    <meta name="description" content="Legal disclaimer for aravindirl.com">
+    <meta property="og:title" content="Legal Disclaimer | aravindirl">
+    <meta property="og:type" content="website">
+    <meta name="author" content="Aravind Ramachandran">
+    <meta name="robots" content="index, follow">
+    <meta property="og:image" content="https://www.aravindirl.com/og.svg">
+    <meta property="og:url" content="https://www.aravindirl.com/about/legal.html">
+    <link rel="canonical" href="https://www.aravindirl.com/about/legal.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.aravindirl.com/og.svg">
+    <style>
+        :root { --bg:#ffffff; --text:#000000; --secondary:#555; --link:#0000EE; --link-v:#551A8B; --border:#000; --bq:#333; }
+        [data-theme="dark"] { --bg:#111111; --text:#e8e8e8; --secondary:#888; --link:#7799ff; --link-v:#bb88ff; --border:#ccc; --bq:#aaa; }
+        #theme-toggle { position:fixed; top:14px; right:20px; background:none; border:1px solid var(--secondary); color:var(--secondary); font-family:inherit; font-size:0.72rem; padding:2px 8px; cursor:pointer; border-radius:2px; z-index:999; }
+        #theme-toggle:hover { border-color:var(--text); color:var(--text); }
+        *, *::before, *::after { box-sizing: border-box; }
+        body {
+            font-family: ui-monospace, Menlo, Monaco, 'Cascadia Code', 'Source Code Pro', Consolas, monospace;
+            background-color:var(--bg);
+            color:var(--text);
+            font-size: 13px;
+            line-height: 1.6;
+            padding: 32px 36px;
+            margin: 0;
+            transition: background-color 0.2s, color 0.2s;
+        }
+        .container { max-width: 860px; }
+        h2 { font-size: 0.85rem; font-weight: bold; margin: 0 0 12px 0; }
+        p { font-size: 0.85rem; margin: 0 0 14px 0; }
+        .back-link { display: block; text-align: right; font-size: 0.85rem; margin-top: 40px; color:var(--text); text-decoration: none; }
+        .back-link:hover { text-decoration: underline; }
+        .back-link:visited { color:var(--text); }
+        @media (max-width: 640px) { body { padding: 24px 18px; } }
+    </style>
+</head>
+<body data-theme="light">
+    <button id="theme-toggle">dark</button>
+    <div class="container">
+        <h2>Legal Disclaimer</h2>
+        <p>This website has been prepared solely for the purpose of providing information about Aravind Ramachandran. This website has been compiled in good faith by Aravind. However, no representation is made as to the completeness or accuracy of the information it contains. In particular, you should be aware that this information may be incomplete, may contain errors, or may have become out of date. Aravind makes no commitment, and disclaims any duty, to update any of the information. Aravind reserves the right to add, modify or delete any information on this website at any time. This publication and any references to products or services are provided "as is" without any warranty or implied term of any kind. Reproduction or distribution of any materials obtained on this website or linking to this website without written permission is prohibited.</p>
+
+        <a href="../index.html" class="back-link">← back to home</a>
+    </div>
+    <script>
+    (function(){
+        var btn=document.getElementById('theme-toggle');
+        function apply(t){ document.body.setAttribute('data-theme',t); btn.textContent=t==='dark'?'light':'dark'; }
+        apply(localStorage.getItem('aravind-theme')||'light');
+        btn.addEventListener('click',function(){ var t=document.body.getAttribute('data-theme')==='dark'?'light':'dark'; localStorage.setItem('aravind-theme',t); apply(t); });
+        document.addEventListener('keydown',function(e){
+            if(e.key==='Backspace'&&!['INPUT','TEXTAREA'].includes(document.activeElement.tagName)){ e.preventDefault(); history.back(); }
+            if(e.key==='t'&&!e.ctrlKey&&!e.metaKey&&!['INPUT','TEXTAREA'].includes(document.activeElement.tagName)){ btn.click(); }
+        });
+    })();
+    </script>
+</body>
+</html>
