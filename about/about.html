@@ -29,6 +29,7 @@
             line-height: 1.6;
             padding: 32px 36px;
             margin: 0;
+            transition: background-color 0.2s, color 0.2s;
         }
         .container {
             max-width: 860px;
@@ -93,18 +94,6 @@
 </head>
 <body data-theme="light">
     <button id="theme-toggle">dark</button>
-    <script>
-    (function(){
-        var btn=document.getElementById('theme-toggle');
-        function apply(t){ document.body.setAttribute('data-theme',t); btn.textContent=t==='dark'?'light':'dark'; }
-        apply(localStorage.getItem('aravind-theme')||'light');
-        btn.addEventListener('click',function(){ var t=document.body.getAttribute('data-theme')==='dark'?'light':'dark'; localStorage.setItem('aravind-theme',t); apply(t); });
-        document.addEventListener('keydown',function(e){
-            if(e.key==='Backspace'&&!['INPUT','TEXTAREA'].includes(document.activeElement.tagName)){ e.preventDefault(); history.back(); }
-            if(e.key==='t'&&!e.ctrlKey&&!e.metaKey&&!['INPUT','TEXTAREA'].includes(document.activeElement.tagName)){ btn.click(); }
-        });
-    })();
-    </script>
     <div class="container">
         <h1>About me:</h1>
 
@@ -211,5 +200,17 @@
 
         <a href="../index.html" class="back-link">← back to home</a>
     </div>
+    <script>
+    (function(){
+        var btn=document.getElementById('theme-toggle');
+        function apply(t){ document.body.setAttribute('data-theme',t); btn.textContent=t==='dark'?'light':'dark'; }
+        apply(localStorage.getItem('aravind-theme')||'light');
+        btn.addEventListener('click',function(){ var t=document.body.getAttribute('data-theme')==='dark'?'light':'dark'; localStorage.setItem('aravind-theme',t); apply(t); });
+        document.addEventListener('keydown',function(e){
+            if(e.key==='Backspace'&&!['INPUT','TEXTAREA'].includes(document.activeElement.tagName)){ e.preventDefault(); history.back(); }
+            if(e.key==='t'&&!e.ctrlKey&&!e.metaKey&&!['INPUT','TEXTAREA'].includes(document.activeElement.tagName)){ btn.click(); }
+        });
+    })();
+    </script>
 </body>
 </html>
