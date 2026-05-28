@@ -101,7 +101,10 @@
             text-decoration: underline;
         }
         .sidebar a:visited { color: var(--link-v); }
-        @media (max-width: 1100px) { .sidebar { display: none; } }
+        .mobile-links { display: none; margin-top: 28px; }
+        .mobile-links a { display: block; font-size: 0.85rem; color: var(--link); text-decoration: underline; margin-bottom: 6px; }
+        .mobile-links a:visited { color: var(--link-v); }
+        @media (max-width: 1100px) { .mobile-links { display: block; } }
         @media (max-width: 640px) {
             body { padding: 20px 16px; }
         }
@@ -217,6 +220,12 @@
         </ul>
         <blockquote>You should be the strongest person at your father's funeral, well that's something to be aimed for. All the people around you are suffering for their loss, they have someone to turn to, you don't want to be the person who's making everything worse. You have to be the one who holds things together. You have to have some character at that moment. You need to develop your character. That's why people tell you not to lie, not to hold grudge because they destroy your character.</blockquote>
 
+        <div class="mobile-links">
+            <a href="https://open.spotify.com/user/vtubl2p2emhobb5yc4qdzorc2" target="_blank" rel="noopener noreferrer">music &amp; podcasts</a>
+            <a href="https://letterboxd.com/aravind26/" target="_blank" rel="noopener noreferrer">film reviews</a>
+            <a href="https://app.notion.com/p/aravindirl/Book-reviews-aravindirl-36eea2287b7e80c2bb3cfe32f3b6adaf" target="_blank" rel="noopener noreferrer">book reviews</a>
+            <a href="https://app.notion.com/p/aravindirl/Articles-Blogs-aravindirl-36eea2287b7e80cabe38d52fe7577667" target="_blank" rel="noopener noreferrer">saved articles and blogs</a>
+        </div>
 
         <a href="../index.html" class="back-link">← back to home</a>
     </div>
