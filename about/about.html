@@ -87,6 +87,21 @@
         .back-link:visited {
             color:var(--text);
         }
+        .sidebar {
+            position: fixed;
+            top: 60px;
+            right: 28px;
+            font-size: 0.78rem;
+            line-height: 2;
+            text-align: right;
+        }
+        .sidebar a {
+            display: block;
+            color: var(--link);
+            text-decoration: underline;
+        }
+        .sidebar a:visited { color: var(--link-v); }
+        @media (max-width: 1100px) { .sidebar { display: none; } }
         @media (max-width: 640px) {
             body { padding: 24px 18px; }
         }
@@ -94,6 +109,12 @@
 </head>
 <body data-theme="light">
     <button id="theme-toggle">dark</button>
+    <nav class="sidebar">
+        <a href="https://open.spotify.com/user/vtubl2p2emhobb5yc4qdzorc2" target="_blank" rel="noopener noreferrer">music &amp; podcasts</a>
+        <a href="https://letterboxd.com/aravind26/" target="_blank" rel="noopener noreferrer">film reviews</a>
+        <a href="https://app.notion.com/p/aravindirl/Book-reviews-aravindirl-36eea2287b7e80c2bb3cfe32f3b6adaf" target="_blank" rel="noopener noreferrer">book reviews</a>
+        <a href="https://app.notion.com/p/aravindirl/Articles-Blogs-aravindirl-36eea2287b7e80cabe38d52fe7577667" target="_blank" rel="noopener noreferrer">saved articles and blogs</a>
+    </nav>
     <div class="container">
         <h1>About me:</h1>
 
