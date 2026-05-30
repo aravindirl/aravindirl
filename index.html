@@ -20,9 +20,6 @@
     </script>
     <style>
         :root { --bg:#ffffff; --text:#000000; --secondary:#555; --link:#0000EE; --link-v:#0000EE; --border:#000; --bq:#333; }
-        [data-theme="dark"] { --bg:#111111; --text:#e8e8e8; --secondary:#888; --link:#0000EE; --link-v:#0000EE; --border:#ccc; --bq:#aaa; }
-        #theme-toggle { position:fixed; top:12px; right:14px; background:none; border:none; color:var(--text); font-size:1.2rem; width:40px; height:40px; cursor:pointer; z-index:999; display:flex; align-items:center; justify-content:center; padding:0; line-height:1; -webkit-tap-highlight-color:transparent; }
-        #theme-toggle:hover { opacity:0.5; }
                 *, *::before, *::after { box-sizing: border-box; }
         body {
             font-family: ui-monospace, Menlo, Monaco, 'Cascadia Code', 'Source Code Pro', Consolas, monospace;
@@ -122,19 +119,11 @@
         }
     </style>
 </head>
-<body data-theme="light">
-    <button id="theme-toggle">●</button>
+<body>
     <script>
-    (function(){
-        var btn=document.getElementById('theme-toggle');
-        function apply(t){ document.body.setAttribute('data-theme',t); btn.textContent='●'; }
-        apply(localStorage.getItem('aravind-theme')||'light');
-        btn.addEventListener('click',function(){ var t=document.body.getAttribute('data-theme')==='dark'?'light':'dark'; localStorage.setItem('aravind-theme',t); apply(t); });
-        document.addEventListener('keydown',function(e){
-            if(e.key==='Backspace'&&!['INPUT','TEXTAREA'].includes(document.activeElement.tagName)){ e.preventDefault(); history.back(); }
-            if(e.key==='t'&&!e.ctrlKey&&!e.metaKey&&!['INPUT','TEXTAREA'].includes(document.activeElement.tagName)){ btn.click(); }
-        });
-    })();
+    document.addEventListener('keydown',function(e){
+        if(e.key==='Backspace'&&!['INPUT','TEXTAREA'].includes(document.activeElement.tagName)){ e.preventDefault(); history.back(); }
+    });
     </script>
     <div class="container">
         <h1>Aravind Ramachandran</h1>
