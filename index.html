@@ -33,6 +33,20 @@
         .container {
             max-width: 860px;
         }
+        .top-section {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 32px;
+            margin-bottom: 18px;
+        }
+        .top-text { flex: 1; }
+        .profile-img {
+            width: 180px;
+            height: auto;
+            display: block;
+            flex-shrink: 0;
+        }
         h1 {
             font-size: 1.25rem;
             font-weight: bold;
@@ -116,6 +130,9 @@
         @media (max-width: 640px) {
             body { padding: 20px 16px; font-size: 13px; }
             .resources ul li { white-space: normal; }
+            .top-section { flex-direction: column; align-items: center; }
+            .top-text { width: 100%; }
+            .profile-img { width: 140px; margin: 0 auto 16px auto; }
         }
     </style>
 </head>
@@ -126,15 +143,19 @@
     });
     </script>
     <div class="container">
-        <h1>Aravind Ramachandran</h1>
-        <p class="handle">@aravindirl (<a href="https://www.instagram.com/aravindirl/" target="_blank" rel="noopener noreferrer">instagram</a>, <a href="https://x.com/aravindirl" target="_blank" rel="noopener noreferrer">x</a>, <a href="https://github.com/aravindirl" target="_blank" rel="noopener noreferrer">github</a>, <a href="https://www.linkedin.com/in/aravindirl/" target="_blank" rel="noopener noreferrer">linkedin</a>)</p>
-
-        <div class="bio">
-            <p>Hi, am Aravind</p>
-            <p>I read books, write blogs, create content (unemployed),<br>
-            Am interested in Markets, Technology and Human behavior,<br>
-            Right now am super obsessed with claude and whatever more it offers,<br>
-            Most of my entertainment comes from the internet culture than from films &amp; sports.(<a href="about/about.html">more</a>)</p>
+        <div class="top-section">
+            <div class="top-text">
+                <h1>Aravind Ramachandran</h1>
+                <p class="handle">@aravindirl (<a href="https://www.instagram.com/aravindirl/" target="_blank" rel="noopener noreferrer">instagram</a>, <a href="https://x.com/aravindirl" target="_blank" rel="noopener noreferrer">x</a>, <a href="https://github.com/aravindirl" target="_blank" rel="noopener noreferrer">github</a>, <a href="https://www.linkedin.com/in/aravindirl/" target="_blank" rel="noopener noreferrer">linkedin</a>)</p>
+                <div class="bio">
+                    <p>Hi, am Aravind</p>
+                    <p>I read books, write blogs, create content (unemployed),<br>
+                    Am interested in Markets, Technology and Human behavior,<br>
+                    Right now am super obsessed with claude and whatever more it offers,<br>
+                    Most of my entertainment comes from the internet culture than from films &amp; sports.(<a href="about/about.html">more</a>)</p>
+                </div>
+            </div>
+            <img class="profile-img" src="images/aravindirl.png" alt="Aravind Ramachandran">
         </div>
 
         <div class="resources">
