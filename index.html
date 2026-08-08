@@ -121,7 +121,7 @@
             flex-direction: column;
             gap: 18px;
             align-items: flex-start;
-            max-width: 260px;
+            max-width: 360px;
         }
         .side-widgets a {
             display: block;
@@ -136,6 +136,11 @@
             width: 240px;
             height: auto;
             border: 1px solid var(--border);
+        }
+        .side-widgets .widget-github img {
+            width: 360px;
+            background: var(--bg);
+            padding: 8px 6px 4px;
         }
         .side-widgets .widget-caption {
             display: block;
@@ -156,8 +161,9 @@
         @media (max-width: 640px) {
             body { padding: 20px 16px; font-size: 13px; }
             .resources ul li { white-space: normal; }
-            .side-widgets { max-width: 220px; }
+            .side-widgets { max-width: 100%; }
             .side-widgets img { width: 200px; }
+            .side-widgets .widget-github img { width: min(100%, 360px); }
         }
     </style>
 </head>
@@ -200,11 +206,23 @@
                 <img src="images/playlist-my-plumber.jpg" width="640" height="480" alt="my plumber — Spotify playlist cover" loading="lazy" decoding="async">
                 <span class="widget-caption">my plumber 🎧 </span>
             </a>
+            <a class="widget widget-github" href="https://github.com/aravindirl" target="_blank" rel="noopener noreferrer" title="GitHub contributions — aravindirl">
+                <img id="gh-contrib-chart" width="663" height="104" alt="Live GitHub contribution graph for aravindirl" decoding="async">
+                <span class="widget-caption">github contributions</span>
+            </a>
         </aside>
     </div>
 
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
+        (function () {
+            var img = document.getElementById('gh-contrib-chart');
+            if (!img) return;
+            var now = new Date();
+            var stamp = now.getUTCFullYear() + '-' + (now.getUTCMonth() + 1) + '-' + now.getUTCDate();
+            // Live chart from GitHub activity; daily cache-bust so it refreshes as contributions grow
+            img.src = 'https://ghchart.rshah.org/aravindirl?' + stamp;
+        })();
     </script>
 </body>
 </html>
