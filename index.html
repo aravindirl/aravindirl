@@ -196,11 +196,16 @@
         .side-widgets .widget-youtube[hidden] {
             display: none;
         }
-        .side-widgets .widget-podcast {
+        /* Podcast sits beside the X article (between YouTube stack and X on mobile) */
+        .widget-podcast {
+            display: block;
+            margin-top: 28px;
             max-width: 240px;
             width: 240px;
+            color: var(--text);
+            text-decoration: none;
         }
-        .side-widgets .widget-podcast .podcast-cover {
+        .widget-podcast .podcast-cover {
             display: block;
             width: 240px;
             max-width: 100%;
@@ -210,7 +215,10 @@
             border: 1px solid var(--border);
             background: #111;
         }
-        .side-widgets .widget-podcast .podcast-title {
+        .widget-podcast:hover .podcast-cover {
+            opacity: 0.85;
+        }
+        .widget-podcast .podcast-title {
             display: block;
             margin-top: 8px;
             font-size: 0.82rem;
@@ -218,14 +226,14 @@
             line-height: 1.35;
             color: var(--text);
         }
-        .side-widgets .widget-podcast .podcast-meta {
+        .widget-podcast .podcast-meta {
             display: block;
             margin-top: 4px;
             font-size: 0.75rem;
             line-height: 1.4;
             color: var(--secondary);
         }
-        .side-widgets .widget-podcast[hidden] {
+        .widget-podcast[hidden] {
             display: none;
         }
         /* Latest X article: under copyright on desktop; under widgets on mobile */
@@ -322,11 +330,16 @@
             }
             .side-widgets {
                 grid-column: 2;
-                grid-row: 1 / span 2;
+                grid-row: 1;
                 margin-top: 0;
                 position: static;
                 max-height: none;
                 overflow: visible;
+            }
+            .widget-podcast {
+                grid-column: 2;
+                grid-row: 2;
+                margin-top: 28px;
             }
             .x-article-widget {
                 grid-column: 1;
@@ -341,8 +354,8 @@
             .side-widgets .widget-github img { width: min(100%, 360px); }
             .side-widgets .widget-youtube,
             .side-widgets .widget-youtube .yt-thumb { width: 200px; max-width: 200px; }
-            .side-widgets .widget-podcast,
-            .side-widgets .widget-podcast .podcast-cover { width: 200px; max-width: 200px; }
+            .widget-podcast,
+            .widget-podcast .podcast-cover { width: 200px; max-width: 200px; }
             .x-article-widget { max-width: 100%; margin-top: 22px; }
         }
     </style>
@@ -389,11 +402,6 @@
                 <img src="images/playlist-my-plumber.jpg" width="640" height="480" alt="my plumber — Spotify playlist cover" loading="lazy" decoding="async">
                 <span class="widget-caption">my plumber</span>
             </a>
-            <a class="widget widget-podcast" id="podcast-latest-widget" href="https://open.spotify.com/show/4MJGzE251zbcdEOcI5R5eE" target="_blank" rel="noopener noreferrer" hidden>
-                <img class="podcast-cover" id="podcast-cover" src="images/podcast-feedpilled.jpg" alt="" width="640" height="640" loading="lazy" decoding="async">
-                <span class="podcast-title" id="podcast-title"></span>
-                <span class="podcast-meta" id="podcast-meta">feedpilled</span>
-            </a>
             <a class="widget widget-github" href="https://github.com/aravindirl" target="_blank" rel="noopener noreferrer" title="GitHub contributions — aravindirl">
                 <img id="gh-contrib-chart" width="663" height="104" alt="Live GitHub contribution graph for aravindirl" decoding="async">
                 <span class="widget-stats" id="gh-contrib-stats" hidden></span>
@@ -404,6 +412,12 @@
                 <span class="yt-meta" id="yt-meta"></span>
             </a>
         </aside>
+
+            <a class="widget-podcast" id="podcast-latest-widget" href="https://open.spotify.com/show/4MJGzE251zbcdEOcI5R5eE" target="_blank" rel="noopener noreferrer" hidden>
+                <img class="podcast-cover" id="podcast-cover" src="images/podcast-feedpilled.jpg" alt="" width="640" height="640" loading="lazy" decoding="async">
+                <span class="podcast-title" id="podcast-title"></span>
+                <span class="podcast-meta" id="podcast-meta">feedpilled</span>
+            </a>
 
         <section class="x-article-widget" id="x-article-widget" aria-label="Latest X article" hidden>
             <div class="x-article-meta">
