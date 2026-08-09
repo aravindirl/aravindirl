@@ -160,16 +160,18 @@
             display: none;
         }
         .side-widgets .widget-youtube {
-            max-width: 360px;
+            max-width: 240px;
+            width: 240px;
         }
         .side-widgets .widget-youtube .yt-thumb {
             display: block;
-            width: 360px;
+            width: 240px;
+            max-width: 100%;
             height: auto;
             aspect-ratio: 16 / 9;
             object-fit: cover;
             border: 1px solid var(--border);
-            background: #000;
+            background: #111;
         }
         .side-widgets .widget-youtube .yt-title {
             display: block;
@@ -277,6 +279,9 @@
                 right: 28px;
                 margin-top: 0;
                 z-index: 2;
+                max-height: calc(100vh - 80px);
+                overflow-y: auto;
+                padding-right: 4px;
             }
         }
         @media (max-width: 640px) {
@@ -285,8 +290,8 @@
             .side-widgets { max-width: 100%; }
             .side-widgets img { width: 200px; }
             .side-widgets .widget-github img { width: min(100%, 360px); }
-            .side-widgets .widget-youtube { max-width: min(100%, 360px); }
-            .side-widgets .widget-youtube .yt-thumb { width: min(100%, 360px); }
+            .side-widgets .widget-youtube,
+            .side-widgets .widget-youtube .yt-thumb { width: 200px; max-width: 200px; }
             .x-article-widget { max-width: 100%; margin-top: 22px; }
         }
     </style>
