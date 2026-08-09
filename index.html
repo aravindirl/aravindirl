@@ -186,6 +186,21 @@
             color: var(--text);
             font-weight: bold;
         }
+        .x-article-widget .x-verified {
+            display: inline-flex;
+            align-items: center;
+            vertical-align: -2px;
+            margin-left: 3px;
+            color: #1d9bf0;
+        }
+        .x-article-widget .x-verified svg {
+            width: 14px;
+            height: 14px;
+            display: block;
+        }
+        .x-article-widget .x-verified[hidden] {
+            display: none;
+        }
         .x-article-widget .x-article-user,
         .x-article-widget .x-article-date {
             color: var(--secondary);
@@ -293,7 +308,7 @@
             <div class="x-article-meta">
                 <img class="x-avatar" id="x-article-avatar" src="images/x-avatar.jpg" width="200" height="200" alt="" loading="lazy" decoding="async">
                 <div class="x-article-byline">
-                    <div><span class="x-article-name" id="x-article-name">pinkscholes</span> <span class="x-article-user" id="x-article-user">@aravindirl</span></div>
+                    <div><span class="x-article-name" id="x-article-name">pinkscholes</span><span class="x-verified" id="x-article-verified" hidden title="Verified" aria-label="Verified"><svg viewBox="0 0 22 22" aria-hidden="true"><path fill="currentColor" d="M20.396 11c-.018-.646-.215-1.275-.57-1.816-.354-.54-.852-.972-1.438-1.246.223-.607.27-1.264.14-1.897-.131-.634-.437-1.218-.882-1.687-.47-.445-1.053-.75-1.687-.882-.633-.13-1.29-.083-1.897.14-.273-.587-.704-1.086-1.245-1.44S11.647 1.62 11 1.604c-.646.015-1.273.213-1.813.568s-.969.854-1.24 1.44c-.608-.223-1.267-.272-1.902-.14-.635.13-1.218.436-1.689.882-.445.47-.749 1.055-.878 1.688-.13.633-.08 1.29.144 1.896-.587.274-1.087.705-1.443 1.245-.356.54-.555 1.17-.574 1.817.02.647.218 1.276.574 1.817.356.54.856.972 1.443 1.245-.224.606-.274 1.263-.144 1.896.13.634.433 1.218.877 1.688.47.443 1.054.747 1.687.878.633.132 1.29.084 1.897-.136.274.586.705 1.084 1.246 1.439.54.354 1.17.551 1.816.569.647-.016 1.276-.213 1.817-.567s.972-.854 1.245-1.44c.604.239 1.266.296 1.903.164.636-.132 1.22-.447 1.68-.907.46-.46.776-1.044.908-1.681s.075-1.299-.165-1.903c.586-.274 1.084-.705 1.439-1.246.354-.54.551-1.17.569-1.816zM9.662 14.85l-3.429-3.428 1.293-1.302 2.072 2.072 4.4-4.794 1.347 1.246z"/></svg></span> <span class="x-article-user" id="x-article-user">@aravindirl</span></div>
                     <div class="x-article-date" id="x-article-date"></div>
                 </div>
             </div>
@@ -368,6 +383,7 @@
                 document.getElementById('x-article-name').textContent = name;
                 document.getElementById('x-article-user').textContent = '@' + handle;
                 document.getElementById('x-article-date').textContent = dateLabel;
+                document.getElementById('x-article-verified').hidden = !(author.verification && author.verification.verified);
 
                 var coverLink = document.getElementById('x-article-cover-link');
                 var coverImg = document.getElementById('x-article-cover');
