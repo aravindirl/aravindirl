@@ -400,8 +400,10 @@
                 <div class="contact">
                     write to me (<a href="mailto:raravind2610@gmail.com">raravind2610@gmail.com</a>) i will reply in 48 hours, will add you to my list guest list ;-)
                 </div>
+
                 <footer>
-    
+                    <a href="about/legal.html">Legal Disclaimer</a>
+                    <p>Copyright &copy; <span id="year"></span> aravindirl</p>
                 </footer>
 
                 <div class="feature-row">
@@ -447,7 +449,8 @@
     </div>
 
     <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
+        var yearEl = document.getElementById('year');
+        if (yearEl) yearEl.textContent = new Date().getFullYear();
         (function () {
             var img = document.getElementById('gh-contrib-chart');
             var stats = document.getElementById('gh-contrib-stats');
