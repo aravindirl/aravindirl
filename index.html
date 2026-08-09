@@ -31,8 +31,13 @@
             font-size: 13px;
         }
         .container {
+            max-width: 1280px;
+        }
+        .page {
+            display: block;
+        }
+        .main {
             max-width: 860px;
-            
         }
         h1 {
             font-size: 1.25rem;
@@ -114,7 +119,7 @@
             margin: 4px 0 0 0;
             color: var(--text);
         }
-        /* Side widgets: below copyright on small screens; fixed right column on desktop */
+        /* Side widgets: stacked under content on small screens; right column on desktop */
         .side-widgets {
             margin-top: 28px;
             display: flex;
@@ -191,7 +196,7 @@
         .side-widgets .widget-youtube[hidden] {
             display: none;
         }
-        /* Latest X article: below copyright on desktop; below GitHub widget on mobile */
+        /* Latest X article: under copyright on desktop; under widgets on mobile */
         .x-article-widget {
             margin-top: 28px;
             max-width: 420px;
@@ -273,15 +278,27 @@
             color: var(--secondary);
         }
         @media (min-width: 1100px) {
+            .page {
+                display: grid;
+                grid-template-columns: minmax(0, 860px) 360px;
+                column-gap: 56px;
+                align-items: start;
+            }
+            .main {
+                grid-column: 1;
+                grid-row: 1;
+            }
             .side-widgets {
-                position: fixed;
-                top: 60px;
-                right: 28px;
+                grid-column: 2;
+                grid-row: 1 / span 2;
                 margin-top: 0;
-                z-index: 2;
-                max-height: calc(100vh - 80px);
-                overflow-y: auto;
-                padding-right: 4px;
+                position: static;
+                max-height: none;
+                overflow: visible;
+            }
+            .x-article-widget {
+                grid-column: 1;
+                grid-row: 2;
             }
         }
         @media (max-width: 640px) {
@@ -303,34 +320,37 @@
     });
     </script>
     <div class="container">
-        <img class="profile-img" src="images/me.png" alt="">
-        <h1>Aravind Ramachandran</h1>
-        <p class="handle"><a href="https://www.aravindirl.com/">@aravindirl</a></p>
-        <div class="bio">
-            <p>Hi, am Aravind</p>
-            <p>I read, write, record and code,<br>    
-            Love art, music, films, tech &amp; whatnot (i have real trouble to be specific),<br>
-            Most of my entertainment comes from the internet culture than from films &amp; sports.(<a href="about/about.html">more</a>)</p>
-        </div>
+        <div class="page">
+            <div class="main">
+                <img class="profile-img" src="images/me.png" alt="">
+                <h1>Aravind Ramachandran</h1>
+                <p class="handle"><a href="https://www.aravindirl.com/">@aravindirl</a></p>
+                <div class="bio">
+                    <p>Hi, am Aravind</p>
+                    <p>I read, write, record and code,<br>    
+                    Love art, music, films, tech &amp; whatnot (i have real trouble to be specific),<br>
+                    Most of my entertainment comes from the internet culture than from films &amp; sports.(<a href="about/about.html">more</a>)</p>
+                </div>
 
-        <div class="resources">
-            <p>Resources:-</p>
-            <ul>
-                <li>Writing articles & posting, chronoically online - <a href="https://x.com/aravindirl/" target="_blank" rel="noopener noreferrer">x.com/@aravindirl</a></li>
-                <li>Podcasting about internet culture & digital behaviour - <a href="https://open.spotify.com/show/4MJGzE251zbcdEOcI5R5eE?si=26b0e411ecba4ae7" target="_blank" rel="noopener noreferrer">spotify.com/@aravindirl</a></li> 
-                <li>Filming, Documenting, Playing Music &amp; Yapping about random things - <a href="https://www.youtube.com/@aravindirl" target="_blank" rel="noopener noreferrer">youtube.com/@aravindirl</a></li>
-        </div>
+                <div class="resources">
+                    <p>Resources:-</p>
+                    <ul>
+                        <li>Writing articles & posting, chronoically online - <a href="https://x.com/aravindirl/" target="_blank" rel="noopener noreferrer">x.com/@aravindirl</a></li>
+                        <li>Podcasting about internet culture & digital behaviour - <a href="https://open.spotify.com/show/4MJGzE251zbcdEOcI5R5eE?si=26b0e411ecba4ae7" target="_blank" rel="noopener noreferrer">spotify.com/@aravindirl</a></li> 
+                        <li>Filming, Documenting, Playing Music &amp; Yapping about random things - <a href="https://www.youtube.com/@aravindirl" target="_blank" rel="noopener noreferrer">youtube.com/@aravindirl</a></li>
+                </div>
 
-        <div class="contact">
-            write to me (<a href="mailto:raravind2610@gmail.com">raravind2610@gmail.com</a>) i will reply in 48 hours, will add you to my list guest list ;-)
-        </div>
+                <div class="contact">
+                    write to me (<a href="mailto:raravind2610@gmail.com">raravind2610@gmail.com</a>) i will reply in 48 hours, will add you to my list guest list ;-)
+                </div>
 
-        <footer>
-            <a href="about/legal.html">Legal Disclaimer</a>
-            <p>Copyright &copy; <span id="year"></span> aravindirl</p>
-        </footer>
+                <footer>
+                    <a href="about/legal.html">Legal Disclaimer</a>
+                    <p>Copyright &copy; <span id="year"></span> aravindirl</p>
+                </footer>
+            </div>
 
-        <aside class="side-widgets" aria-label="Widgets">
+            <aside class="side-widgets" aria-label="Widgets">
             <a class="widget" href="https://open.spotify.com/user/vtubl2p2emhobb5yc4qdzorc2" target="_blank" rel="noopener noreferrer" title="Open playlist on Spotify: my plumber">
                 <img src="images/playlist-my-plumber.jpg" width="640" height="480" alt="my plumber — Spotify playlist cover" loading="lazy" decoding="async">
                 <span class="widget-caption">my plumber</span>
@@ -359,7 +379,8 @@
             </a>
             <a class="x-article-title" id="x-article-title" href="https://x.com/aravindirl" target="_blank" rel="noopener noreferrer"></a>
             <p class="x-article-excerpt" id="x-article-excerpt"></p>
-        </section>
+            </section>
+        </div>
     </div>
 
     <script>
