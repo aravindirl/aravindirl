@@ -319,13 +319,13 @@
             margin: 0;
             color: var(--secondary);
         }
-        /* X article + podcast sit side by side under the main column */
+        /* X article + podcast sit side by side, directly under copyright */
         .feature-row {
             display: flex;
             flex-wrap: wrap;
             align-items: flex-start;
             gap: 24px;
-            margin-top: 28px;
+            margin-top: 18px;
             max-width: 860px;
         }
         @media (min-width: 1100px) {
@@ -337,19 +337,15 @@
             }
             .main {
                 grid-column: 1;
-                grid-row: 1;
             }
             .side-widgets {
                 grid-column: 2;
-                grid-row: 1;
                 margin-top: 0;
                 position: static;
                 max-height: none;
                 overflow: visible;
             }
             .feature-row {
-                grid-column: 1;
-                grid-row: 2;
                 flex-wrap: nowrap;
             }
         }
@@ -364,7 +360,7 @@
             .feature-row {
                 flex-direction: column;
                 max-width: 100%;
-                margin-top: 22px;
+                margin-top: 16px;
                 gap: 22px;
             }
             .widget-podcast,
@@ -398,6 +394,7 @@
                         <li>Writing articles & posting, chronoically online - <a href="https://x.com/aravindirl/" target="_blank" rel="noopener noreferrer">x.com/@aravindirl</a></li>
                         <li>Podcasting about internet culture & digital behaviour - <a href="https://open.spotify.com/show/4MJGzE251zbcdEOcI5R5eE?si=26b0e411ecba4ae7" target="_blank" rel="noopener noreferrer">spotify.com/@aravindirl</a></li> 
                         <li>Filming, Documenting, Playing Music &amp; Yapping about random things - <a href="https://www.youtube.com/@aravindirl" target="_blank" rel="noopener noreferrer">youtube.com/@aravindirl</a></li>
+                    </ul>
                 </div>
 
                 <div class="contact">
@@ -408,46 +405,46 @@
                     <a href="about/legal.html">Legal Disclaimer</a>
                     <p>Copyright &copy; <span id="year"></span> aravindirl</p>
                 </footer>
+
+                <div class="feature-row">
+                    <section class="x-article-widget" id="x-article-widget" aria-label="Latest X article" hidden>
+                        <div class="x-article-meta">
+                            <img class="x-avatar" id="x-article-avatar" src="images/x-avatar.jpg" width="200" height="200" alt="" loading="lazy" decoding="async">
+                            <div class="x-article-byline">
+                                <div><span class="x-article-name" id="x-article-name">pinkscholes</span><span class="x-verified" id="x-article-verified" hidden title="Verified" aria-label="Verified"><svg viewBox="0 0 22 22" aria-hidden="true"><path fill="currentColor" d="M20.396 11c-.018-.646-.215-1.275-.57-1.816-.354-.54-.852-.972-1.438-1.246.223-.607.27-1.264.14-1.897-.131-.634-.437-1.218-.882-1.687-.47-.445-1.053-.75-1.687-.882-.633-.13-1.29-.083-1.897.14-.273-.587-.704-1.086-1.245-1.44S11.647 1.62 11 1.604c-.646.015-1.273.213-1.813.568s-.969.854-1.24 1.44c-.608-.223-1.267-.272-1.902-.14-.635.13-1.218.436-1.689.882-.445.47-.749 1.055-.878 1.688-.13.633-.08 1.29.144 1.896-.587.274-1.087.705-1.443 1.245-.356.54-.555 1.17-.574 1.817.02.647.218 1.276.574 1.817.356.54.856.972 1.443 1.245-.224.606-.274 1.263-.144 1.896.13.634.433 1.218.877 1.688.47.443 1.054.747 1.687.878.633.132 1.29.084 1.897-.136.274.586.705 1.084 1.246 1.439.54.354 1.17.551 1.816.569.647-.016 1.276-.213 1.817-.567s.972-.854 1.245-1.44c.604.239 1.266.296 1.903.164.636-.132 1.22-.447 1.68-.907.46-.46.776-1.044.908-1.681s.075-1.299-.165-1.903c.586-.274 1.084-.705 1.439-1.246.354-.54.551-1.17.569-1.816zM9.662 14.85l-3.429-3.428 1.293-1.302 2.072 2.072 4.4-4.794 1.347 1.246z"/></svg></span> <span class="x-article-user" id="x-article-user">@aravindirl</span></div>
+                                <div class="x-article-date" id="x-article-date"></div>
+                            </div>
+                        </div>
+                        <a class="x-article-cover-link" id="x-article-cover-link" href="https://x.com/aravindirl" target="_blank" rel="noopener noreferrer">
+                            <img class="x-article-cover" id="x-article-cover" src="images/x-article-cover.jpg" width="1200" height="480" alt="" loading="lazy" decoding="async">
+                        </a>
+                        <a class="x-article-title" id="x-article-title" href="https://x.com/aravindirl" target="_blank" rel="noopener noreferrer"></a>
+                        <p class="x-article-excerpt" id="x-article-excerpt"></p>
+                    </section>
+
+                    <a class="widget-podcast" id="podcast-latest-widget" href="https://open.spotify.com/show/4MJGzE251zbcdEOcI5R5eE" target="_blank" rel="noopener noreferrer" hidden>
+                        <img class="podcast-cover" id="podcast-cover" src="images/podcast-feedpilled.jpg" alt="" width="640" height="640" loading="lazy" decoding="async">
+                        <span class="podcast-title" id="podcast-title"></span>
+                        <span class="podcast-meta" id="podcast-meta">feedpilled</span>
+                    </a>
+                </div>
             </div>
 
             <aside class="side-widgets" aria-label="Widgets">
-            <a class="widget" href="https://open.spotify.com/user/vtubl2p2emhobb5yc4qdzorc2" target="_blank" rel="noopener noreferrer" title="Open playlist on Spotify: my plumber">
-                <img src="images/playlist-my-plumber.jpg" width="640" height="480" alt="my plumber — Spotify playlist cover" loading="lazy" decoding="async">
-                <span class="widget-caption">my plumber</span>
-            </a>
-            <a class="widget widget-github" href="https://github.com/aravindirl" target="_blank" rel="noopener noreferrer" title="GitHub contributions — aravindirl">
-                <img id="gh-contrib-chart" width="663" height="104" alt="Live GitHub contribution graph for aravindirl" decoding="async">
-                <span class="widget-stats" id="gh-contrib-stats" hidden></span>
-            </a>
-            <a class="widget widget-youtube" id="yt-latest-widget" href="https://www.youtube.com/@aravindirl" target="_blank" rel="noopener noreferrer" hidden>
-                <img class="yt-thumb" id="yt-thumb" src="" alt="" width="480" height="360" loading="lazy" decoding="async">
-                <span class="yt-title" id="yt-title"></span>
-                <span class="yt-meta" id="yt-meta"></span>
-            </a>
-        </aside>
-
-            <div class="feature-row">
-                <section class="x-article-widget" id="x-article-widget" aria-label="Latest X article" hidden>
-                    <div class="x-article-meta">
-                        <img class="x-avatar" id="x-article-avatar" src="images/x-avatar.jpg" width="200" height="200" alt="" loading="lazy" decoding="async">
-                        <div class="x-article-byline">
-                            <div><span class="x-article-name" id="x-article-name">pinkscholes</span><span class="x-verified" id="x-article-verified" hidden title="Verified" aria-label="Verified"><svg viewBox="0 0 22 22" aria-hidden="true"><path fill="currentColor" d="M20.396 11c-.018-.646-.215-1.275-.57-1.816-.354-.54-.852-.972-1.438-1.246.223-.607.27-1.264.14-1.897-.131-.634-.437-1.218-.882-1.687-.47-.445-1.053-.75-1.687-.882-.633-.13-1.29-.083-1.897.14-.273-.587-.704-1.086-1.245-1.44S11.647 1.62 11 1.604c-.646.015-1.273.213-1.813.568s-.969.854-1.24 1.44c-.608-.223-1.267-.272-1.902-.14-.635.13-1.218.436-1.689.882-.445.47-.749 1.055-.878 1.688-.13.633-.08 1.29.144 1.896-.587.274-1.087.705-1.443 1.245-.356.54-.555 1.17-.574 1.817.02.647.218 1.276.574 1.817.356.54.856.972 1.443 1.245-.224.606-.274 1.263-.144 1.896.13.634.433 1.218.877 1.688.47.443 1.054.747 1.687.878.633.132 1.29.084 1.897-.136.274.586.705 1.084 1.246 1.439.54.354 1.17.551 1.816.569.647-.016 1.276-.213 1.817-.567s.972-.854 1.245-1.44c.604.239 1.266.296 1.903.164.636-.132 1.22-.447 1.68-.907.46-.46.776-1.044.908-1.681s.075-1.299-.165-1.903c.586-.274 1.084-.705 1.439-1.246.354-.54.551-1.17.569-1.816zM9.662 14.85l-3.429-3.428 1.293-1.302 2.072 2.072 4.4-4.794 1.347 1.246z"/></svg></span> <span class="x-article-user" id="x-article-user">@aravindirl</span></div>
-                            <div class="x-article-date" id="x-article-date"></div>
-                        </div>
-                    </div>
-                    <a class="x-article-cover-link" id="x-article-cover-link" href="https://x.com/aravindirl" target="_blank" rel="noopener noreferrer">
-                        <img class="x-article-cover" id="x-article-cover" src="images/x-article-cover.jpg" width="1200" height="480" alt="" loading="lazy" decoding="async">
-                    </a>
-                    <a class="x-article-title" id="x-article-title" href="https://x.com/aravindirl" target="_blank" rel="noopener noreferrer"></a>
-                    <p class="x-article-excerpt" id="x-article-excerpt"></p>
-                </section>
-
-                <a class="widget-podcast" id="podcast-latest-widget" href="https://open.spotify.com/show/4MJGzE251zbcdEOcI5R5eE" target="_blank" rel="noopener noreferrer" hidden>
-                    <img class="podcast-cover" id="podcast-cover" src="images/podcast-feedpilled.jpg" alt="" width="640" height="640" loading="lazy" decoding="async">
-                    <span class="podcast-title" id="podcast-title"></span>
-                    <span class="podcast-meta" id="podcast-meta">feedpilled</span>
+                <a class="widget" href="https://open.spotify.com/user/vtubl2p2emhobb5yc4qdzorc2" target="_blank" rel="noopener noreferrer" title="Open playlist on Spotify: my plumber">
+                    <img src="images/playlist-my-plumber.jpg" width="640" height="480" alt="my plumber — Spotify playlist cover" loading="lazy" decoding="async">
+                    <span class="widget-caption">my plumber</span>
                 </a>
-            </div>
+                <a class="widget widget-github" href="https://github.com/aravindirl" target="_blank" rel="noopener noreferrer" title="GitHub contributions — aravindirl">
+                    <img id="gh-contrib-chart" width="663" height="104" alt="Live GitHub contribution graph for aravindirl" decoding="async">
+                    <span class="widget-stats" id="gh-contrib-stats" hidden></span>
+                </a>
+                <a class="widget widget-youtube" id="yt-latest-widget" href="https://www.youtube.com/@aravindirl" target="_blank" rel="noopener noreferrer" hidden>
+                    <img class="yt-thumb" id="yt-thumb" src="" alt="" width="480" height="360" loading="lazy" decoding="async">
+                    <span class="yt-title" id="yt-title"></span>
+                    <span class="yt-meta" id="yt-meta"></span>
+                </a>
+            </aside>
         </div>
     </div>
 
