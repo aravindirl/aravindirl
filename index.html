@@ -196,6 +196,48 @@
         .side-widgets .widget-youtube[hidden] {
             display: none;
         }
+        .widget-aravchives {
+            max-width: 360px;
+            width: 100%;
+            font-size: 0.82rem;
+            line-height: 1.45;
+            color: var(--text);
+        }
+        .widget-aravchives .aravchives-heading {
+            display: block;
+            margin: 0 0 6px;
+            font-size: 0.82rem;
+            font-weight: bold;
+            color: var(--text);
+            text-decoration: none;
+        }
+        .widget-aravchives .aravchives-heading:hover {
+            text-decoration: underline;
+        }
+        .widget-aravchives .aravchives-rule {
+            border: 0;
+            border-top: 1px solid var(--border);
+            margin: 0 0 10px;
+        }
+        .widget-aravchives ol {
+            margin: 0;
+            padding-left: 1.35em;
+            list-style: decimal;
+        }
+        .widget-aravchives li {
+            margin: 0 0 6px;
+        }
+        .widget-aravchives li:last-child {
+            margin-bottom: 0;
+        }
+        .side-widgets .widget-aravchives a {
+            display: inline;
+            color: var(--link);
+            text-decoration: underline;
+        }
+        .side-widgets .widget-aravchives a:visited {
+            color: var(--link-v);
+        }
         /* Podcast sits beside the X article under the main column */
         .widget-podcast {
             display: block;
@@ -444,6 +486,16 @@
                     <span class="yt-title" id="yt-title"></span>
                     <span class="yt-meta" id="yt-meta"></span>
                 </a>
+                <section class="widget-aravchives" aria-label="aravchives">
+                    <a class="aravchives-heading" href="about/lucidnotes/">aravchives <span style="font-weight:normal;color:var(--secondary)">(my public journal)</span></a>
+                    <hr class="aravchives-rule">
+                    <ol reversed start="5">
+                        <li><a href="about/lucidnotes/no.5.html">IM LOST...</a></li>
+                        <li><a href="about/lucidnotes/no.4.html">call me by your name</a></li>
+                        <li><a href="about/lucidnotes/no.3.html">past fetish</a></li>
+                        <li><a href="about/lucidnotes/no.2.html">ever this never ending cycle ever end!?</a></li>
+                    </ol>
+                </section>
             </aside>
         </div>
     </div>
