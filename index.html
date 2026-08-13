@@ -637,10 +637,18 @@
             var ytWidget = document.getElementById('yt-latest-widget');
             if (ytWidget && window.fetch) {
                 var ytHosts = [
-                    'https://y.com.sb',
-                    'https://invidious.flokinet.to'
+                    'https://invidious.flokinet.to',
+                    'https://y.com.sb'
                 ];
                 var ytChannelId = 'UC8Oh3fwW4EJOOHCADJeW-HQ';
+                // Shown if every live API host fails, so the widget never stays blank
+                var ytFallback = {
+                    videoId: 'ZhjEaT8Dtk8',
+                    title: 'life before discovering careers',
+                    author: 'aravind',
+                    viewCount: 15,
+                    publishedText: ''
+                };
 
                 function formatViews(n) {
                     var num = Number(n);
@@ -671,12 +679,21 @@
                     return true;
                 }
 
+                function fetchWithTimeout(url, ms) {
+                    var controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
+                    var timer = setTimeout(function () {
+                        if (controller) controller.abort();
+                    }, ms);
+                    return fetch(url, controller ? { signal: controller.signal } : undefined)
+                        .finally(function () { clearTimeout(timer); });
+                }
+
                 function fetchLatestYoutube(i) {
                     if (i >= ytHosts.length) {
-                        ytWidget.hidden = true;
+                        fillYoutube(ytFallback);
                         return;
                     }
-                    fetch(ytHosts[i] + '/api/v1/channels/' + ytChannelId + '/videos')
+                    fetchWithTimeout(ytHosts[i] + '/api/v1/channels/' + ytChannelId + '/videos', 5000)
                         .then(function (r) {
                             if (!r.ok) throw new Error('bad status');
                             return r.json();
