@@ -13,23 +13,39 @@
     <meta property="og:image" content="https://www.aravindirl.com/og.svg">
     <meta property="og:url" content="https://www.aravindirl.com/">
     <link rel="canonical" href="https://www.aravindirl.com/">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23fff'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='ui-monospace,monospace' font-size='18' font-weight='700' fill='%23000'%3Ea%3C/text%3E%3C/svg%3E">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://www.aravindirl.com/og.svg">
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"Person","name":"Aravind Ramachandran","url":"https://www.aravindirl.com/","description":"I read books, write blogs, create content. Interested in Markets, Technology and Human behavior.","sameAs":["https://www.instagram.com/aravindirl/","https://x.com/aravindirl","https://github.com/aravindirl","https://www.linkedin.com/in/aravindirl/"]}
     </script>
     <style>
-        :root { --bg:#ffffff; --text:#000000; --secondary:#555; --link:#0000EE; --link-v:#0000EE; --border:#000; --bq:#333; }
-                *, *::before, *::after { box-sizing: border-box; }
+        :root {
+            --bg:#ffffff;
+            --text:#000000;
+            --secondary:#555555;
+            --link:#0000EE;
+            --link-v:#0000EE;
+            --border:#000000;
+            --bq:#333333;
+            --rule:#e6e6e6;
+            --space:12px;
+            --space-md:20px;
+            --space-lg:28px;
+        }
+        *, *::before, *::after { box-sizing: border-box; }
+        html { -webkit-text-size-adjust: 100%; }
         body {
             font-family: ui-monospace, Menlo, Monaco, 'Cascadia Code', 'Source Code Pro', Consolas, monospace;
             background-color:var(--bg);
             color:var(--text);
-            line-height: 1.5;
-            padding: 32px 36px;
+            line-height: 1.6;
+            padding: 40px 40px 72px;
             margin: 0;
             font-size: 13px;
         }
+        ::selection { background:#e8e8e8; color:var(--text); }
+        a { text-underline-offset: 2px; text-decoration-thickness: from-font; }
         .container {
             max-width: 1280px;
         }
@@ -39,15 +55,17 @@
         .main {
             max-width: 860px;
         }
+        .profile-img { display:none; }
         h1 {
             font-size: 1.25rem;
             font-weight: bold;
-            margin: 0 0 4px 0;
+            margin: 0 0 6px 0;
             letter-spacing: 0;
+            line-height: 1.25;
         }
         .handle {
             font-size: 0.85rem;
-            margin: 0 0 20px 0;
+            margin: 0 0 var(--space-md) 0;
             color: var(--text);
             display: flex;
             align-items: center;
@@ -64,7 +82,7 @@
         .social-links {
             display: inline-flex;
             align-items: center;
-            gap: 7px;
+            gap: 8px;
             color: var(--text);
             font-size: 0.85rem;
             line-height: 1;
@@ -75,9 +93,15 @@
             justify-content: center;
             text-decoration: none;
             line-height: 0;
+            transition: opacity 0.15s ease, transform 0.15s ease;
         }
         .social-links a:hover {
-            opacity: 0.75;
+            opacity: 0.7;
+            transform: translateY(-1px);
+        }
+        .social-links a:focus-visible {
+            outline: 1px solid var(--text);
+            outline-offset: 3px;
         }
         .social-links svg {
             width: 15px;
@@ -94,11 +118,13 @@
             fill: #000000;
         }
         .bio {
-            margin-bottom: 0;
+            margin-bottom: var(--space-md);
         }
         .bio p {
-            margin: 0 0 10px 0;
+            margin: 0 0 var(--space) 0;
             font-size: 0.85rem;
+            max-width: 64ch;
+            line-height: 1.65;
         }
         .bio a {
             color:var(--link);
@@ -108,20 +134,21 @@
             color:var(--link-v);
         }
         .resources {
-            margin-bottom: 18px;
+            margin-bottom: var(--space-md);
             font-size: 0.85rem;
         }
         .resources p {
-            margin: 0 0 6px 0;
+            margin: 0 0 8px 0;
+            font-weight: bold;
         }
         .resources ul {
             margin: 0;
-            padding-left: 20px;
+            padding-left: 1.25em;
             list-style-type: disc;
         }
         .resources ul li {
-            margin-bottom: 4px;
-            line-height: 1.5;
+            margin-bottom: 6px;
+            line-height: 1.55;
             white-space: nowrap;
         }
         .resources a {
@@ -133,7 +160,9 @@
         }
         .contact {
             font-size: 0.85rem;
-            margin-bottom: 24px;
+            margin-bottom: var(--space-lg);
+            max-width: 64ch;
+            line-height: 1.65;
         }
         .contact a {
             color:var(--link);
@@ -157,10 +186,10 @@
         }
         /* Side widgets: stacked under content on small screens; right column on desktop */
         .side-widgets {
-            margin-top: 28px;
+            margin-top: var(--space-lg);
             display: flex;
             flex-direction: column;
-            gap: 18px;
+            gap: 22px;
             align-items: flex-start;
             max-width: 360px;
         }
@@ -177,6 +206,7 @@
             width: 240px;
             height: auto;
             border: 1px solid var(--border);
+            transition: opacity 0.15s ease;
         }
         .side-widgets .widget-github img {
             width: 360px;
@@ -185,14 +215,14 @@
         }
         .side-widgets .widget-caption {
             display: block;
-            margin-top: 6px;
+            margin-top: 7px;
             font-size: 0.78rem;
-            line-height: 1.3;
+            line-height: 1.35;
             color: var(--secondary);
         }
         .side-widgets .widget-stats {
             display: block;
-            margin-top: 6px;
+            margin-top: 7px;
             font-size: 0.78rem;
             line-height: 1.45;
             color: var(--secondary);
@@ -240,6 +270,11 @@
         .side-widgets .widget-youtube[hidden] {
             display: none;
         }
+        .side-widgets a:hover .yt-title,
+        .side-widgets a:hover .widget-caption {
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
         .widget-aravchives {
             max-width: 360px;
             width: 100%;
@@ -268,9 +303,10 @@
             margin: 0;
             padding-left: 1.35em;
             list-style: decimal;
+            font-variant-numeric: tabular-nums;
         }
         .widget-aravchives li {
-            margin: 0 0 6px;
+            margin: 0 0 7px;
         }
         .widget-aravchives li:last-child {
             margin-bottom: 0;
@@ -284,8 +320,8 @@
             color: var(--link-v);
         }
         .side-widgets .widget-aravchives .aravchives-more {
-            display: inline;
-            margin-top: 8px;
+            display: block;
+            margin-top: 10px;
             margin-left: 1.35em;
             font-size: 0.82rem;
             color: var(--link);
@@ -296,9 +332,9 @@
         }
         /* Notion public page sits beside the X article */
         .widget-notion {
-            --notion-ink: #111111;
-            --notion-paper: #fafafa;
-            --notion-grid: #d9d9d9;
+            --notion-ink: #000000;
+            --notion-paper: #ffffff;
+            --notion-grid: #d4d4d4;
             --notion-accent: #2383e2;
             --notion-warm: #eb5757;
             --notion-leaf: #0f7b6c;
@@ -307,6 +343,7 @@
             flex: 0 0 auto;
             width: 240px;
             max-width: 240px;
+            margin: 0 12px 12px 0;
             color: var(--notion-ink);
             text-decoration: none;
             isolation: isolate;
@@ -539,6 +576,7 @@
         }
         .x-article-widget .x-article-title:hover {
             text-decoration: underline;
+            text-underline-offset: 2px;
         }
         .x-article-widget[hidden] {
             display: none;
@@ -555,15 +593,17 @@
             display: flex;
             flex-wrap: wrap;
             align-items: flex-start;
-            gap: 24px;
-            margin-top: 18px;
+            gap: 28px;
+            margin-top: var(--space-lg);
+            padding-top: var(--space-md);
+            border-top: 1px solid var(--rule);
             max-width: 860px;
         }
         @media (min-width: 1100px) {
             .page {
                 display: grid;
                 grid-template-columns: minmax(0, 860px) 360px;
-                column-gap: 56px;
+                column-gap: 48px;
                 align-items: start;
             }
             .main {
@@ -581,7 +621,7 @@
             }
         }
         @media (max-width: 640px) {
-            body { padding: 20px 16px; font-size: 13px; }
+            body { padding: 24px 16px 56px; font-size: 13px; }
             .resources ul li { white-space: normal; }
             .side-widgets { max-width: 100%; }
             .side-widgets img { width: 200px; }
@@ -611,7 +651,6 @@
     <div class="container">
         <div class="page">
             <div class="main">
-                <img class="profile-img" src="images/me.png" alt="">
                 <h1>Aravind Ramachandran</h1>
                 <p class="handle">
                     <a href="https://www.aravindirl.com/">@aravindirl</a>
