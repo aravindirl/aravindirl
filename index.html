@@ -294,45 +294,178 @@
         .side-widgets .widget-aravchives .aravchives-more:visited {
             color: var(--link-v);
         }
-        /* Podcast sits beside the X article under the main column */
-        .widget-podcast {
+        /* Notion public page sits beside the X article */
+        .widget-notion {
+            --notion-ink: #111111;
+            --notion-paper: #fafafa;
+            --notion-grid: #d9d9d9;
+            --notion-accent: #2383e2;
+            --notion-warm: #eb5757;
+            --notion-leaf: #0f7b6c;
+            position: relative;
             display: block;
-            max-width: 240px;
-            width: 240px;
             flex: 0 0 auto;
-            color: var(--text);
-            text-decoration: none;
-        }
-        .widget-podcast .podcast-cover {
-            display: block;
             width: 240px;
-            max-width: 100%;
-            height: auto;
-            aspect-ratio: 1 / 1;
-            object-fit: cover;
-            border: 1px solid var(--border);
-            background: #111;
+            max-width: 240px;
+            color: var(--notion-ink);
+            text-decoration: none;
+            isolation: isolate;
         }
-        .widget-podcast:hover .podcast-cover {
-            opacity: 0.85;
+        .widget-notion:visited {
+            color: var(--notion-ink);
         }
-        .widget-podcast .podcast-title {
+        .widget-notion::before,
+        .widget-notion::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border: 1px solid var(--notion-ink);
+            background: var(--notion-paper);
+            z-index: -1;
+            transition: transform 0.25s ease;
+        }
+        .widget-notion::before {
+            transform: translate(5px, 5px);
+            background:
+                linear-gradient(135deg, transparent 48%, rgba(0,0,0,0.04) 50%, transparent 52%),
+                var(--notion-paper);
+        }
+        .widget-notion::after {
+            transform: translate(10px, 10px);
+            opacity: 0.55;
+        }
+        .widget-notion:hover::before {
+            transform: translate(7px, 4px) rotate(0.4deg);
+        }
+        .widget-notion:hover::after {
+            transform: translate(12px, 9px) rotate(-0.5deg);
+        }
+        .widget-notion .notion-face {
+            position: relative;
             display: block;
-            margin-top: 8px;
-            font-size: 0.82rem;
+            border: 1px solid var(--notion-ink);
+            background-color: var(--notion-paper);
+            background-image:
+                radial-gradient(circle, var(--notion-grid) 0.7px, transparent 0.8px);
+            background-size: 10px 10px;
+            background-position: 4px 4px;
+            padding: 14px 14px 16px;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .widget-notion:hover .notion-face {
+            transform: translate(-2px, -2px);
+        }
+        .widget-notion .notion-top {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+        .widget-notion .notion-logo {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+            display: block;
+        }
+        .widget-notion .notion-brand {
+            font-size: 0.72rem;
+            letter-spacing: 0.04em;
+            text-transform: lowercase;
+            color: var(--secondary);
+        }
+        .widget-notion .notion-live {
+            margin-left: auto;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.68rem;
+            color: var(--notion-leaf);
+        }
+        .widget-notion .notion-live i {
+            width: 6px;
+            height: 6px;
+            display: block;
+            background: var(--notion-leaf);
+            border-radius: 1px;
+            animation: notion-pulse 1.6s ease-in-out infinite;
+        }
+        @keyframes notion-pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.35; transform: scale(0.85); }
+        }
+        .widget-notion .notion-title {
+            display: block;
+            margin: 0 0 4px;
+            font-size: 0.95rem;
             font-weight: bold;
-            line-height: 1.35;
-            color: var(--text);
+            line-height: 1.3;
+            color: var(--notion-ink);
         }
-        .widget-podcast .podcast-meta {
+        .widget-notion .notion-sub {
             display: block;
-            margin-top: 4px;
-            font-size: 0.75rem;
+            margin: 0 0 14px;
+            font-size: 0.72rem;
             line-height: 1.4;
             color: var(--secondary);
         }
-        .widget-podcast[hidden] {
-            display: none;
+        .widget-notion .notion-rows {
+            display: grid;
+            gap: 7px;
+            margin: 0 0 14px;
+        }
+        .widget-notion .notion-row {
+            display: grid;
+            grid-template-columns: 8px 1fr auto;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 8px;
+            background: rgba(255,255,255,0.82);
+            border: 1px solid rgba(0,0,0,0.18);
+            font-size: 0.72rem;
+            line-height: 1.2;
+            animation: notion-row-in 0.55s ease both;
+        }
+        .widget-notion .notion-row:nth-child(1) { animation-delay: 0.05s; }
+        .widget-notion .notion-row:nth-child(2) { animation-delay: 0.15s; }
+        .widget-notion .notion-row:nth-child(3) { animation-delay: 0.25s; }
+        @keyframes notion-row-in {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .widget-notion .notion-dot {
+            width: 8px;
+            height: 8px;
+            display: block;
+        }
+        .widget-notion .notion-dot.blue { background: var(--notion-accent); }
+        .widget-notion .notion-dot.red { background: var(--notion-warm); }
+        .widget-notion .notion-dot.teal { background: var(--notion-leaf); }
+        .widget-notion .notion-row strong {
+            font-weight: bold;
+            color: var(--notion-ink);
+        }
+        .widget-notion .notion-row span {
+            color: var(--secondary);
+            font-size: 0.66rem;
+        }
+        .widget-notion .notion-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.78rem;
+            font-weight: bold;
+            color: var(--notion-ink);
+            border-bottom: 1px solid var(--notion-ink);
+            padding-bottom: 1px;
+            transition: gap 0.2s ease;
+        }
+        .widget-notion:hover .notion-cta {
+            gap: 10px;
+        }
+        .widget-notion .notion-cta svg {
+            width: 12px;
+            height: 12px;
+            display: block;
         }
         /* Latest X article: under copyright on desktop; under widgets on mobile */
         .x-article-widget {
@@ -417,7 +550,7 @@
             margin: 0;
             color: var(--secondary);
         }
-        /* X article + podcast sit side by side, directly under copyright */
+        /* X article + Notion sit side by side, directly under copyright */
         .feature-row {
             display: flex;
             flex-wrap: wrap;
@@ -461,8 +594,10 @@
                 margin-top: 16px;
                 gap: 22px;
             }
-            .widget-podcast,
-            .widget-podcast .podcast-cover { width: 200px; max-width: 200px; }
+            .widget-notion {
+                width: min(240px, 100%);
+                max-width: 100%;
+            }
             .x-article-widget { max-width: 100%; }
         }
     </style>
@@ -546,10 +681,28 @@
                         <p class="x-article-excerpt" id="x-article-excerpt"></p>
                     </section>
 
-                    <a class="widget-podcast" id="podcast-latest-widget" href="https://open.spotify.com/show/4MJGzE251zbcdEOcI5R5eE" target="_blank" rel="noopener noreferrer" hidden>
-                        <img class="podcast-cover" id="podcast-cover" src="images/podcast-feedpilled.jpg" alt="" width="640" height="640" loading="lazy" decoding="async">
-                        <span class="podcast-title" id="podcast-title"></span>
-                        <span class="podcast-meta" id="podcast-meta">feedpilled</span>
+                    <a class="widget-notion" href="https://app.notion.com/p/aravindirl/3bbea2287b7e807f9cdcd7c1eab41004?v=3bbea2287b7e8000b6d4000c2aff8e85" target="_blank" rel="noopener noreferrer" title="Open my public Notion page">
+                        <span class="notion-face">
+                            <span class="notion-top">
+                                <svg class="notion-logo" viewBox="0 0 100 100" aria-hidden="true">
+                                    <path fill="#000" d="M6.017 4.313l55.333 -4.087c6.797 -0.583 8.53 -0.145 12.837 3.017l17.663 12.33c4.163 2.913 5.501 3.5 9.252 3.5v71.937c0 4.082 -1.5 6.414 -6.961 6.962l-64.367 3.79c-4.663 0.291 -6.881 -0.437 -9.337 -3.5L3.017 79.73C0.583 76.084 0 73.752 0 70.793V10.646c0 -3.5 1.334 -6.269 6.017 -6.333z"/>
+                                    <path fill="#fff" fill-rule="evenodd" d="M61.35 34.206c-3.79 0.291 -5.501 0.145 -8.53 -1.896L28.967 14.79c-0.583 -0.437 -0.291 -1.021 0.582 -0.875l25.375 3.646c3.208 0.437 5.501 2.771 5.501 5.979v10.666zm7.588 53.666c1.896 0.875 3.5 0 3.5 -1.896V38.956c0 -2.771 -1.021 -5.064 -3.208 -5.979L36.433 17.76c-2.333 -0.875 -4.375 -0.291 -4.375 2.333v47.041c0 2.333 0.875 5.355 2.042 6.521l20.71 25.229c1.167 1.458 2.625 2.042 4.375 1.458l9.753 -12.47zM25.785 37.356c-1.896 -1.021 -3.5 -0.437 -3.5 1.458v36.604c0 1.896 0.582 4.082 1.313 5.209l16.014 20.565c0.728 0.875 1.896 0.583 1.896 -0.728V52.9c0 -2.333 -0.728 -4.375 -2.042 -5.355L25.785 37.356z"/>
+                                </svg>
+                                <span class="notion-brand">notion</span>
+                                <span class="notion-live"><i></i>public</span>
+                            </span>
+                            <span class="notion-title">aravindirl&rsquo;s board</span>
+                            <span class="notion-sub">notes, scraps &amp; working tabs — open the live page</span>
+                            <span class="notion-rows" aria-hidden="true">
+                                <span class="notion-row"><i class="notion-dot blue"></i><strong>research</strong><span>active</span></span>
+                                <span class="notion-row"><i class="notion-dot teal"></i><strong>drafts</strong><span>cooking</span></span>
+                                <span class="notion-row"><i class="notion-dot red"></i><strong>scraps</strong><span>raw</span></span>
+                            </span>
+                            <span class="notion-cta">
+                                open public page
+                                <svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M6.22 3.22a.75.75 0 011.06 0l4.25 4.25a.75.75 0 010 1.06l-4.25 4.25a.75.75 0 01-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 010-1.06z"/></svg>
+                            </span>
+                        </span>
                     </a>
                 </div>
             </div>
@@ -608,29 +761,6 @@
                         stats.hidden = false;
                     })
                     .catch(function () { /* leave blank if the live count is unavailable */ });
-            }
-
-            // Auto-load latest Spotify podcast episode for feedpilled
-            var podcastWidget = document.getElementById('podcast-latest-widget');
-            if (podcastWidget && window.fetch) {
-                var showUrl = 'https://open.spotify.com/show/4MJGzE251zbcdEOcI5R5eE';
-                fetch('https://open.spotify.com/oembed?url=' + encodeURIComponent(showUrl))
-                    .then(function (r) { return r.json(); })
-                    .then(function (data) {
-                        var title = (data && data.title) || '';
-                        var cover = (data && data.thumbnail_url) || 'images/podcast-feedpilled.jpg';
-                        if (!title) throw new Error('No episode title');
-                        podcastWidget.href = showUrl;
-                        podcastWidget.title = 'Listen on Spotify: ' + title;
-                        document.getElementById('podcast-cover').src = cover;
-                        document.getElementById('podcast-cover').alt = 'Cover for ' + title;
-                        document.getElementById('podcast-title').textContent = title;
-                        document.getElementById('podcast-meta').textContent = 'feedpilled · latest episode';
-                        podcastWidget.hidden = false;
-                    })
-                    .catch(function () {
-                        podcastWidget.hidden = true;
-                    });
             }
 
             // Auto-load latest YouTube video for @aravindirl
