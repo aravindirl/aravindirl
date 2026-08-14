@@ -119,11 +119,10 @@ def write_tag_index(tags: list[str]) -> None:
         for tag in tags
     )
     body = f"""        <h1>tags</h1>
-        <p>read by tags</p>
-        <ol>
+        <ul>
 {items}
-        </ol>
-        <a href="../index.html" class="back-link">← back to notes</a>"""
+        </ul>
+        <a href="../../../index.html" class="back-link">← back to home</a>"""
     (TAGS_DIR / "index.html").write_text(page_shell("tags", body))
 
 
