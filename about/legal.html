@@ -18,30 +18,12 @@
     (function(){try{if(localStorage.getItem('theme')==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
     </script>
     <link rel="stylesheet" href="../css/theme.css">
-    <style>
-        *, *::before, *::after { box-sizing: border-box; }
-        body {
-            font-family: ui-monospace, Menlo, Monaco, 'Cascadia Code', 'Source Code Pro', Consolas, monospace;
-            font-size: 13px;
-            line-height: 1.6;
-            padding: 32px 36px;
-            margin: 0;
-        }
-        .container { max-width: 860px; }
-        h2 { font-size: 0.85rem; font-weight: bold; margin: 0 0 12px 0; }
-        p { font-size: 0.85rem; margin: 0 0 14px 0; }
-        .back-link { display: block; text-align: right; font-size: 0.85rem; margin-top: 40px; color:var(--text); text-decoration: none; }
-        .back-link:hover { text-decoration: underline; }
-        .back-link:visited { color:var(--text); }
-        @media (max-width: 640px) { body { padding: 20px 16px; } }
-    </style>
 </head>
 <body>
-    <button type="button" class="theme-toggle" data-theme-toggle>dark</button>
-    <div class="container">
-        <h2>Legal Disclaimer</h2>
+    <div class="wrap">
+        <p class="theme-line"><button type="button" class="theme-toggle" data-theme-toggle>dark</button> mode</p>
+        <h1>Legal Disclaimer</h1>
         <p>This website has been prepared solely for the purpose of providing information about Aravind Ramachandran. This website has been compiled in good faith by Aravind. However, no representation is made as to the completeness or accuracy of the information it contains. In particular, you should be aware that this information may be incomplete, may contain errors, or may have become out of date. Aravind makes no commitment, and disclaims any duty, to update any of the information. Aravind reserves the right to add, modify or delete any information on this website at any time. This publication and any references to products or services are provided "as is" without any warranty or implied term of any kind. Reproduction or distribution of any materials obtained on this website or linking to this website without written permission is prohibited.</p>
-
         <a href="../index.html" class="back-link">← back to home</a>
     </div>
     <script>

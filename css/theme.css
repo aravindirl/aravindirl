@@ -1,77 +1,251 @@
-/* Site theme: default light, optional pitch-black dark. */
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&family=Red+Hat+Display:wght@900&display=swap");
+
+/* Shared site chrome, inspired by kognise.dev (IBM Plex, invert-on-hover links). */
+
 :root {
   color-scheme: light;
-  --bg: #ffffff;
+  --bg: #f8f9fa;
   --text: #000000;
-  --secondary: #555555;
-  --link: #0000ee;
-  --link-v: #0000ee;
+  --secondary: #495057;
+  --link: #6741d9;
+  --link-v: #9c36b5;
+  --link-hover-fg: #ffffff;
   --border: #000000;
-  --bq: #333333;
-  --rule: #e6e6e6;
-  --selection: #e8e8e8;
+  --bq: #495057;
+  --bq-bg: #e9ecef;
+  --bq-edge: #868e96;
+  --rule: #ced4da;
+  --selection: #adb5bd9b;
   --space: 12px;
   --space-md: 20px;
   --space-lg: 28px;
+  --font-mono: "IBM Plex Mono", ui-monospace, Menlo, Monaco, monospace;
+  --font-serif: "IBM Plex Serif", Georgia, serif;
+  --font-display: "Red Hat Display", "IBM Plex Sans", sans-serif;
+  --measure: 800px;
 }
 
 html[data-theme="dark"] {
   color-scheme: dark;
   --bg: #000000;
   --text: #ffffff;
-  --secondary: #999999;
-  --link: #8ab4f8;
-  --link-v: #8ab4f8;
+  --secondary: #adb5bd;
+  --link: #b197fc;
+  --link-v: #e599f7;
+  --link-hover-fg: #000000;
   --border: #ffffff;
-  --bq: #cccccc;
-  --rule: #333333;
-  --selection: #333333;
+  --bq: #ced4da;
+  --bq-bg: #111111;
+  --bq-edge: #868e96;
+  --rule: #343a40;
+  --selection: #5c4d8a99;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 html {
   background: var(--bg);
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
+  margin: 0;
   background-color: var(--bg);
   color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 16px;
+  line-height: 1.8;
 }
 
 ::selection {
   background: var(--selection);
-  color: var(--text);
+  color: inherit;
+}
+
+h1, h2, h3, h4, strong {
+  font-weight: 600;
+}
+
+h1 {
+  line-height: 1.5;
+}
+
+h2 {
+  line-height: 1.6;
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+a:hover {
+  background: var(--link);
+  color: var(--link-hover-fg);
+}
+
+a:visited {
+  color: var(--link-v);
+}
+
+a:visited:hover {
+  background: var(--link-v);
+  color: var(--link-hover-fg);
+}
+
+a:not(.undecorated)::before { content: "["; }
+a:not(.undecorated)::after { content: "]"; }
+
+a.undecorated,
+a.undecorated:visited,
+a.undecorated:hover {
+  color: inherit;
+  background: transparent;
+}
+
+a.undecorated::before,
+a.undecorated::after {
+  content: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background: var(--rule);
+  margin: 40px 0;
+}
+
+blockquote {
+  background: var(--bq-bg);
+  border-left: 4px solid var(--bq-edge);
+  margin: 30px 0;
+  padding: 10px 10px 10px 30px;
+  font-style: italic;
+  color: var(--bq);
+}
+
+.wrap {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 20px 20px 80px;
+}
+
+.wrap > h1,
+main > h1 {
+  margin: 80px 0 30px;
+  font-size: 2rem;
+}
+
+.wrap > h2,
+main > h2,
+.prose h2 {
+  margin: 60px 0 0;
+  font-size: 1.35rem;
 }
 
 .theme-toggle {
-  position: fixed;
-  top: 16px;
-  right: 20px;
-  z-index: 100;
+  font: inherit;
+  font-size: inherit;
+  line-height: inherit;
   margin: 0;
-  padding: 4px 2px;
+  padding: 0;
   border: 0;
   background: transparent;
-  color: var(--text);
-  font: inherit;
-  font-size: 0.78rem;
-  line-height: 1;
-  text-decoration: underline;
-  text-underline-offset: 2px;
+  color: var(--link);
   cursor: pointer;
 }
 
+.theme-toggle::before { content: "["; }
+.theme-toggle::after { content: "]"; }
+
 .theme-toggle:hover {
-  opacity: 0.7;
+  background: var(--link);
+  color: var(--link-hover-fg);
 }
 
 .theme-toggle:focus-visible {
-  outline: 1px solid var(--text);
-  outline-offset: 3px;
+  outline: 2px solid var(--link);
+  outline-offset: 2px;
+}
+
+.theme-line {
+  margin: 20px 0;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 40px;
+}
+
+/* Writing / blog posts: kognise article voice */
+body.post {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+}
+
+body.post h1,
+body.post .post-heading {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 2.2rem;
+  margin: 0 0 12px;
+  text-align: center;
+  line-height: 1.25;
+}
+
+body.post .post-date,
+body.post .meta {
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  color: var(--secondary);
+  margin: 0 0 50px;
+}
+
+body.post .wrap {
+  padding-top: 48px;
+}
+
+body.post p {
+  margin: 20px 0;
+}
+
+body.post h2 {
+  margin-top: 80px;
+  font-size: 1.25rem;
+}
+
+body.post h3 {
+  margin-top: 60px;
+  font-style: italic;
+}
+
+body.post img {
+  margin: 16px 0;
+  border: 1px solid var(--rule);
 }
 
 @media (max-width: 640px) {
-  .theme-toggle {
-    top: 12px;
-    right: 14px;
+  body {
+    font-size: 15px;
+  }
+  .wrap > h1,
+  main > h1 {
+    margin-top: 48px;
+    font-size: 1.7rem;
+  }
+  body.post h1,
+  body.post .post-heading {
+    font-size: 1.7rem;
   }
 }
