@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&family=Red+Hat+Display:wght@900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,600;1,400&display=swap");
 
 /* Shared site chrome, inspired by kognise.dev (IBM Plex, invert-on-hover links). */
 
@@ -7,8 +7,8 @@
   --bg: #f8f9fa;
   --text: #000000;
   --secondary: #495057;
-  --link: #6741d9;
-  --link-v: #9c36b5;
+  --link: #c2410c;
+  --link-v: #9a3412;
   --link-hover-fg: #ffffff;
   --border: #000000;
   --bq: #495057;
@@ -20,8 +20,6 @@
   --space-md: 20px;
   --space-lg: 28px;
   --font-mono: "IBM Plex Mono", ui-monospace, Menlo, Monaco, monospace;
-  --font-serif: "IBM Plex Serif", Georgia, serif;
-  --font-display: "Red Hat Display", "IBM Plex Sans", sans-serif;
   --measure: 800px;
 }
 
@@ -30,15 +28,15 @@ html[data-theme="dark"] {
   --bg: #000000;
   --text: #ffffff;
   --secondary: #adb5bd;
-  --link: #b197fc;
-  --link-v: #e599f7;
+  --link: #ff922b;
+  --link-v: #ffa94d;
   --link-hover-fg: #000000;
   --border: #ffffff;
   --bq: #ced4da;
   --bq-bg: #111111;
   --bq-edge: #868e96;
   --rule: #343a40;
-  --selection: #5c4d8a99;
+  --selection: #c2410c66;
 }
 
 *,
@@ -192,29 +190,29 @@ main > h2,
   margin-top: 40px;
 }
 
-/* Writing / blog posts: kognise article voice */
+/* Writing / blog posts: same IBM Plex Mono as the homepage */
 body.post {
-  font-family: var(--font-serif);
-  font-size: 1.1rem;
+  font-family: var(--font-mono);
+  font-size: 16px;
 }
 
 body.post h1,
 body.post .post-heading {
-  font-family: var(--font-display);
-  font-weight: 900;
-  font-size: 2.2rem;
-  margin: 0 0 12px;
-  text-align: center;
-  line-height: 1.25;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 2rem;
+  margin: 8px 0 12px;
+  text-align: left;
+  line-height: 1.5;
 }
 
 body.post .post-date,
 body.post .meta {
-  text-align: center;
-  font-family: var(--font-mono);
+  text-align: left;
+  font-family: inherit;
   font-size: 0.95rem;
   color: var(--secondary);
-  margin: 0 0 50px;
+  margin: 0 0 28px;
 }
 
 body.post .wrap {
