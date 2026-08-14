@@ -13,789 +13,130 @@
     <meta property="og:image" content="https://www.aravindirl.com/og.svg">
     <meta property="og:url" content="https://www.aravindirl.com/">
     <link rel="canonical" href="https://www.aravindirl.com/">
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23fff'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='ui-monospace,monospace' font-size='18' font-weight='700' fill='%23000'%3Ea%3C/text%3E%3C/svg%3E">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23fff'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='IBM Plex Mono,monospace' font-size='18' font-weight='700' fill='%23000'%3Ea%3C/text%3E%3C/svg%3E">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://www.aravindirl.com/og.svg">
     <script>
     (function(){try{if(localStorage.getItem('theme')==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
     </script>
     <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/site.css">
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"Person","name":"Aravind Ramachandran","url":"https://www.aravindirl.com/","description":"I read books, write blogs, create content. Interested in Markets, Technology and Human behavior.","sameAs":["https://www.instagram.com/aravindirl/","https://www.threads.com/@aravindirl","https://x.com/aravindirl","https://github.com/aravindirl","https://www.linkedin.com/in/aravindirl/"]}
     </script>
-    <style>
-        *, *::before, *::after { box-sizing: border-box; }
-        html { -webkit-text-size-adjust: 100%; }
-        body {
-            font-family: ui-monospace, Menlo, Monaco, 'Cascadia Code', 'Source Code Pro', Consolas, monospace;
-            line-height: 1.6;
-            padding: 40px 40px 72px;
-            margin: 0;
-            font-size: 13px;
-        }
-        a { text-underline-offset: 2px; text-decoration-thickness: from-font; }
-        .container {
-            max-width: 1280px;
-        }
-        .page {
-            display: block;
-        }
-        .main {
-            max-width: 860px;
-        }
-        .profile-img { display:none; }
-        h1 {
-            font-size: 1.25rem;
-            font-weight: bold;
-            margin: 0 0 6px 0;
-            letter-spacing: 0;
-            line-height: 1.25;
-        }
-        .handle {
-            font-size: 0.85rem;
-            margin: 0 0 var(--space-md) 0;
-            color: var(--text);
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        .handle > a {
-            color:var(--link);
-            text-decoration: underline;
-        }
-        .handle > a:visited {
-            color:var(--link-v);
-        }
-        .social-links {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--text);
-            font-size: 0.85rem;
-            line-height: 1;
-        }
-        .social-links a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            line-height: 0;
-            transition: opacity 0.15s ease, transform 0.15s ease;
-        }
-        .social-links a:hover {
-            opacity: 0.7;
-            transform: translateY(-1px);
-        }
-        .social-links a:focus-visible {
-            outline: 1px solid var(--text);
-            outline-offset: 3px;
-        }
-        .social-links svg {
-            width: 15px;
-            height: 15px;
-            display: block;
-        }
-        .social-links .social-instagram svg {
-            fill: url(#instagram-gradient);
-        }
-        .social-links .social-threads svg {
-            width: 16px;
-            height: 16px;
-            fill: #000000;
-        }
-        .social-links .social-linkedin svg {
-            fill: #0A66C2;
-        }
-        .social-links .social-x svg {
-            fill: #000000;
-        }
-        html[data-theme="dark"] .social-links .social-threads svg,
-        html[data-theme="dark"] .social-links .social-threads svg path,
-        html[data-theme="dark"] .social-links .social-x svg,
-        html[data-theme="dark"] .social-links .social-x svg path {
-            fill: #ffffff;
-        }
-        .bio {
-            margin-bottom: var(--space-md);
-        }
-        .bio p {
-            margin: 0 0 var(--space) 0;
-            font-size: 0.85rem;
-            max-width: 64ch;
-            line-height: 1.65;
-        }
-        .bio a {
-            color:var(--link);
-            text-decoration: underline;
-        }
-        .bio a:visited {
-            color:var(--link-v);
-        }
-        .resources {
-            margin-bottom: var(--space-md);
-            font-size: 0.85rem;
-        }
-        .resources p {
-            margin: 0 0 8px 0;
-            font-weight: bold;
-        }
-        .resources ul {
-            margin: 0;
-            padding-left: 1.25em;
-            list-style-type: disc;
-        }
-        .resources ul li {
-            margin-bottom: 6px;
-            line-height: 1.55;
-            white-space: nowrap;
-        }
-        .resources a {
-            color:var(--link);
-            text-decoration: underline;
-        }
-        .resources a:visited {
-            color:var(--link-v);
-        }
-        .contact {
-            font-size: 0.85rem;
-            margin-bottom: var(--space-lg);
-            max-width: 64ch;
-            line-height: 1.65;
-        }
-        .contact a {
-            color:var(--link);
-            text-decoration: underline;
-        }
-        footer {
-            font-size: 0.85rem;
-        }
-        footer a {
-            color:var(--link);
-            text-decoration: underline;
-            display: block;
-            margin-bottom: 4px;
-        }
-        footer a:visited {
-            color:var(--link-v);
-        }
-        footer p {
-            margin: 4px 0 0 0;
-            color: var(--text);
-        }
-        /* Side widgets: stacked under content on small screens; right column on desktop */
-        .side-widgets {
-            margin-top: var(--space-lg);
-            display: flex;
-            flex-direction: column;
-            gap: 22px;
-            align-items: flex-start;
-            max-width: 360px;
-        }
-        .side-widgets a {
-            display: block;
-            color: var(--text);
-            text-decoration: none;
-        }
-        .side-widgets a:hover img {
-            opacity: 0.85;
-        }
-        .side-widgets img {
-            display: block;
-            width: 240px;
-            height: auto;
-            border: 1px solid var(--border);
-            transition: opacity 0.15s ease;
-        }
-        .side-widgets .widget-github img {
-            width: 360px;
-            background: var(--bg);
-            padding: 8px 6px 4px;
-        }
-        .side-widgets .widget-caption {
-            display: block;
-            margin-top: 7px;
-            font-size: 0.78rem;
-            line-height: 1.35;
-            color: var(--secondary);
-        }
-        .side-widgets .widget-stats {
-            display: block;
-            margin-top: 7px;
-            font-size: 0.78rem;
-            line-height: 1.45;
-            color: var(--secondary);
-        }
-        .side-widgets .widget-stats[hidden] {
-            display: none;
-        }
-        .side-widgets .widget-stats .gh-mark {
-            display: inline-block;
-            width: 12px;
-            height: 12px;
-            margin-left: 4px;
-            vertical-align: -1px;
-            fill: currentColor;
-        }
-        .side-widgets .widget-youtube {
-            max-width: 240px;
-            width: 240px;
-        }
-        .side-widgets .widget-youtube .yt-thumb {
-            display: block;
-            width: 240px;
-            max-width: 100%;
-            height: auto;
-            aspect-ratio: 16 / 9;
-            object-fit: cover;
-            border: 1px solid var(--border);
-            background: #111;
-        }
-        .side-widgets .widget-youtube .yt-title {
-            display: block;
-            margin-top: 8px;
-            font-size: 0.82rem;
-            font-weight: bold;
-            line-height: 1.35;
-            color: var(--text);
-        }
-        .side-widgets .widget-youtube .yt-meta {
-            display: block;
-            margin-top: 4px;
-            font-size: 0.75rem;
-            line-height: 1.4;
-            color: var(--secondary);
-        }
-        .side-widgets .widget-youtube[hidden] {
-            display: none;
-        }
-        .side-widgets a:hover .yt-title,
-        .side-widgets a:hover .widget-caption {
-            text-decoration: underline;
-            text-underline-offset: 2px;
-        }
-        .widget-aravchives {
-            max-width: 360px;
-            width: 100%;
-            font-size: 0.82rem;
-            line-height: 1.45;
-            color: var(--text);
-        }
-        .widget-aravchives .aravchives-heading {
-            display: block;
-            margin: 0 0 6px;
-            font-size: 0.82rem;
-            font-weight: bold;
-            color: var(--text);
-            text-decoration: none;
-        }
-        .widget-aravchives .aravchives-sub {
-            font-weight: normal;
-            color: var(--secondary);
-        }
-        .widget-aravchives .aravchives-rule {
-            border: 0;
-            border-top: 1px solid var(--border);
-            margin: 0 0 10px;
-        }
-        .widget-aravchives ol {
-            margin: 0;
-            padding-left: 1.35em;
-            list-style: decimal;
-            font-variant-numeric: tabular-nums;
-        }
-        .widget-aravchives li {
-            margin: 0 0 7px;
-        }
-        .widget-aravchives li:last-child {
-            margin-bottom: 0;
-        }
-        .side-widgets .widget-aravchives ol a {
-            display: inline;
-            color: var(--link);
-            text-decoration: underline;
-        }
-        .side-widgets .widget-aravchives ol a:visited {
-            color: var(--link-v);
-        }
-        .side-widgets .widget-aravchives .aravchives-more {
-            display: block;
-            margin-top: 10px;
-            margin-left: 1.35em;
-            font-size: 0.82rem;
-            color: var(--link);
-            text-decoration: underline;
-        }
-        .side-widgets .widget-aravchives .aravchives-more:visited {
-            color: var(--link-v);
-        }
-        /* Notion public page sits beside the X article */
-        .widget-notion {
-            --notion-ink: #000000;
-            --notion-paper: #ffffff;
-            --notion-grid: #d4d4d4;
-            --notion-accent: #2383e2;
-            --notion-warm: #eb5757;
-            --notion-leaf: #0f7b6c;
-            position: relative;
-            display: block;
-            flex: 0 0 auto;
-            width: 240px;
-            max-width: 240px;
-            margin: 0 12px 12px 0;
-            color: var(--notion-ink);
-            text-decoration: none;
-            isolation: isolate;
-        }
-        .widget-notion:visited {
-            color: var(--notion-ink);
-        }
-        .widget-notion::before,
-        .widget-notion::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            border: 1px solid var(--notion-ink);
-            background: var(--notion-paper);
-            z-index: -1;
-            transition: transform 0.25s ease;
-        }
-        .widget-notion::before {
-            transform: translate(5px, 5px);
-            background:
-                linear-gradient(135deg, transparent 48%, rgba(0,0,0,0.04) 50%, transparent 52%),
-                var(--notion-paper);
-        }
-        .widget-notion::after {
-            transform: translate(10px, 10px);
-            opacity: 0.55;
-        }
-        .widget-notion:hover::before {
-            transform: translate(7px, 4px) rotate(0.4deg);
-        }
-        .widget-notion:hover::after {
-            transform: translate(12px, 9px) rotate(-0.5deg);
-        }
-        .widget-notion .notion-face {
-            position: relative;
-            display: block;
-            border: 1px solid var(--notion-ink);
-            background-color: var(--notion-paper);
-            background-image:
-                radial-gradient(circle, var(--notion-grid) 0.7px, transparent 0.8px);
-            background-size: 10px 10px;
-            background-position: 4px 4px;
-            padding: 14px 14px 16px;
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
-        }
-        .widget-notion:hover .notion-face {
-            transform: translate(-2px, -2px);
-        }
-        .widget-notion .notion-top {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 12px;
-        }
-        .widget-notion .notion-logo {
-            width: 18px;
-            height: 18px;
-            flex-shrink: 0;
-            display: block;
-        }
-        .widget-notion .notion-brand {
-            font-size: 0.72rem;
-            letter-spacing: 0.04em;
-            text-transform: lowercase;
-            color: var(--secondary);
-        }
-        .widget-notion .notion-live {
-            margin-left: auto;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            font-size: 0.68rem;
-            color: var(--notion-leaf);
-        }
-        .widget-notion .notion-live i {
-            width: 6px;
-            height: 6px;
-            display: block;
-            background: var(--notion-leaf);
-            border-radius: 1px;
-            animation: notion-pulse 1.6s ease-in-out infinite;
-        }
-        @keyframes notion-pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.35; transform: scale(0.85); }
-        }
-        .widget-notion .notion-title {
-            display: block;
-            margin: 0 0 4px;
-            font-size: 0.95rem;
-            font-weight: bold;
-            line-height: 1.3;
-            color: var(--notion-ink);
-        }
-        .widget-notion .notion-sub {
-            display: block;
-            margin: 0 0 14px;
-            font-size: 0.72rem;
-            line-height: 1.4;
-            color: var(--secondary);
-        }
-        .widget-notion .notion-rows {
-            display: grid;
-            gap: 7px;
-            margin: 0 0 14px;
-        }
-        .widget-notion .notion-row {
-            display: grid;
-            grid-template-columns: 8px 1fr auto;
-            align-items: center;
-            gap: 8px;
-            padding: 6px 8px;
-            background: rgba(255,255,255,0.82);
-            border: 1px solid rgba(0,0,0,0.18);
-            font-size: 0.72rem;
-            line-height: 1.2;
-            animation: notion-row-in 0.55s ease both;
-        }
-        .widget-notion .notion-row:nth-child(1) { animation-delay: 0.05s; }
-        .widget-notion .notion-row:nth-child(2) { animation-delay: 0.15s; }
-        .widget-notion .notion-row:nth-child(3) { animation-delay: 0.25s; }
-        @keyframes notion-row-in {
-            from { opacity: 0; transform: translateY(6px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .widget-notion .notion-dot {
-            width: 8px;
-            height: 8px;
-            display: block;
-        }
-        .widget-notion .notion-dot.blue { background: var(--notion-accent); }
-        .widget-notion .notion-dot.red { background: var(--notion-warm); }
-        .widget-notion .notion-dot.teal { background: var(--notion-leaf); }
-        .widget-notion .notion-row strong {
-            font-weight: bold;
-            color: var(--notion-ink);
-        }
-        .widget-notion .notion-row span {
-            color: var(--secondary);
-            font-size: 0.66rem;
-        }
-        .widget-notion .notion-cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 0.78rem;
-            font-weight: bold;
-            color: var(--notion-ink);
-            border-bottom: 1px solid var(--notion-ink);
-            padding-bottom: 1px;
-            transition: gap 0.2s ease;
-        }
-        .widget-notion:hover .notion-cta {
-            gap: 10px;
-        }
-        .widget-notion .notion-cta svg {
-            width: 12px;
-            height: 12px;
-            display: block;
-        }
-        html[data-theme="dark"] .widget-notion {
-            --notion-ink: #ffffff;
-            --notion-paper: #000000;
-            --notion-grid: #333333;
-        }
-        html[data-theme="dark"] .widget-notion .notion-logo path:first-child {
-            fill: #ffffff;
-        }
-        html[data-theme="dark"] .widget-notion .notion-logo path:last-child {
-            fill: #000000;
-        }
-        html[data-theme="dark"] .widget-notion .notion-row {
-            background: rgba(0, 0, 0, 0.82);
-            border-color: rgba(255, 255, 255, 0.22);
-        }
-        html[data-theme="dark"] .widget-notion::before {
-            background:
-                linear-gradient(135deg, transparent 48%, rgba(255,255,255,0.06) 50%, transparent 52%),
-                var(--notion-paper);
-        }
-        /* Latest X article: under copyright on desktop; under widgets on mobile */
-        .x-article-widget {
-            margin-top: 0;
-            max-width: 420px;
-            flex: 1 1 auto;
-            min-width: 0;
-            font-size: 0.78rem;
-            line-height: 1.45;
-        }
-        .x-article-widget .x-article-meta {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 10px;
-        }
-        .x-article-widget .x-avatar {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            border: 1px solid var(--border);
-            flex-shrink: 0;
-        }
-        .x-article-widget .x-article-byline {
-            min-width: 0;
-        }
-        .x-article-widget .x-article-name {
-            color: var(--text);
-            font-weight: bold;
-        }
-        .x-article-widget .x-verified {
-            display: inline-flex;
-            align-items: center;
-            vertical-align: -2px;
-            margin-left: 3px;
-            color: #1d9bf0;
-        }
-        .x-article-widget .x-verified svg {
-            width: 14px;
-            height: 14px;
-            display: block;
-        }
-        .x-article-widget .x-verified[hidden] {
-            display: none;
-        }
-        .x-article-widget .x-article-user,
-        .x-article-widget .x-article-date {
-            color: var(--secondary);
-        }
-        .x-article-widget .x-article-cover-link {
-            display: block;
-            color: inherit;
-            text-decoration: none;
-        }
-        .x-article-widget .x-article-cover {
-            display: block;
-            width: 100%;
-            height: auto;
-            border: 1px solid var(--border);
-        }
-        .x-article-widget .x-article-cover-link:hover .x-article-cover {
-            opacity: 0.9;
-        }
-        .x-article-widget .x-article-title {
-            display: block;
-            margin: 10px 0 6px;
-            font-size: 0.9rem;
-            font-weight: bold;
-            color: var(--text);
-            text-decoration: none;
-        }
-        .x-article-widget .x-article-title:hover {
-            text-decoration: underline;
-            text-underline-offset: 2px;
-        }
-        .x-article-widget[hidden] {
-            display: none;
-        }
-        .x-article-widget .x-article-cover[hidden] {
-            display: none;
-        }
-        .x-article-widget .x-article-excerpt {
-            margin: 0;
-            color: var(--secondary);
-        }
-        /* X article + Notion sit side by side, directly under copyright */
-        .feature-row {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: flex-start;
-            gap: 28px;
-            margin-top: var(--space-lg);
-            padding-top: var(--space-md);
-            border-top: 1px solid var(--rule);
-            max-width: 860px;
-        }
-        @media (min-width: 1100px) {
-            .page {
-                display: grid;
-                grid-template-columns: minmax(0, 860px) 360px;
-                column-gap: 48px;
-                align-items: start;
-            }
-            .main {
-                grid-column: 1;
-            }
-            .side-widgets {
-                grid-column: 2;
-                margin-top: 0;
-                position: static;
-                max-height: none;
-                overflow: visible;
-            }
-            .feature-row {
-                flex-wrap: nowrap;
-            }
-        }
-        @media (max-width: 640px) {
-            body { padding: 24px 16px 56px; font-size: 13px; }
-            .resources ul li { white-space: normal; }
-            .side-widgets { max-width: 100%; }
-            .side-widgets img { width: 200px; }
-            .side-widgets .widget-github img { width: min(100%, 360px); }
-            .side-widgets .widget-youtube,
-            .side-widgets .widget-youtube .yt-thumb { width: 200px; max-width: 200px; }
-            .feature-row {
-                flex-direction: column;
-                max-width: 100%;
-                margin-top: 16px;
-                gap: 22px;
-            }
-            .widget-notion {
-                width: min(240px, 100%);
-                max-width: 100%;
-            }
-            .x-article-widget { max-width: 100%; }
-        }
-    </style>
 </head>
 <body>
-    <button type="button" class="theme-toggle" data-theme-toggle>dark</button>
     <script>
     document.addEventListener('keydown',function(e){
         if(e.key==='Backspace'&&!['INPUT','TEXTAREA'].includes(document.activeElement.tagName)){ e.preventDefault(); history.back(); }
     });
     </script>
-    <div class="container">
-        <div class="page">
-            <div class="main">
-                <h1>Aravind Ramachandran</h1>
-                <p class="handle">
-                    <a href="https://www.aravindirl.com/">@aravindirl</a>
-                    <span class="social-links" aria-label="Social profiles">
-                        (
-                        <a class="social-instagram" href="https://www.instagram.com/aravindirl/" target="_blank" rel="noopener noreferrer" title="Instagram — @aravindirl" aria-label="Instagram @aravindirl">
-                            <svg viewBox="0 0 24 24" aria-hidden="true">
-                                <defs>
-                                    <radialGradient id="instagram-gradient" cx="30%" cy="107%" r="150%">
-                                        <stop offset="0%" stop-color="#fdf497"/>
-                                        <stop offset="5%" stop-color="#fdf497"/>
-                                        <stop offset="45%" stop-color="#fd5949"/>
-                                        <stop offset="60%" stop-color="#d6249f"/>
-                                        <stop offset="90%" stop-color="#285AEB"/>
-                                    </radialGradient>
-                                </defs>
-                                <path fill="url(#instagram-gradient)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
-                            </svg>
-                        </a>
-                        <a class="social-threads" href="https://www.threads.com/@aravindirl" target="_blank" rel="noopener noreferrer" title="Threads — @aravindirl" aria-label="Threads @aravindirl">
-                            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#000000" d="M18.263 11.097c-.03-3.486-1.92-5.586-5.111-5.586-2.13 0-3.922.963-4.863 2.499l2.062 1.438c.535-.843 1.272-1.543 2.628-1.543 1.528 0 2.318.85 2.544 2.431a15 15 0 0 0-2.236-.173c-4.125 0-6.068 1.867-6.068 4.336s1.943 3.99 4.804 3.99c3.139 0 5.013-2.115 5.781-4.735.798.361 1.348 1.204 1.348 2.47 0 3.387-3.907 5.232-7.22 5.232-4.885 0-8.077-3.207-8.077-8.424 0-6.392 4.223-10.487 9.9-10.487 3.808 0 5.69 1.671 6.97 3.914l2.108-1.475C21.44 2.078 18.331 0 13.663 0 6.227 0 1.168 5.277 1.168 12.934c0 7 4.953 11.066 10.856 11.066 4.878 0 9.809-2.846 9.809-7.716 0-2.545-1.46-4.231-3.569-5.187m-6.33 4.855c-1.077 0-2.026-.512-2.026-1.453 0-1.483 1.822-1.934 3.606-1.934.678 0 1.34.045 1.927.173-.422 1.927-1.671 3.215-3.508 3.214Z"/></svg>
-                        </a>
-                        <a class="social-linkedin" href="https://www.linkedin.com/in/aravindirl/" target="_blank" rel="noopener noreferrer" title="LinkedIn — aravindirl" aria-label="LinkedIn aravindirl">
-                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                        </a>
-                        <a class="social-x" href="https://x.com/aravindirl" target="_blank" rel="noopener noreferrer" title="X — @aravindirl" aria-label="X @aravindirl">
-                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                        </a>
-                        )
-                    </span>
-                </p>
-                <div class="bio">
-                    <p>Hi, am Aravind</p>
-                    <p>I read, write, record and code,<br>    
-                    Love art, music, films, tech &amp; whatnot (i have real trouble to be specific),<br>
-                    Most of my entertainment comes from the internet culture than from films &amp; sports.(<a href="about/about.html">more</a>)</p>
-                </div>
+    <main>
+        <h1>aravindirl</h1>
 
-                <div class="resources">
-                    <p>Resources:-</p>
-                    <ul>
-                        <li>Writing articles & posting, chronoically online - <a href="https://x.com/aravindirl/" target="_blank" rel="noopener noreferrer">x.com/@aravindirl</a></li> 
-                        <li>Filming, Documenting, Playing Music &amp; Yapping about random things - <a href="https://www.youtube.com/@aravindirl" target="_blank" rel="noopener noreferrer">youtube.com/@aravindirl</a></li>
-                    </ul>
-                </div>
+        <p class="lede">Hello! I usually go by <a href="https://www.aravindirl.com/">@aravindirl</a> on the internet. I read, write, record and code. Love art, music, films, tech &amp; whatnot (i have real trouble to be specific). Most of my entertainment comes from internet culture more than films &amp; sports. You may enjoy <a href="about/about.html">knowing a little more</a>.</p>
 
-                <div class="contact">
-                    write to me (<a href="mailto:raravind2610@gmail.com">raravind2610@gmail.com</a>) i will reply in 48 hours, will add you to my list guest list ;-)
-                </div>
+        <p>Reach out: <a href="mailto:raravind2610@gmail.com">raravind2610@gmail.com</a> — i will reply in 48 hours, will add you to my guest list ;-)</p>
 
-                <footer>
-                    <a href="about/legal.html">Legal Disclaimer</a>
-                    <p>Copyright &copy; <span id="year"></span> aravindirl</p>
-                </footer>
+        <p class="find-me">
+            Find me:&nbsp;
+            <a href="https://www.instagram.com/aravindirl/" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="https://www.threads.com/@aravindirl" target="_blank" rel="noopener noreferrer">Threads</a>
+            <a href="https://x.com/aravindirl" target="_blank" rel="noopener noreferrer">X</a>
+            <a href="https://www.linkedin.com/in/aravindirl/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://github.com/aravindirl" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </p>
 
-                <div class="feature-row">
-                    <section class="x-article-widget" id="x-article-widget" aria-label="Latest X article" hidden>
-                        <div class="x-article-meta">
-                            <img class="x-avatar" id="x-article-avatar" src="images/x-avatar.jpg" width="200" height="200" alt="" loading="lazy" decoding="async">
-                            <div class="x-article-byline">
-                                <div><span class="x-article-name" id="x-article-name">pinkscholes</span><span class="x-verified" id="x-article-verified" hidden title="Verified" aria-label="Verified"><svg viewBox="0 0 22 22" aria-hidden="true"><path fill="currentColor" d="M20.396 11c-.018-.646-.215-1.275-.57-1.816-.354-.54-.852-.972-1.438-1.246.223-.607.27-1.264.14-1.897-.131-.634-.437-1.218-.882-1.687-.47-.445-1.053-.75-1.687-.882-.633-.13-1.29-.083-1.897.14-.273-.587-.704-1.086-1.245-1.44S11.647 1.62 11 1.604c-.646.015-1.273.213-1.813.568s-.969.854-1.24 1.44c-.608-.223-1.267-.272-1.902-.14-.635.13-1.218.436-1.689.882-.445.47-.749 1.055-.878 1.688-.13.633-.08 1.29.144 1.896-.587.274-1.087.705-1.443 1.245-.356.54-.555 1.17-.574 1.817.02.647.218 1.276.574 1.817.356.54.856.972 1.443 1.245-.224.606-.274 1.263-.144 1.896.13.634.433 1.218.877 1.688.47.443 1.054.747 1.687.878.633.132 1.29.084 1.897-.136.274.586.705 1.084 1.246 1.439.54.354 1.17.551 1.816.569.647-.016 1.276-.213 1.817-.567s.972-.854 1.245-1.44c.604.239 1.266.296 1.903.164.636-.132 1.22-.447 1.68-.907.46-.46.776-1.044.908-1.681s.075-1.299-.165-1.903c.586-.274 1.084-.705 1.439-1.246.354-.54.551-1.17.569-1.816zM9.662 14.85l-3.429-3.428 1.293-1.302 2.072 2.072 4.4-4.794 1.347 1.246z"/></svg></span> <span class="x-article-user" id="x-article-user">@aravindirl</span></div>
-                                <div class="x-article-date" id="x-article-date"></div>
-                            </div>
-                        </div>
-                        <a class="x-article-cover-link" id="x-article-cover-link" href="https://x.com/aravindirl" target="_blank" rel="noopener noreferrer">
-                            <img class="x-article-cover" id="x-article-cover" src="images/x-article-cover.jpg" width="1200" height="480" alt="" loading="lazy" decoding="async">
-                        </a>
-                        <a class="x-article-title" id="x-article-title" href="https://x.com/aravindirl" target="_blank" rel="noopener noreferrer"></a>
-                        <p class="x-article-excerpt" id="x-article-excerpt"></p>
-                    </section>
+        <p>On this page:</p>
+        <nav class="quick-links" aria-label="On this page">
+            <ul>
+                <li><a href="#writing">Writing!</a></li>
+                <li><a href="#now">Now!</a></li>
+                <li><a href="#elsewhere">Elsewhere!</a></li>
+            </ul>
+        </nav>
 
-                    <a class="widget-notion" href="https://app.notion.com/p/aravindirl/3bbea2287b7e807f9cdcd7c1eab41004?v=3bbea2287b7e8000b6d4000c2aff8e85" target="_blank" rel="noopener noreferrer" title="Open my public Notion page">
-                        <span class="notion-face">
-                            <span class="notion-top">
-                                <svg class="notion-logo" viewBox="0 0 100 100" aria-hidden="true">
-                                    <path fill="#000" d="M6.017 4.313l55.333 -4.087c6.797 -0.583 8.53 -0.145 12.837 3.017l17.663 12.33c4.163 2.913 5.501 3.5 9.252 3.5v71.937c0 4.082 -1.5 6.414 -6.961 6.962l-64.367 3.79c-4.663 0.291 -6.881 -0.437 -9.337 -3.5L3.017 79.73C0.583 76.084 0 73.752 0 70.793V10.646c0 -3.5 1.334 -6.269 6.017 -6.333z"/>
-                                    <path fill="#fff" fill-rule="evenodd" d="M61.35 34.206c-3.79 0.291 -5.501 0.145 -8.53 -1.896L28.967 14.79c-0.583 -0.437 -0.291 -1.021 0.582 -0.875l25.375 3.646c3.208 0.437 5.501 2.771 5.501 5.979v10.666zm7.588 53.666c1.896 0.875 3.5 0 3.5 -1.896V38.956c0 -2.771 -1.021 -5.064 -3.208 -5.979L36.433 17.76c-2.333 -0.875 -4.375 -0.291 -4.375 2.333v47.041c0 2.333 0.875 5.355 2.042 6.521l20.71 25.229c1.167 1.458 2.625 2.042 4.375 1.458l9.753 -12.47zM25.785 37.356c-1.896 -1.021 -3.5 -0.437 -3.5 1.458v36.604c0 1.896 0.582 4.082 1.313 5.209l16.014 20.565c0.728 0.875 1.896 0.583 1.896 -0.728V52.9c0 -2.333 -0.728 -4.375 -2.042 -5.355L25.785 37.356z"/>
-                                </svg>
-                                <span class="notion-brand">notion</span>
-                                <span class="notion-live"><i></i>public</span>
-                            </span>
-                            <span class="notion-title">aravindirl&rsquo;s board</span>
-                            <span class="notion-sub">notes, scraps &amp; working tabs — open the live page</span>
-                            <span class="notion-rows" aria-hidden="true">
-                                <span class="notion-row"><i class="notion-dot blue"></i><strong>research</strong><span>active</span></span>
-                                <span class="notion-row"><i class="notion-dot teal"></i><strong>drafts</strong><span>cooking</span></span>
-                                <span class="notion-row"><i class="notion-dot red"></i><strong>scraps</strong><span>raw</span></span>
-                            </span>
-                            <span class="notion-cta">
-                                open public page
-                                <svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M6.22 3.22a.75.75 0 011.06 0l4.25 4.25a.75.75 0 010 1.06l-4.25 4.25a.75.75 0 01-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 010-1.06z"/></svg>
-                            </span>
-                        </span>
-                    </a>
+        <p class="theme-line">
+            <button type="button" class="theme-toggle" data-theme-toggle>dark</button>
+            mode
+        </p>
+
+        <h2 id="writing">Writing!</h2>
+        <p>Public journal and giving back to the internet — <a href="about/lucidnotes/">aravchives</a>. Backup for my X articles lives in <a href="about/x-backup/">x backup</a>.</p>
+        <section class="widget-aravchives" aria-label="aravchives">
+            <ol reversed start="5">
+                <li><a href="about/lucidnotes/no.5.html">IM LOST...</a></li>
+                <li><a href="about/lucidnotes/no.4.html">call me by your name</a></li>
+                <li><a href="about/lucidnotes/no.3.html">past fetish</a></li>
+                <li><a href="about/lucidnotes/no.2.html">ever this never ending cycle ever end!?</a></li>
+            </ol>
+            <a href="about/lucidnotes/">see more</a>
+        </section>
+
+        <h2 id="now">Now!</h2>
+        <p>Stuff that is live right now — a playlist, github, youtube, the latest X article, and a public notion board.</p>
+
+        <section class="x-article-widget" id="x-article-widget" aria-label="Latest X article" hidden>
+            <div class="x-article-meta">
+                <img class="x-avatar" id="x-article-avatar" src="images/x-avatar.jpg" width="200" height="200" alt="" loading="lazy" decoding="async">
+                <div class="x-article-byline">
+                    <div><span class="x-article-name" id="x-article-name">pinkscholes</span><span class="x-verified" id="x-article-verified" hidden title="Verified" aria-label="Verified"><svg viewBox="0 0 22 22" aria-hidden="true"><path fill="currentColor" d="M20.396 11c-.018-.646-.215-1.275-.57-1.816-.354-.54-.852-.972-1.438-1.246.223-.607.27-1.264.14-1.897-.131-.634-.437-1.218-.882-1.687-.47-.445-1.053-.75-1.687-.882-.633-.13-1.29-.083-1.897.14-.273-.587-.704-1.086-1.245-1.44S11.647 1.62 11 1.604c-.646.015-1.273.213-1.813.568s-.969.854-1.24 1.44c-.608-.223-1.267-.272-1.902-.14-.635.13-1.218.436-1.689.882-.445.47-.749 1.055-.878 1.688-.13.633-.08 1.29.144 1.896-.587.274-1.087.705-1.443 1.245-.356.54-.555 1.17-.574 1.817.02.647.218 1.276.574 1.817.356.54.856.972 1.443 1.245-.224.606-.274 1.263-.144 1.896.13.634.433 1.218.877 1.688.47.443 1.054.747 1.687.878.633.132 1.29.084 1.897-.136.274.586.705 1.084 1.246 1.439.54.354 1.17.551 1.816.569.647-.016 1.276-.213 1.817-.567s.972-.854 1.245-1.44c.604.239 1.266.296 1.903.164.636-.132 1.22-.447 1.68-.907.46-.46.776-1.044.908-1.681s.075-1.299-.165-1.903c.586-.274 1.084-.705 1.439-1.246.354-.54.551-1.17.569-1.816zM9.662 14.85l-3.429-3.428 1.293-1.302 2.072 2.072 4.4-4.794 1.347 1.246z"/></svg></span> <span class="x-article-user" id="x-article-user">@aravindirl</span></div>
+                    <div class="x-article-date" id="x-article-date"></div>
                 </div>
             </div>
+            <a class="undecorated" id="x-article-cover-link" href="https://x.com/aravindirl" target="_blank" rel="noopener noreferrer">
+                <img class="x-article-cover" id="x-article-cover" src="images/x-article-cover.jpg" width="1200" height="480" alt="" loading="lazy" decoding="async">
+            </a>
+            <a class="x-article-title" id="x-article-title" href="https://x.com/aravindirl" target="_blank" rel="noopener noreferrer"></a>
+            <p class="x-article-excerpt" id="x-article-excerpt"></p>
+        </section>
 
-            <aside class="side-widgets" aria-label="Widgets">
-                <a class="widget" href="https://open.spotify.com/user/vtubl2p2emhobb5yc4qdzorc2" target="_blank" rel="noopener noreferrer" title="Open playlist on Spotify: my plumber">
-                    <img src="images/playlist-my-plumber.jpg" width="640" height="480" alt="my plumber — Spotify playlist cover" loading="lazy" decoding="async">
-                    <span class="widget-caption">my active playlist</span>
-                </a>
-                <a class="widget widget-github" href="https://github.com/aravindirl" target="_blank" rel="noopener noreferrer" title="GitHub contributions — aravindirl">
-                    <img id="gh-contrib-chart" width="663" height="104" alt="Live GitHub contribution graph for aravindirl" decoding="async">
-                    <span class="widget-stats" id="gh-contrib-stats" hidden><span id="gh-contrib-count"></span> contributions in the last year on github <svg class="gh-mark" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></span>
-                </a>
-                <a class="widget widget-youtube" id="yt-latest-widget" href="https://www.youtube.com/@aravindirl" target="_blank" rel="noopener noreferrer" hidden>
-                    <img class="yt-thumb" id="yt-thumb" src="" alt="" width="480" height="360" loading="lazy" decoding="async">
-                    <span class="yt-title" id="yt-title"></span>
-                    <span class="yt-meta" id="yt-meta"></span>
-                </a>
-                <section class="widget-aravchives" aria-label="aravchives">
-                    <p class="aravchives-heading">aravchives <span class="aravchives-sub">(my public journal)</span></p>
-                    <hr class="aravchives-rule">
-                    <ol reversed start="5">
-                        <li><a href="about/lucidnotes/no.5.html">IM LOST...</a></li>
-                        <li><a href="about/lucidnotes/no.4.html">call me by your name</a></li>
-                        <li><a href="about/lucidnotes/no.3.html">past fetish</a></li>
-                        <li><a href="about/lucidnotes/no.2.html">ever this never ending cycle ever end!?</a></li>
-                    </ol>
-                    <a class="aravchives-more" href="about/lucidnotes/">see more</a>
-                </section>
-            </aside>
+        <a class="widget-notion undecorated" href="https://app.notion.com/p/aravindirl/3bbea2287b7e807f9cdcd7c1eab41004?v=3bbea2287b7e8000b6d4000c2aff8e85" target="_blank" rel="noopener noreferrer" title="Open my public Notion page">
+            <span class="notion-top">
+                <svg class="notion-logo" viewBox="0 0 100 100" aria-hidden="true">
+                    <path fill="#000" d="M6.017 4.313l55.333 -4.087c6.797 -0.583 8.53 -0.145 12.837 3.017l17.663 12.33c4.163 2.913 5.501 3.5 9.252 3.5v71.937c0 4.082 -1.5 6.414 -6.961 6.962l-64.367 3.79c-4.663 0.291 -6.881 -0.437 -9.337 -3.5L3.017 79.73C0.583 76.084 0 73.752 0 70.793V10.646c0 -3.5 1.334 -6.269 6.017 -6.333z"/>
+                    <path fill="#fff" fill-rule="evenodd" d="M61.35 34.206c-3.79 0.291 -5.501 0.145 -8.53 -1.896L28.967 14.79c-0.583 -0.437 -0.291 -1.021 0.582 -0.875l25.375 3.646c3.208 0.437 5.501 2.771 5.501 5.979v10.666zm7.588 53.666c1.896 0.875 3.5 0 3.5 -1.896V38.956c0 -2.771 -1.021 -5.064 -3.208 -5.979L36.433 17.76c-2.333 -0.875 -4.375 -0.291 -4.375 2.333v47.041c0 2.333 0.875 5.355 2.042 6.521l20.71 25.229c1.167 1.458 2.625 2.042 4.375 1.458l9.753 -12.47zM25.785 37.356c-1.896 -1.021 -3.5 -0.437 -3.5 1.458v36.604c0 1.896 0.582 4.082 1.313 5.209l16.014 20.565c0.728 0.875 1.896 0.583 1.896 -0.728V52.9c0 -2.333 -0.728 -4.375 -2.042 -5.355L25.785 37.356z"/>
+                </svg>
+                <span class="notion-brand">notion</span>
+                <span class="notion-live">public</span>
+            </span>
+            <span class="notion-title">aravindirl&rsquo;s board</span>
+            <span class="notion-sub">notes, scraps &amp; working tabs — open the live page</span>
+            <span class="notion-rows" aria-hidden="true">
+                <span class="notion-row"><i class="notion-dot blue"></i><strong>research</strong><span>active</span></span>
+                <span class="notion-row"><i class="notion-dot teal"></i><strong>drafts</strong><span>cooking</span></span>
+                <span class="notion-row"><i class="notion-dot red"></i><strong>scraps</strong><span>raw</span></span>
+            </span>
+        </a>
+
+        <div class="grid-twos">
+            <a class="undecorated" href="https://open.spotify.com/user/vtubl2p2emhobb5yc4qdzorc2" target="_blank" rel="noopener noreferrer" title="Open playlist on Spotify: my plumber">
+                <img src="images/playlist-my-plumber.jpg" width="640" height="480" alt="my plumber — Spotify playlist cover" loading="lazy" decoding="async">
+                <span class="widget-caption">my active playlist</span>
+            </a>
+            <a class="undecorated widget-youtube" id="yt-latest-widget" href="https://www.youtube.com/@aravindirl" target="_blank" rel="noopener noreferrer" hidden>
+                <img class="yt-thumb" id="yt-thumb" src="" alt="" width="480" height="360" loading="lazy" decoding="async">
+                <span class="yt-title" id="yt-title"></span>
+                <span class="yt-meta" id="yt-meta"></span>
+            </a>
         </div>
-    </div>
+
+        <a class="undecorated widget-github" href="https://github.com/aravindirl" target="_blank" rel="noopener noreferrer" title="GitHub contributions — aravindirl">
+            <img id="gh-contrib-chart" width="663" height="104" alt="Live GitHub contribution graph for aravindirl" decoding="async">
+            <span class="widget-stats" id="gh-contrib-stats" hidden><span id="gh-contrib-count"></span> contributions in the last year on github <svg class="gh-mark" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></span>
+        </a>
+
+        <h2 id="elsewhere">Elsewhere!</h2>
+        <div class="resources">
+            <p>Writing articles &amp; posting, chronically online — <a href="https://x.com/aravindirl/" target="_blank" rel="noopener noreferrer">x.com/@aravindirl</a></p>
+            <p>Filming, documenting, playing music &amp; yapping about random things — <a href="https://www.youtube.com/@aravindirl" target="_blank" rel="noopener noreferrer">youtube.com/@aravindirl</a></p>
+        </div>
+
+        <footer class="site-footer">
+            <a href="about/legal.html">Legal Disclaimer</a>
+            <p>Copyright &copy; <span id="year"></span> aravindirl</p>
+        </footer>
+    </main>
 
     <script src="js/theme.js"></script>
     <script>
@@ -809,11 +150,10 @@
 
             function setGhChart() {
                 if (!img) return;
-                // Live chart from GitHub activity; daily cache-bust so it refreshes as contributions grow
                 var dark = document.documentElement.getAttribute('data-theme') === 'dark';
                 img.src = dark
-                    ? 'https://ghchart.rshah.org/ffffff/aravindirl?' + stamp
-                    : 'https://ghchart.rshah.org/aravindirl?' + stamp;
+                    ? 'https://ghchart.rshah.org/b197fc/aravindirl?' + stamp
+                    : 'https://ghchart.rshah.org/6741d9/aravindirl?' + stamp;
             }
             setGhChart();
             document.addEventListener('themechange', setGhChart);
@@ -831,7 +171,6 @@
                     .catch(function () { /* leave blank if the live count is unavailable */ });
             }
 
-            // Auto-load latest YouTube video for @aravindirl
             var ytWidget = document.getElementById('yt-latest-widget');
             if (ytWidget && window.fetch) {
                 var ytHosts = [
@@ -839,7 +178,6 @@
                     'https://y.com.sb'
                 ];
                 var ytChannelId = 'UC8Oh3fwW4EJOOHCADJeW-HQ';
-                // Shown if every live API host fails, so the widget never stays blank
                 var ytFallback = {
                     videoId: 'ZhjEaT8Dtk8',
                     title: 'life before discovering careers',
@@ -908,7 +246,6 @@
                 fetchLatestYoutube(0);
             }
 
-            // Auto-load latest X article for @aravindirl
             var widget = document.getElementById('x-article-widget');
             if (!widget || !window.fetch) return;
 
@@ -976,7 +313,6 @@
                 .then(function (list) {
                     var latest = list && list.results && list.results[0];
                     if (!latest || !latest.id) throw new Error('No articles found');
-                    // Detail endpoint includes cover art + fuller article fields
                     return fetch('https://api.fxtwitter.com/aravindirl/status/' + latest.id).then(function (r) { return r.json(); });
                 })
                 .then(function (detail) {

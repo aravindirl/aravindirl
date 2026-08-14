@@ -19,102 +19,13 @@
     (function(){try{if(localStorage.getItem('theme')==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
     </script>
     <link rel="stylesheet" href="../css/theme.css">
-    <style>
-        *, *::before, *::after { box-sizing: border-box; }
-        body {
-            font-family: ui-monospace, Menlo, Monaco, 'Cascadia Code', 'Source Code Pro', Consolas, monospace;
-            font-size: 13px;
-            line-height: 1.65;
-            padding: 40px 40px 72px;
-            margin: 0;
-        }
-        
-        a { text-underline-offset: 2px; text-decoration-thickness: from-font; }
-        .container {
-            max-width: 860px;
-        }
-        h1 {
-            font-size: 1.25rem;
-            font-weight: bold;
-            margin: 0 0 20px 0;
-        }
-        h2 {
-            font-size: 0.85rem;
-            font-weight: bold;
-            margin: 24px 0 8px 0;
-        }
-        p {
-            font-size: 0.85rem;
-            margin: 0 0 14px 0;
-        }
-        ul {
-            margin: 0 0 14px 0;
-            padding-left: 20px;
-            list-style-type: disc;
-        }
-        ul li {
-            font-size: 0.85rem;
-            margin-bottom: 5px;
-            line-height: 1.6;
-        }
-        blockquote {
-            margin: 12px 0 14px 0;
-            padding-left: 16px;
-            border-left:2px solid var(--border);
-            font-style: italic;
-            font-size: 0.85rem;
-            color:var(--bq);
-        }
-        a {
-            color:var(--link);
-            text-decoration: underline;
-        }
-        a:visited {
-            color:var(--link-v);
-        }
-        .back-link {
-            display: block;
-            text-align: right;
-            font-size: 0.85rem;
-            margin-top: 40px;
-            color:var(--text);
-            text-decoration: none;
-        }
-        .back-link:hover {
-            text-decoration: underline;
-        }
-        .back-link:visited {
-            color:var(--text);
-        }
-        .sidebar {
-            position: fixed;
-            top: 60px;
-            right: 28px;
-            font-size: 0.78rem;
-            line-height: 2;
-            text-align: right;
-        }
-        .sidebar a {
-            display: block;
-            color: var(--link);
-            text-decoration: underline;
-        }
-        .sidebar a:visited { color: var(--link-v); }
-        .mobile-links { display: none; margin-top: 28px; }
-        .mobile-links a { display: block; font-size: 0.85rem; color: var(--link); text-decoration: underline; margin-bottom: 6px; }
-        .mobile-links a:visited { color: var(--link-v); }
-        @media (max-width: 1100px) { .sidebar { display: none; } .mobile-links { display: block; } }
-        @media (max-width: 640px) {
-            body { padding: 24px 16px 56px; }
-        }
-    </style>
 </head>
 <body>
-    <button type="button" class="theme-toggle" data-theme-toggle>dark</button>
-    <div class="container">
-        
-        <p>my public journal and giving back to internet - <a href="lucidnotes/">aravchives</a></p>
-        <p>backup for my x articles - <a href="x-backup/">x backup</a></p>
+    <div class="wrap">
+        <p class="theme-line"><button type="button" class="theme-toggle" data-theme-toggle>dark</button> mode</p>
+        <h1>about</h1>
+        <p>my public journal and giving back to internet — <a href="lucidnotes/">aravchives</a></p>
+        <p>backup for my x articles — <a href="x-backup/">x backup</a></p>
 
         <h2>Things you should know about me:-</h2>
         <ul>
@@ -132,7 +43,6 @@
             <li>After work, I went on a lot of solo dinner and movie dates. Idling in traffic, I felt bitter at the sight of couples on bikes. I turned my loneliness into an aesthetic after watching Blade Runner 2049 and incel edits on my Instagram feed. The best time of the year are the winter nights after work, where I'd fill the tank, put on my AirPods playing CAS, Lana Del Rey, The Weeknd and roam around the city.</li>
             <li>Used to do a lot of panic eating, as a result I gained like 30kgs and developed insulin resistance, got diagnosed as Prediabetic. Broke my confidence and got a handful of embarrassing experiences.</li>
             <li>Took a break for a few months, lived with my grandparents, ate super clean food, got spiritually &amp; physically active, learnt to swim, climbed a tree, touched grass, read &amp; written a lot and got low on cortisol. Ever since am doing well.</li>
-        
         </ul>
 
         <a href="../index.html" class="back-link">← back to home</a>
