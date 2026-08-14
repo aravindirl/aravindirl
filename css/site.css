@@ -12,6 +12,7 @@ main {
 .resources p,
 .resources ul,
 .find-me,
+.read-by-tags,
 .quick-links {
   margin: 20px 0;
 }
