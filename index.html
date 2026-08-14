@@ -16,35 +16,23 @@
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23fff'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='ui-monospace,monospace' font-size='18' font-weight='700' fill='%23000'%3Ea%3C/text%3E%3C/svg%3E">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://www.aravindirl.com/og.svg">
+    <script>
+    (function(){try{if(localStorage.getItem('theme')==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
+    </script>
+    <link rel="stylesheet" href="css/theme.css">
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"Person","name":"Aravind Ramachandran","url":"https://www.aravindirl.com/","description":"I read books, write blogs, create content. Interested in Markets, Technology and Human behavior.","sameAs":["https://www.instagram.com/aravindirl/","https://www.threads.com/@aravindirl","https://x.com/aravindirl","https://github.com/aravindirl","https://www.linkedin.com/in/aravindirl/"]}
     </script>
     <style>
-        :root {
-            --bg:#ffffff;
-            --text:#000000;
-            --secondary:#555555;
-            --link:#0000EE;
-            --link-v:#0000EE;
-            --border:#000000;
-            --bq:#333333;
-            --rule:#e6e6e6;
-            --space:12px;
-            --space-md:20px;
-            --space-lg:28px;
-        }
         *, *::before, *::after { box-sizing: border-box; }
         html { -webkit-text-size-adjust: 100%; }
         body {
             font-family: ui-monospace, Menlo, Monaco, 'Cascadia Code', 'Source Code Pro', Consolas, monospace;
-            background-color:var(--bg);
-            color:var(--text);
             line-height: 1.6;
             padding: 40px 40px 72px;
             margin: 0;
             font-size: 13px;
         }
-        ::selection { background:#e8e8e8; color:var(--text); }
         a { text-underline-offset: 2px; text-decoration-thickness: from-font; }
         .container {
             max-width: 1280px;
@@ -121,6 +109,12 @@
         }
         .social-links .social-x svg {
             fill: #000000;
+        }
+        html[data-theme="dark"] .social-links .social-threads svg,
+        html[data-theme="dark"] .social-links .social-threads svg path,
+        html[data-theme="dark"] .social-links .social-x svg,
+        html[data-theme="dark"] .social-links .social-x svg path {
+            fill: #ffffff;
         }
         .bio {
             margin-bottom: var(--space-md);
@@ -509,6 +503,26 @@
             height: 12px;
             display: block;
         }
+        html[data-theme="dark"] .widget-notion {
+            --notion-ink: #ffffff;
+            --notion-paper: #000000;
+            --notion-grid: #333333;
+        }
+        html[data-theme="dark"] .widget-notion .notion-logo path:first-child {
+            fill: #ffffff;
+        }
+        html[data-theme="dark"] .widget-notion .notion-logo path:last-child {
+            fill: #000000;
+        }
+        html[data-theme="dark"] .widget-notion .notion-row {
+            background: rgba(0, 0, 0, 0.82);
+            border-color: rgba(255, 255, 255, 0.22);
+        }
+        html[data-theme="dark"] .widget-notion::before {
+            background:
+                linear-gradient(135deg, transparent 48%, rgba(255,255,255,0.06) 50%, transparent 52%),
+                var(--notion-paper);
+        }
         /* Latest X article: under copyright on desktop; under widgets on mobile */
         .x-article-widget {
             margin-top: 0;
@@ -648,6 +662,7 @@
     </style>
 </head>
 <body>
+    <button type="button" class="theme-toggle" data-theme-toggle>dark</button>
     <script>
     document.addEventListener('keydown',function(e){
         if(e.key==='Backspace'&&!['INPUT','TEXTAREA'].includes(document.activeElement.tagName)){ e.preventDefault(); history.back(); }
@@ -782,6 +797,7 @@
         </div>
     </div>
 
+    <script src="js/theme.js"></script>
     <script>
         var yearEl = document.getElementById('year');
         if (yearEl) yearEl.textContent = new Date().getFullYear();
@@ -791,10 +807,16 @@
             var now = new Date();
             var stamp = now.getUTCFullYear() + '-' + (now.getUTCMonth() + 1) + '-' + now.getUTCDate();
 
-            if (img) {
+            function setGhChart() {
+                if (!img) return;
                 // Live chart from GitHub activity; daily cache-bust so it refreshes as contributions grow
-                img.src = 'https://ghchart.rshah.org/aravindirl?' + stamp;
+                var dark = document.documentElement.getAttribute('data-theme') === 'dark';
+                img.src = dark
+                    ? 'https://ghchart.rshah.org/ffffff/aravindirl?' + stamp
+                    : 'https://ghchart.rshah.org/aravindirl?' + stamp;
             }
+            setGhChart();
+            document.addEventListener('themechange', setGhChart);
 
             if (stats && window.fetch) {
                 fetch('https://github-contributions-api.jogruber.de/v4/aravindirl?y=last')
