@@ -21,6 +21,7 @@ main {
   flex-wrap: wrap;
   gap: 0 0.75ch;
   align-items: baseline;
+  margin-bottom: 0;
 }
 
 .find-me a {
