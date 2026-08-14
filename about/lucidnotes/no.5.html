@@ -14,18 +14,21 @@
     <link rel="canonical" href="https://www.aravindirl.com/lucidnotes/filename.html">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://www.aravindirl.com/og.svg">
+    <script>
+    (function(){try{if(localStorage.getItem('theme')==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
+    </script>
+    <link rel="stylesheet" href="../../css/theme.css">
     <style>
-        :root { --bg:#ffffff; --text:#000000; --secondary:#555; --link:#0000EE; --link-v:#0000EE; --border:#000; --bq:#333; }
         *, *::before, *::after { box-sizing: border-box; }
-        body { font-family: ui-monospace, Menlo, Monaco, 'Cascadia Code', 'Source Code Pro', Consolas, monospace; background-color:var(--bg); color:var(--text); font-size: 13px; line-height: 1.6; padding: 32px 36px; margin: 0; }
+        body { font-family: ui-monospace, Menlo, Monaco, 'Cascadia Code', 'Source Code Pro', Consolas, monospace; font-size: 13px; line-height: 1.6; padding: 32px 36px; margin: 0; }
         .container { max-width: 860px; }
         .post-heading { font-size: 1.05rem; font-weight: bold; margin: 0 0 10px 0; }
-        .post-date { text-align: right; font-size: 0.85rem; margin-bottom: 28px; }
+        .post-date { text-align: right; font-size: 0.85rem; margin-bottom: 28px;; color: var(--secondary); }
         p { font-size: 0.85rem; margin: 0 0 14px 0; }
         h2 { font-size: 0.85rem; font-weight: bold; margin: 20px 0 8px 0; }
         h3 { font-size: 0.85rem; font-weight: bold; margin: 14px 0 6px 0; font-style: italic; }
         blockquote { margin: 12px 0 14px 0; padding-left: 16px; border-left:2px solid var(--border); font-style: italic; font-size: 0.85rem; color:var(--bq); }
-        img { width: 100%; border-radius: 8px; display: block; margin: 16px 0; }
+        img { width: 100%; display: block; margin: 16px 0; border: 1px solid var(--border); }
         .img-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
         .img-grid img { margin: 0; }
         a { color:var(--link); text-decoration: underline; }
@@ -37,6 +40,7 @@
     </style>
 </head>
 <body>
+    <button type="button" class="theme-toggle" data-theme-toggle>dark</button>
     <script>
     document.addEventListener('keydown',function(e){
         if(e.key==='Backspace'&&!['INPUT','TEXTAREA'].includes(document.activeElement.tagName)){ e.preventDefault(); history.back(); }
@@ -50,5 +54,6 @@
 
         <a href="./index.html" class="back-link">← back to notes</a>
     </div>
+    <script src="../../js/theme.js"></script>
 </body>
 </html>

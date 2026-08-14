@@ -1,0 +1,77 @@
+/* Site theme: default light, optional pitch-black dark. */
+:root {
+  color-scheme: light;
+  --bg: #ffffff;
+  --text: #000000;
+  --secondary: #555555;
+  --link: #0000ee;
+  --link-v: #0000ee;
+  --border: #000000;
+  --bq: #333333;
+  --rule: #e6e6e6;
+  --selection: #e8e8e8;
+  --space: 12px;
+  --space-md: 20px;
+  --space-lg: 28px;
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #000000;
+  --text: #ffffff;
+  --secondary: #999999;
+  --link: #8ab4f8;
+  --link-v: #8ab4f8;
+  --border: #ffffff;
+  --bq: #cccccc;
+  --rule: #333333;
+  --selection: #333333;
+}
+
+html {
+  background: var(--bg);
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+::selection {
+  background: var(--selection);
+  color: var(--text);
+}
+
+.theme-toggle {
+  position: fixed;
+  top: 16px;
+  right: 20px;
+  z-index: 100;
+  margin: 0;
+  padding: 4px 2px;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-size: 0.78rem;
+  line-height: 1;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+
+.theme-toggle:hover {
+  opacity: 0.7;
+}
+
+.theme-toggle:focus-visible {
+  outline: 1px solid var(--text);
+  outline-offset: 3px;
+}
+
+@media (max-width: 640px) {
+  .theme-toggle {
+    top: 12px;
+    right: 14px;
+  }
+}
