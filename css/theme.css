@@ -116,6 +116,33 @@ img {
   display: block;
 }
 
+.img-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 12px 0 4px;
+}
+
+.img-grid img {
+  width: 100%;
+  height: auto;
+  margin: 0;
+  border: 1px solid var(--rule);
+}
+
+li.about-photos {
+  list-style: none;
+  margin: 8px 0 20px;
+}
+
+li.about-photos .img-grid {
+  margin: 0 0 12px;
+}
+
+li.about-photos .img-grid:last-child {
+  margin-bottom: 0;
+}
+
 hr {
   border: none;
   height: 1px;
