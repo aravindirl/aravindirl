@@ -142,7 +142,7 @@ blockquote {
 
 .wrap > h1,
 main > h1 {
-  margin: 80px 0 30px;
+  margin: 8px 0 30px;
   font-size: 2rem;
 }
 
@@ -179,7 +179,12 @@ main > h2,
 }
 
 .theme-line {
-  margin: 20px 0;
+  margin: 0 0 0;
+  text-align: left;
+}
+
+.wrap > .theme-line + h2 {
+  margin-top: 24px;
 }
 
 .back-link {
@@ -213,7 +218,7 @@ body.post .meta {
 }
 
 body.post .wrap {
-  padding-top: 48px;
+  padding-top: 20px;
 }
 
 body.post p {
