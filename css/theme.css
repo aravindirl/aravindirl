@@ -234,18 +234,8 @@ body.post .meta {
   display: inline-block;
 }
 
-.wrap > section[id] {
-  scroll-margin-top: 16px;
-}
-
-.wrap > section[id] h3 {
-  margin: 20px 0 6px;
-  font-size: 0.95rem;
-}
-
-.wrap > section[id] ul {
-  margin: 0 0 8px;
-  padding-left: 1.4em;
+.read-by-tags .tags-more {
+  letter-spacing: 0.05em;
 }
 
 body.post .wrap {
