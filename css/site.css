@@ -76,7 +76,9 @@ main {
 .x-article-user,
 .x-article-date,
 .notion-sub,
-.aravchives-sub {
+.aravchives-sub,
+.reads-vol,
+.reads-foot {
   color: var(--secondary);
   font-size: 0.9rem;
 }
@@ -113,6 +115,91 @@ main {
   display: block;
   margin-top: 8px;
   font-weight: 600;
+}
+
+.widget-reads {
+  margin: 16px 0 28px;
+}
+
+.reads-mast {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  border-top: 1px solid var(--text);
+  border-bottom: 3px double var(--text);
+  padding: 8px 0 10px;
+  margin-bottom: 12px;
+}
+
+.reads-brand {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.45ch;
+  color: var(--text);
+}
+
+.reads-brand:hover,
+.reads-brand:visited,
+.reads-brand:visited:hover {
+  color: var(--text);
+  background: transparent;
+}
+
+.reads-brand:hover .reads-word {
+  background: var(--link);
+  color: var(--link-hover-fg);
+}
+
+.reads-mark {
+  width: 14px;
+  height: 14px;
+  color: var(--link);
+  flex: 0 0 auto;
+  align-self: center;
+}
+
+.reads-kicker {
+  color: var(--link);
+  font-size: 0.8rem;
+}
+
+.reads-word {
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+}
+
+.reads-vol {
+  font-variant-numeric: oldstyle-nums;
+  letter-spacing: 0.06em;
+  flex: 0 0 auto;
+}
+
+.reads-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 1.4rem;
+  row-gap: 2px;
+  font-size: 0.9rem;
+}
+
+.reads-cols a {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.reads-foot {
+  margin: 12px 0 0;
+}
+
+@media (max-width: 520px) {
+  .reads-cols {
+    grid-template-columns: 1fr;
+  }
 }
 
 .x-article-widget {
