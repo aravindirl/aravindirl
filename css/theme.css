@@ -55,7 +55,7 @@ body {
   background-color: var(--bg);
   color: var(--text);
   font-family: var(--font-mono);
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.8;
 }
 
@@ -224,7 +224,7 @@ main > h2 {
 /* Writing / blog posts: same IBM Plex Mono as the homepage */
 body.post {
   font-family: var(--font-mono);
-  font-size: 16px;
+  font-size: 15px;
 }
 
 body.post h1,
@@ -290,7 +290,7 @@ body.post img {
 
 @media (max-width: 640px) {
   body {
-    font-size: 15px;
+    font-size: 14px;
   }
   .wrap > h1,
   main > h1 {

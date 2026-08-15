@@ -25,6 +25,10 @@ main {
   margin-bottom: 0;
 }
 
+.section-rule {
+  margin: 24px 0 4px;
+}
+
 .find-me a {
   display: inline-block;
 }
