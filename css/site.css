@@ -152,9 +152,9 @@ main {
 }
 
 .reads-mark {
-  width: 14px;
-  height: 14px;
-  color: var(--link);
+  width: 16px;
+  height: 16px;
+  color: #ff6719;
   flex: 0 0 auto;
   align-self: center;
 }
