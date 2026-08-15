@@ -94,32 +94,6 @@ main {
   margin-top: 8px;
 }
 
-.widget-caption,
-.yt-caption {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.yt-caption {
-  margin-top: 8px;
-}
-
-.spot-mark,
-.yt-mark {
-  width: 14px;
-  height: 14px;
-  flex: 0 0 auto;
-}
-
-.spot-mark {
-  color: #1db954;
-}
-
-.yt-mark {
-  color: #ff0000;
-}
-
 .widget-stats[hidden],
 .widget-youtube[hidden],
 .x-article-widget[hidden],
@@ -132,7 +106,8 @@ main {
   padding: 8px 4px 4px;
 }
 
-.gh-mark {
+.gh-mark,
+.widget-mark {
   width: 12px;
   height: 12px;
   display: inline-block;
@@ -142,9 +117,9 @@ main {
 }
 
 .yt-title {
-  display: block;
+  display: inline-block;
+  margin-top: 8px;
   font-weight: 600;
-  min-width: 0;
 }
 
 .widget-reads {
@@ -241,19 +216,6 @@ main {
   align-items: center;
   gap: 10px;
   margin-bottom: 10px;
-}
-
-.x-article-byline {
-  min-width: 0;
-  flex: 1;
-}
-
-.x-mark {
-  width: 15px;
-  height: 15px;
-  margin-left: auto;
-  flex: 0 0 auto;
-  color: var(--text);
 }
 
 .x-avatar {
