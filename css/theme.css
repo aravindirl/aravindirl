@@ -45,6 +45,11 @@ html[data-theme="dark"] {
   box-sizing: border-box;
 }
 
+/* Beat layout `display:` rules that otherwise ignore the hidden attribute. */
+[hidden] {
+  display: none !important;
+}
+
 html {
   background: var(--bg);
   -webkit-text-size-adjust: 100%;
