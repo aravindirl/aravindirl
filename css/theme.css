@@ -7,8 +7,8 @@
   --bg: #f8f9fa;
   --text: #000000;
   --secondary: #495057;
-  --link: #c2410c;
-  --link-v: #9a3412;
+  --link: #7d3b62;
+  --link-v: #5e2d4a;
   --link-hover-fg: #ffffff;
   --border: #000000;
   --bq: #495057;
@@ -28,15 +28,15 @@ html[data-theme="dark"] {
   --bg: #000000;
   --text: #ffffff;
   --secondary: #adb5bd;
-  --link: #ff922b;
-  --link-v: #ffa94d;
+  --link: #e2a4c0;
+  --link-v: #eec0d3;
   --link-hover-fg: #000000;
   --border: #ffffff;
   --bq: #ced4da;
   --bq-bg: #111111;
   --bq-edge: #868e96;
   --rule: #343a40;
-  --selection: #c2410c66;
+  --selection: #e2a4c066;
 }
 
 *,
