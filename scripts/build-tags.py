@@ -92,6 +92,7 @@ def page_shell(title: str, body: str, css_depth: int = 3) -> str:
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{title} | aravindirl</title>
     <meta name="robots" content="index, follow">
+    <link rel="icon" href="{prefix}favicon.svg" type="image/svg+xml">
     <script>
     (function(){{try{{if(localStorage.getItem('theme')==='dark')document.documentElement.setAttribute('data-theme','dark');}}catch(e){{}}}})();
     </script>
