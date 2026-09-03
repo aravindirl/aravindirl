@@ -12,6 +12,11 @@ main {
   gap: 24px 36px;
   align-items: start;
   margin: 4px 0 8px;
+  padding: 22px 24px;
+  border-radius: 20px;
+  background: color-mix(in srgb, var(--link) 11%, var(--bg));
+  border: 1px solid color-mix(in srgb, var(--link) 28%, transparent);
+  box-shadow: inset 0 1px 0 color-mix(in srgb, var(--link) 12%, transparent);
 }
 
 .hero-copy h1 {
