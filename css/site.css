@@ -41,7 +41,7 @@ main {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 14px;
+  gap: 16px;
   margin: 20px 0 4px;
 }
 
@@ -49,8 +49,8 @@ main {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
+  width: 34px;
+  height: 34px;
   color: var(--text);
   border-radius: 6px;
   transition: color 0.12s ease, background-color 0.12s ease, opacity 0.12s ease;
@@ -69,8 +69,8 @@ main {
 }
 
 .socials svg {
-  width: 22px;
-  height: 22px;
+  width: 28px;
+  height: 28px;
   display: block;
 }
 
