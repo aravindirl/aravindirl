@@ -1,5 +1,4 @@
-/* Homepage: profile hero + slim Resources list.
-   About: text + right-side gallery folder. */
+/* Homepage: profile hero + slim Resources list. */
 
 main {
   max-width: var(--measure);
@@ -54,7 +53,7 @@ main {
   height: 28px;
   color: var(--text);
   border-radius: 6px;
-  transition: color 0.12s ease, background-color 0.12s ease;
+  transition: color 0.12s ease, background-color 0.12s ease, opacity 0.12s ease;
 }
 
 .socials a:hover,
@@ -73,6 +72,43 @@ main {
   width: 22px;
   height: 22px;
   display: block;
+}
+
+/* Keep brand marks in their own colours (including hover/visited). */
+.socials a.brand-instagram,
+.socials a.brand-instagram:hover,
+.socials a.brand-instagram:visited,
+.socials a.brand-instagram:visited:hover {
+  color: #e4405f;
+}
+
+.socials a.brand-linkedin,
+.socials a.brand-linkedin:hover,
+.socials a.brand-linkedin:visited,
+.socials a.brand-linkedin:visited:hover {
+  color: #0a66c2;
+}
+
+.socials a.brand-youtube,
+.socials a.brand-youtube:hover,
+.socials a.brand-youtube:visited,
+.socials a.brand-youtube:visited:hover {
+  color: #ff0000;
+}
+
+.socials a.brand-substack,
+.socials a.brand-substack:hover,
+.socials a.brand-substack:visited,
+.socials a.brand-substack:visited:hover {
+  color: #ff6719;
+}
+
+.socials a.brand-instagram:hover,
+.socials a.brand-linkedin:hover,
+.socials a.brand-youtube:hover,
+.socials a.brand-substack:hover {
+  opacity: 0.85;
+  background: transparent;
 }
 
 .section-rule {
@@ -117,79 +153,6 @@ main {
   letter-spacing: 0.05em;
 }
 
-/* About page: story left, gallery folder right */
-.wrap.about-page {
-  max-width: 1080px;
-}
-
-.about-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(220px, 280px);
-  gap: 28px 36px;
-  align-items: start;
-}
-
-.about-main > h2 {
-  margin-top: 24px;
-}
-
-.about-gallery {
-  position: sticky;
-  top: 16px;
-  border: 1px solid var(--rule);
-  border-radius: 12px;
-  background: var(--bg);
-  padding: 12px 12px 14px;
-  max-height: calc(100vh - 32px);
-  overflow: auto;
-}
-
-.gallery-head {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin: 0 0 12px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--rule);
-  color: var(--text);
-  font-weight: 600;
-  font-size: 0.95rem;
-}
-
-.gallery-head svg {
-  width: 22px;
-  height: 22px;
-  flex: 0 0 auto;
-  color: var(--link);
-}
-
-.gallery-items {
-  display: grid;
-  gap: 16px;
-}
-
-.gallery-items figure {
-  margin: 0;
-}
-
-.gallery-items img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border: 1px solid var(--rule);
-  border-radius: 6px;
-  margin: 0;
-}
-
-.gallery-caption {
-  display: block;
-  min-height: 2.6em;
-  margin: 6px 2px 0;
-  font-size: 0.8rem;
-  line-height: 1.35;
-  color: var(--secondary);
-}
-
 @media (max-width: 700px) {
   .hero {
     grid-template-columns: 1fr;
@@ -204,15 +167,5 @@ main {
 
   .hero-copy h1 {
     font-size: 1.6rem;
-  }
-
-  .about-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .about-gallery {
-    position: static;
-    max-height: none;
-    order: 2;
   }
 }
