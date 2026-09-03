@@ -1,4 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#f8f9fa"/>
-  <text x="600" y="360" text-anchor="middle" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="72" font-weight="700" fill="#000">aravindirl</text>
+  <rect width="1200" height="630" fill="#f7f4f1"/>
+  <circle cx="140" cy="315" r="28" fill="#c1121f"/>
+  <text x="200" y="340" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="64" font-weight="700" fill="#161111">aravindirl</text>
 </svg>
