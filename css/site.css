@@ -11,7 +11,6 @@ main {
 @media (min-width: 900px) {
   #resources,
   .resource-list,
-  .resume-block,
   .gh-contrib-summary,
   .gh-contrib-footer,
   .site-footer {
@@ -152,8 +151,9 @@ main {
 }
 
 .resume-block {
-  margin: 22px 0 0;
-  line-height: 1.55;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
 }
 
 .resume-mail {
@@ -442,11 +442,19 @@ html[data-theme="dark"] .gh-contrib {
     grid-template-columns: 1fr;
   }
 
-  .hero-photo {
+  .hero-photo-col {
     order: -1;
     max-width: 220px;
     justify-self: start;
+  }
+
+  .hero-photo {
+    max-width: 100%;
     margin-top: 0;
+  }
+
+  .resume-block {
+    font-size: 13px;
   }
 
   .hero-copy h1 {
