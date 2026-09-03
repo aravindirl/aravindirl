@@ -27,6 +27,7 @@ main {
 
 .section-rule {
   margin: 24px 0 4px;
+  background: color-mix(in srgb, var(--link) 28%, var(--rule));
 }
 
 .find-me a {

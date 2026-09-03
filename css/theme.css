@@ -4,18 +4,18 @@
 
 :root {
   color-scheme: light;
-  --bg: #f8f9fa;
-  --text: #000000;
-  --secondary: #495057;
-  --link: #7d3b62;
-  --link-v: #5e2d4a;
+  --bg: #f7f4f1;
+  --text: #161111;
+  --secondary: #5c534e;
+  --link: #c1121f;
+  --link-v: #8f0e18;
   --link-hover-fg: #ffffff;
-  --border: #000000;
-  --bq: #495057;
-  --bq-bg: #e9ecef;
-  --bq-edge: #868e96;
-  --rule: #ced4da;
-  --selection: #adb5bd9b;
+  --border: #161111;
+  --bq: #5c534e;
+  --bq-bg: #efe8e2;
+  --bq-edge: #c1121f;
+  --rule: #ddd4cc;
+  --selection: #c1121f33;
   --space: 12px;
   --space-md: 20px;
   --space-lg: 28px;
@@ -28,15 +28,15 @@ html[data-theme="dark"] {
   --bg: #000000;
   --text: #ffffff;
   --secondary: #adb5bd;
-  --link: #e2a4c0;
-  --link-v: #eec0d3;
+  --link: #ff5c67;
+  --link-v: #ff8a92;
   --link-hover-fg: #000000;
   --border: #ffffff;
   --bq: #ced4da;
   --bq-bg: #111111;
-  --bq-edge: #868e96;
+  --bq-edge: #ff5c67;
   --rule: #343a40;
-  --selection: #e2a4c066;
+  --selection: #ff5c6766;
 }
 
 *,
@@ -62,6 +62,7 @@ body {
   font-family: var(--font-mono);
   font-size: 15px;
   line-height: 1.8;
+  font-kerning: normal;
 }
 
 ::selection {
@@ -75,6 +76,7 @@ h1, h2, h3, h4, strong {
 
 h1 {
   line-height: 1.5;
+  letter-spacing: -0.03em;
 }
 
 h2 {
@@ -84,6 +86,7 @@ h2 {
 a {
   color: var(--link);
   text-decoration: none;
+  transition: color 0.12s ease, background-color 0.12s ease;
 }
 
 a:hover {
@@ -197,6 +200,7 @@ main > h2 {
   background: transparent;
   color: var(--link);
   cursor: pointer;
+  transition: color 0.12s ease, background-color 0.12s ease;
 }
 
 .theme-toggle::before { content: "["; }
