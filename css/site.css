@@ -11,6 +11,7 @@ main {
 @media (min-width: 900px) {
   #resources,
   .resource-list,
+  .resume-block,
   .gh-contrib-summary,
   .gh-contrib-footer,
   .site-footer {
@@ -148,6 +149,22 @@ main {
 
 .resource-list li {
   margin: 10px 0;
+}
+
+.resume-block {
+  margin: 22px 0 0;
+  line-height: 1.55;
+}
+
+.resume-mail {
+  display: inline-block;
+  margin-top: 4px;
+  color: var(--secondary);
+  font-style: italic;
+}
+
+.resume-mail a {
+  font-style: italic;
 }
 
 /* GitHub contribution calendar — GitHub green levels, theme-aware empties */
