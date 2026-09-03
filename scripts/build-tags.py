@@ -5,7 +5,7 @@ Reads about/lucidnotes/no.*.html for titles + tags, then:
   - writes about/lucidnotes/tags/index.html (full tag list, latest first)
   - writes about/lucidnotes/tags/<tag>.html (posts under that tag, with serials)
   - rewrites each post's tag links to those pages
-  - patches the homepage "read by tags" row (latest 6, then ....)
+  - patches the aravchives "read by tags" row (latest 6, then ....)
 
 Run from the repo root after adding tags to a post:
 
@@ -21,7 +21,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 NOTES = ROOT / "about" / "lucidnotes"
 TAGS_DIR = NOTES / "tags"
-HOME = ROOT / "index.html"
+ARAVCHIVES = NOTES / "index.html"
 
 HEADING_RE = re.compile(
     r'<h1 class="post-heading">(.*?)</h1>', re.I | re.S
@@ -156,17 +156,17 @@ def rewrite_post_tags(post: dict) -> None:
     post["path"].write_text(html)
 
 
-def patch_homepage(tags: list[str]) -> None:
-    html = HOME.read_text()
+def patch_aravchives(tags: list[str]) -> None:
+    html = ARAVCHIVES.read_text()
     shown = tags[:6]
     links = ["            read by tags:&nbsp;"]
     for tag in shown:
         links.append(
-            f'            <a href="about/lucidnotes/tags/{slugify(tag)}.html">{tag}</a>'
+            f'            <a href="tags/{slugify(tag)}.html">{tag}</a>'
         )
     if len(tags) > 6:
         links.append(
-            '            <a class="tags-more" href="about/lucidnotes/tags/">....</a>'
+            '            <a class="tags-more" href="tags/">....</a>'
         )
     inner = "\n".join(links) + "\n        "
     if HOME_TAGS_RE.search(html):
@@ -174,8 +174,8 @@ def patch_homepage(tags: list[str]) -> None:
             r"\1\n" + inner + r"\3", html, count=1
         )
     else:
-        raise SystemExit("homepage is missing <p class=\"read-by-tags\">")
-    HOME.write_text(html)
+        raise SystemExit("aravchives is missing <p class=\"read-by-tags\">")
+    ARAVCHIVES.write_text(html)
 
 
 def main() -> None:
@@ -200,7 +200,7 @@ def main() -> None:
     for tag, tagged in by_tag.items():
         write_tag_page(tag, tagged)
 
-    patch_homepage(tags)
+    patch_aravchives(tags)
     print(f"tags: {len(tags)}  posts: {len(posts)}")
     print("latest:", ", ".join(tags[:6]) + (" ...." if len(tags) > 6 else ""))
 

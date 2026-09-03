@@ -20,16 +20,27 @@
     </script>
     <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="../../css/theme.css">
+    <link rel="stylesheet" href="../../css/site.css">
 </head>
 <body>
     <script>
     document.addEventListener('keydown',function(e){
-        if(e.key==='Backspace'&&!['INPUT','TEXTAREA'].includes(document.activeElement.tagName)){ e.preventDefault(); history.back(); }
+        if(e.key==='Backspace'&&!['INPUT','TEXTAREA'].includes((document.activeElement&&document.activeElement.tagName)||'')){ e.preventDefault(); history.back(); }
     });
     </script>
     <div class="wrap">
         <p class="theme-line"><button type="button" class="theme-toggle" data-theme-toggle>dark</button></p>
         <h1>aravchives</h1>
+        <p class="read-by-tags">
+            read by tags:&nbsp;
+            <a href="tags/mood.html">mood</a>
+            <a href="tags/life.html">life</a>
+            <a href="tags/film.html">film</a>
+            <a href="tags/memory.html">memory</a>
+            <a href="tags/music.html">music</a>
+            <a href="tags/internet.html">internet</a>
+            <a class="tags-more" href="tags/">....</a>
+        </p>
         <ol reversed>
             <li><a href="no.5.html">IM LOST...</a></li>
             <li><a href="no.4.html">call me by your name</a></li>
@@ -38,6 +49,7 @@
             <li><a href="no.1.html">feeds are full, minds are empty</a></li>
         </ol>
         <p>Backup for my X articles lives in <a href="../x-backup/">x backup</a>.</p>
+        <p>Backup for my Substack articles lives in <a href="../substack/">substack articles</a>.</p>
         <a href="../../index.html" class="back-link">← back to home</a>
     </div>
     <script src="../../js/theme.js"></script>
