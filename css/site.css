@@ -99,13 +99,6 @@ main {
 }
 
 /* Keep brand marks in their own colours (including hover/visited). */
-.socials a.brand-gmail,
-.socials a.brand-gmail:hover,
-.socials a.brand-gmail:visited,
-.socials a.brand-gmail:visited:hover {
-  color: inherit;
-}
-
 .socials a.brand-instagram,
 .socials a.brand-instagram:hover,
 .socials a.brand-instagram:visited,
@@ -134,7 +127,6 @@ main {
   color: #ff6719;
 }
 
-.socials a.brand-gmail:hover,
 .socials a.brand-instagram:hover,
 .socials a.brand-linkedin:hover,
 .socials a.brand-youtube:hover,
