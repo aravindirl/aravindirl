@@ -88,7 +88,23 @@
         </footer>
     </main>
 
+    <aside id="spotify-float" class="spotify-float" aria-label="Spotify playlist on rotation">
+        <div class="spotify-float-bar" data-spotify-drag title="Drag to move">
+            <span class="spotify-float-label">ON ROTATION</span>
+            <a class="spotify-float-open undecorated" href="https://open.spotify.com/playlist/5E1mAzut6RO9zLxqONZR0J" target="_blank" rel="noopener noreferrer">OPEN</a>
+        </div>
+        <div class="spotify-float-body">
+            <iframe
+                title="Spotify playlist: work mf, work"
+                src="https://open.spotify.com/embed/playlist/5E1mAzut6RO9zLxqONZR0J?utm_source=generator&theme=0"
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"
+                allowfullscreen></iframe>
+        </div>
+    </aside>
+
     <script src="js/theme.js"></script>
+    <script src="js/spotify-float.js"></script>
     <script>
         var yearEl = document.getElementById('year');
         if (yearEl) yearEl.textContent = new Date().getFullYear();
