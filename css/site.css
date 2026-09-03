@@ -166,6 +166,84 @@ main {
   letter-spacing: 0.05em;
 }
 
+/* Floating Spotify playlist — draggable “on rotation” card */
+.spotify-float {
+  position: fixed;
+  z-index: 50;
+  left: 20px;
+  bottom: 20px;
+  width: min(320px, calc(100vw - 28px));
+  border-radius: 14px;
+  overflow: hidden;
+  background: #121212;
+  color: #fff;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-family: var(--font-mono);
+}
+
+.spotify-float.is-dragging {
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.55);
+  opacity: 0.96;
+}
+
+.spotify-float-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 12px;
+  background: #1ed760;
+  color: #04140a;
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+}
+
+.spotify-float.is-dragging .spotify-float-bar {
+  cursor: grabbing;
+}
+
+.spotify-float-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}
+
+.spotify-float-open {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.spotify-float-open::before,
+.spotify-float-open::after {
+  content: none;
+}
+
+.spotify-float-open:hover,
+.spotify-float-open:visited,
+.spotify-float-open:visited:hover {
+  color: inherit;
+  background: transparent;
+  text-decoration: underline;
+}
+
+.spotify-float-body {
+  background: #121212;
+}
+
+.spotify-float iframe {
+  display: block;
+  width: 100%;
+  height: 152px;
+  border: 0;
+  background: #121212;
+}
+
 @media (max-width: 700px) {
   .hero {
     grid-template-columns: 1fr;
@@ -180,5 +258,10 @@ main {
 
   .hero-copy h1 {
     font-size: 1.6rem;
+  }
+
+  .spotify-float {
+    left: 12px;
+    bottom: 12px;
   }
 }
