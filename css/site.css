@@ -7,6 +7,13 @@ main {
   padding: 20px 20px 240px;
 }
 
+/* Keep left-aligned copy from running under the bottom-right player */
+@media (min-width: 900px) {
+  main {
+    padding-right: 132px;
+  }
+}
+
 .hero {
   display: grid;
   grid-template-columns: minmax(180px, 240px) minmax(0, 1fr);
