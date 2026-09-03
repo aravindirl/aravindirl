@@ -22,8 +22,7 @@ main {
   line-height: 1.25;
 }
 
-.hero-copy .lede,
-.hero-copy .contact {
+.hero-copy .lede {
   margin: 0 0 16px;
 }
 
