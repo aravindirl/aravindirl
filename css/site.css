@@ -1,4 +1,5 @@
-/* Homepage: profile hero + slim Resources list. */
+/* Homepage: profile hero + slim Resources list.
+   About: text + right-side gallery folder. */
 
 main {
   max-width: var(--measure);
@@ -8,7 +9,7 @@ main {
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(180px, 240px);
+  grid-template-columns: minmax(180px, 240px) minmax(0, 1fr);
   gap: 24px 36px;
   align-items: start;
   margin: 4px 0 8px;
@@ -32,8 +33,10 @@ main {
   object-fit: cover;
   object-position: center top;
   border-radius: 14px;
-  border: 1px solid var(--rule);
+  border: 2px solid var(--link);
   background: var(--bq-bg);
+  /* Drop the photo so it lines up with the bio text, not the title. */
+  margin-top: 2.7rem;
 }
 
 .socials {
@@ -115,6 +118,79 @@ main {
   letter-spacing: 0.05em;
 }
 
+/* About page: story left, gallery folder right */
+.wrap.about-page {
+  max-width: 1080px;
+}
+
+.about-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 280px);
+  gap: 28px 36px;
+  align-items: start;
+}
+
+.about-main > h2 {
+  margin-top: 24px;
+}
+
+.about-gallery {
+  position: sticky;
+  top: 16px;
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  background: var(--bg);
+  padding: 12px 12px 14px;
+  max-height: calc(100vh - 32px);
+  overflow: auto;
+}
+
+.gallery-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--rule);
+  color: var(--text);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.gallery-head svg {
+  width: 22px;
+  height: 22px;
+  flex: 0 0 auto;
+  color: var(--link);
+}
+
+.gallery-items {
+  display: grid;
+  gap: 16px;
+}
+
+.gallery-items figure {
+  margin: 0;
+}
+
+.gallery-items img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  margin: 0;
+}
+
+.gallery-caption {
+  display: block;
+  min-height: 2.6em;
+  margin: 6px 2px 0;
+  font-size: 0.8rem;
+  line-height: 1.35;
+  color: var(--secondary);
+}
+
 @media (max-width: 700px) {
   .hero {
     grid-template-columns: 1fr;
@@ -124,9 +200,20 @@ main {
     order: -1;
     max-width: 220px;
     justify-self: start;
+    margin-top: 0;
   }
 
   .hero-copy h1 {
     font-size: 1.6rem;
+  }
+
+  .about-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .about-gallery {
+    position: static;
+    max-height: none;
+    order: 2;
   }
 }
