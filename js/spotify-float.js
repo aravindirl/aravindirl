@@ -4,7 +4,7 @@
 
   var handle = widget.querySelector('[data-spotify-drag]');
   var iframe = widget.querySelector('iframe');
-  var KEY = 'spotify-float-pos';
+  var KEY = 'spotify-float-pos-v2';
   var dragging = false;
   var startX = 0;
   var startY = 0;
