@@ -53,8 +53,9 @@
 
   function monthLabels(weeks) {
     var labels = [];
-    var prev = -1;
-    weeks.forEach(function (week) {
+    var prevMonth = -1;
+    var prevLabelAt = -99;
+    weeks.forEach(function (week, wi) {
       var firstDay = null;
       for (var i = 0; i < week.length; i++) {
         if (week[i]) { firstDay = week[i]; break; }
@@ -64,9 +65,15 @@
         return;
       }
       var month = parseUTC(firstDay.date).getUTCMonth();
-      if (month !== prev) {
-        labels.push(MONTHS[month]);
-        prev = month;
+      if (month !== prevMonth) {
+        prevMonth = month;
+        // Skip cramped labels when months start in adjacent weeks
+        if (wi - prevLabelAt >= 3) {
+          labels.push(MONTHS[month]);
+          prevLabelAt = wi;
+        } else {
+          labels.push(null);
+        }
       } else {
         labels.push(null);
       }
