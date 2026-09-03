@@ -3,7 +3,8 @@
 main {
   max-width: var(--measure);
   margin: 0 auto;
-  padding: 20px 20px 80px;
+  /* Extra bottom room so footer/content clear the floating Spotify card */
+  padding: 20px 20px 240px;
 }
 
 .hero {
@@ -170,8 +171,10 @@ main {
 .spotify-float {
   position: fixed;
   z-index: 50;
-  left: 20px;
+  /* Bottom-right keeps the left-aligned Resources list readable */
+  right: 20px;
   bottom: 20px;
+  left: auto;
   width: min(320px, calc(100vw - 28px));
   border-radius: 14px;
   overflow: hidden;
@@ -261,7 +264,8 @@ main {
   }
 
   .spotify-float {
-    left: 12px;
+    right: 12px;
     bottom: 12px;
+    left: auto;
   }
 }
