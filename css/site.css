@@ -42,6 +42,13 @@ main {
   margin: 0 0 16px;
 }
 
+.hero-photo-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: stretch;
+}
+
 .hero-photo {
   width: 100%;
   aspect-ratio: 1;
@@ -154,6 +161,7 @@ main {
   margin: 0;
   font-size: 14px;
   line-height: 1.5;
+  text-align: center;
 }
 
 .resume-mail {
@@ -445,7 +453,7 @@ html[data-theme="dark"] .gh-contrib {
   .hero-photo-col {
     order: -1;
     max-width: 220px;
-    justify-self: start;
+    justify-self: center;
   }
 
   .hero-photo {
