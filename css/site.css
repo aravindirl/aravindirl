@@ -7,9 +7,11 @@ main {
   padding: 20px 20px 240px;
 }
 
-/* Keep left-aligned copy from running under the bottom-right player */
+/* Keep Resources/footer copy from running under the bottom-right player */
 @media (min-width: 900px) {
-  main {
+  #resources,
+  .resource-list,
+  .site-footer {
     padding-right: 132px;
   }
 }
