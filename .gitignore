@@ -1,1 +1,1 @@
-Nothing needs to be added to .gitignore since the changes only include source files (.js, .css, .html) without any build artifacts, dependencies, or temporary files.
+(index.html and js/photo-toggle.js are source files, no build artifacts, dependencies, or temp files in the changes)
