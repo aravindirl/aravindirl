@@ -49,6 +49,10 @@ main {
   align-items: stretch;
 }
 
+.hero-photo-wrapper {
+  position: relative;
+}
+
 .hero-photo {
   width: 100%;
   aspect-ratio: 1;
@@ -59,6 +63,38 @@ main {
   background: var(--bq-bg);
   /* Drop the photo so it lines up with the bio text, not the title. */
   margin-top: 2.7rem;
+}
+
+.photo-toggle {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid var(--link);
+  background: color-mix(in srgb, var(--bg) 85%, transparent);
+  backdrop-filter: blur(4px);
+  color: var(--link);
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+  z-index: 2;
+}
+
+.photo-toggle:hover {
+  background: var(--link);
+  color: var(--bg);
+  transform: rotate(180deg);
+}
+
+.photo-toggle:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 3px;
 }
 
 .socials {
