@@ -2,7 +2,7 @@
   var PHOTOS_KEY = 'hero-photos';
   var DEFAULT_PHOTOS = [
     { src: 'images/aravind.jpg', alt: 'Portrait of Aravind Ramachandran' },
-    { src: 'images/x-avatar.jpg', alt: 'Aravind avatar photo' }
+    { src: 'images/aravind2.jpg', alt: 'Aravind second photo' }
   ];
   
   function getPhotos() {
