@@ -2,7 +2,7 @@
   var PHOTOS_KEY = 'hero-photos';
   var DEFAULT_PHOTOS = [
     { src: 'images/aravind.jpg', alt: 'Portrait of Aravind Ramachandran' },
-    { src: 'images/x-avatar.jpg', alt: 'Aravind avatar photo' }
+    { src: 'images/aravind2.jpg', alt: 'Aravind second photo' }
   ];
   
   function getPhotos() {
@@ -23,7 +23,6 @@
     if (!wrapper) return;
 
     var photos = getPhotos();
-    var imgElements = wrapper.querySelectorAll('.hero-photo');
     var toggleBtn = wrapper.querySelector('.photo-toggle');
 
     if (photos.length <= 1) {
@@ -31,14 +30,31 @@
       return;
     }
 
+    // Create img elements dynamically based on number of photos
+    var existingImgs = wrapper.querySelectorAll('.hero-photo');
+    existingImgs.forEach(function(img) { img.remove(); });
+
+    photos.forEach(function(photo, index) {
+      var img = document.createElement('img');
+      img.className = 'hero-photo';
+      img.src = photo.src;
+      img.alt = photo.alt;
+      img.width = 1008;
+      img.height = 1067;
+      img.setAttribute('decoding', 'async');
+      if (index > 0) {
+        img.style.display = 'none';
+      }
+      wrapper.insertBefore(img, toggleBtn);
+    });
+
+    var imgElements = wrapper.querySelectorAll('.hero-photo');
     var currentIndex = 0;
 
     function showPhoto(index) {
       imgElements.forEach(function (img, i) {
         if (i === index) {
           img.style.display = 'block';
-          img.src = photos[i].src;
-          img.alt = photos[i].alt;
         } else {
           img.style.display = 'none';
         }
